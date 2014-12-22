@@ -1,9 +1,13 @@
 package com.proptiger1;
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxBinary;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.testng.Assert;
 public class Cross_PlatForm {
 	static TimeStamp t1= new TimeStamp();
@@ -30,7 +34,7 @@ public class Cross_PlatForm {
 			}
 			driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
 			driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
-			Thread.sleep(5000L);
+			Thread.sleep(7000L);
 			String CityHomeUrl= driver.getCurrentUrl();
 			String ExpectedURL="http://www.proptiger.com/bangalore-real-estate-overview";
 			String CitySelected= driver.findElement(By.xpath("//div[@class='city-select-wrap pull-left']//option[@selected='selected']")).getText();
@@ -45,7 +49,7 @@ public class Cross_PlatForm {
 			// Verify menu drawer page on city page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
 			driver.findElement(By.partialLinkText("All projects in")).click();
-			Thread.sleep(5000L);
+			Thread.sleep(9000L);
 			String ListingUrl=driver.getCurrentUrl();
 			String ListingTitle= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
 			if(!ListingUrl.equalsIgnoreCase("http://www.proptiger.com/bangalore-real-estate") && !ListingTitle.equalsIgnoreCase("Bangalore"))
@@ -53,7 +57,8 @@ public class Cross_PlatForm {
 				Assert.fail("\n Listing page is not opening,URL is incorrect or title is incorrect ");
 			}
 			// Verify menu drawer page on city listing page
-			Cross_PlatForm.VerifyMenuDrawer(driver);		
+			Cross_PlatForm.VerifyMenuDrawer(driver);
+			Thread.sleep(8000L);
 			driver.findElement(By.xpath("//td[@class='ta-right padding5']//a[@class='no-ajaxy pull-right btn btn-default show-map-btn']")).click();
 			Thread.sleep(4000L);
 			String MapPage=driver.getCurrentUrl();
@@ -78,6 +83,7 @@ public class Cross_PlatForm {
 			driver.findElement(By.linkText("Explore this Locality")).click();
 			Thread.sleep(11000L);
 			String LocalityUrl= driver.getCurrentUrl();
+			Thread.sleep(6000L);
 			String Localityheading= driver.findElement(By.xpath("//h1[@title='Locality Name']")).getText();
 			boolean LocalityImage= t1.isElementPresent(driver,  By.xpath("//img[@src='http://im.pt-img1.com/4/270/15/bellandur-bangalore-road-382762.jpeg?width=400&height=300']"));
 			if(!LocalityUrl.equalsIgnoreCase("http://www.proptiger.com/bangalore-real-estate/bellandur-overview-50270")
@@ -101,9 +107,9 @@ public class Cross_PlatForm {
 			Cross_PlatForm.VerifyMenuDrawer(driver);
 			// come back on locality listing
 			driver.navigate().back();
-			Thread.sleep(4000L);
-			driver.findElement(By.xpath("//div[@class='btn btn-light-gray locality-change-btn']")).click();
 			Thread.sleep(7000L);
+			driver.findElement(By.xpath("//div[@class='btn btn-light-gray locality-change-btn']")).click();
+			Thread.sleep(3000L);
 			String ChangeLocalityUrl=driver.getCurrentUrl();
 			Boolean ChangeLocality= t1.isElementPresent(driver, By.xpath("//div[@class='capitalize ta-center city-name']"));
 			String ChangeLocalityText= driver.findElement(By.xpath("//div[@class='capitalize ta-center city-name']")).getText();
@@ -158,13 +164,15 @@ public class Cross_PlatForm {
 			String AllLocalityTitle= driver.getTitle();
 			if(!AllLocalityTitle.equalsIgnoreCase("Bangalore Localities - List of top localities/Areas in Bangalore"))
 			{
-				Assert.fail("All locakities page is not opening");
+				Assert.fail("All locaities page is not opening");
 				driver.quit();
-			}
+			}	
+			
+			Check404Page(driver);
 		}
 	}
 
-
+    // Menu Drawer Verification
 	public static void VerifyMenuDrawer(WebDriver driver)
 	{
 		boolean drawer= t1.isElementPresent(driver, By.xpath("//i[@class='icon-navicon']"));
@@ -183,4 +191,32 @@ public class Cross_PlatForm {
 		}
 		driver.findElement(By.xpath("//div[@id='header-drawer-button']")).click();			
 	}
-}
+	
+	public static void Check404Page(WebDriver driver) throws InterruptedException
+	{
+		driver.get("http://www.proptiger.com/noida/sector-118/supertech-romano-652425/atms");
+		Thread.sleep(4000L);
+		String ErrorText= driver.findElement(By.xpath("//*[@id='content']/div/table/tbody/tr/td/h2")).getText();
+		String WarningMsg=driver.findElement(By.xpath("//*[@id='content']/div/table/tbody/tr/td/p[1]")).getText();
+		String ExpectedWarning="You've hit a wrong path. You may have followed an outdated link or entered an incorrect url.";
+		boolean GoHomeButton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']"));
+		if(!ErrorText.equalsIgnoreCase("Error 404"))
+		{
+			Assert.fail("\n Error text is not coming on 404 page");
+		}
+		if(!WarningMsg.equalsIgnoreCase(ExpectedWarning))
+		{
+			Assert.fail("Warning message is missing on the 404 page");
+		}
+		driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']")).click();
+		Thread.sleep(4000L);
+		String RedirectURl=driver.getCurrentUrl();
+
+		if(!RedirectURl.equalsIgnoreCase("http://www.proptiger.com/"))
+		{
+			Assert.fail("\n Goto home page button is not redirecting to home page on 404 page");
+		}
+		driver.quit();
+	}
+	}
+	

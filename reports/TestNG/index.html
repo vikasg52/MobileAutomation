@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite, 15 failed tests</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test">
+              <span class="suite-name border-failed">Mobile Website PlatForm Compatibility Test</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Mobile_Website_PlatForm_Compatibility_Test">
+                    <span>testNG.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Mobile_Website_PlatForm_Compatibility_Test">
+                    <span class="test-stats">2 tests</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Mobile_Website_PlatForm_Compatibility_Test">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Mobile_Website_PlatForm_Compatibility_Test">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Mobile_Website_PlatForm_Compatibility_Test">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Mobile_Website_PlatForm_Compatibility_Test">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Mobile_Website_PlatForm_Compatibility_Test">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">15 methods, 15 failed,   </span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" class="hide-methods failed suite-Mobile_Website_PlatForm_Compatibility_Test"> (hide)</a> <!-- hide-methods failed suite-Mobile_Website_PlatForm_Compatibility_Test -->
+                      <a href="#" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" class="show-methods failed suite-Mobile_Website_PlatForm_Compatibility_Test"> (show)</a> <!-- show-methods failed suite-Mobile_Website_PlatForm_Compatibility_Test -->
+                    </span>
+                    <div class="method-list-content failed suite-Mobile_Website_PlatForm_Compatibility_Test">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" title="com.proptiger1.CheckAllPages" hash-for-method="Chrome_AndroidMobile">Chrome_AndroidMobile</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" title="com.proptiger1.CheckoutProcess_TestMatrix" hash-for-method="Chrome_AndroidMobile">Chrome_AndroidMobile</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" title="com.proptiger1.CheckAllPages" hash-for-method="Chrome_AndroidTablet">Chrome_AndroidTablet</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" title="com.proptiger1.CheckoutProcess_TestMatrix" hash-for-method="Chrome_AndroidTablet">Chrome_AndroidTablet</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" title="com.proptiger1.CheckAllPages" hash-for-method="Chrome_iPhone">Chrome_iPhone</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" title="com.proptiger1.CheckoutProcess_TestMatrix" hash-for-method="Chrome_iPhone">Chrome_iPhone</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" title="com.proptiger1.CheckAllPages" hash-for-method="FireFox_Android">FireFox_Android</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" title="com.proptiger1.CheckoutProcess_TestMatrix" hash-for-method="FireFox_Android">FireFox_Android</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" title="com.proptiger1.CheckAllPages" hash-for-method="IE_Nokia_Lumia920">IE_Nokia_Lumia920</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" title="com.proptiger1.CheckoutProcess_TestMatrix" hash-for-method="IE_Nokia_Lumia920">IE_Nokia_Lumia920</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" title="com.proptiger1.PaymentGatewayTest" hash-for-method="Pg_Test">Pg_Test</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" title="com.proptiger1.CheckAllPages" hash-for-method="Safari_iOS7">Safari_iOS7</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" title="com.proptiger1.CheckoutProcess_TestMatrix" hash-for-method="Safari_iOS7">Safari_iOS7</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" title="com.proptiger1.CheckAllPages" hash-for-method="Safari_iOS8">Safari_iOS8</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" title="com.proptiger1.CheckoutProcess_TestMatrix" hash-for-method="Safari_iOS8">Safari_iOS8</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Mobile_Website_PlatForm_Compatibility_Test -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Mobile_Website_PlatForm_Compatibility_Test" class="panel Mobile_Website_PlatForm_Compatibility_Test">
+          <div class="suite-Mobile_Website_PlatForm_Compatibility_Test-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.proptiger1.CheckoutProcess_TestMatrix</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Chrome_AndroidMobile">
+                  </a> <!-- Chrome_AndroidMobile -->
+                  <span class="method-name">Chrome_AndroidMobile</span>
+                  <div class="stack-trace">org.openqa.selenium.UnhandledAlertException: Modal dialog present: Although this page is encrypted, the information you have entered is to be sent over an unencrypted connection and could easily be read by a third party.
+
+Are you sure you want to continue sending this information?
+
+
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Session ID: b08a01d8-a754-4575-9e7e-dd3211112f07
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=33.0}]
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.createUnhandledAlertException(ErrorHandler.java:185)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:152)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at com.proptiger1.PaymentGatewayTest.Pg_Test(PaymentGatewayTest.java:76)
+	at com.proptiger1.CheckoutProcess_TestMatrix.Chrome_AndroidMobile(CheckoutProcess_TestMatrix.java:47)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Chrome_AndroidTablet">
+                  </a> <!-- Chrome_AndroidTablet -->
+                  <span class="method-name">Chrome_AndroidTablet</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//section[@class=&apos;project-config&apos;]//section[@id=&apos;config-banner-propties&apos;]&quot;}
+Command duration or timeout: 5.12 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Session ID: b807737c-f80f-44ee-a191-1f3ecb84bdf9
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=33.0}]
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at com.proptiger1.PaymentGatewayTest.Pg_Test(PaymentGatewayTest.java:37)
+	at com.proptiger1.CheckoutProcess_TestMatrix.Chrome_AndroidTablet(CheckoutProcess_TestMatrix.java:35)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//section[@class=&apos;project-config&apos;]//section[@id=&apos;config-banner-propties&apos;]&quot;}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Driver info: driver.version: unknown
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///tmp/anonymous4331534377506078199webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9641:26)
+	at &lt;anonymous class&gt;.fxdriver.Timer.prototype.setTimeout/&lt;.notify(file:///tmp/anonymous4331534377506078199webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:548:5)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Chrome_iPhone">
+                  </a> <!-- Chrome_iPhone -->
+                  <span class="method-name">Chrome_iPhone</span>
+                  <div class="stack-trace">org.openqa.selenium.UnhandledAlertException: Modal dialog present: Although this page is encrypted, the information you have entered is to be sent over an unencrypted connection and could easily be read by a third party.
+
+Are you sure you want to continue sending this information?
+
+
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Session ID: 14364335-e4c1-44a5-a6c2-2e9928fd87e6
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=33.0}]
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.createUnhandledAlertException(ErrorHandler.java:185)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:152)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at com.proptiger1.PaymentGatewayTest.Pg_Test(PaymentGatewayTest.java:76)
+	at com.proptiger1.CheckoutProcess_TestMatrix.Chrome_iPhone(CheckoutProcess_TestMatrix.java:23)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="FireFox_Android">
+                  </a> <!-- FireFox_Android -->
+                  <span class="method-name">FireFox_Android</span>
+                  <div class="stack-trace">org.openqa.selenium.UnhandledAlertException: Modal dialog present: Although this page is encrypted, the information you have entered is to be sent over an unencrypted connection and could easily be read by a third party.
+
+Are you sure you want to continue sending this information?
+
+
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Session ID: 6dcd1c51-e442-4490-9fdc-81dff7bd4a66
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=33.0}]
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.createUnhandledAlertException(ErrorHandler.java:185)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:152)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at com.proptiger1.PaymentGatewayTest.Pg_Test(PaymentGatewayTest.java:76)
+	at com.proptiger1.CheckoutProcess_TestMatrix.FireFox_Android(CheckoutProcess_TestMatrix.java:58)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="IE_Nokia_Lumia920">
+                  </a> <!-- IE_Nokia_Lumia920 -->
+                  <span class="method-name">IE_Nokia_Lumia920</span>
+                  <div class="stack-trace">org.openqa.selenium.UnhandledAlertException: Modal dialog present: Although this page is encrypted, the information you have entered is to be sent over an unencrypted connection and could easily be read by a third party.
+
+Are you sure you want to continue sending this information?
+
+
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Session ID: 372e85fe-9352-48e6-8aa3-51707b9b9c7b
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=33.0}]
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.createUnhandledAlertException(ErrorHandler.java:185)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:152)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at com.proptiger1.PaymentGatewayTest.Pg_Test(PaymentGatewayTest.java:76)
+	at com.proptiger1.CheckoutProcess_TestMatrix.IE_Nokia_Lumia920(CheckoutProcess_TestMatrix.java:90)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Safari_iOS7">
+                  </a> <!-- Safari_iOS7 -->
+                  <span class="method-name">Safari_iOS7</span>
+                  <div class="stack-trace">org.openqa.selenium.UnhandledAlertException: Modal dialog present: Although this page is encrypted, the information you have entered is to be sent over an unencrypted connection and could easily be read by a third party.
+
+Are you sure you want to continue sending this information?
+
+
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Session ID: a61e77ad-a5dc-4fed-b2ba-6d61be027607
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=33.0}]
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.createUnhandledAlertException(ErrorHandler.java:185)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:152)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at com.proptiger1.PaymentGatewayTest.Pg_Test(PaymentGatewayTest.java:76)
+	at com.proptiger1.CheckoutProcess_TestMatrix.Safari_iOS7(CheckoutProcess_TestMatrix.java:79)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Safari_iOS8">
+                  </a> <!-- Safari_iOS8 -->
+                  <span class="method-name">Safari_iOS8</span>
+                  <div class="stack-trace">org.openqa.selenium.UnhandledAlertException: Modal dialog present: Although this page is encrypted, the information you have entered is to be sent over an unencrypted connection and could easily be read by a third party.
+
+Are you sure you want to continue sending this information?
+
+
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Session ID: ff92500e-71c0-4fce-b630-3dcb769eecd9
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=33.0}]
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.createUnhandledAlertException(ErrorHandler.java:185)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:152)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at com.proptiger1.PaymentGatewayTest.Pg_Test(PaymentGatewayTest.java:76)
+	at com.proptiger1.CheckoutProcess_TestMatrix.Safari_iOS8(CheckoutProcess_TestMatrix.java:68)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Mobile_Website_PlatForm_Compatibility_Test-class-failed -->
+          <div class="suite-Mobile_Website_PlatForm_Compatibility_Test-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.proptiger1.CheckAllPages</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Chrome_AndroidMobile">
+                  </a> <!-- Chrome_AndroidMobile -->
+                  <span class="method-name">Chrome_AndroidMobile</span>
+                  <div class="stack-trace">java.lang.AssertionError: All locaities page is not opening
+	at com.proptiger1.Cross_PlatForm.CrossPlatForm(Cross_PlatForm.java:167)
+	at com.proptiger1.CheckAllPages.Chrome_AndroidMobile(CheckAllPages.java:40)
+... Removed 24 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Chrome_AndroidTablet">
+                  </a> <!-- Chrome_AndroidTablet -->
+                  <span class="method-name">Chrome_AndroidTablet</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;content&apos;]/div/table/tbody/tr/td/h2&quot;}
+Command duration or timeout: 8.07 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Session ID: 1d7c8930-4d5e-4a33-a48d-c5a79cb4d7c7
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=33.0}]
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at com.proptiger1.Cross_PlatForm.Check404Page(Cross_PlatForm.java:199)
+	at com.proptiger1.Cross_PlatForm.CrossPlatForm(Cross_PlatForm.java:171)
+	at com.proptiger1.CheckAllPages.Chrome_AndroidTablet(CheckAllPages.java:28)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;content&apos;]/div/table/tbody/tr/td/h2&quot;}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Driver info: driver.version: unknown
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///tmp/anonymous7662564753050758968webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9641:26)
+	at &lt;anonymous class&gt;.fxdriver.Timer.prototype.setTimeout/&lt;.notify(file:///tmp/anonymous7662564753050758968webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:548:5)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Chrome_iPhone">
+                  </a> <!-- Chrome_iPhone -->
+                  <span class="method-name">Chrome_iPhone</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;btn btn-light-gray locality-change-btn&apos;]&quot;}
+Command duration or timeout: 8.07 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Session ID: 0ebba1cc-24fb-44a7-9535-d97a5f309573
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=33.0}]
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at com.proptiger1.Cross_PlatForm.CrossPlatForm(Cross_PlatForm.java:111)
+	at com.proptiger1.CheckAllPages.Chrome_iPhone(CheckAllPages.java:16)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;btn btn-light-gray locality-change-btn&apos;]&quot;}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Driver info: driver.version: unknown
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///tmp/anonymous4834163204523231814webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9641:26)
+	at &lt;anonymous class&gt;.fxdriver.Timer.prototype.setTimeout/&lt;.notify(file:///tmp/anonymous4834163204523231814webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:548:5)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="FireFox_Android">
+                  </a> <!-- FireFox_Android -->
+                  <span class="method-name">FireFox_Android</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;content&apos;]/div/table/tbody/tr/td/h2&quot;}
+Command duration or timeout: 8.12 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Session ID: 9787571e-251b-4958-b277-394ec79b566a
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=33.0}]
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at com.proptiger1.Cross_PlatForm.Check404Page(Cross_PlatForm.java:199)
+	at com.proptiger1.Cross_PlatForm.CrossPlatForm(Cross_PlatForm.java:171)
+	at com.proptiger1.CheckAllPages.FireFox_Android(CheckAllPages.java:50)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;content&apos;]/div/table/tbody/tr/td/h2&quot;}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Driver info: driver.version: unknown
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///tmp/anonymous3165901490825256234webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9641:26)
+	at &lt;anonymous class&gt;.fxdriver.Timer.prototype.setTimeout/&lt;.notify(file:///tmp/anonymous3165901490825256234webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:548:5)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="IE_Nokia_Lumia920">
+                  </a> <!-- IE_Nokia_Lumia920 -->
+                  <span class="method-name">IE_Nokia_Lumia920</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//td[@class=&apos;ta-right padding5&apos;]//a[@class=&apos;no-ajaxy pull-right btn btn-default show-map-btn&apos;]&quot;}
+Command duration or timeout: 8.06 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Session ID: 32be13e2-ff11-47b4-b84c-3c64ec8daf48
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=33.0}]
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at com.proptiger1.Cross_PlatForm.CrossPlatForm(Cross_PlatForm.java:62)
+	at com.proptiger1.CheckAllPages.IE_Nokia_Lumia920(CheckAllPages.java:82)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//td[@class=&apos;ta-right padding5&apos;]//a[@class=&apos;no-ajaxy pull-right btn btn-default show-map-btn&apos;]&quot;}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Driver info: driver.version: unknown
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///tmp/anonymous9119239324107867688webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9641:26)
+	at &lt;anonymous class&gt;.fxdriver.Timer.prototype.setTimeout/&lt;.notify(file:///tmp/anonymous9119239324107867688webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:548:5)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Safari_iOS7">
+                  </a> <!-- Safari_iOS7 -->
+                  <span class="method-name">Safari_iOS7</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;content&apos;]/div/table/tbody/tr/td/h2&quot;}
+Command duration or timeout: 8.06 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Session ID: 1359289c-3c45-49ff-a71e-5b190495af2d
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=33.0}]
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at com.proptiger1.Cross_PlatForm.Check404Page(Cross_PlatForm.java:199)
+	at com.proptiger1.Cross_PlatForm.CrossPlatForm(Cross_PlatForm.java:171)
+	at com.proptiger1.CheckAllPages.Safari_iOS7(CheckAllPages.java:71)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;content&apos;]/div/table/tbody/tr/td/h2&quot;}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf&apos;, time: &apos;2014-10-23 20:03:00&apos;
+System info: host: &apos;vikas-Vostro-2420&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.8.0-29-generic&apos;, java.version: &apos;1.7.0_51&apos;
+Driver info: driver.version: unknown
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///tmp/anonymous7149266598363280437webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9641:26)
+	at &lt;anonymous class&gt;.fxdriver.Timer.prototype.setTimeout/&lt;.notify(file:///tmp/anonymous7149266598363280437webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:548:5)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Safari_iOS8">
+                  </a> <!-- Safari_iOS8 -->
+                  <span class="method-name">Safari_iOS8</span>
+                  <div class="stack-trace">java.lang.AssertionError: 
+ City Overview page url is wrong or not opening
+	at com.proptiger1.Cross_PlatForm.CrossPlatForm(Cross_PlatForm.java:43)
+	at com.proptiger1.CheckAllPages.Safari_iOS8(CheckAllPages.java:60)
+... Removed 24 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Mobile_Website_PlatForm_Compatibility_Test-class-failed -->
+          <div class="suite-Mobile_Website_PlatForm_Compatibility_Test-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.proptiger1.PaymentGatewayTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Pg_Test">
+                  </a> <!-- Pg_Test -->
+                  <span class="method-name">Pg_Test</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method Pg_Test requires 1 parameters but 0 were supplied in the @Test annotation.
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Mobile_Website_PlatForm_Compatibility_Test-class-failed -->
+        </div> <!-- panel Mobile_Website_PlatForm_Compatibility_Test -->
+        <div panel-name="test-xml-Mobile_Website_PlatForm_Compatibility_Test" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">/home/vikas/Automation/CrossPlatFormTest_AllPages/testNG.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Mobile Website PlatForm Compatibility Test&quot;&gt;
+  &lt;test name=&quot;All Pages Accessibility Testing&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.proptiger1.CheckAllPages&quot;/&gt;
+      &lt;class name=&quot;com.proptiger1.Cross_PlatForm&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;CrossPlatForm&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- com.proptiger1.Cross_PlatForm --&gt;
+      &lt;class name=&quot;com.proptiger1.TimeStamp&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- All Pages Accessibility Testing --&gt;
+  &lt;test name=&quot;Checkout Testing: Payment Gateway Test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.proptiger1.CheckoutProcess_TestMatrix&quot;/&gt;
+      &lt;class name=&quot;com.proptiger1.PaymentGatewayTest&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;Pg_Test&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- com.proptiger1.PaymentGatewayTest --&gt;
+      &lt;class name=&quot;com.proptiger1.TimeStamp&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Checkout Testing: Payment Gateway Test --&gt;
+&lt;/suite&gt; &lt;!-- Mobile Website PlatForm Compatibility Test --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Mobile_Website_PlatForm_Compatibility_Test" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Mobile Website PlatForm Compatibility Test</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">All Pages Accessibility Testing (3 classes)</span>
+              </li>
+              <li>
+                <span class="test-name">Checkout Testing: Payment Gateway Test (3 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Mobile_Website_PlatForm_Compatibility_Test" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Mobile Website PlatForm Compatibility Test</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Mobile_Website_PlatForm_Compatibility_Test" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Mobile Website PlatForm Compatibility Test</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Mobile_Website_PlatForm_Compatibility_Test');
+function tableData_Mobile_Website_PlatForm_Compatibility_Test() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(15);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'FireFox_Android')
+data.setCell(0, 2, 'com.proptiger1.CheckAllPages')
+data.setCell(0, 3, 163470);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'Chrome_AndroidTablet')
+data.setCell(1, 2, 'com.proptiger1.CheckAllPages')
+data.setCell(1, 3, 151910);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'Safari_iOS7')
+data.setCell(2, 2, 'com.proptiger1.CheckAllPages')
+data.setCell(2, 3, 150971);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'Chrome_AndroidMobile')
+data.setCell(3, 2, 'com.proptiger1.CheckAllPages')
+data.setCell(3, 3, 144986);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'IE_Nokia_Lumia920')
+data.setCell(4, 2, 'com.proptiger1.CheckoutProcess_TestMatrix')
+data.setCell(4, 3, 132258);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'Chrome_iPhone')
+data.setCell(5, 2, 'com.proptiger1.CheckAllPages')
+data.setCell(5, 3, 121456);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'Chrome_iPhone')
+data.setCell(6, 2, 'com.proptiger1.CheckoutProcess_TestMatrix')
+data.setCell(6, 3, 113402);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'Chrome_AndroidMobile')
+data.setCell(7, 2, 'com.proptiger1.CheckoutProcess_TestMatrix')
+data.setCell(7, 3, 102046);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'FireFox_Android')
+data.setCell(8, 2, 'com.proptiger1.CheckoutProcess_TestMatrix')
+data.setCell(8, 3, 99974);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'Safari_iOS7')
+data.setCell(9, 2, 'com.proptiger1.CheckoutProcess_TestMatrix')
+data.setCell(9, 3, 96121);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'Safari_iOS8')
+data.setCell(10, 2, 'com.proptiger1.CheckoutProcess_TestMatrix')
+data.setCell(10, 3, 90420);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'IE_Nokia_Lumia920')
+data.setCell(11, 2, 'com.proptiger1.CheckAllPages')
+data.setCell(11, 3, 66386);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'Chrome_AndroidTablet')
+data.setCell(12, 2, 'com.proptiger1.CheckoutProcess_TestMatrix')
+data.setCell(12, 3, 60989);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'Safari_iOS8')
+data.setCell(13, 2, 'com.proptiger1.CheckAllPages')
+data.setCell(13, 3, 40926);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'Pg_Test')
+data.setCell(14, 2, 'com.proptiger1.PaymentGatewayTest')
+data.setCell(14, 3, 0);
+window.suiteTableData['Mobile_Website_PlatForm_Compatibility_Test']= { tableData: data, tableDiv: 'times-div-Mobile_Website_PlatForm_Compatibility_Test'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 25 minutes</span>
+              <div id="times-div-Mobile_Website_PlatForm_Compatibility_Test">
+              </div> <!-- times-div-Mobile_Website_PlatForm_Compatibility_Test -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Mobile_Website_PlatForm_Compatibility_Test" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Mobile Website PlatForm Compatibility Test</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Mobile_Website_PlatForm_Compatibility_Test" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Mobile_Website_PlatForm_Compatibility_Test" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.proptiger1.CheckAllPages</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Chrome_iPhone</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Chrome_AndroidTablet</span>
+                <span class="method-start">121458 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Chrome_AndroidMobile</span>
+                <span class="method-start">273370 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">FireFox_Android</span>
+                <span class="method-start">418357 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Safari_iOS8</span>
+                <span class="method-start">581835 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Safari_iOS7</span>
+                <span class="method-start">622775 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">IE_Nokia_Lumia920</span>
+                <span class="method-start">773765 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">teardown</span>
+                <span class="method-start">840181 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.proptiger1.CheckoutProcess_TestMatrix</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Chrome_iPhone</span>
+                <span class="method-start">841546 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Chrome_AndroidTablet</span>
+                <span class="method-start">954949 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Chrome_AndroidMobile</span>
+                <span class="method-start">1015940 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">FireFox_Android</span>
+                <span class="method-start">1117987 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Safari_iOS8</span>
+                <span class="method-start">1217962 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Safari_iOS7</span>
+                <span class="method-start">1308383 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">IE_Nokia_Lumia920</span>
+                <span class="method-start">1404505 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">teardown</span>
+                <span class="method-start">1536764 ms</span>
+              </div> <!-- configuration-class after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

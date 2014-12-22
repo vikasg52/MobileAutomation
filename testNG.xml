@@ -16,6 +16,8 @@
   </test>
   <test name="Checkout Testing: Payment Gateway Test">
     <classes>
+    <class name="com.proptiger1.CheckoutProcess_TestMatrix">
+    </class>
     <class name="com.proptiger1.PaymentGatewayTest">     
       <methods>      
          <include name="Pg_Test"/>       
