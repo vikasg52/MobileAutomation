@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,7 +13,6 @@ import org.testng.Assert;
 public class Cross_PlatForm {
 	static TimeStamp t1= new TimeStamp();
 	public static void CrossPlatForm(WebDriver driver) throws InterruptedException {
-		//new FirefoxDriver();
 		driver.manage().window().setSize(new Dimension(300,630));
 		driver.manage().deleteAllCookies();		
 		driver.get("http://www.proptiger.com");
@@ -44,7 +44,8 @@ public class Cross_PlatForm {
 			}
 			if(!CitySelected.equalsIgnoreCase("Bangalore"))
 			{
-				Assert.fail("\n Selected City in the dropdown on overview page is wrong");			
+				Assert.fail("\n Selected City in the dropdown on overview page is wrong");	
+				driver.quit();
 			}
 			// Verify menu drawer page on city page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
@@ -55,6 +56,7 @@ public class Cross_PlatForm {
 			if(!ListingUrl.equalsIgnoreCase("http://www.proptiger.com/bangalore-real-estate") && !ListingTitle.equalsIgnoreCase("Bangalore"))
 			{
 				Assert.fail("\n Listing page is not opening,URL is incorrect or title is incorrect ");
+				driver.quit();
 			}
 			// Verify menu drawer page on city listing page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
@@ -65,6 +67,7 @@ public class Cross_PlatForm {
 			if(!MapPage.equalsIgnoreCase("http://www.proptiger.com/bangalore-real-estate#mapStaticPopupBlock"))
 			{
 				Assert.fail("\n Map page is not opening");
+				driver.quit();
 			}
 			driver.navigate().back();
 			Thread.sleep(3000L);
@@ -76,6 +79,7 @@ public class Cross_PlatForm {
 					&& !Projectheading.equalsIgnoreCase("Samruddhi Group Winter Green"))
 			{
 				Assert.fail("\n Project Page is not opening-URL is wrong, title is wrong or project name is wrong");	
+			    driver.quit();
 			}
 			driver.navigate().refresh();		
 			// Verify menu drawer page on project page
@@ -89,7 +93,8 @@ public class Cross_PlatForm {
 			if(!LocalityUrl.equalsIgnoreCase("http://www.proptiger.com/bangalore-real-estate/bellandur-overview-50270")
 					&& !Localityheading.equalsIgnoreCase("Bellandur") && LocalityImage==false)
 			{
-				Assert.fail("\n Locality page is not opening, basis URL is incorrect/heading is incorrect/image is missing");
+			 	Assert.fail("\n Locality page is not opening, basis URL is incorrect/heading is incorrect/image is missing");
+	            driver.quit();  		
 			}
 			// Verify menu drawer page on Locality overview page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
@@ -101,6 +106,8 @@ public class Cross_PlatForm {
 					&& !LocalityListheading.equalsIgnoreCase("Bellandur, Bangalore"))
 			{
 				Assert.fail("\n Locality listing page is not opening basis URL is wrong and heading is wrong");
+				
+				driver.quit();
 			}
 
 			// Verify menu drawer page on Locality listing page
@@ -179,7 +186,7 @@ public class Cross_PlatForm {
 		if(drawer==false)
 		{
 			Assert.fail("\nMenu Drawer is not present on city overview page");
-			driver.close();
+			driver.quit();
 		}
 		driver.findElement(By.xpath("//div[@id='header-drawer-button']")).click();
 		boolean DrawerChangeCitydropwdown = t1.isElementPresent(driver , By.xpath("//select[@class='change-city']"));
@@ -188,6 +195,7 @@ public class Cross_PlatForm {
 		if(DrawerChangeCitydropwdown==false && cityHomeIcon==false && !OtherSection.equalsIgnoreCase("Others"))
 		{
 			Assert.fail("\n Menau Drawer is not clickable or not opening basis home icon in menu drawer missing,label others and chnage city dropdown");
+		    driver.quit();
 		}
 		driver.findElement(By.xpath("//div[@id='header-drawer-button']")).click();			
 	}
@@ -196,6 +204,8 @@ public class Cross_PlatForm {
 	{
 		driver.get("http://www.proptiger.com/noida/sector-118/supertech-romano-652425/atms");
 		Thread.sleep(4000L);
+		try
+		{
 		String ErrorText= driver.findElement(By.xpath("//*[@id='content']/div/table/tbody/tr/td/h2")).getText();
 		String WarningMsg=driver.findElement(By.xpath("//*[@id='content']/div/table/tbody/tr/td/p[1]")).getText();
 		String ExpectedWarning="You've hit a wrong path. You may have followed an outdated link or entered an incorrect url.";
@@ -203,20 +213,31 @@ public class Cross_PlatForm {
 		if(!ErrorText.equalsIgnoreCase("Error 404"))
 		{
 			Assert.fail("\n Error text is not coming on 404 page");
+			driver.quit();
 		}
 		if(!WarningMsg.equalsIgnoreCase(ExpectedWarning))
 		{
 			Assert.fail("Warning message is missing on the 404 page");
+			driver.quit();
+		}
+		if(GoHomeButton==false)
+		{
+			Assert.fail("Goto Home page button is missing on the 404 page");
+			driver.quit();
 		}
 		driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']")).click();
 		Thread.sleep(4000L);
 		String RedirectURl=driver.getCurrentUrl();
-
 		if(!RedirectURl.equalsIgnoreCase("http://www.proptiger.com/"))
 		{
-			Assert.fail("\n Goto home page button is not redirecting to home page on 404 page");
+			Assert.fail("\n Goto home page button is not redirecting to home page from 404 page");
+			driver.quit();
+		}
+		}catch(NoSuchElementException e)
+		{
+			System.err.println("");
 		}
 		driver.quit();
 	}
-	}
+}
 	
