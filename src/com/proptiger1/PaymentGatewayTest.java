@@ -34,7 +34,7 @@ public class PaymentGatewayTest {
 		driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
 		Thread.sleep(9000L);
 		driver.findElement(By.xpath("//span[@class='see-all-wrap']")).click();
-		Thread.sleep(9000L);
+		Thread.sleep(11000L);
 		driver.findElement(By.xpath("//li[@data-url='/bangalore/bellandur/samruddhi-group-winter-green-643769']")).click();
 		Thread.sleep(9000L);
 		driver.findElement(By.xpath("//section[@class='project-config']//section[@id='config-banner-propties']")).click();

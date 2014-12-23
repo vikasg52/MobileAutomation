@@ -14,7 +14,7 @@ public class CheckAllPages {
 				+ "(KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A501 Safari/8536.25");
 		WebDriver driver= new FirefoxDriver(profile);
 		Cross_PlatForm.CrossPlatForm(driver);
-		System.out.println("All Pages are accessible on Chrome_AndroidTablet");
+		System.out.println("All Pages are accessible on Chrome_iPhone");
 		driver.quit();
 	}
 	

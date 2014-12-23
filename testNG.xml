@@ -19,10 +19,7 @@
     <class name="com.proptiger1.CheckoutProcess_TestMatrix">
     </class>
     <class name="com.proptiger1.PaymentGatewayTest">     
-      <methods>      
-         <include name="Pg_Test"/>       
-         </methods>
-      </class>
+    </class>
       <class name="com.proptiger1.TimeStamp">
       </class>
     </classes>
