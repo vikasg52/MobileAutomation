@@ -10,13 +10,7 @@
       </class> <!-- com.proptiger1.CheckoutProcess_TestMatrix -->
       <class name="com.proptiger1.CheckAllPages">
         <methods>
-          <include name="FireFox_Android"/>
-          <include name="Chrome_iPhone"/>
           <include name="IE_Nokia_Lumia920"/>
-          <include name="Chrome_AndroidTablet"/>
-          <include name="Chrome_AndroidMobile"/>
-          <include name="Safari_iOS8"/>
-          <include name="Safari_iOS7"/>
           <include name="teardown"/>
         </methods>
       </class> <!-- com.proptiger1.CheckAllPages -->
@@ -27,13 +21,7 @@
       <class name="com.proptiger1.CheckoutProcess_TestMatrix">
         <methods>
           <include name="teardown"/>
-          <include name="Chrome_iPhone"/>
-          <include name="Chrome_AndroidTablet"/>
-          <include name="Safari_iOS8"/>
-          <include name="IE_Nokia_Lumia920"/>
           <include name="Safari_iOS7"/>
-          <include name="FireFox_Android"/>
-          <include name="Chrome_AndroidMobile"/>
         </methods>
       </class> <!-- com.proptiger1.CheckoutProcess_TestMatrix -->
       <class name="com.proptiger1.CheckAllPages">
@@ -41,11 +29,6 @@
           <include name="teardown"/>
         </methods>
       </class> <!-- com.proptiger1.CheckAllPages -->
-      <class name="com.proptiger1.PaymentGatewayTest">
-        <methods>
-          <include name="Pg_Test"/>
-        </methods>
-      </class> <!-- com.proptiger1.PaymentGatewayTest -->
     </classes>
   </test> <!-- Checkout Testing: Payment Gateway Test(failed) -->
 </suite> <!-- Failed suite [Mobile Website PlatForm Compatibility Test] -->

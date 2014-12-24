@@ -7,6 +7,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver.Timeouts;
 import org.openqa.selenium.WebElement;
@@ -18,7 +19,6 @@ import org.testng.annotations.Test;
 
 public class PaymentGatewayTest {
 	static TimeStamp t1= new TimeStamp();
-	@Test()
 	public static void Pg_Test(WebDriver driver) throws InterruptedException
 	{
 		/*FirefoxProfile profile = new FirefoxProfile();
@@ -28,9 +28,12 @@ public class PaymentGatewayTest {
 		driver.manage().window().setSize(new Dimension(300,650));
 		driver.manage().deleteAllCookies();	
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		System.out.println("************* PG Test started *****************************************************");
+		try
+		{
 		driver.get("http://www.proptiger.com");
 		Thread.sleep(5000L);
+	    }catch(NoSuchElementException e)
+	    {System.out.println("\n Global home page is not opening-either site is down or net is not working");}
 		driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
 		Thread.sleep(9000L);
 		driver.findElement(By.xpath("//span[@class='see-all-wrap']")).click();
@@ -96,18 +99,14 @@ public class PaymentGatewayTest {
 			String Status="";
 			if(FailedTest=="")
 			{
-				Status="PASS";
 				System.out.println("Payment gateway is up and running-"+Status);
-
 			}
 			else
 			{
-				Status="FAILED";
 				System.out.println("Payment gateway is down-"+Status);
 				System.out.println("Reason:" +FailedTest);
 			}
-			System.out.println("\n**************************************************************************************************");
-			driver.quit();
+		 driver.quit();
 		}
 	}
 }

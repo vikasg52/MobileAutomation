@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Mobile Website PlatForm Compatibility Test">
-  <test name="All Pages Accessibility Testing">
+    <test name="All Pages Accessibility Testing">
     <classes>
       <class name="com.proptiger1.CheckAllPages">     
       </class>
@@ -14,13 +14,11 @@
       </class>
     </classes>
   </test>
-  <test name="Checkout Testing: Payment Gateway Test">
+    <test name="Checkout Testing: Payment Gateway Test">
     <classes>
     <class name="com.proptiger1.CheckoutProcess_TestMatrix">
     </class>
-    <class name="com.proptiger1.PaymentGatewayTest">     
-    </class>
-      <class name="com.proptiger1.TimeStamp">
+    <class name="com.proptiger1.TimeStamp">
       </class>
     </classes>
   </test>

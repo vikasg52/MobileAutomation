@@ -1,6 +1,7 @@
 package com.proptiger1;
 import java.io.Console;
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,6 @@ import org.testng.annotations.AfterClass;
 public class CheckoutProcess_TestMatrix {
 	
 	TimeStamp t= new TimeStamp();
-	
 	@Test(priority=0)
 	void Chrome_iPhone() throws InterruptedException 
 	{
@@ -33,7 +33,7 @@ public class CheckoutProcess_TestMatrix {
 				+ "(KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19");
 		WebDriver driver= new FirefoxDriver(profile);
 		PaymentGatewayTest.Pg_Test(driver);	
-		System.out.println("Checkout working fine in Chrome-Android-Tab");
+		System.out.println("Checkout working fine in Chrome-Android-Tablet");
 		driver.quit();
 	}
 	
