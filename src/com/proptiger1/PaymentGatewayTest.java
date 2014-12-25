@@ -36,7 +36,7 @@ public class PaymentGatewayTest {
 	    }catch(NoSuchElementException e)
 	    {System.out.println("\n Global home page is not opening-either site is down or net is not working");}
 		driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
-		Thread.sleep(9000L);
+		Thread.sleep(13000L);
 		driver.findElement(By.xpath("//span[@class='see-all-wrap']")).click();
 		Thread.sleep(11000L);
 		driver.findElement(By.xpath("//li[@data-url='/bangalore/bellandur/samruddhi-group-winter-green-643769']")).click();
