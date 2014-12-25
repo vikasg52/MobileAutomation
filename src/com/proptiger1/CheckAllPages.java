@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 public class CheckAllPages {
 	
 	@Test(priority=0)
-	void Chrome_iPhone() throws InterruptedException 
+	void Chrome_iPhone_AllPageTest() throws InterruptedException 
 	{
 		String name="Chrome_iPhone";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -25,7 +25,7 @@ public class CheckAllPages {
 	}
 	
 	@Test(priority=1)
-	void Chrome_AndroidTablet() throws InterruptedException 
+	void Chrome_AndroidTablet_AllPageTest() throws InterruptedException 
 	{
 		String name="Chrome_AndroidTablet";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -40,7 +40,7 @@ public class CheckAllPages {
 	}
 	
 	@Test(priority=2)
-	void Chrome_AndroidMobile() throws InterruptedException 
+	void Chrome_AndroidMobile__AllPageTest() throws InterruptedException 
 	{
 		String name="Chrome_AndroidMobile";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -54,7 +54,7 @@ public class CheckAllPages {
 		driver.quit();
 	}
 	@Test(priority=3)
-	void FireFox_Android() throws InterruptedException 
+	void FireFox_Android_AllPageTest() throws InterruptedException 
 	{
 		String name="FireFox_Android";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -67,7 +67,7 @@ public class CheckAllPages {
 		driver.quit();
 	}
 	@Test(priority=4)
-	void Safari_iOS8() throws InterruptedException {
+	void Safari_iOS8__AllPageTest() throws InterruptedException {
 		String name="Safari_iOS8";
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override","Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 "
@@ -80,7 +80,7 @@ public class CheckAllPages {
 		driver.quit();
 	}
 	@Test(priority=5)
-	void Safari_iOS7() throws InterruptedException 
+	void Safari_iOS7__AllPageTest() throws InterruptedException 
 	{
 		String name="Safari_iOS7";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -94,7 +94,7 @@ public class CheckAllPages {
 		driver.quit();
 	}
 	@Test(priority=6)
-	void IE_Nokia_Lumia920() throws InterruptedException 
+	void IE_Nokia_Lumia920__AllPageTest() throws InterruptedException 
 	{
 		String name="IE_Nokia_Lumia920";
 		FirefoxProfile profile = new FirefoxProfile();
