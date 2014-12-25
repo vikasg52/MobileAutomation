@@ -2,23 +2,27 @@
 <testng-results skipped="0" failed="1" total="14" passed="13">
   <reporter-output>
   </reporter-output>
-  <suite name="Mobile Website PlatForm Compatibility Test" duration-ms="1539567" started-at="2014-12-25T12:14:33Z" finished-at="2014-12-25T12:40:13Z">
+  <suite name="Mobile Website PlatForm Compatibility Test" duration-ms="1526942" started-at="2014-12-25T13:16:46Z" finished-at="2014-12-25T13:42:13Z">
     <groups>
     </groups>
-    <test name="All Pages Accessibility Testing" duration-ms="965914" started-at="2014-12-25T12:14:33Z" finished-at="2014-12-25T12:30:39Z">
+    <test name="All Pages Accessibility Testing" duration-ms="987556" started-at="2014-12-25T13:16:46Z" finished-at="2014-12-25T13:33:14Z">
       <class name="com.proptiger1.CheckAllPages">
-        <test-method status="FAIL" signature="Chrome_iPhone()[pri:0, instance:com.proptiger1.CheckAllPages@3458fd2]" name="Chrome_iPhone" duration-ms="27935" started-at="2014-12-25T17:44:33Z" finished-at="2014-12-25T17:45:01Z">
+        <test-method status="PASS" signature="Chrome_iPhone_AllPageTest()[pri:0, instance:com.proptiger1.CheckAllPages@13b93c4c]" name="Chrome_iPhone_AllPageTest" duration-ms="164971" started-at="2014-12-25T18:46:46Z" finished-at="2014-12-25T18:49:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Chrome_iPhone_AllPageTest -->
+        <test-method status="FAIL" signature="Chrome_AndroidTablet_AllPageTest()[pri:0, instance:com.proptiger1.CheckAllPages@13b93c4c]" name="Chrome_AndroidTablet_AllPageTest" duration-ms="31728" started-at="2014-12-25T18:49:31Z" finished-at="2014-12-25T18:50:03Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[
- City Overview page url is wrong or not opening inChrome_iPhone]]>
+ City Overview page url is wrong or not opening inChrome_AndroidTablet]]>
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.AssertionError: 
- City Overview page url is wrong or not opening inChrome_iPhone
+ City Overview page url is wrong or not opening inChrome_AndroidTablet
 	at org.testng.Assert.fail(Assert.java:94)
 	at com.proptiger1.Cross_PlatForm.AllPages(Cross_PlatForm.java:41)
-	at com.proptiger1.CheckAllPages.Chrome_iPhone(CheckAllPages.java:17)
+	at com.proptiger1.CheckAllPages.Chrome_AndroidTablet_AllPageTest(CheckAllPages.java:35)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -47,68 +51,64 @@
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Chrome_iPhone -->
-        <test-method status="PASS" signature="Chrome_AndroidTablet()[pri:0, instance:com.proptiger1.CheckAllPages@3458fd2]" name="Chrome_AndroidTablet" duration-ms="165018" started-at="2014-12-25T17:45:01Z" finished-at="2014-12-25T17:47:46Z">
+        </test-method> <!-- Chrome_AndroidTablet_AllPageTest -->
+        <test-method status="PASS" signature="Chrome_AndroidMobile__AllPageTest()[pri:0, instance:com.proptiger1.CheckAllPages@13b93c4c]" name="Chrome_AndroidMobile__AllPageTest" duration-ms="163332" started-at="2014-12-25T18:50:03Z" finished-at="2014-12-25T18:52:46Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Chrome_AndroidTablet -->
-        <test-method status="PASS" signature="Chrome_AndroidMobile()[pri:0, instance:com.proptiger1.CheckAllPages@3458fd2]" name="Chrome_AndroidMobile" duration-ms="163593" started-at="2014-12-25T17:47:46Z" finished-at="2014-12-25T17:50:30Z">
+        </test-method> <!-- Chrome_AndroidMobile__AllPageTest -->
+        <test-method status="PASS" signature="FireFox_Android_AllPageTest()[pri:0, instance:com.proptiger1.CheckAllPages@13b93c4c]" name="FireFox_Android_AllPageTest" duration-ms="156360" started-at="2014-12-25T18:52:46Z" finished-at="2014-12-25T18:55:23Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Chrome_AndroidMobile -->
-        <test-method status="PASS" signature="FireFox_Android()[pri:0, instance:com.proptiger1.CheckAllPages@3458fd2]" name="FireFox_Android" duration-ms="151923" started-at="2014-12-25T17:50:30Z" finished-at="2014-12-25T17:53:02Z">
+        </test-method> <!-- FireFox_Android_AllPageTest -->
+        <test-method status="PASS" signature="Safari_iOS8__AllPageTest()[pri:0, instance:com.proptiger1.CheckAllPages@13b93c4c]" name="Safari_iOS8__AllPageTest" duration-ms="154877" started-at="2014-12-25T18:55:23Z" finished-at="2014-12-25T18:57:57Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- FireFox_Android -->
-        <test-method status="PASS" signature="Safari_iOS8()[pri:0, instance:com.proptiger1.CheckAllPages@3458fd2]" name="Safari_iOS8" duration-ms="154256" started-at="2014-12-25T17:53:02Z" finished-at="2014-12-25T17:55:36Z">
+        </test-method> <!-- Safari_iOS8__AllPageTest -->
+        <test-method status="PASS" signature="Safari_iOS7__AllPageTest()[pri:0, instance:com.proptiger1.CheckAllPages@13b93c4c]" name="Safari_iOS7__AllPageTest" duration-ms="157396" started-at="2014-12-25T18:57:57Z" finished-at="2014-12-25T19:00:35Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Safari_iOS8 -->
-        <test-method status="PASS" signature="Safari_iOS7()[pri:0, instance:com.proptiger1.CheckAllPages@3458fd2]" name="Safari_iOS7" duration-ms="154454" started-at="2014-12-25T17:55:36Z" finished-at="2014-12-25T17:58:10Z">
+        </test-method> <!-- Safari_iOS7__AllPageTest -->
+        <test-method status="PASS" signature="IE_Nokia_Lumia920__AllPageTest()[pri:0, instance:com.proptiger1.CheckAllPages@13b93c4c]" name="IE_Nokia_Lumia920__AllPageTest" duration-ms="158872" started-at="2014-12-25T19:00:35Z" finished-at="2014-12-25T19:03:14Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Safari_iOS7 -->
-        <test-method status="PASS" signature="IE_Nokia_Lumia920()[pri:0, instance:com.proptiger1.CheckAllPages@3458fd2]" name="IE_Nokia_Lumia920" duration-ms="148715" started-at="2014-12-25T17:58:10Z" finished-at="2014-12-25T18:00:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- IE_Nokia_Lumia920 -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.proptiger1.CheckAllPages@3458fd2]" name="teardown" is-config="true" duration-ms="0" started-at="2014-12-25T18:00:39Z" finished-at="2014-12-25T18:00:39Z">
+        </test-method> <!-- IE_Nokia_Lumia920__AllPageTest -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.proptiger1.CheckAllPages@13b93c4c]" name="teardown" is-config="true" duration-ms="1" started-at="2014-12-25T19:03:14Z" finished-at="2014-12-25T19:03:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
       </class> <!-- com.proptiger1.CheckAllPages -->
     </test> <!-- All Pages Accessibility Testing -->
-    <test name="Checkout Testing: Payment Gateway Test" duration-ms="573562" started-at="2014-12-25T12:30:39Z" finished-at="2014-12-25T12:40:13Z">
+    <test name="Checkout Testing: Payment Gateway Test" duration-ms="539357" started-at="2014-12-25T13:33:14Z" finished-at="2014-12-25T13:42:13Z">
       <class name="com.proptiger1.CheckoutProcess_TestMatrix">
-        <test-method status="PASS" signature="CheckoutChrome_iPhone()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@2b86616b]" name="CheckoutChrome_iPhone" duration-ms="79985" started-at="2014-12-25T18:00:39Z" finished-at="2014-12-25T18:01:59Z">
+        <test-method status="PASS" signature="CheckoutChrome_iPhone()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@2e8ebcab]" name="CheckoutChrome_iPhone" duration-ms="74707" started-at="2014-12-25T19:03:14Z" finished-at="2014-12-25T19:04:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CheckoutChrome_iPhone -->
-        <test-method status="PASS" signature="CheckoutChrome_AndroidTablet()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@2b86616b]" name="CheckoutChrome_AndroidTablet" duration-ms="80417" started-at="2014-12-25T18:01:59Z" finished-at="2014-12-25T18:03:20Z">
+        <test-method status="PASS" signature="CheckoutChrome_AndroidTablet()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@2e8ebcab]" name="CheckoutChrome_AndroidTablet" duration-ms="78193" started-at="2014-12-25T19:04:29Z" finished-at="2014-12-25T19:05:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CheckoutChrome_AndroidTablet -->
-        <test-method status="PASS" signature="CheckoutChrome_AndroidMobile()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@2b86616b]" name="CheckoutChrome_AndroidMobile" duration-ms="78946" started-at="2014-12-25T18:03:20Z" finished-at="2014-12-25T18:04:39Z">
+        <test-method status="PASS" signature="CheckoutChrome_AndroidMobile()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@2e8ebcab]" name="CheckoutChrome_AndroidMobile" duration-ms="77270" started-at="2014-12-25T19:05:47Z" finished-at="2014-12-25T19:07:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CheckoutChrome_AndroidMobile -->
-        <test-method status="PASS" signature="CheckoutFireFox_Android()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@2b86616b]" name="CheckoutFireFox_Android" duration-ms="101245" started-at="2014-12-25T18:04:39Z" finished-at="2014-12-25T18:06:20Z">
+        <test-method status="PASS" signature="CheckoutFireFox_Android()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@2e8ebcab]" name="CheckoutFireFox_Android" duration-ms="76026" started-at="2014-12-25T19:07:04Z" finished-at="2014-12-25T19:08:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CheckoutFireFox_Android -->
-        <test-method status="PASS" signature="CheckoutSafari_iOS8()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@2b86616b]" name="CheckoutSafari_iOS8" duration-ms="77064" started-at="2014-12-25T18:06:20Z" finished-at="2014-12-25T18:07:37Z">
+        <test-method status="PASS" signature="CheckoutSafari_iOS8()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@2e8ebcab]" name="CheckoutSafari_iOS8" duration-ms="76210" started-at="2014-12-25T19:08:20Z" finished-at="2014-12-25T19:09:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CheckoutSafari_iOS8 -->
-        <test-method status="PASS" signature="CheckoutSafari_iOS7()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@2b86616b]" name="CheckoutSafari_iOS7" duration-ms="77508" started-at="2014-12-25T18:07:37Z" finished-at="2014-12-25T18:08:54Z">
+        <test-method status="PASS" signature="CheckoutSafari_iOS7()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@2e8ebcab]" name="CheckoutSafari_iOS7" duration-ms="80881" started-at="2014-12-25T19:09:36Z" finished-at="2014-12-25T19:10:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CheckoutSafari_iOS7 -->
-        <test-method status="PASS" signature="CheckoutIE_Nokia_Lumia920()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@2b86616b]" name="CheckoutIE_Nokia_Lumia920" duration-ms="78391" started-at="2014-12-25T18:08:54Z" finished-at="2014-12-25T18:10:13Z">
+        <test-method status="PASS" signature="CheckoutIE_Nokia_Lumia920()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@2e8ebcab]" name="CheckoutIE_Nokia_Lumia920" duration-ms="76065" started-at="2014-12-25T19:10:57Z" finished-at="2014-12-25T19:12:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CheckoutIE_Nokia_Lumia920 -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@2b86616b]" name="teardown" is-config="true" duration-ms="0" started-at="2014-12-25T18:10:13Z" finished-at="2014-12-25T18:10:13Z">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@2e8ebcab]" name="teardown" is-config="true" duration-ms="1" started-at="2014-12-25T19:12:13Z" finished-at="2014-12-25T19:12:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

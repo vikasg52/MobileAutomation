@@ -10,7 +10,7 @@
       </class> <!-- com.proptiger1.CheckoutProcess_TestMatrix -->
       <class name="com.proptiger1.CheckAllPages">
         <methods>
-          <include name="Chrome_iPhone"/>
+          <include name="Chrome_AndroidTablet_AllPageTest"/>
           <include name="teardown"/>
         </methods>
       </class> <!-- com.proptiger1.CheckAllPages -->
