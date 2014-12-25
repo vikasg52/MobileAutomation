@@ -2,7 +2,6 @@
 <project name= "CrossPlatFormTest_AllPages" basedir="." default="testResult" >
     <property name="src.dir" value="src" />
     <property name="lib.dir" value="jars" />
-    <property name="log.dir" value="logs" />
     <property name="build.dir" value="build" />
     <property name="classes.dir" value="classes" />
     <property name="reports.dir" value="reports" />

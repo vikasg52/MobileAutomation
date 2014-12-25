@@ -15,6 +15,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class PaymentGatewayTest {
@@ -48,9 +49,9 @@ public class PaymentGatewayTest {
 		String s7=driver.getCurrentUrl();
 		int ran;
 	    ran = 100 + (int)(Math.random() * ((10000 - 100) + 1));
-		System.out.println("**************************************************************************************************\n");
-		driver.findElement(By.xpath("//form[@class='dtl-form']//input[@class='full-name']")).sendKeys("TestingTest");
-		driver.findElement(By.xpath("//form[@class='dtl-form']//input[@class='email']")).sendKeys("Proptigerqa"+ran+"@gmail.com");
+		System.out.println("=============================================\n");
+		driver.findElement(By.xpath("//form[@class='dtl-form']//input[@class='full-name']")).sendKeys("PropTiger-QA");
+		driver.findElement(By.xpath("//form[@class='dtl-form']//input[@class='email']")).sendKeys("Proptigerqa+"+ran+"@gmail.com");
 		driver.findElement(By.xpath("//form[@class='dtl-form']//input[@class='mobile-no checkout-mobile-no']")).sendKeys("1900000000");
 		driver.findElement(By.xpath("//form[@class='dtl-form']//input[@class='id-nmbr']")).sendKeys("b8909k9284f");
 		driver.findElement(By.xpath("//div[@class='btn-area']//a[@class='no-ajaxy btn btn-d-yellow payment-button']")).click();
@@ -96,15 +97,13 @@ public class PaymentGatewayTest {
 				FailedTest=FailedTest+"\n*Final Payment status page has not rendered";
 				driver.quit();
 			}
-			String Status="";
 			if(FailedTest=="")
 			{
-				System.out.println("Payment gateway is up and running-"+Status);
+				System.out.println("Payment gateway is up and running");
 			}
 			else
 			{
-				System.out.println("Payment gateway is down-"+Status);
-				System.out.println("Reason:" +FailedTest);
+				Assert.fail("Payment gateway is down-Reason"+FailedTest);
 			}
 		 driver.quit();
 		}

@@ -10,25 +10,10 @@
       </class> <!-- com.proptiger1.CheckoutProcess_TestMatrix -->
       <class name="com.proptiger1.CheckAllPages">
         <methods>
-          <include name="IE_Nokia_Lumia920"/>
+          <include name="Chrome_iPhone"/>
           <include name="teardown"/>
         </methods>
       </class> <!-- com.proptiger1.CheckAllPages -->
     </classes>
   </test> <!-- All Pages Accessibility Testing(failed) -->
-  <test name="Checkout Testing: Payment Gateway Test(failed)">
-    <classes>
-      <class name="com.proptiger1.CheckoutProcess_TestMatrix">
-        <methods>
-          <include name="teardown"/>
-          <include name="Safari_iOS7"/>
-        </methods>
-      </class> <!-- com.proptiger1.CheckoutProcess_TestMatrix -->
-      <class name="com.proptiger1.CheckAllPages">
-        <methods>
-          <include name="teardown"/>
-        </methods>
-      </class> <!-- com.proptiger1.CheckAllPages -->
-    </classes>
-  </test> <!-- Checkout Testing: Payment Gateway Test(failed) -->
 </suite> <!-- Failed suite [Mobile Website PlatForm Compatibility Test] -->

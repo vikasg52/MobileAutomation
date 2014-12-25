@@ -14,7 +14,7 @@ public class CheckoutProcess_TestMatrix {
 	
 	TimeStamp t= new TimeStamp();
 	@Test(priority=0)
-	void Chrome_iPhone() throws InterruptedException 
+	void CheckoutChrome_iPhone() throws InterruptedException 
 	{
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS X) AppleWebKit/537.51.1 "
@@ -26,7 +26,7 @@ public class CheckoutProcess_TestMatrix {
 	}
 	
 	@Test(priority=1)
-	void Chrome_AndroidTablet() throws InterruptedException 
+	void CheckoutChrome_AndroidTablet() throws InterruptedException 
 	{
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override","Mozilla/5.0 (Linux; Android 4.1.2; Nexus 7 Build/JZ054K) AppleWebKit/535.19 "
@@ -38,7 +38,7 @@ public class CheckoutProcess_TestMatrix {
 	}
 	
 	@Test(priority=2)
-	void Chrome_AndroidMobile() throws InterruptedException 
+	void CheckoutChrome_AndroidMobile() throws InterruptedException 
 	{
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override","Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 "
@@ -49,7 +49,7 @@ public class CheckoutProcess_TestMatrix {
 		driver.quit();
 	}
 	@Test(priority=3)
-	void FireFox_Android() throws InterruptedException 
+	void CheckoutFireFox_Android() throws InterruptedException 
 	{
 		TimeStamp t= new TimeStamp();;
 		FirefoxProfile profile = new FirefoxProfile();
@@ -60,7 +60,7 @@ public class CheckoutProcess_TestMatrix {
 		driver.quit();
 	}
 	@Test(priority=4)
-	void Safari_iOS8() throws InterruptedException {
+	void CheckoutSafari_iOS8() throws InterruptedException {
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override","Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 "
 				+ "(KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4");
@@ -70,7 +70,7 @@ public class CheckoutProcess_TestMatrix {
 		driver.quit();
 	}
 	@Test(priority=5)
-	void Safari_iOS7() throws InterruptedException 
+	void CheckoutSafari_iOS7() throws InterruptedException 
 	{
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override","Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS X) "
@@ -81,7 +81,7 @@ public class CheckoutProcess_TestMatrix {
 		driver.quit();
 	}
 	@Test(priority=6)
-	void IE_Nokia_Lumia920() throws InterruptedException 
+	void CheckoutIE_Nokia_Lumia920() throws InterruptedException 
 	{
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override","Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0;"
