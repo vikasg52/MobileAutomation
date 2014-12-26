@@ -6,7 +6,7 @@
       <class name="com.proptiger1.CheckAllPages">
         <methods>
           <include name="teardown"/>
-          <include name="OperaMini_iPhone__AllPageTest"/>
+          <include name="Safari_iOS7__AllPageTest"/>
         </methods>
       </class> <!-- com.proptiger1.CheckAllPages -->
       <class name="com.proptiger1.CheckoutProcess_TestMatrix">
