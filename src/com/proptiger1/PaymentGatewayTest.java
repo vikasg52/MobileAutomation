@@ -20,6 +20,8 @@ import org.testng.annotations.Test;
 
 public class PaymentGatewayTest {
 	static TimeStamp t1= new TimeStamp();
+	static String pgurl="www.citruspay.com";
+	static String BaseUrl="http://www.proptiger.com";
 	public static void Pg_Test(WebDriver driver) throws InterruptedException
 	{
 		/*FirefoxProfile profile = new FirefoxProfile();
@@ -31,7 +33,7 @@ public class PaymentGatewayTest {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		try
 		{
-		driver.get("http://www.proptiger.com");
+		driver.get(BaseUrl);
 		Thread.sleep(5000L);
 	    }catch(NoSuchElementException e)
 	    {System.out.println("\n Global home page is not opening-either site is down or net is not working");}
@@ -40,7 +42,7 @@ public class PaymentGatewayTest {
 		driver.findElement(By.xpath("//span[@class='see-all-wrap']")).click();
 		Thread.sleep(11000L);
 		driver.findElement(By.xpath("//li[@data-url='/bangalore/bellandur/samruddhi-group-winter-green-643769']")).click();
-		Thread.sleep(9000L);
+		Thread.sleep(12000L);
 		driver.findElement(By.xpath("//section[@class='project-config']//section[@id='config-banner-propties']")).click();
 		Thread.sleep(5000L);
 		driver.findElement(By.xpath("//div[@data-selecttext='20,000 coupon selected for 2BHK+2T (1200 sq ft) in Bellandur, Bangalore']")).click();
@@ -59,7 +61,7 @@ public class PaymentGatewayTest {
 		//driver.navigate().refresh();
 		boolean error = t1.isElementPresent(driver,By.xpath("//div[@class='errorMessage']"));
 		String PGURL=driver.getCurrentUrl();
-		boolean x=PGURL.contains("https://www.citruspay.com");
+		boolean x=PGURL.contains(pgurl);
 		String FailedTest="";
 		if( error==true)
 		{ 
@@ -85,7 +87,7 @@ public class PaymentGatewayTest {
 			alert.accept();
 			Thread.sleep(3000L);
 			String RedirectUrl=driver.getCurrentUrl();		
-			boolean y=RedirectUrl.contains("www.proptiger.");
+			boolean y=RedirectUrl.contains(BaseUrl);
 			boolean z=t1.isElementPresent(driver,  By.xpath("//a[@class='btn btn-d-yellow no-ajaxy']"));
 			if(y==false)
 			{
