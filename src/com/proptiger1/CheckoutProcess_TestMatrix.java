@@ -91,6 +91,30 @@ public class CheckoutProcess_TestMatrix {
 		System.out.println("Checkout working fine in IE_Nokia_Lumia920 ");
 		driver.quit();		
 	}
+	@Test(priority=7)
+	void OperaMini_iPhone__AllPageTest() throws InterruptedException 
+	{
+		String name="OperaMini_iPhone";
+		FirefoxProfile profile = new FirefoxProfile();
+		profile.setPreference("general.useragent.override","Opera/9.80 (iPhone; Opera Mini/8.0.0/34.2336; U; en) "
+				+ "Presto/2.8.119 Version/11.10");
+		WebDriver driver= new FirefoxDriver(profile);
+		PaymentGatewayTest.Pg_Test(driver);
+		System.out.println("All Pages are accessible on OperaMini_iPhone");
+		driver.quit();		
+	}
+	@Test(priority=8)
+	void OperaMini_Android__AllPageTest() throws InterruptedException 
+	{
+		String name="OperaMini_Android";
+		FirefoxProfile profile = new FirefoxProfile();
+        profile.setPreference("general.useragent.override","Opera/9.80 (Android; Opera Mini/7.5.33361/31.1448; U; en)"
+        		+ " Presto/2.8.119 Version/11.1010");
+		WebDriver driver= new FirefoxDriver(profile);
+		PaymentGatewayTest.Pg_Test(driver);
+		System.out.println("All Pages are accessible on OperaMini_Android");
+		driver.quit();		
+	}
 	@AfterClass
 	public static void teardown()  
 	{
