@@ -100,7 +100,7 @@ public class CheckoutProcess_TestMatrix {
 				+ "Presto/2.8.119 Version/11.10");
 		WebDriver driver= new FirefoxDriver(profile);
 		PaymentGatewayTest.Pg_Test(driver);
-		System.out.println("All Pages are accessible on OperaMini_iPhone");
+		System.out.println("Checkout working fine in OperaMini_iPhone");
 		driver.quit();		
 	}
 	@Test(priority=8)
@@ -112,7 +112,7 @@ public class CheckoutProcess_TestMatrix {
         		+ " Presto/2.8.119 Version/11.1010");
 		WebDriver driver= new FirefoxDriver(profile);
 		PaymentGatewayTest.Pg_Test(driver);
-		System.out.println("All Pages are accessible on OperaMini_Android");
+		System.out.println("Checkout working fine in OperaMini_Android");
 		driver.quit();		
 	}
 	@AfterClass

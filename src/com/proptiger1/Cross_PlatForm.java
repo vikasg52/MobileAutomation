@@ -187,8 +187,9 @@ public class Cross_PlatForm {
 	}
 
 	// Menu Drawer Verification
-	public static void VerifyMenuDrawer(WebDriver driver)
+	public static void VerifyMenuDrawer(WebDriver driver) throws InterruptedException
 	{
+		Thread.sleep(3000L);
 		boolean drawer= t1.isElementPresent(driver, By.xpath("//i[@class='icon-navicon']"));
 		if(drawer==false)
 		{
