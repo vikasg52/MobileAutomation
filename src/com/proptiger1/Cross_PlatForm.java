@@ -254,11 +254,11 @@ public class Cross_PlatForm {
 					Assert.fail("iOS App download link is incorrect or not opening");
 				}
 			}
-		driver.navigate().back();
+		//driver.navigate().back();
 		driver.findElement(By.xpath("//div[@class='interstial-container']//div[@class='closeoption']")).click();
-		driver.navigate().refresh();
-		boolean phoneimages1= t1.isElementPresent(driver, By.xpath("//div[@class='mob-in-hand']"));
-		if(phoneimages1==true)
+		//driver.manage().deleteAllCookies();
+		boolean interstitial1= t1.isElementPresent(driver, By.xpath("//div[@id='interstitalPopup' and @class='open']"));
+		if(interstitial1==true)
 		{
 			Assert.fail("Interstitial close button is not working");
 		}
