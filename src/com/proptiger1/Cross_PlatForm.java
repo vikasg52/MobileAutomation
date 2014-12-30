@@ -1,8 +1,10 @@
 package com.proptiger1;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.jar.Attributes.Name;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -14,8 +16,10 @@ public class Cross_PlatForm {
 	static String BaseUrl="http://www.proptiger.com";
 	public static void AllPages(WebDriver driver, String name) throws InterruptedException {
 		driver.manage().window().setSize(new Dimension(300,630));
-		driver.manage().deleteAllCookies();		
+		//driver.manage().deleteAllCookies();		
 		driver.get(BaseUrl);
+		Cookie cookie = new Cookie("TESTING_USER", "1");
+	    driver.manage().addCookie(cookie);
 		Thread.sleep(8000L);
 		Cross_PlatForm.interstitial(driver, name);
 		boolean homepage= t1.isElementPresent(driver, By.xpath("//div[@class='home-top-textInfo']"));
@@ -141,8 +145,8 @@ public class Cross_PlatForm {
 			boolean b= t1.isElementPresent(driver , By.xpath("//span[@class='logo pull-left']"));
 			Thread.sleep(4000L);
 			driver.findElement(By.xpath("//span[@class='logo pull-left']")).click();
-			String s= driver.getCurrentUrl();
-			if(!s.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate-overview") && b==false)
+			String s4= driver.getCurrentUrl();
+			if(!s4.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate-overview") && b==false)
 			{
 				Assert.fail("\n logo click is not opening city home page in "+name);
 				driver.close();
@@ -183,7 +187,7 @@ public class Cross_PlatForm {
 				Assert.fail("All locaities page is not opening in"+name);
 				driver.close();
 			}	
-		}
+          }
 	}
 
 	// Menu Drawer Verification
@@ -271,6 +275,8 @@ public class Cross_PlatForm {
 	{
 		driver.get(BaseUrl+"/noida/sector-118/supertech-romano-652425/atms");
 		Thread.sleep(4000L);
+		Cookie cookie = new Cookie("TESTING_USER", "1");
+	    driver.manage().addCookie(cookie);
 			String ErrorText= driver.findElement(By.xpath("//*[@id='content']/div/table/tbody/tr/td/h2")).getText();
 			String WarningMsg=driver.findElement(By.xpath("//*[@id='content']/div/table/tbody/tr/td/p[1]")).getText();
 			String ExpectedWarning="You've hit a wrong path. You may have followed an outdated link or entered an incorrect url.";
@@ -305,6 +311,8 @@ public class Cross_PlatForm {
 	{
 		driver.get(BaseUrl+"/bangalore/whitefield-50161/atms");
 		Thread.sleep(4000L);
+		Cookie cookie = new Cookie("TESTING_USER", "1");
+	    driver.manage().addCookie(cookie);
 		String LocalityName= driver.findElement(By.xpath("//h1[@class='locality-name']")).getText();
 		boolean CityDropDown= t1.isElementPresent(driver, By.xpath("//select[@class='city-select-dd']//option[@selected='true']"));
 		String  SelectedCity=driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='true']")).getText();
@@ -331,6 +339,5 @@ public class Cross_PlatForm {
 			Assert.fail("Selected city in city dropdown is wrong");	
 			driver.close();
 		}
-		//driver.quit();
 	}
 }
