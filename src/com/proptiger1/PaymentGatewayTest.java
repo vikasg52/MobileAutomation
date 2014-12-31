@@ -121,11 +121,11 @@ public class PaymentGatewayTest {
 	// Validate offer landing
 	public static void ValidateOfferLanding(WebDriver driver) throws InterruptedException
 	{
+		int Pune = 0, Bang = 0,India;
 		boolean OfferCity= t1.isElementPresent(driver,By.xpath("//select[@class='citydd offer-city']"));
 		boolean projectCount=t1.isElementPresent(driver, By.xpath("//span[@class='pro-count']"));
 		String selectedCity= driver.findElement(By.xpath("//select[@class='citydd offer-city']//option[@selected='selected']")).getText();
-		String s= driver.findElement(By.xpath("//span[@class='pro-count']")).getText();
-		String s1=s.replace(" Projects in Bangalore","");
+		String s= driver.findElement(By.xpath("//span[@class='pro-count']")).getText();	
 		String OfferUrl= driver.getCurrentUrl();
 		if(!OfferUrl.equalsIgnoreCase("http://www.proptiger.com/mega-property-sale"))
 		{
@@ -151,12 +151,13 @@ public class PaymentGatewayTest {
 		}
 		Select select = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
 		select.selectByIndex(1);
+		Thread.sleep(3000L);
+		driver.navigate().refresh();
 		Thread.sleep(5000L);
 		String ChangeUrl=driver.getCurrentUrl();
 		String selectedCity1= driver.findElement(By.xpath("//select[@class='citydd offer-city']//option[@selected='selected']")).getText();
 		boolean projectCountPune=t1.isElementPresent(driver, By.xpath("//span[@class='pro-count']"));
 		String s2= driver.findElement(By.xpath("//span[@class='pro-count']")).getText();
-		String s3=s2.replace(" Projects in Pune","");
 		if(!ChangeUrl.equalsIgnoreCase("http://www.proptiger.com/mega-property-sale/filters?cityLabel=pune") && !selectedCity1.equalsIgnoreCase("Pune"))
 		{
 			Assert.fail("Offer city change is not changing the URL correctly or selected city in dropdown in incorrect");
@@ -165,18 +166,22 @@ public class PaymentGatewayTest {
 		{Assert.fail("Project Count is missing on offer landing page of pune");}		
 		boolean FooterTextPune= t1.isElementPresent(driver,By.xpath("//a[@class='v-all all-project-link']"));
 		String FooterPune=driver.findElement(By.xpath("//a[@class='v-all all-project-link']")).getText();
-		boolean projectverify=t1.isElementPresent(driver,By.xpath("//li[@data-url='/pune/kharadi/global-group-precioso-642871']"));
+		boolean projectverify=driver.getPageSource().contains("/pune/");
 		if(FooterTextPune==false && !FooterPune.equalsIgnoreCase("VIEW ALL PROJECTS IN PUNE"))
 		{
 			Assert.fail("Text in the footer is missing or incorrect");
 		} 
 		if(projectverify==false)
-		{Assert.fail("Changing the offer city to PUne in dropdown is not fetching city specific projects");}
+		{Assert.fail("Changing the offer city to Pune in dropdown is not fetching city specific projects");}
 		Select select1 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
 		select1.selectByIndex(0);
-		Thread.sleep(5000L);
+		driver.navigate().refresh();
+		Thread.sleep(4000L);
 		String ChangeUrlIndia=driver.getCurrentUrl();
-		String selectedCity2= driver.findElement(By.xpath("//select[@class='citydd offer-city']//option[@selected='selected']")).getText();
+		//String selectedCity2= driver.findElement(By.xpath("//select[@class='citydd offer-city']//option[@selected='selected']")).getText();
+		Select select2 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
+		
+		String selectedCity2= select2.getFirstSelectedOption().getText();
 		if(!ChangeUrlIndia.equalsIgnoreCase("http://www.proptiger.com/mega-property-sale/filters?cityLabel=india") && !selectedCity2.equalsIgnoreCase("All India"))
 		{
 			Assert.fail("Offer city change is not changing the URL correctly or selected city in dropdown in incorrect");
@@ -184,12 +189,33 @@ public class PaymentGatewayTest {
 		String s4= driver.findElement(By.xpath("//span[@class='pro-count']")).getText();
 		String s5=s4.replace(" Projects in India","");
 	    String CountProjectIndia=s5.replaceAll("\\+s","");
+	    if (s.contains("Projects"))
+		{
+		String s1=s.replace(" Projects in Bangalore","");
 		String CountProjectBang= s1.replaceAll("\\+s","");
+		Bang= Integer.parseInt(CountProjectBang);
+		}
+	    else
+		{
+		String s1=s.replace(" Project in Bangalore","");
+		String CountProjectBang= s1.replaceAll("\\+s","");
+		Bang= Integer.parseInt(CountProjectBang);
+		}
+		if (s2.contains("Projects"))
+		{
+		String s3=s2.replace(" Projects in Pune","");
 		String CountProjectPune = s3.replaceAll("\\+s","");
-		int India= Integer.parseInt(CountProjectIndia);
-		int Pune= Integer.parseInt(CountProjectPune);
-		int Bang= Integer.parseInt(CountProjectBang);
-		if(Pune+Bang!=India)
+	    Pune= Integer.parseInt(CountProjectPune);
+		}
+		else
+		{
+		String s3=s2.replace("Project in Pune","");
+		String CountProjectPune = s3.replaceAll("\\+s","");
+		Pune = Integer.parseInt(CountProjectPune);
+		}
+		India= Integer.parseInt(CountProjectIndia);
+		
+		if(India!=Bang+Pune)
 		{
 			Assert.fail("Count of offer project in India is not equal to sum of banglore and pune");
 		}
