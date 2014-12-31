@@ -128,7 +128,7 @@ public class Cross_PlatForm {
 			Cross_PlatForm.VerifyMenuDrawer(driver);
 			// come back on locality listing
 			driver.navigate().back();
-			Thread.sleep(6000L);
+			Thread.sleep(9000L);
 			driver.findElement(By.xpath("//div[@class='btn btn-light-gray locality-change-btn']")).click();
 			Thread.sleep(3000L);
 			String ChangeLocalityUrl=driver.getCurrentUrl();

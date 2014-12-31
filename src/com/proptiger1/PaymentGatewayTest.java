@@ -1,24 +1,15 @@
 package com.proptiger1;
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriver.Timeouts;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
 public class PaymentGatewayTest {
 	static TimeStamp t1= new TimeStamp();
@@ -45,9 +36,9 @@ public class PaymentGatewayTest {
 		ValidateOfferLanding(driver);
 		Select select2 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
 		select2.selectByIndex(2);
-		Thread.sleep(5000L);Thread.sleep(4000L);
+		Thread.sleep(5000L);
 		driver.findElement(By.xpath("//li[@data-url='/bangalore/bellandur/samruddhi-group-winter-green-643769']")).click();
-		Thread.sleep(12000L);
+		Thread.sleep(15000L);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
 		driver.findElement(By.xpath("//section[@class='project-config']//section[@id='config-banner-propties']")).click();
