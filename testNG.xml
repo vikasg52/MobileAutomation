@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Mobile Website PlatForm Compatibility Test">
+   <test name="Responsive Page Testing:Desktop browsers">
+    <classes>
+    <class name="com.proptiger1.DesktopTestBed">
+    </class>
+    <class name="com.proptiger1.DesktopResponsive_Test">
+      </class>
+      <class name="com.proptiger1.TimeStamp">
+      </class>
+    </classes>
+  </test>
     <test name="All Pages Accessibility Testing">
     <classes>
-      <class name="com.proptiger1.CheckAllPages">     
+      <class name="com.proptiger1.MobileTestBed">     
       </class>
       <class name="com.proptiger1.Cross_PlatForm">
          <methods>
@@ -14,6 +24,7 @@
       </class>
     </classes>
   </test>
+  
     <test name="Checkout Testing: Payment Gateway Test">
     <classes>
     <class name="com.proptiger1.CheckoutProcess_TestMatrix">

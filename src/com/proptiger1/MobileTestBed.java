@@ -6,7 +6,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterClass;
 
-public class CheckAllPages {
+public class MobileTestBed {
 	
 	@Test(priority=7)
 	void Chrome_iPhone_AllPageTest() throws InterruptedException 
