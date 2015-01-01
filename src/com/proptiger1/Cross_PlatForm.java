@@ -159,7 +159,12 @@ public class Cross_PlatForm {
 				driver.close();
 			}
 			driver.navigate().to(BaseUrl+"/all-builders");
-			Thread.sleep(4000L);
+			Thread.sleep(8000L);
+			boolean builders= t1.isElementPresent(driver,By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']"));
+			if(builders==false)
+			{
+				Assert.fail("Heading is missing from builder page or is not loading");
+			}
 			String AllBuilderTitle= driver.findElement(By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']")).getText();
 			if(!AllBuilderTitle.equalsIgnoreCase("Builders in India"))
 			{
