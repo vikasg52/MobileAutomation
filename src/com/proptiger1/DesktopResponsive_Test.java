@@ -141,6 +141,8 @@ public class DesktopResponsive_Test {
 	{
 		driver.get(BaseUrl+"/gallery/samruddhi-group-wintergreen-layout-plan-643769-357091");
 		Thread.sleep(5000L);
+		Cookie cookie = new Cookie("TESTING_USER", "1");
+	    driver.manage().addCookie(cookie);
 		boolean headerText= t1.isElementPresent(driver,By.xpath("//div[@class='row contHeaderInfo']//h1[@class='contSubheaderInfo']"));
 	 	boolean image= t1.isElementPresent(driver,(By.xpath("//img[@src='http://im.pt-img2.com/1/143769/4/samruddhi-group-wintergreen-layout-plan-357091.jpeg']")));
 	    boolean previousbutton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy m-carousel-prev']"));
@@ -173,6 +175,8 @@ public class DesktopResponsive_Test {
 			driver.manage().deleteAllCookies();
 			driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);;
 			driver.get("http://www.proptiger.com/delhi/zone-p-ii-51905/atms");
+			Cookie cookie = new Cookie("TESTING_USER", "1");
+		    driver.manage().addCookie(cookie);
 			Thread.sleep(4000L);
 			int ran;
 		    ran = 100 + (int)(Math.random() * ((10000 - 100) + 1));
@@ -230,7 +234,9 @@ public class DesktopResponsive_Test {
 	    select.selectByVisibleText("India");
 		driver.findElement(By.xpath("//span[@class='btn btn-danger wd75percent']")).click();
 		//System.out.println("7. Lead submitted successfully from GP13 in desktop website using"+name);
-	Thread.sleep(6000L);
+		Cookie cookie = new Cookie("TESTING_USER", "1");
+	    driver.manage().addCookie(cookie);
+		Thread.sleep(6000L);
 	Set<String> windowss = driver.getWindowHandles();
 	for (String windo : windowss) {
 		driver.switchTo().window(windo);
