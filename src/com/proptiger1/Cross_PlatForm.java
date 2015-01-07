@@ -18,7 +18,7 @@ public class Cross_PlatForm {
 	static String betahttp="http://beta.proptiger-ws.com";
 	static String local= "http://192.168.0.216:5000";
 	static String betassl="https://beta.proptiger-ws.com";
-	static String BaseUrl=betahttp;
+	static String BaseUrl=http;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
 		driver.manage().window().setSize(new Dimension(300,630));
 		//driver.manage().deleteAllCookies();		
