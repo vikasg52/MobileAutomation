@@ -13,8 +13,13 @@ import org.testng.Assert;
 public class Cross_PlatForm {
 	static TimeStamp t1= new TimeStamp();
 	static String name="";
-	static String BaseUrl="http://www.proptiger.com";
-	public static void AllPages(WebDriver driver, String name) throws InterruptedException {
+	static String http="http://www.proptiger.com";
+	static String ssl="https://www.proptiger.com";
+	static String betahttp="http://beta.proptiger-ws.com";
+	static String local= "http://192.168.0.216:5000";
+	static String betassl="https://beta.proptiger-ws.com";
+	static String BaseUrl=betahttp;
+    static void AllPages(WebDriver driver, String name) throws InterruptedException {
 		driver.manage().window().setSize(new Dimension(300,630));
 		//driver.manage().deleteAllCookies();		
 		driver.get(BaseUrl);

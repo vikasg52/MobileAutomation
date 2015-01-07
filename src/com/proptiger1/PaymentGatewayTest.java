@@ -1,6 +1,7 @@
 package com.proptiger1;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
@@ -13,8 +14,16 @@ import org.testng.Assert;
 
 public class PaymentGatewayTest {
 	static TimeStamp t1= new TimeStamp();
-	static String pgurl="www.citruspay.com";
-	static String BaseUrl="http://www.proptiger.com";
+	static String name="";
+	static String betapg="sandbox.citruspay.com";
+	static String pg="www.citruspay.com";
+	static String http="http://www.proptiger.com";
+	static String ssl="https://www.proptiger.com";
+	static String local= "http://192.168.0.216:5000";
+	static String betahttp="http://beta.proptiger-ws.com";
+	static String betassl="https://beta.proptiger-ws.com";
+	static String BaseUrl=betahttp;
+	static String pgurl=betapg;
 	public static void Pg_Test(WebDriver driver) throws InterruptedException
 	{   
 		driver.manage().window().setSize(new Dimension(300,650));
@@ -27,7 +36,9 @@ public class PaymentGatewayTest {
 	    driver.manage().addCookie(cookie);
 		Thread.sleep(5000L);
 	    }catch(NoSuchElementException e)
-	    {System.out.println("\n Global home page is not opening-either site is down or net is not working");}
+	    {
+	    	Assert.fail("\n Global home page is not opening-either site is down or net is not working");
+	    }
 		driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
 		Thread.sleep(13000L);
 		driver.findElement(By.xpath("//span[@class='see-all-wrap']")).click();
@@ -64,17 +75,17 @@ public class PaymentGatewayTest {
 		if( error==true)
 		{ 
 			String error1= driver.findElement(By.xpath("//div[@id='content']//div[@class='errorMessage']")).getText();
-			FailedTest=FailedTest+"\n*Payment Gateway page is down:Error Message:-\n"+error1;
+			Assert.fail("\n*Payment Gateway page is down:Error Message:-\n"+error1);
 		}
 		if(x==false)
 		{
-			FailedTest=FailedTest+"\n*PG URL is wrong: " +PGURL+"\n";	
+			Assert.fail("\n*PG URL is wrong: " +PGURL+"\n");	
 		}
 		List<WebElement> cancelButton = driver.findElements(By.xpath("//a[@id='btn-guestPaymentCancel-temp9']"));
 		if(cancelButton.size()==0 )
 		{
-			FailedTest=FailedTest+"\n*Payment gateway page is down\n";
-			driver.quit();
+			Assert.fail("\n*Payment gateway page is down\n");
+			//driver.quit();
 		}
 		else
 		{
@@ -89,23 +100,19 @@ public class PaymentGatewayTest {
 			boolean z=t1.isElementPresent(driver,  By.xpath("//a[@class='btn btn-d-yellow no-ajaxy']"));
 			if(y==false)
 			{
-				FailedTest=FailedTest+"\n*RedirectUrl is wrong frompayment status page: " +RedirectUrl;
-				driver.quit();
+				Assert.fail("\n*RedirectUrl is wrong frompayment status page: " +RedirectUrl);
+				
 			}
 			if(z==false)
 			{
-				FailedTest=FailedTest+"\n*Final Payment status page has not rendered";
-				driver.quit();
-			}
-			if(FailedTest=="")
-			{
-				System.out.println("Payment gateway is up and running");
+				Assert.fail("\n*Final Payment status page has not rendered");
+				//driver.quit();
 			}
 			else
 			{
-				Assert.fail("Payment gateway is down-Reason"+FailedTest);
+				System.out.println("Payment gateway is up and running");
 			}
-		 driver.quit();
+			 driver.quit();
 		}
 	}
 	
@@ -118,7 +125,7 @@ public class PaymentGatewayTest {
 		String selectedCity= driver.findElement(By.xpath("//select[@class='citydd offer-city']//option[@selected='selected']")).getText();
 		String s= driver.findElement(By.xpath("//span[@class='pro-count']")).getText();	
 		String OfferUrl= driver.getCurrentUrl();
-		if(!OfferUrl.equalsIgnoreCase("http://www.proptiger.com/mega-property-sale"))
+		if(!OfferUrl.equalsIgnoreCase(BaseUrl+"/mega-property-sale"))
 		{
 			Assert.fail("Offer landing page is not opening");
 		}
@@ -149,7 +156,7 @@ public class PaymentGatewayTest {
 		String selectedCity1= driver.findElement(By.xpath("//select[@class='citydd offer-city']//option[@selected='selected']")).getText();
 		boolean projectCountPune=t1.isElementPresent(driver, By.xpath("//span[@class='pro-count']"));
 		String s2= driver.findElement(By.xpath("//span[@class='pro-count']")).getText();
-		if(!ChangeUrl.equalsIgnoreCase("http://www.proptiger.com/mega-property-sale/filters?cityLabel=pune") && !selectedCity1.equalsIgnoreCase("Pune"))
+		if(!ChangeUrl.equalsIgnoreCase(BaseUrl+"/mega-property-sale/filters?cityLabel=pune") && !selectedCity1.equalsIgnoreCase("Pune"))
 		{
 			Assert.fail("Offer city change is not changing the URL correctly or selected city in dropdown in incorrect");
 		}
@@ -173,7 +180,7 @@ public class PaymentGatewayTest {
 		Select select2 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
 		
 		String selectedCity2= select2.getFirstSelectedOption().getText();
-		if(!ChangeUrlIndia.equalsIgnoreCase("http://www.proptiger.com/mega-property-sale/filters?cityLabel=india") && !selectedCity2.equalsIgnoreCase("All India"))
+		if(!ChangeUrlIndia.equalsIgnoreCase(BaseUrl+"/mega-property-sale/filters?cityLabel=india") && !selectedCity2.equalsIgnoreCase("All India"))
 		{
 			Assert.fail("Offer city change is not changing the URL correctly or selected city in dropdown in incorrect");
 		}
