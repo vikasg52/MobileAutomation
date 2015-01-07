@@ -251,7 +251,7 @@ public class DesktopResponsive_Test {
 		String URL= BaseUrl+"/google_page_13.php?projectId=648393";
 		driver.get(URL);
 		GP(driver, userName,name);
-	    System.out.println("7.Lead submitted successfully from GP13 using"+name);
+	    System.out.println("8. Lead submitted successfully from GP13 using"+name);
 	}
 	//GP14
 	public static void gp14 (WebDriver driver,String name) throws InterruptedException
@@ -261,7 +261,7 @@ public class DesktopResponsive_Test {
 		String userName="GP14LeadTest";
 		driver.get(URL);
 	    GP(driver,userName,name);
-	    System.out.println("8.Lead submitted successfully from GP14 using"+name);
+	    System.out.println("9. Lead submitted successfully from GP14 using"+name);
 	}
 	//GP15
 	public static void gp15 (WebDriver driver, String name) throws InterruptedException
@@ -271,7 +271,7 @@ public class DesktopResponsive_Test {
 		String userName="GP15LeadTest";
 		driver.get(URL);
 		GP(driver,userName, name);
-	    System.out.println("9.Lead submitted successfully from GP15 using"+name);
+	    System.out.println("10. Lead submitted successfully from GP15 using"+name);
 	   	}
 	}
 	
