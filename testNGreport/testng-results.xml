@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="6" passed="6">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="200871" started-at="2014-12-31T21:32:50Z" finished-at="2014-12-31T21:36:11Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="200871" started-at="2014-12-31T21:32:50Z" finished-at="2014-12-31T21:36:11Z">
+      <class name="com.proptiger1.DesktopTestBed">
+        <test-method status="PASS" signature="ResponsicePage_FireFox_Linux()[pri:0, instance:com.proptiger1.DesktopTestBed@7729617b]" name="ResponsicePage_FireFox_Linux" duration-ms="36434" started-at="2015-01-01T03:02:50Z" finished-at="2015-01-01T03:03:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsicePage_FireFox_Linux -->
+        <test-method status="PASS" signature="ResponsicePage_Chrome_Linux()[pri:0, instance:com.proptiger1.DesktopTestBed@7729617b]" name="ResponsicePage_Chrome_Linux" duration-ms="36087" started-at="2015-01-01T03:03:27Z" finished-at="2015-01-01T03:04:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsicePage_Chrome_Linux -->
+        <test-method status="PASS" signature="ResponsicePage_FireFox_Windows()[pri:0, instance:com.proptiger1.DesktopTestBed@7729617b]" name="ResponsicePage_FireFox_Windows" duration-ms="31942" started-at="2015-01-01T03:04:03Z" finished-at="2015-01-01T03:04:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsicePage_FireFox_Windows -->
+        <test-method status="PASS" signature="ResponsicePage_Chrome_Windows()[pri:0, instance:com.proptiger1.DesktopTestBed@7729617b]" name="ResponsicePage_Chrome_Windows" duration-ms="31253" started-at="2015-01-01T03:04:35Z" finished-at="2015-01-01T03:05:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsicePage_Chrome_Windows -->
+        <test-method status="PASS" signature="ResponsicePage_Chrome_Mac()[pri:0, instance:com.proptiger1.DesktopTestBed@7729617b]" name="ResponsicePage_Chrome_Mac" duration-ms="32030" started-at="2015-01-01T03:05:06Z" finished-at="2015-01-01T03:05:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsicePage_Chrome_Mac -->
+        <test-method status="PASS" signature="ResponsicePage_Safari_Mac()[pri:0, instance:com.proptiger1.DesktopTestBed@7729617b]" name="ResponsicePage_Safari_Mac" duration-ms="33098" started-at="2015-01-01T03:05:38Z" finished-at="2015-01-01T03:06:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsicePage_Safari_Mac -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.proptiger1.DesktopTestBed@7729617b]" name="teardown" is-config="true" duration-ms="2" started-at="2015-01-01T03:06:11Z" finished-at="2015-01-01T03:06:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.proptiger1.DesktopTestBed -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
