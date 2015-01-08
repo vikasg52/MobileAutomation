@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Mobile Website PlatForm Compatibility Test]">
-  <test name="All Pages Accessibility Testing(failed)">
+  <test name="Checkout Testing: Payment Gateway Test(failed)">
     <classes>
-      <class name="com.proptiger1.CheckAllPages">
+      <class name="com.proptiger1.DesktopTestBed">
         <methods>
           <include name="teardown"/>
-          <include name="Safari_iOS7__AllPageTest"/>
         </methods>
-      </class> <!-- com.proptiger1.CheckAllPages -->
+      </class> <!-- com.proptiger1.DesktopTestBed -->
+      <class name="com.proptiger1.MobileTestBed">
+        <methods>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- com.proptiger1.MobileTestBed -->
       <class name="com.proptiger1.CheckoutProcess_TestMatrix">
         <methods>
           <include name="teardown"/>
+          <include name="CheckoutSafari_iOS8"/>
         </methods>
       </class> <!-- com.proptiger1.CheckoutProcess_TestMatrix -->
     </classes>
-  </test> <!-- All Pages Accessibility Testing(failed) -->
+  </test> <!-- Checkout Testing: Payment Gateway Test(failed) -->
 </suite> <!-- Failed suite [Mobile Website PlatForm Compatibility Test] -->

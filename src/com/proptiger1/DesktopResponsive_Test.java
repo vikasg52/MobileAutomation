@@ -60,7 +60,7 @@ public class DesktopResponsive_Test {
 	// Verify Amenity pages
 	public static void CheckAmenityPages(WebDriver driver, String name) throws InterruptedException
 	{
-		driver.get(BaseUrl+"/bangalore/whitefield-50161/atms");
+		driver.get(BaseUrl+"/bangalore/hop-farm-junction-50161/atms");
 		Thread.sleep(5000L);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
@@ -78,9 +78,9 @@ public class DesktopResponsive_Test {
 		String defaultActiceAmenity=driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-default active']")).getText();
 		driver.findElement(By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-bank']")).click();
 		String ChangebankButton=driver.getCurrentUrl();
-		if(!LocalityName.equalsIgnoreCase("ATMs in Whitefield"))
+		if(!LocalityName.equalsIgnoreCase("ATMs in Hop Farm Junction"))
 		{
-			Assert.fail("Amenity page is not opening for whitefield-ATMS  "+name);
+			Assert.fail("Amenity page is not opening for hop-farm-junction-ATMS  "+name);
 			driver.close();
 		}
 		if(!defaultActiceAmenity.equalsIgnoreCase("Atms"))
@@ -126,7 +126,7 @@ public class DesktopResponsive_Test {
 			Assert.fail("Selected city in city dropdown is wrong  "+name);	
 			driver.close();
 		}
-		if (!ChangebankButton.equalsIgnoreCase(BaseUrl+"/bangalore/whitefield-50161/banks"))
+		if (!ChangebankButton.equalsIgnoreCase(BaseUrl+"/bangalore/hop-farm-junction-50161/banks"))
 		{
 			Assert.fail("Clicking on bank button is not opening bank amenity page   "+name);
 		}
@@ -174,7 +174,7 @@ public class DesktopResponsive_Test {
 	{       TimeStamp time= new TimeStamp();
 			driver.manage().deleteAllCookies();
 			driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);;
-			driver.get("http://www.proptiger.com/delhi/zone-p-ii-51905/atms");
+			driver.get(BaseUrl+"/delhi/zone-p-ii-51905/atms");
 			Cookie cookie = new Cookie("TESTING_USER", "1");
 		    driver.manage().addCookie(cookie);
 			Thread.sleep(4000L);

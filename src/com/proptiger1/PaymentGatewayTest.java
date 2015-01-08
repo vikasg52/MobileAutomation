@@ -125,6 +125,7 @@ public class PaymentGatewayTest {
 		String selectedCity= driver.findElement(By.xpath("//select[@class='citydd offer-city']//option[@selected='selected']")).getText();
 		String s= driver.findElement(By.xpath("//span[@class='pro-count']")).getText();	
 		String OfferUrl= driver.getCurrentUrl();
+		Thread.sleep(5000L);
 		if(!OfferUrl.equalsIgnoreCase(BaseUrl+"/mega-property-sale"))
 		{
 			Assert.fail("Offer landing page is not opening");

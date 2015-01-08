@@ -1,63 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="18" passed="17">
+<testng-results skipped="0" failed="1" total="24" passed="23">
   <reporter-output>
   </reporter-output>
-  <suite name="Mobile Website PlatForm Compatibility Test" duration-ms="2166417" started-at="2014-12-26T21:00:16Z" finished-at="2014-12-26T21:36:23Z">
+  <suite name="Mobile Website PlatForm Compatibility Test" duration-ms="4656527" started-at="2015-01-08T08:24:57Z" finished-at="2015-01-08T09:42:34Z">
     <groups>
     </groups>
-    <test name="All Pages Accessibility Testing" duration-ms="1395179" started-at="2014-12-26T21:00:16Z" finished-at="2014-12-26T21:23:32Z">
-      <class name="com.proptiger1.CheckAllPages">
-        <test-method status="PASS" signature="Chrome_AndroidMobile__AllPageTest()[pri:0, instance:com.proptiger1.CheckAllPages@78657ce]" name="Chrome_AndroidMobile__AllPageTest" duration-ms="172526" started-at="2014-12-27T02:30:16Z" finished-at="2014-12-27T02:33:09Z">
+    <test name="Responsive Page Testing:Desktop browsers" duration-ms="567442" started-at="2015-01-08T08:24:57Z" finished-at="2015-01-08T08:34:25Z">
+      <class name="com.proptiger1.DesktopTestBed">
+        <test-method status="PASS" signature="ResponsicePage_FireFox_Linux()[pri:0, instance:com.proptiger1.DesktopTestBed@67177a6]" name="ResponsicePage_FireFox_Linux" duration-ms="97940" started-at="2015-01-08T13:54:57Z" finished-at="2015-01-08T13:56:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsicePage_FireFox_Linux -->
+        <test-method status="PASS" signature="ResponsicePage_Chrome_Linux()[pri:0, instance:com.proptiger1.DesktopTestBed@67177a6]" name="ResponsicePage_Chrome_Linux" duration-ms="105680" started-at="2015-01-08T13:56:35Z" finished-at="2015-01-08T13:58:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsicePage_Chrome_Linux -->
+        <test-method status="PASS" signature="ResponsicePage_FireFox_Windows()[pri:0, instance:com.proptiger1.DesktopTestBed@67177a6]" name="ResponsicePage_FireFox_Windows" duration-ms="90742" started-at="2015-01-08T13:58:21Z" finished-at="2015-01-08T13:59:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsicePage_FireFox_Windows -->
+        <test-method status="PASS" signature="ResponsicePage_Chrome_Windows()[pri:0, instance:com.proptiger1.DesktopTestBed@67177a6]" name="ResponsicePage_Chrome_Windows" duration-ms="84296" started-at="2015-01-08T13:59:52Z" finished-at="2015-01-08T14:01:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsicePage_Chrome_Windows -->
+        <test-method status="PASS" signature="ResponsicePage_Chrome_Mac()[pri:0, instance:com.proptiger1.DesktopTestBed@67177a6]" name="ResponsicePage_Chrome_Mac" duration-ms="91739" started-at="2015-01-08T14:01:16Z" finished-at="2015-01-08T14:02:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsicePage_Chrome_Mac -->
+        <test-method status="PASS" signature="ResponsicePage_Safari_Mac()[pri:0, instance:com.proptiger1.DesktopTestBed@67177a6]" name="ResponsicePage_Safari_Mac" duration-ms="97026" started-at="2015-01-08T14:02:48Z" finished-at="2015-01-08T14:04:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsicePage_Safari_Mac -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.proptiger1.DesktopTestBed@67177a6]" name="teardown" is-config="true" duration-ms="1" started-at="2015-01-08T14:04:25Z" finished-at="2015-01-08T14:04:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.proptiger1.DesktopTestBed -->
+    </test> <!-- Responsive Page Testing:Desktop browsers -->
+    <test name="All Pages Accessibility Testing" duration-ms="2402191" started-at="2015-01-08T08:34:25Z" finished-at="2015-01-08T09:14:27Z">
+      <class name="com.proptiger1.MobileTestBed">
+        <test-method status="PASS" signature="Chrome_AndroidMobile__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@31651361]" name="Chrome_AndroidMobile__AllPageTest" duration-ms="286227" started-at="2015-01-08T14:04:25Z" finished-at="2015-01-08T14:09:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Chrome_AndroidMobile__AllPageTest -->
-        <test-method status="PASS" signature="OperaMini_iPhone__AllPageTest()[pri:0, instance:com.proptiger1.CheckAllPages@78657ce]" name="OperaMini_iPhone__AllPageTest" duration-ms="170780" started-at="2014-12-27T02:33:09Z" finished-at="2014-12-27T02:36:00Z">
+        <test-method status="PASS" signature="OperaMini_iPhone__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@31651361]" name="OperaMini_iPhone__AllPageTest" duration-ms="245269" started-at="2015-01-08T14:09:11Z" finished-at="2015-01-08T14:13:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OperaMini_iPhone__AllPageTest -->
-        <test-method status="PASS" signature="IE_Nokia_Lumia920__AllPageTest()[pri:0, instance:com.proptiger1.CheckAllPages@78657ce]" name="IE_Nokia_Lumia920__AllPageTest" duration-ms="159195" started-at="2014-12-27T02:36:00Z" finished-at="2014-12-27T02:38:39Z">
+        <test-method status="PASS" signature="IE_Nokia_Lumia920__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@31651361]" name="IE_Nokia_Lumia920__AllPageTest" duration-ms="256925" started-at="2015-01-08T14:13:16Z" finished-at="2015-01-08T14:17:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- IE_Nokia_Lumia920__AllPageTest -->
-        <test-method status="PASS" signature="OperaMini_Android__AllPageTest()[pri:0, instance:com.proptiger1.CheckAllPages@78657ce]" name="OperaMini_Android__AllPageTest" duration-ms="176723" started-at="2014-12-27T02:38:39Z" finished-at="2014-12-27T02:41:36Z">
+        <test-method status="PASS" signature="OperaMini_Android__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@31651361]" name="OperaMini_Android__AllPageTest" duration-ms="261932" started-at="2015-01-08T14:17:33Z" finished-at="2015-01-08T14:21:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OperaMini_Android__AllPageTest -->
-        <test-method status="FAIL" signature="Safari_iOS7__AllPageTest()[pri:0, instance:com.proptiger1.CheckAllPages@78657ce]" name="Safari_iOS7__AllPageTest" duration-ms="22464" started-at="2014-12-27T02:41:36Z" finished-at="2014-12-27T02:41:58Z">
-          <exception class="org.openqa.selenium.NoSuchElementException">
+        <test-method status="PASS" signature="Safari_iOS7__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@31651361]" name="Safari_iOS7__AllPageTest" duration-ms="249568" started-at="2015-01-08T14:21:55Z" finished-at="2015-01-08T14:26:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Safari_iOS7__AllPageTest -->
+        <test-method status="PASS" signature="Safari_iOS8__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@31651361]" name="Safari_iOS8__AllPageTest" duration-ms="288215" started-at="2015-01-08T14:26:05Z" finished-at="2015-01-08T14:30:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Safari_iOS8__AllPageTest -->
+        <test-method status="PASS" signature="FireFox_Android_AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@31651361]" name="FireFox_Android_AllPageTest" duration-ms="326125" started-at="2015-01-08T14:30:53Z" finished-at="2015-01-08T14:36:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- FireFox_Android_AllPageTest -->
+        <test-method status="PASS" signature="Chrome_AndroidTablet_AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@31651361]" name="Chrome_AndroidTablet_AllPageTest" duration-ms="248879" started-at="2015-01-08T14:36:19Z" finished-at="2015-01-08T14:40:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Chrome_AndroidTablet_AllPageTest -->
+        <test-method status="PASS" signature="Chrome_iPhone_AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@31651361]" name="Chrome_iPhone_AllPageTest" duration-ms="239043" started-at="2015-01-08T14:40:28Z" finished-at="2015-01-08T14:44:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Chrome_iPhone_AllPageTest -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.proptiger1.MobileTestBed@31651361]" name="teardown" is-config="true" duration-ms="1" started-at="2015-01-08T14:44:27Z" finished-at="2015-01-08T14:44:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.proptiger1.MobileTestBed -->
+    </test> <!-- All Pages Accessibility Testing -->
+    <test name="Checkout Testing: Payment Gateway Test" duration-ms="1686843" started-at="2015-01-08T09:14:27Z" finished-at="2015-01-08T09:42:34Z">
+      <class name="com.proptiger1.CheckoutProcess_TestMatrix">
+        <test-method status="PASS" signature="CheckoutChrome_iPhone()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@674009d2]" name="CheckoutChrome_iPhone" duration-ms="179633" started-at="2015-01-08T14:44:27Z" finished-at="2015-01-08T14:47:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CheckoutChrome_iPhone -->
+        <test-method status="PASS" signature="CheckoutChrome_AndroidTablet()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@674009d2]" name="CheckoutChrome_AndroidTablet" duration-ms="178986" started-at="2015-01-08T14:47:27Z" finished-at="2015-01-08T14:50:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CheckoutChrome_AndroidTablet -->
+        <test-method status="PASS" signature="CheckoutChrome_AndroidMobile()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@674009d2]" name="CheckoutChrome_AndroidMobile" duration-ms="246747" started-at="2015-01-08T14:50:26Z" finished-at="2015-01-08T14:54:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CheckoutChrome_AndroidMobile -->
+        <test-method status="PASS" signature="CheckoutFireFox_Android()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@674009d2]" name="CheckoutFireFox_Android" duration-ms="203331" started-at="2015-01-08T14:54:32Z" finished-at="2015-01-08T14:57:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CheckoutFireFox_Android -->
+        <test-method status="FAIL" signature="CheckoutSafari_iOS8()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@674009d2]" name="CheckoutSafari_iOS8" duration-ms="133359" started-at="2015-01-08T14:57:56Z" finished-at="2015-01-08T15:00:09Z">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Unable to locate element: {"method":"xpath","selector":"//div[@class='interstial-container']//div[@class='closeoption']"}
-Command duration or timeout: 18 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
-System info: host: 'vikas-Vostro-2420', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '3.8.0-29-generic', java.version: '1.7.0_51'
-Session ID: 57282415-f48c-45ac-b520-c353e28fb555
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=33.0}]]]>
+              <![CDATA[Offer city drop down is not available on offer landing page]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"xpath","selector":"//div[@class='interstial-container']//div[@class='closeoption']"}
-Command duration or timeout: 18 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
-System info: host: 'vikas-Vostro-2420', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '3.8.0-29-generic', java.version: '1.7.0_51'
-Session ID: 57282415-f48c-45ac-b520-c353e28fb555
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=33.0}]
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
-	at com.proptiger1.Cross_PlatForm.interstitial(Cross_PlatForm.java:257)
-	at com.proptiger1.Cross_PlatForm.AllPages(Cross_PlatForm.java:20)
-	at com.proptiger1.CheckAllPages.Safari_iOS7__AllPageTest(CheckAllPages.java:98)
+              <![CDATA[java.lang.AssertionError: Offer city drop down is not available on offer landing page
+	at org.testng.Assert.fail(Assert.java:94)
+	at com.proptiger1.PaymentGatewayTest.ValidateOfferLanding(PaymentGatewayTest.java:134)
+	at com.proptiger1.PaymentGatewayTest.Pg_Test(PaymentGatewayTest.java:47)
+	at com.proptiger1.CheckoutProcess_TestMatrix.CheckoutSafari_iOS8(CheckoutProcess_TestMatrix.java:68)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -81,83 +133,29 @@ Capabilities [{platform=LINUX, acceptSslCerts=true, javascriptEnabled=true, cssS
 	at org.testng.TestNG.run(TestNG.java:1057)
 	at org.testng.TestNG.privateMain(TestNG.java:1364)
 	at org.testng.TestNG.main(TestNG.java:1333)
-Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"xpath","selector":"//div[@class='interstial-container']//div[@class='closeoption']"}
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.44.0', revision: '76d78cf', time: '2014-10-23 20:03:00'
-System info: host: 'vikas-Vostro-2420', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '3.8.0-29-generic', java.version: '1.7.0_51'
-Driver info: driver.version: unknown
-	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///tmp/anonymous5101566273322842481webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9641:26)
-	at <anonymous class>.FirefoxDriver.prototype.findElement(file:///tmp/anonymous5101566273322842481webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9650:3)
-	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///tmp/anonymous5101566273322842481webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:11635:16)
-	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///tmp/anonymous5101566273322842481webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:11640:7)
-	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///tmp/anonymous5101566273322842481webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:11582:5)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Safari_iOS7__AllPageTest -->
-        <test-method status="PASS" signature="Safari_iOS8__AllPageTest()[pri:0, instance:com.proptiger1.CheckAllPages@78657ce]" name="Safari_iOS8__AllPageTest" duration-ms="173653" started-at="2014-12-27T02:41:58Z" finished-at="2014-12-27T02:44:52Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Safari_iOS8__AllPageTest -->
-        <test-method status="PASS" signature="FireFox_Android_AllPageTest()[pri:0, instance:com.proptiger1.CheckAllPages@78657ce]" name="FireFox_Android_AllPageTest" duration-ms="174030" started-at="2014-12-27T02:44:52Z" finished-at="2014-12-27T02:47:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- FireFox_Android_AllPageTest -->
-        <test-method status="PASS" signature="Chrome_AndroidTablet_AllPageTest()[pri:0, instance:com.proptiger1.CheckAllPages@78657ce]" name="Chrome_AndroidTablet_AllPageTest" duration-ms="174060" started-at="2014-12-27T02:47:46Z" finished-at="2014-12-27T02:50:40Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Chrome_AndroidTablet_AllPageTest -->
-        <test-method status="PASS" signature="Chrome_iPhone_AllPageTest()[pri:0, instance:com.proptiger1.CheckAllPages@78657ce]" name="Chrome_iPhone_AllPageTest" duration-ms="171723" started-at="2014-12-27T02:50:40Z" finished-at="2014-12-27T02:53:32Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Chrome_iPhone_AllPageTest -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.proptiger1.CheckAllPages@78657ce]" name="teardown" is-config="true" duration-ms="1" started-at="2014-12-27T02:53:32Z" finished-at="2014-12-27T02:53:32Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- com.proptiger1.CheckAllPages -->
-    </test> <!-- All Pages Accessibility Testing -->
-    <test name="Checkout Testing: Payment Gateway Test" duration-ms="771157" started-at="2014-12-26T21:23:32Z" finished-at="2014-12-26T21:36:23Z">
-      <class name="com.proptiger1.CheckoutProcess_TestMatrix">
-        <test-method status="PASS" signature="CheckoutChrome_iPhone()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@3c1145a4]" name="CheckoutChrome_iPhone" duration-ms="84846" started-at="2014-12-27T02:53:32Z" finished-at="2014-12-27T02:54:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CheckoutChrome_iPhone -->
-        <test-method status="PASS" signature="CheckoutChrome_AndroidTablet()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@3c1145a4]" name="CheckoutChrome_AndroidTablet" duration-ms="91314" started-at="2014-12-27T02:54:56Z" finished-at="2014-12-27T02:56:28Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CheckoutChrome_AndroidTablet -->
-        <test-method status="PASS" signature="CheckoutChrome_AndroidMobile()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@3c1145a4]" name="CheckoutChrome_AndroidMobile" duration-ms="82866" started-at="2014-12-27T02:56:28Z" finished-at="2014-12-27T02:57:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CheckoutChrome_AndroidMobile -->
-        <test-method status="PASS" signature="CheckoutFireFox_Android()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@3c1145a4]" name="CheckoutFireFox_Android" duration-ms="85590" started-at="2014-12-27T02:57:51Z" finished-at="2014-12-27T02:59:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CheckoutFireFox_Android -->
-        <test-method status="PASS" signature="CheckoutSafari_iOS8()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@3c1145a4]" name="CheckoutSafari_iOS8" duration-ms="84728" started-at="2014-12-27T02:59:16Z" finished-at="2014-12-27T03:00:41Z">
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CheckoutSafari_iOS8 -->
-        <test-method status="PASS" signature="CheckoutSafari_iOS7()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@3c1145a4]" name="CheckoutSafari_iOS7" duration-ms="87002" started-at="2014-12-27T03:00:41Z" finished-at="2014-12-27T03:02:08Z">
+        <test-method status="PASS" signature="CheckoutSafari_iOS7()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@674009d2]" name="CheckoutSafari_iOS7" duration-ms="179519" started-at="2015-01-08T15:00:09Z" finished-at="2015-01-08T15:03:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CheckoutSafari_iOS7 -->
-        <test-method status="PASS" signature="CheckoutIE_Nokia_Lumia920()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@3c1145a4]" name="CheckoutIE_Nokia_Lumia920" duration-ms="84990" started-at="2014-12-27T03:02:08Z" finished-at="2014-12-27T03:03:33Z">
+        <test-method status="PASS" signature="CheckoutIE_Nokia_Lumia920()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@674009d2]" name="CheckoutIE_Nokia_Lumia920" duration-ms="184272" started-at="2015-01-08T15:03:09Z" finished-at="2015-01-08T15:06:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CheckoutIE_Nokia_Lumia920 -->
-        <test-method status="PASS" signature="OperaMini_iPhone__AllPageTest()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@3c1145a4]" name="OperaMini_iPhone__AllPageTest" duration-ms="84897" started-at="2014-12-27T03:03:33Z" finished-at="2014-12-27T03:04:58Z">
+        <test-method status="PASS" signature="OperaMini_iPhone__AllPageTest()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@674009d2]" name="OperaMini_iPhone__AllPageTest" duration-ms="186781" started-at="2015-01-08T15:06:13Z" finished-at="2015-01-08T15:09:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OperaMini_iPhone__AllPageTest -->
-        <test-method status="PASS" signature="OperaMini_Android__AllPageTest()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@3c1145a4]" name="OperaMini_Android__AllPageTest" duration-ms="84917" started-at="2014-12-27T03:04:58Z" finished-at="2014-12-27T03:06:23Z">
+        <test-method status="PASS" signature="OperaMini_Android__AllPageTest()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@674009d2]" name="OperaMini_Android__AllPageTest" duration-ms="194209" started-at="2015-01-08T15:09:20Z" finished-at="2015-01-08T15:12:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OperaMini_Android__AllPageTest -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@3c1145a4]" name="teardown" is-config="true" duration-ms="1" started-at="2014-12-27T03:06:23Z" finished-at="2014-12-27T03:06:23Z">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.proptiger1.CheckoutProcess_TestMatrix@674009d2]" name="teardown" is-config="true" duration-ms="0" started-at="2015-01-08T15:12:34Z" finished-at="2015-01-08T15:12:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
