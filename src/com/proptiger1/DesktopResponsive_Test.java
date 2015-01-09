@@ -80,7 +80,7 @@ public class DesktopResponsive_Test {
 		String defaultActiceAmenity=driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-default active']")).getText();
 		driver.findElement(By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-bank']")).click();
 		String ChangebankButton=driver.getCurrentUrl();
-		if(!LocalityName.equalsIgnoreCase("ATMs in Hop Farm Junction"))
+		if(!LocalityName.equalsIgnoreCase("ATMs in Hope Farm Junction"))
 		{
 			Assert.fail("Amenity page is not opening for hop-farm-junction-ATMS  "+name);
 			driver.close();
@@ -128,7 +128,7 @@ public class DesktopResponsive_Test {
 			Assert.fail("Selected city in city dropdown is wrong  "+name);	
 			driver.close();
 		}
-		if (!ChangebankButton.equalsIgnoreCase(BaseUrl+"/bangalore/hop-farm-junction-50161/banks"))
+		if (!ChangebankButton.equalsIgnoreCase(BaseUrl+"/bangalore/hope-farm-junction-50161/banks"))
 		{
 			Assert.fail("Clicking on bank button is not opening bank amenity page   "+name);
 		}
@@ -182,11 +182,11 @@ public class DesktopResponsive_Test {
 			Thread.sleep(4000L);
 			int ran;
 		    ran = 100 + (int)(Math.random() * ((10000 - 100) + 1));
-		    long mobile = (long) Math.floor(Math.random() * 9000000000L) + 1000000000L;
-		    String m= String.valueOf(mobile);
+		   /* long mobile = (long) Math.floor(Math.random() * 9000000000L) + 1000000000L;*/
+		   // String m= String.valueOf(mobile);
 		    driver.findElement(By.xpath("//div[@class='form-info']//input[@id='fullname']")).sendKeys("AmenityLeadTest");
 			driver.findElement(By.xpath("//div[@class='form-info']//input[@id='email']")).sendKeys("proptigerqa+"+ran+"@gmail.com");
-			driver.findElement(By.xpath("//div[@class='form-info']//input[@id='mobile']")).sendKeys(m);
+			driver.findElement(By.xpath("//div[@class='form-info']//input[@id='mobile']")).sendKeys("1900000000");
 			Select select = new Select(driver.findElement(By.xpath("//div[@class='formRow']//select[@class='form-control query-country']")));
 		    select.selectByVisibleText("India");
 			driver.findElement(By.xpath("//span[@class='btn btn-danger wd75percent']")).click();
@@ -225,8 +225,8 @@ public class DesktopResponsive_Test {
 	    }
 		int ran;
 	    ran = 100 + (int)(Math.random() * ((10000 - 100) + 1));
-	    long mobile = (long) Math.floor(Math.random() * 9000000000L) + 1000000000L;
-	    String m= String.valueOf(mobile);
+	   /* long mobile = (long) Math.floor(Math.random() * 9000000000L) + 1000000000L;
+	    String m= String.valueOf(mobile);*/
 	    
 	    Set<String> windows = driver.getWindowHandles();
 		for (String window : windows) {
@@ -243,7 +243,7 @@ public class DesktopResponsive_Test {
 		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='email']")).clear();
 		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='email']")).sendKeys("proptigerqa+"+ran+"@gmail.com");
 		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='mobile']")).clear();
-		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='mobile']")).sendKeys(m);
+		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='mobile']")).sendKeys("1900000000");
 		Select select = new Select(driver.findElement(By.xpath("//div[@class='formRow desktop-wd-1third']//select[@class='form-control query-country']")));
 	    select.selectByVisibleText("India");
 		driver.findElement(By.xpath("//span[@class='btn btn-danger wd75percent']")).click();
