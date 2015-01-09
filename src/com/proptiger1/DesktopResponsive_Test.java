@@ -202,6 +202,8 @@ public class DesktopResponsive_Test {
 	public static void GP(WebDriver driver,String userName, String name) throws InterruptedException
 	{     
 		TimeStamp t1= new TimeStamp();
+		Thread.sleep(3000L);
+		try{
 		boolean tooltip= t1.isElementPresent(driver,By.xpath("//div[@class='tooltip']"));
 		boolean guaraantee= t1.isElementPresent(driver, By.xpath("//i[@class='icon-guarantee']"));
 		boolean bigimage= t1.isElementPresent(driver,By.xpath("//section[@class='proj-info-bg projectImgSection']"));
@@ -223,7 +225,8 @@ public class DesktopResponsive_Test {
 	    String m= String.valueOf(mobile);
 	    Set<String> windows = driver.getWindowHandles();
 		for (String window : windows) {
-			driver.switchTo().window(window);	
+			driver.switchTo().window(window);
+			Thread.sleep(4000L);
 			driver.findElement(By.xpath("//div[@class='form-info']//input[@id='fullname']")).clear();
 		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='fullname']")).sendKeys(userName);
 		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='email']")).clear();
@@ -240,36 +243,42 @@ public class DesktopResponsive_Test {
 	Set<String> windowss = driver.getWindowHandles();
 	for (String windo : windowss) {
 		driver.switchTo().window(windo);
+		Thread.sleep(5000L);
 	driver.findElement(By.xpath("//div[@class='ta-center' and text()='Thank You']")).click();
 	}	
-	}}
+	}
+	}catch(Exception e)
+	{
+		System.out.println(e.fillInStackTrace());
+	}
+	}
 	// GP13
 	public static void gp13 (WebDriver driver,String name) throws InterruptedException
 	{       	
-		driver.manage().deleteAllCookies();
 		String userName="GP13LeadTest";
 		String URL= BaseUrl+"/google_page_13.php?projectId=648393";
 		driver.get(URL);
-		GP(driver, userName,name);
+		Thread.sleep(5000L);
+		GP(driver,userName,name);
 	    System.out.println("8. Lead submitted successfully from GP13 using"+name);
 	}
 	//GP14
 	public static void gp14 (WebDriver driver,String name) throws InterruptedException
 	{       
-		driver.manage().deleteAllCookies();
 		String URL= BaseUrl+"/google_page_14.php?projectId=648393";
 		String userName="GP14LeadTest";
 		driver.get(URL);
+		Thread.sleep(5000L);
 	    GP(driver,userName,name);
 	    System.out.println("9. Lead submitted successfully from GP14 using"+name);
 	}
 	//GP15
 	public static void gp15 (WebDriver driver, String name) throws InterruptedException
 		{       	
-		driver.manage().deleteAllCookies();
 		String URL= BaseUrl+"/google_page_15.php?projectId=648393";	
 		String userName="GP15LeadTest";
 		driver.get(URL);
+		Thread.sleep(5000L);
 		GP(driver,userName, name);
 	    System.out.println("10. Lead submitted successfully from GP15 using"+name);
 	   	}
