@@ -62,7 +62,7 @@ public class DesktopResponsive_Test {
 	// Verify Amenity pages
 	public static void CheckAmenityPages(WebDriver driver, String name) throws InterruptedException
 	{
-		driver.get(BaseUrl+"/bangalore/hop-farm-junction-50161/atms");
+		driver.get(BaseUrl+"/bangalore/hope-farm-junction-50161/atms");
 		Thread.sleep(5000L);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
