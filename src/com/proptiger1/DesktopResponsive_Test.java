@@ -203,7 +203,6 @@ public class DesktopResponsive_Test {
 	{     
 		TimeStamp t1= new TimeStamp();
 		Thread.sleep(3000L);
-		try{
 		boolean tooltip= t1.isElementPresent(driver,By.xpath("//div[@class='tooltip']"));
 		boolean guaraantee= t1.isElementPresent(driver, By.xpath("//i[@class='icon-guarantee']"));
 		boolean bigimage= t1.isElementPresent(driver,By.xpath("//section[@class='proj-info-bg projectImgSection']"));
@@ -223,10 +222,16 @@ public class DesktopResponsive_Test {
 	    ran = 100 + (int)(Math.random() * ((10000 - 100) + 1));
 	    long mobile = (long) Math.floor(Math.random() * 9000000000L) + 1000000000L;
 	    String m= String.valueOf(mobile);
+	    try{
 	    Set<String> windows = driver.getWindowHandles();
 		for (String window : windows) {
 			driver.switchTo().window(window);
 			Thread.sleep(4000L);
+			boolean namme= t1.isElementPresent(driver, By.xpath("//div[@class='form-info']//input[@id='fullname']"));
+		if(namme==false)
+		{
+			System.out.println("lead form is not identified");
+		}
 			driver.findElement(By.xpath("//div[@class='form-info']//input[@id='fullname']")).clear();
 		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='fullname']")).sendKeys(userName);
 		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='email']")).clear();
