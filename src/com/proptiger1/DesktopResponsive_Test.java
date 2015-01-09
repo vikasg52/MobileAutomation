@@ -4,7 +4,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -183,7 +185,7 @@ public class DesktopResponsive_Test {
 		    long mobile = (long) Math.floor(Math.random() * 9000000000L) + 1000000000L;
 		    String m= String.valueOf(mobile);
 		    driver.findElement(By.xpath("//div[@class='form-info']//input[@id='fullname']")).sendKeys("AmenityLeadTest");
-			driver.findElement(By.xpath("//div[@class='form-info']//input[@id='email']")).sendKeys("proptigerqa"+ran+"@gmail.com");
+			driver.findElement(By.xpath("//div[@class='form-info']//input[@id='email']")).sendKeys("proptigerqa+"+ran+"@gmail.com");
 			driver.findElement(By.xpath("//div[@class='form-info']//input[@id='mobile']")).sendKeys(m);
 			Select select = new Select(driver.findElement(By.xpath("//div[@class='formRow']//select[@class='form-control query-country']")));
 		    select.selectByVisibleText("India");
@@ -192,7 +194,10 @@ public class DesktopResponsive_Test {
 			Set<String> windows = driver.getWindowHandles();
 			for (String window : windows) {
 				driver.switchTo().window(window);
-			driver.findElement(By.xpath("//div[@class='title ta-center']")).click();
+			WebElement element= driver.findElement(By.xpath("//div[@class='title ta-center']"));
+			JavascriptExecutor js = (JavascriptExecutor)driver;
+			js.executeScript("arguments[0].click();", element);
+			//driver.findElement(By.xpath("//div[@class='title ta-center']")).click();
 			System.out.println("7. Lead submitted successfully from amenity page in desktop website");
 			//driver.quit();
 		}
@@ -202,7 +207,7 @@ public class DesktopResponsive_Test {
 	public static void GP(WebDriver driver,String userName, String name) throws InterruptedException
 	{     
 		TimeStamp t1= new TimeStamp();
-		Thread.sleep(3000L);
+		Thread.sleep(7000L);
 		boolean tooltip= t1.isElementPresent(driver,By.xpath("//div[@class='tooltip']"));
 		boolean guaraantee= t1.isElementPresent(driver, By.xpath("//i[@class='icon-guarantee']"));
 		boolean bigimage= t1.isElementPresent(driver,By.xpath("//section[@class='proj-info-bg projectImgSection']"));
@@ -222,20 +227,21 @@ public class DesktopResponsive_Test {
 	    ran = 100 + (int)(Math.random() * ((10000 - 100) + 1));
 	    long mobile = (long) Math.floor(Math.random() * 9000000000L) + 1000000000L;
 	    String m= String.valueOf(mobile);
-	    try{
+	    
 	    Set<String> windows = driver.getWindowHandles();
 		for (String window : windows) {
 			driver.switchTo().window(window);
-			Thread.sleep(4000L);
+			Thread.sleep(6000L);
 			boolean namme= t1.isElementPresent(driver, By.xpath("//div[@class='form-info']//input[@id='fullname']"));
 		if(namme==false)
 		{
 			System.out.println("lead form is not identified");
 		}
-			driver.findElement(By.xpath("//div[@class='form-info']//input[@id='fullname']")).clear();
+		try{
+		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='fullname']")).clear();
 		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='fullname']")).sendKeys(userName);
 		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='email']")).clear();
-		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='email']")).sendKeys("proptigerqa"+ran+"@gmail.com");
+		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='email']")).sendKeys("proptigerqa+"+ran+"@gmail.com");
 		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='mobile']")).clear();
 		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='mobile']")).sendKeys(m);
 		Select select = new Select(driver.findElement(By.xpath("//div[@class='formRow desktop-wd-1third']//select[@class='form-control query-country']")));
@@ -245,19 +251,21 @@ public class DesktopResponsive_Test {
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
 		Thread.sleep(6000L);
-	Set<String> windowss = driver.getWindowHandles();
-	for (String windo : windowss) {
+	    Set<String> windowss = driver.getWindowHandles();
+	    for (String windo : windowss) {
 		driver.switchTo().window(windo);
 		Thread.sleep(5000L);
-	driver.findElement(By.xpath("//div[@class='ta-center' and text()='Thank You']")).click();
-	}	
+		WebElement element= driver.findElement(By.xpath("//div[@class='ta-center' and text()='Thank You']"));
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click();", element);
+	//driver.findElement(By.xpath("//div[@class='ta-center' and text()='Thank You']")).click();	
 	}
 	}catch(Exception e)
-	{
-		System.out.println(e.fillInStackTrace());
+	{System.out.println(e.getMessage());
 	}
 	}
-	// GP13
+}
+		// GP13
 	public static void gp13 (WebDriver driver,String name) throws InterruptedException
 	{       	
 		String userName="GP13LeadTest";
