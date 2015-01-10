@@ -92,7 +92,7 @@ public class CheckoutProcess_TestMatrix {
 		driver.quit();		
 	}
 	@Test(priority=7)
-	void OperaMini_iPhone__AllPageTest() throws InterruptedException 
+	void CheckoutOperaMini_iPhone() throws InterruptedException 
 	{
 		String name="OperaMini_iPhone";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -104,7 +104,7 @@ public class CheckoutProcess_TestMatrix {
 		driver.quit();		
 	}
 	@Test(priority=8)
-	void OperaMini_Android__AllPageTest() throws InterruptedException 
+	void CheckoutOperaMini_Android() throws InterruptedException 
 	{
 		String name="OperaMini_Android";
 		FirefoxProfile profile = new FirefoxProfile();

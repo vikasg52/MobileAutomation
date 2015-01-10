@@ -47,7 +47,7 @@ public class Cross_PlatForm {
 			{
 				driver.manage().timeouts().implicitlyWait(18, TimeUnit.SECONDS);
 				driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
-				Thread.sleep(17000L);
+				Thread.sleep(20000L);
 				String CityHomeUrl= driver.getCurrentUrl();
 				String ExpectedURL=BaseUrl+"/bangalore-real-estate-overview";
 				String CitySelected= driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='selected']")).getText();
