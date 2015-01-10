@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Mobile Website PlatForm Compatibility Test">
-   <test name="Responsive Page Testing:Desktop browsers">
+<suite name="Mobile: Cross PlatForm Automation Framework">
+<test name="PAYMENT GATEWAY TEST: 9 DEVICES-DIFFERENT BROWSERS">
     <classes>
-    <class name="com.proptiger1.DesktopTestBed">
+    <class name="com.proptiger1.CheckoutProcess_TestMatrix">
     </class>
-    <class name="com.proptiger1.DesktopResponsive_Test">
-      </class>
-      <class name="com.proptiger1.TimeStamp">
+    <class name="com.proptiger1.TimeStamp">
       </class>
     </classes>
   </test>
-    <test name="All Pages Accessibility Testing">
+    <test name="ALL PAGE ACCESSIBILITY TEST: 9 DEVICES-DIFFERENT BROWSERS">
     <classes>
       <class name="com.proptiger1.MobileTestBed">     
       </class>
@@ -24,12 +22,13 @@
       </class>
     </classes>
   </test>
-  
-    <test name="Checkout Testing: Payment Gateway Test">
+  <test name="DESKTOP RESPONSIVE PAGE TEST: 3 PLATFORMS x 2 BROWSERS  EACH">
     <classes>
-    <class name="com.proptiger1.CheckoutProcess_TestMatrix">
-    </class>
-    <class name="com.proptiger1.TimeStamp">
+      <class name="com.proptiger1.DesktopTestBed">     
+      </class>
+      <class name="com.proptiger1.DesktopResponsive_Test">
+      </class>
+      <class name="com.proptiger1.TimeStamp">
       </class>
     </classes>
   </test>
