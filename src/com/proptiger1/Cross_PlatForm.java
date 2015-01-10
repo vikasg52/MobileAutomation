@@ -16,19 +16,20 @@ public class Cross_PlatForm {
 	static String http="http://www.proptiger.com";
 	static String ssl="https://www.proptiger.com";
 	static String betahttp="http://beta.proptiger-ws.com";
+	static String mobbeta="http://mob-beta.proptiger-ws.com";
 	static String local= "http://192.168.0.216:5000";
 	static String betassl="https://beta.proptiger-ws.com";
 	static String BaseUrl=http;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
 		driver.manage().window().setSize(new Dimension(300,630));
-		//driver.manage().deleteAllCookies();		
+		driver.manage().deleteAllCookies();		
 		driver.get(BaseUrl);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-		Thread.sleep(8000L);
-		Cross_PlatForm.interstitial(driver, name);
+		Thread.sleep(7000L);
 		boolean homepage= t1.isElementPresent(driver, By.xpath("//div[@class='home-top-textInfo']"));
 		boolean CityStrip= t1.isElementPresent(driver, By.xpath("//div[@class='city-name-info bangalore-info']"));
+		Cross_PlatForm.interstitial(driver, name);
 		if(homepage==false && CityStrip==false)
 		{
 			Assert.fail("\n Global home Page could not be opened in"+name);
@@ -44,14 +45,12 @@ public class Cross_PlatForm {
 			}
 			try
 			{
-				driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
-				driver.navigate().refresh();
-				Thread.sleep(4000L);
+				driver.manage().timeouts().implicitlyWait(18, TimeUnit.SECONDS);
 				driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
-				Thread.sleep(15000L);
+				Thread.sleep(17000L);
 				String CityHomeUrl= driver.getCurrentUrl();
 				String ExpectedURL=BaseUrl+"/bangalore-real-estate-overview";
-				String CitySelected= driver.findElement(By.xpath("//div[@class='city-select-wrap pull-left']//option[@selected='selected']")).getText();
+				String CitySelected= driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='selected']")).getText();
 				if(!CityHomeUrl.equalsIgnoreCase(ExpectedURL))
 				{
 					Assert.fail("City Overview page url is wrong or not opening in"+name);			
@@ -65,7 +64,7 @@ public class Cross_PlatForm {
 			// Verify menu drawer page on city page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
 			driver.findElement(By.partialLinkText("All projects in")).click();
-			Thread.sleep(10000L);
+			Thread.sleep(17000L);
 			String ListingUrl=driver.getCurrentUrl();
 			String ListingTitle= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
 			if(!ListingUrl.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate") && !ListingTitle.equalsIgnoreCase("Bangalore"))
@@ -88,12 +87,13 @@ public class Cross_PlatForm {
 					driver.close();
 				}
 				driver.navigate().back();
+				Thread.sleep(4000L);
 			}
-			Thread.sleep(4000L);
 			driver.findElement(By.xpath("//img[@src='http://im.proptiger.com/1/643769/6/samruddhi-group-wintergreen-elevation-555334.jpeg?width=400&height=300']")).click();
-			Thread.sleep(14000L);
+			Thread.sleep(15000L);
 			String ProjectPage= driver.getCurrentUrl();
-			String Projectheading= driver.findElement(By.xpath("//h1[@title='Project Name']")).getText();
+			Thread.sleep(4000L);
+			String Projectheading= driver.findElement(By.xpath("//h1[@class='proj-name put-ellipsis']")).getText();
 			if(!ProjectPage.equalsIgnoreCase(BaseUrl+"/bangalore/bellandur/samruddhi-group-winter-green-643769")
 					&& !Projectheading.equalsIgnoreCase("Samruddhi Group Winter Green"))
 			{
@@ -104,9 +104,9 @@ public class Cross_PlatForm {
 			// Verify menu drawer page on project page
 			Cross_PlatForm.VerifyMenuDrawer(driver);	    
 			driver.findElement(By.linkText("Explore this Locality")).click();
-			Thread.sleep(11000L);
+			Thread.sleep(12000L);
 			String LocalityUrl= driver.getCurrentUrl();
-			Thread.sleep(6000L);
+			//Thread.sleep(9000L);
 			String Localityheading= driver.findElement(By.xpath("//h1[@title='Locality Name']")).getText();
 			boolean LocalityImage= t1.isElementPresent(driver,  By.xpath("//img[@src='http://im.pt-img1.com/4/270/15/bellandur-bangalore-road-382762.jpeg?width=400&height=300']"));
 			if(!LocalityUrl.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate/bellandur-overview-50270")
@@ -117,7 +117,7 @@ public class Cross_PlatForm {
 			}
 			// Verify menu drawer page on Locality overview page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
-			driver.findElement(By.linkText("View all Projects")).click();
+		driver.findElement(By.linkText("View all Projects")).click();
 			Thread.sleep(15000L);
 			String LocalityListURL= driver.getCurrentUrl();
 			String LocalityListheading= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
@@ -131,9 +131,8 @@ public class Cross_PlatForm {
 
 			// Verify menu drawer page on Locality listing page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
-			// come back on locality listing
 			driver.navigate().back();
-			Thread.sleep(9000L);
+			Thread.sleep(12000L);
 			driver.findElement(By.xpath("//div[@class='btn btn-light-gray locality-change-btn']")).click();
 			Thread.sleep(3000L);
 			String ChangeLocalityUrl=driver.getCurrentUrl();
@@ -177,6 +176,7 @@ public class Cross_PlatForm {
 				driver.close();
 			}
 			driver.navigate().to(BaseUrl+"/bangalore/all-builders");
+			Thread.sleep(4000L);
 			String CityBuilderTitle= driver.findElement(By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in Bangalore']")).getText();
 			if(!CityBuilderTitle.equalsIgnoreCase("Builders in Bangalore"))
 			{
@@ -319,8 +319,8 @@ public class Cross_PlatForm {
 
 	public static void CheckAmenityPages(WebDriver driver) throws InterruptedException
 	{
-		driver.get(BaseUrl+"/bangalore/whitefield-50161/atms");
-		Thread.sleep(4000L);
+		driver.get(BaseUrl+"/mumbai/panvel-50006/atms");
+		Thread.sleep(7000L);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
 		String LocalityName= driver.findElement(By.xpath("//h1[@class='locality-name']")).getText();
@@ -329,9 +329,9 @@ public class Cross_PlatForm {
 		boolean AmenityButton=t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy btn btn-warning']//i[@class='imageIcon']"));
 		boolean AmenityButtonIcon=t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy btn btn-warning']//i[@class='imageIcon']"));
 		String SelectedAmenity= driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-warning']")).getText();
-		if(!LocalityName.equalsIgnoreCase("ATMs in Whitefield") && !SelectedAmenity.equalsIgnoreCase("Atms"))
+		if(!LocalityName.equalsIgnoreCase("ATMs in panvel") && !SelectedAmenity.equalsIgnoreCase("Atms"))
 		{
-			Assert.fail("Amenity page is not opening for whitefield-ATMS");
+			Assert.fail("Amenity page is not opening for panvel-ATMS");
 			driver.close();
 		}
 		if(CityDropDown==false && AmenityButtonIcon==false && AmenityButton==false)
@@ -344,7 +344,7 @@ public class Cross_PlatForm {
 			Assert.fail("CityDrop down and amenity dropdown is missing from the amenity page");	
 			driver.close();
 		}
-		if(!SelectedCity.equalsIgnoreCase("Bangalore"))
+		if(!SelectedCity.equalsIgnoreCase("Mumbai"))
 		{
 			Assert.fail("Selected city in city dropdown is wrong");	
 			driver.close();

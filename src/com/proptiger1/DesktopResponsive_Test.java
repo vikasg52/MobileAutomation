@@ -16,6 +16,7 @@ public class DesktopResponsive_Test {
 	static String name1="";
 	static String http="http://www.proptiger.com";
 	static String ssl="https://www.proptiger.com";
+	static String mobbeta="http://mob-beta.proptiger-ws.com";
 	static String local= "http://192.168.0.216:5000";
 	static String betahttp="http://beta.proptiger-ws.com";
 	static String betassl="https://beta.proptiger-ws.com";
@@ -62,7 +63,7 @@ public class DesktopResponsive_Test {
 	// Verify Amenity pages
 	public static void CheckAmenityPages(WebDriver driver, String name) throws InterruptedException
 	{
-		driver.get(BaseUrl+"/bangalore/hope-farm-junction-50161/atms");
+		driver.get(BaseUrl+"/mumbai/panvel-50006/atms");
 		Thread.sleep(5000L);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
@@ -80,9 +81,9 @@ public class DesktopResponsive_Test {
 		String defaultActiceAmenity=driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-default active']")).getText();
 		driver.findElement(By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-bank']")).click();
 		String ChangebankButton=driver.getCurrentUrl();
-		if(!LocalityName.equalsIgnoreCase("ATMs in Hope Farm Junction"))
+		if(!LocalityName.equalsIgnoreCase("ATMs in panvel"))
 		{
-			Assert.fail("Amenity page is not opening for hop-farm-junction-ATMS  "+name);
+			Assert.fail("Amenity page is not opening for panvel-mumbai  "+name);
 			driver.close();
 		}
 		if(!defaultActiceAmenity.equalsIgnoreCase("Atms"))
@@ -123,12 +124,12 @@ public class DesktopResponsive_Test {
 			Assert.fail("CityDrop down and amenity dropdown is missing from the amenity page  "+name);	
 			driver.close();
 		}
-		if(!SelectedCity.equalsIgnoreCase("Bangalore"))
+		if(!SelectedCity.equalsIgnoreCase("mumbai"))
 		{
 			Assert.fail("Selected city in city dropdown is wrong  "+name);	
 			driver.close();
 		}
-		if (!ChangebankButton.equalsIgnoreCase(BaseUrl+"/bangalore/hope-farm-junction-50161/banks"))
+		if (!ChangebankButton.equalsIgnoreCase(BaseUrl+"/mumbai/panvel-50006/banks"))
 		{
 			Assert.fail("Clicking on bank button is not opening bank amenity page   "+name);
 		}

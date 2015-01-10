@@ -18,6 +18,7 @@ public class PaymentGatewayTest {
 	static String betapg="sandbox.citruspay.com";
 	static String pg="www.citruspay.com";
 	static String http="http://www.proptiger.com";
+	static String mobbeta="http://mob-beta.proptiger-ws.com";
 	static String ssl="https://www.proptiger.com";
 	static String local= "http://192.168.0.216:5000";
 	static String betahttp="http://beta.proptiger-ws.com";
@@ -120,6 +121,8 @@ public class PaymentGatewayTest {
 	public static void ValidateOfferLanding(WebDriver driver) throws InterruptedException
 	{
 		int Pune = 0, Bang = 0,India;
+		driver.navigate().refresh();
+		Thread.sleep(6000L);
 		boolean OfferCity= t1.isElementPresent(driver,By.xpath("//select[@class='citydd offer-city']"));
 		boolean projectCount=t1.isElementPresent(driver, By.xpath("//span[@class='pro-count']"));
 		String selectedCity= driver.findElement(By.xpath("//select[@class='citydd offer-city']//option[@selected='selected']")).getText();
