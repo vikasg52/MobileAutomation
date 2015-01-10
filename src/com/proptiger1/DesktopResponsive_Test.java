@@ -22,8 +22,8 @@ public class DesktopResponsive_Test {
 	static String betassl="https://beta.proptiger-ws.com";
 	static String BaseUrl=http;
 	public static void Responsive(WebDriver driver, String name) throws InterruptedException {	
-			driver.navigate().to(BaseUrl+"/all-builders");
-			Thread.sleep(4000L);
+			driver.get(BaseUrl+"/all-builders");
+			Thread.sleep(6000L);
 			Cookie cookie = new Cookie("TESTING_USER", "1");
 		    driver.manage().addCookie(cookie);
 			String AllBuilderTitle= driver.findElement(By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']")).getText();
@@ -33,7 +33,8 @@ public class DesktopResponsive_Test {
 				//driver.close();
 			}
 			System.out.println("2. All India builders page opening properly in desktop website in  "+name);
-			driver.navigate().to(BaseUrl+"/bangalore/all-builders");
+			driver.get(BaseUrl+"/bangalore/all-builders");
+			Thread.sleep(5000L);
 			String CityBuilderTitle= driver.findElement(By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in Bangalore']")).getText();
 			if(!CityBuilderTitle.equalsIgnoreCase("Builders in Bangalore"))
 			{
@@ -41,7 +42,8 @@ public class DesktopResponsive_Test {
 				//driver.close();
 			}
 			System.out.println("3. All builders page of bangalore is opening properly in desktop website using  "+name);
-			driver.navigate().to(BaseUrl+"/all-cities");
+			driver.get(BaseUrl+"/all-cities");
+			Thread.sleep(4000L);
 			String AllCityTitle= driver.getTitle();
 			if(!AllCityTitle.equalsIgnoreCase("Cities in India - Best Buy/Sale Property Investment Towns in India"))
 			{
@@ -50,7 +52,8 @@ public class DesktopResponsive_Test {
 			}
 			System.out.println("4. All India cities page is opening properly in desktop website using  "+name);
 			
-			driver.navigate().to(BaseUrl+"/bangalore/all-localities");	 
+			driver.get(BaseUrl+"/bangalore/all-localities");
+			Thread.sleep(4000L);
 			String AllLocalityTitle= driver.getTitle();
 			if(!AllLocalityTitle.equalsIgnoreCase("Bangalore Localities - List of top localities/Areas in Bangalore"))
 			{
@@ -64,7 +67,7 @@ public class DesktopResponsive_Test {
 	public static void CheckAmenityPages(WebDriver driver, String name) throws InterruptedException
 	{
 		driver.get(BaseUrl+"/mumbai/panvel-50006/atms");
-		Thread.sleep(5000L);
+		Thread.sleep(6000L);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
 	    Thread.sleep(5000L);
