@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class DesktopTestBed {
 	
-	@Test(priority=0)
+	@Test(priority=5)
 	void ResponsicePage_FireFox_Linux() throws InterruptedException 
 	{
 		java.lang.String name="FireFox_Linux";
@@ -113,7 +113,7 @@ void ResponsicePage_Chrome_Mac() throws InterruptedException
 	driver.quit();
 }
 	
-	@Test(priority=5)
+	@Test(priority=0)
 void ResponsicePage_Safari_Mac() throws InterruptedException 
 {
 	java.lang.String name="Safari_Mac";
