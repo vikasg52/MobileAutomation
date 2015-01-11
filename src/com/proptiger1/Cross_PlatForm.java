@@ -64,7 +64,7 @@ public class Cross_PlatForm {
 			// Verify menu drawer page on city page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
 			driver.findElement(By.partialLinkText("All projects in")).click();
-			Thread.sleep(17000L);
+			Thread.sleep(20000L);
 			String ListingUrl=driver.getCurrentUrl();
 			String ListingTitle= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
 			if(!ListingUrl.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate") && !ListingTitle.equalsIgnoreCase("Bangalore"))
