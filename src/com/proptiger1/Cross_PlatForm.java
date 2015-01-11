@@ -45,9 +45,10 @@ public class Cross_PlatForm {
 			}
 			try
 			{
-				driver.manage().timeouts().implicitlyWait(18, TimeUnit.SECONDS);
+				driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
 				driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
-				Thread.sleep(20000L);
+				//driver.navigate().refresh();
+				Thread.sleep(25000L);
 				String CityHomeUrl= driver.getCurrentUrl();
 				String ExpectedURL=BaseUrl+"/bangalore-real-estate-overview";
 				String CitySelected= driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='selected']")).getText();
@@ -90,9 +91,9 @@ public class Cross_PlatForm {
 				Thread.sleep(4000L);
 			}
 			driver.findElement(By.xpath("//img[@src='http://im.proptiger.com/1/643769/6/samruddhi-group-wintergreen-elevation-555334.jpeg?width=400&height=300']")).click();
-			Thread.sleep(15000L);
+			Thread.sleep(20000L);
 			String ProjectPage= driver.getCurrentUrl();
-			Thread.sleep(4000L);
+			Thread.sleep(5000L);
 			String Projectheading= driver.findElement(By.xpath("//h1[@class='proj-name put-ellipsis']")).getText();
 			if(!ProjectPage.equalsIgnoreCase(BaseUrl+"/bangalore/bellandur/samruddhi-group-winter-green-643769")
 					&& !Projectheading.equalsIgnoreCase("Samruddhi Group Winter Green"))
@@ -118,7 +119,7 @@ public class Cross_PlatForm {
 			// Verify menu drawer page on Locality overview page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
 		driver.findElement(By.linkText("View all Projects")).click();
-			Thread.sleep(15000L);
+			Thread.sleep(18000L);
 			String LocalityListURL= driver.getCurrentUrl();
 			String LocalityListheading= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
 			if(!LocalityListURL.equalsIgnoreCase(BaseUrl+"/bangalore/property-sale-bellandur-50270") 
@@ -132,7 +133,7 @@ public class Cross_PlatForm {
 			// Verify menu drawer page on Locality listing page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
 			driver.navigate().back();
-			Thread.sleep(12000L);
+			Thread.sleep(15000L);
 			driver.findElement(By.xpath("//div[@class='btn btn-light-gray locality-change-btn']")).click();
 			Thread.sleep(3000L);
 			String ChangeLocalityUrl=driver.getCurrentUrl();
