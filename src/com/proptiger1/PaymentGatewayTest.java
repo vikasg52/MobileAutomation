@@ -62,6 +62,7 @@ public class PaymentGatewayTest {
 		int ran;
 	    ran = 100 + (int)(Math.random() * ((10000 - 100) + 1));
 		System.out.println("=============================================");
+		System.out.println("          PAYMENT GATEWAY TEST STARTED       ");
 		driver.findElement(By.xpath("//form[@class='dtl-form']//input[@class='full-name']")).sendKeys("PropTiger-QA");
 		driver.findElement(By.xpath("//form[@class='dtl-form']//input[@class='email']")).sendKeys("Proptigerqa+"+ran+"@gmail.com");
 		driver.findElement(By.xpath("//form[@class='dtl-form']//input[@class='mobile-no checkout-mobile-no']")).sendKeys("1900000000");

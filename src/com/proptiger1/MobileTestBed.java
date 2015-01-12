@@ -3,11 +3,17 @@ import org.apache.xpath.operations.String;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterClass;
 
 public class MobileTestBed {
-	
+	@BeforeTest
+	public void start() throws InterruptedException 
+	{
+		System.out.println("***** ALL PAGE ACCESSIBILITY TEST STARTED ******");
+	}
+		
 	@Test(priority=8)
 	void Chrome_iPhone_AllPageTest() throws InterruptedException 
 	{
@@ -148,6 +154,6 @@ public class MobileTestBed {
 	@AfterClass
 	public static void teardown()  
 	{
-    
+		System.out.println("***** ALL PAGE ACCESSIBILITY TEST FINISHED ******");
 	}
 }

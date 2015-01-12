@@ -113,6 +113,7 @@ public class CheckoutProcess_TestMatrix {
 		WebDriver driver= new FirefoxDriver(profile);
 		PaymentGatewayTest.Pg_Test(driver);
 		System.out.println("Checkout working fine in OperaMini_Android");
+		System.out.println("********* PAYMENT GATEWAY TEST FINISHED ************\n");
 		driver.quit();		
 	}
 	@AfterClass
