@@ -41,7 +41,7 @@ public class PaymentGatewayTest {
 	    	Assert.fail("\n Global home page is not opening-either site is down or net is not working");
 	    }
 		driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
-		Thread.sleep(18000L);
+		Thread.sleep(20000L);
 		driver.findElement(By.xpath("//span[@class='see-all-wrap']")).click();
 		Thread.sleep(8000L);
 		//Validation of offer landing page
