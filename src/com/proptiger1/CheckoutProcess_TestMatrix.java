@@ -127,6 +127,6 @@ public class CheckoutProcess_TestMatrix {
 	@AfterClass
 	public static void teardown()  
 	{
-		System.out.println("=============== PAYMENT GATEWAY TEST FINISHED ================\n");
-	}
+		System.out.println("============== PAYMENT GATEWAY TEST FINISHED =================\n");
+     }
 }

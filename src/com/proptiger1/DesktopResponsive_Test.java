@@ -23,7 +23,7 @@ public class DesktopResponsive_Test {
 	static String BaseUrl=http;
 	public static void Responsive(WebDriver driver, String name) throws InterruptedException {	
 			driver.get(BaseUrl+"/all-builders");
-			Thread.sleep(6000L);
+			Thread.sleep(8000L);
 			Cookie cookie = new Cookie("TESTING_USER", "1");
 		    driver.manage().addCookie(cookie);
 			String AllBuilderTitle= driver.findElement(By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']")).getText();
@@ -34,7 +34,7 @@ public class DesktopResponsive_Test {
 			}
 			System.out.println("2. All India builders page opening properly in desktop website in  "+name);
 			driver.get(BaseUrl+"/bangalore/all-builders");
-			Thread.sleep(5000L);
+			Thread.sleep(8000L);
 			String CityBuilderTitle= driver.findElement(By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in Bangalore']")).getText();
 			if(!CityBuilderTitle.equalsIgnoreCase("Builders in Bangalore"))
 			{

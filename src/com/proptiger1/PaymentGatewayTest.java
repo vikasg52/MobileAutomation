@@ -41,16 +41,15 @@ public class PaymentGatewayTest {
 	    	Assert.fail("\n Global home page is not opening-either site is down or net is not working");
 	    }
 		driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
-		Thread.sleep(15000L);
+		Thread.sleep(18000L);
 		driver.findElement(By.xpath("//span[@class='see-all-wrap']")).click();
 		Thread.sleep(8000L);
 		//Validation of offer landing page
 		ValidateOfferLanding(driver);
 		Select select2 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
 		select2.selectByIndex(2);
-		Thread.sleep(5000L);
 		driver.findElement(By.xpath("//li[@data-url='/bangalore/bellandur/samruddhi-group-winter-green-643769']")).click();
-		Thread.sleep(15000L);
+		Thread.sleep(18000L);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
 		driver.findElement(By.xpath("//section[@class='project-config']//section[@id='config-banner-propties']")).click();
@@ -61,7 +60,7 @@ public class PaymentGatewayTest {
 		String s7=driver.getCurrentUrl();
 		int ran;
 	    ran = 100 + (int)(Math.random() * ((10000 - 100) + 1));
-		System.out.println("=============================================");
+		System.out.println("===========================================================");
 		driver.findElement(By.xpath("//form[@class='dtl-form']//input[@class='full-name']")).sendKeys("PropTiger-QA");
 		driver.findElement(By.xpath("//form[@class='dtl-form']//input[@class='email']")).sendKeys("Proptigerqa+"+ran+"@gmail.com");
 		driver.findElement(By.xpath("//form[@class='dtl-form']//input[@class='mobile-no checkout-mobile-no']")).sendKeys("1900000000");
@@ -122,7 +121,7 @@ public class PaymentGatewayTest {
 	{
 		int Pune = 0, Bang = 0,India;
 		driver.navigate().refresh();
-		Thread.sleep(6000L);
+		Thread.sleep(8000L);
 		boolean OfferCity= t1.isElementPresent(driver,By.xpath("//select[@class='citydd offer-city']"));
 		boolean projectCount=t1.isElementPresent(driver, By.xpath("//span[@class='pro-count']"));
 		String selectedCity= driver.findElement(By.xpath("//select[@class='citydd offer-city']//option[@selected='selected']")).getText();
