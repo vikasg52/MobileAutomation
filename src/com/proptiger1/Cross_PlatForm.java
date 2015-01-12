@@ -156,6 +156,7 @@ public class Cross_PlatForm {
 				driver.close();
 			}
 			driver.get(BaseUrl+"/dlf-100002");
+			Thread.sleep(6000L);
 			String BuilderTitle= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
 			if(!BuilderTitle.equalsIgnoreCase("DLF"))
 			{
