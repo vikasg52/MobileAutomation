@@ -49,7 +49,7 @@ public class DesktopTestBed {
 		System.out.println("==============================================================================");
   	    driver.quit();
 	}
-	@Test(priority=2)
+	@Test(priority=0)
 	void ResponsicePage_FireFox_Windows() throws InterruptedException 
 	{
 		java.lang.String name="FireFox_Windows";
@@ -113,7 +113,7 @@ void ResponsicePage_Chrome_Mac() throws InterruptedException
 	driver.quit();
 }
 	
-	@Test(priority=0)
+	@Test(priority=2)
 void ResponsicePage_Safari_Mac() throws InterruptedException 
 {
 	java.lang.String name="Safari_Mac";

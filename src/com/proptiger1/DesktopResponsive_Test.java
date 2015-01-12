@@ -20,7 +20,7 @@ public class DesktopResponsive_Test {
 	static String local= "http://192.168.0.216:5000";
 	static String betahttp="http://beta.proptiger-ws.com";
 	static String betassl="https://beta.proptiger-ws.com";
-	static String BaseUrl=http;
+	static String BaseUrl=betassl;
 	public static void Responsive(WebDriver driver, String name) throws InterruptedException {	
 			driver.get(BaseUrl+"/all-builders");
 			Thread.sleep(6000L);
@@ -67,7 +67,7 @@ public class DesktopResponsive_Test {
 	public static void CheckAmenityPages(WebDriver driver, String name) throws InterruptedException
 	{
 		driver.get(BaseUrl+"/mumbai/panvel-50006/atms");
-		Thread.sleep(6000L);
+		Thread.sleep(15000L);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
 	    Thread.sleep(5000L);
@@ -150,14 +150,14 @@ public class DesktopResponsive_Test {
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
 		boolean headerText= t1.isElementPresent(driver,By.xpath("//div[@class='row contHeaderInfo']//h1[@class='contSubheaderInfo']"));
-	 	boolean image= t1.isElementPresent(driver,(By.xpath("//img[@src='http://im.pt-img2.com/1/143769/4/samruddhi-group-wintergreen-layout-plan-357091.jpeg']")));
+	 	boolean image= t1.isElementPresent(driver,(By.xpath("//img[@src='https://im.pt-img2.com/1/143769/4/samruddhi-group-wintergreen-layout-plan-357091.jpeg']")));
 	    boolean previousbutton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy m-carousel-prev']"));
 	    boolean NextButton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy m-carousel-next']"));
 	    if(headerText==false)
 	    {
 	    	Assert.fail("Header text is not appearing");
 	    }
-	    if(image==false)
+	   if (image==false)
 	    {
 	    	Assert.fail("Gallery image is not appearing on gallery page in  "+name);
 	    }
@@ -211,7 +211,7 @@ public class DesktopResponsive_Test {
 	public static void GP(WebDriver driver,String userName, String name) throws InterruptedException
 	{     
 		TimeStamp t1= new TimeStamp();
-		Thread.sleep(7000L);
+		Thread.sleep(10000L);
 		boolean tooltip= t1.isElementPresent(driver,By.xpath("//div[@class='tooltip']"));
 		boolean guaraantee= t1.isElementPresent(driver, By.xpath("//i[@class='icon-guarantee']"));
 		boolean bigimage= t1.isElementPresent(driver,By.xpath("//section[@class='proj-info-bg projectImgSection']"));
