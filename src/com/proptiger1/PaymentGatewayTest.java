@@ -49,7 +49,7 @@ public class PaymentGatewayTest {
 		Select select2 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
 		select2.selectByIndex(2);
 		driver.findElement(By.xpath("//li[@data-url='/bangalore/bellandur/samruddhi-group-winter-green-643769']")).click();
-		Thread.sleep(18000L);
+		Thread.sleep(20000L);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
 		driver.findElement(By.xpath("//section[@class='project-config']//section[@id='config-banner-propties']")).click();
