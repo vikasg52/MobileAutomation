@@ -105,7 +105,7 @@ public class Cross_PlatForm {
 			// Verify menu drawer page on project page
 			Cross_PlatForm.VerifyMenuDrawer(driver);	    
 			driver.findElement(By.linkText("Explore this Locality")).click();
-			Thread.sleep(12000L);
+			Thread.sleep(15000L);
 			String LocalityUrl= driver.getCurrentUrl();
 			//Thread.sleep(9000L);
 			String Localityheading= driver.findElement(By.xpath("//h1[@title='Locality Name']")).getText();
@@ -119,21 +119,20 @@ public class Cross_PlatForm {
 			// Verify menu drawer page on Locality overview page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
 		driver.findElement(By.linkText("View all Projects")).click();
-			Thread.sleep(18000L);
+			Thread.sleep(20000L);
 			String LocalityListURL= driver.getCurrentUrl();
 			String LocalityListheading= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
 			if(!LocalityListURL.equalsIgnoreCase(BaseUrl+"/bangalore/property-sale-bellandur-50270") 
 					&& !LocalityListheading.equalsIgnoreCase("Bellandur, Bangalore"))
 			{
 				Assert.fail("\n Locality listing page is not opening basis URL is wrong and heading is wrong"+name);
-
-				driver.close();
+                driver.close();
 			}
 
 			// Verify menu drawer page on Locality listing page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
 			driver.navigate().back();
-			Thread.sleep(15000L);
+			Thread.sleep(5000L);
 			driver.findElement(By.xpath("//div[@class='btn btn-light-gray locality-change-btn']")).click();
 			Thread.sleep(3000L);
 			String ChangeLocalityUrl=driver.getCurrentUrl();
