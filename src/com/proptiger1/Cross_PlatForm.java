@@ -48,7 +48,7 @@ public class Cross_PlatForm {
 				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
 				//driver.navigate().refresh();
-				Thread.sleep(30000L);
+				Thread.sleep(28000L);
 				String CityHomeUrl= driver.getCurrentUrl();
 				String ExpectedURL=BaseUrl+"/bangalore-real-estate-overview";
 				String CitySelected= driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='selected']")).getText();
@@ -65,7 +65,7 @@ public class Cross_PlatForm {
 			// Verify menu drawer page on city page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
 			driver.findElement(By.partialLinkText("All projects in")).click();
-			Thread.sleep(20000L);
+			Thread.sleep(25000L);
 			String ListingUrl=driver.getCurrentUrl();
 			String ListingTitle= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
 			if(!ListingUrl.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate") && !ListingTitle.equalsIgnoreCase("Bangalore"))

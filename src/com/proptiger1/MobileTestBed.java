@@ -11,7 +11,8 @@ public class MobileTestBed {
 	@BeforeTest
 	public void start() throws InterruptedException 
 	{
-		System.out.println("***** ALL PAGE ACCESSIBILITY TEST STARTED ******");
+		System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.Jdk14Logger");
+		System.out.println("============ ALL PAGE ACCESSIBILITY TEST STARTED ==============");
 	}
 		
 	@Test(priority=8)
@@ -154,6 +155,6 @@ public class MobileTestBed {
 	@AfterClass
 	public static void teardown()  
 	{
-		System.out.println("***** ALL PAGE ACCESSIBILITY TEST FINISHED ******");
+		System.out.println("============= ALL PAGE ACCESSIBILITY TEST FINISHED ==============");
 	}
 }

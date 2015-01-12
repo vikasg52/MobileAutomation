@@ -8,11 +8,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterClass;
 public class CheckoutProcess_TestMatrix {
 	
 	TimeStamp t= new TimeStamp();
+	
+	@BeforeTest
+	public void start()
+	{
+		System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.Jdk14Logger");
+		System.out.println("============== PAYMENT GATEWAY TEST STARTED ===============");
+	}
+	
 	@Test(priority=0)
 	void CheckoutChrome_iPhone() throws InterruptedException 
 	{
@@ -113,12 +122,11 @@ public class CheckoutProcess_TestMatrix {
 		WebDriver driver= new FirefoxDriver(profile);
 		PaymentGatewayTest.Pg_Test(driver);
 		System.out.println("Checkout working fine in OperaMini_Android");
-		System.out.println("********* PAYMENT GATEWAY TEST FINISHED ************\n");
 		driver.quit();		
 	}
 	@AfterClass
 	public static void teardown()  
 	{
-    
+		System.out.println("=============== PAYMENT GATEWAY TEST FINISHED ================\n");
 	}
 }

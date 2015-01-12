@@ -3,10 +3,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class DesktopTestBed {
-	
+	@BeforeTest
+	public void start()
+	{
+		System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.Jdk14Logger");
+		System.out.println("============== DESKTOP RESPONSIVE PAGE TEST STARTED ===============");
+	}
 	@Test(priority=5)
 	void ResponsicePage_FireFox_Linux() throws InterruptedException 
 	{
@@ -137,6 +143,6 @@ void ResponsicePage_Safari_Mac() throws InterruptedException
 	@AfterClass
 	public static void teardown()  
 	{
-    
-	}
+		System.out.println("============== DESKTOP RESPONSIVE TEST FINISHED ===============");
+    }
 }
