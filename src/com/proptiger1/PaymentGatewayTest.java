@@ -47,7 +47,7 @@ public class PaymentGatewayTest {
 		//Validation of offer landing page
 		ValidateOfferLanding(driver);
 		Select select2 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
-		select2.selectByIndex(2);
+		select2.selectByIndex(1);
 		driver.findElement(By.xpath("//li[@data-url='/bangalore/bellandur/samruddhi-group-winter-green-643769']")).click();
 		Thread.sleep(25000L);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
@@ -153,27 +153,10 @@ public class PaymentGatewayTest {
 		Select select = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
 		select.selectByIndex(1);
 		Thread.sleep(3000L);
-		driver.navigate().refresh();
+		driver.navigate().refresh();		
 		Thread.sleep(5000L);
 		String ChangeUrl=driver.getCurrentUrl();
 		String selectedCity1= driver.findElement(By.xpath("//select[@class='citydd offer-city']//option[@selected='selected']")).getText();
-		boolean projectCountPune=t1.isElementPresent(driver, By.xpath("//span[@class='pro-count']"));
-		String s2= driver.findElement(By.xpath("//span[@class='pro-count']")).getText();
-		if(!ChangeUrl.equalsIgnoreCase(BaseUrl+"/mega-property-sale/filters?cityLabel=pune") && !selectedCity1.equalsIgnoreCase("Pune"))
-		{
-			Assert.fail("Offer city change is not changing the URL correctly or selected city in dropdown in incorrect");
-		}
-		if(projectCountPune==false)
-		{Assert.fail("Project Count is missing on offer landing page of pune");}		
-		boolean FooterTextPune= t1.isElementPresent(driver,By.xpath("//a[@class='v-all all-project-link']"));
-		String FooterPune=driver.findElement(By.xpath("//a[@class='v-all all-project-link']")).getText();
-		boolean projectverify=driver.getPageSource().contains("/pune/");
-		if(FooterTextPune==false && !FooterPune.equalsIgnoreCase("VIEW ALL PROJECTS IN PUNE"))
-		{
-			Assert.fail("Text in the footer is missing or incorrect");
-		} 
-		if(projectverify==false)
-		{Assert.fail("Changing the offer city to Pune in dropdown is not fetching city specific projects");}
 		Select select1 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
 		select1.selectByIndex(0);
 		driver.navigate().refresh();
@@ -202,18 +185,7 @@ public class PaymentGatewayTest {
 		String CountProjectBang= s1.replaceAll("\\+s","");
 		Bang= Integer.parseInt(CountProjectBang);
 		}
-		if (s2.contains("Projects"))
-		{
-		String s3=s2.replace(" Projects in Pune","");
-		String CountProjectPune = s3.replaceAll("\\+s","");
-	    Pune= Integer.parseInt(CountProjectPune);
-		}
-		else
-		{
-		String s3=s2.replace("Project in Pune","");
-		String CountProjectPune = s3.replaceAll("\\+s","");
-		Pune = Integer.parseInt(CountProjectPune);
-		}
+		
 		India= Integer.parseInt(CountProjectIndia);
 		
 		if(India!=Bang+Pune)
