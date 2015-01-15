@@ -20,7 +20,7 @@ public class DesktopResponsive_Test {
 	static String local= "http://192.168.0.216:5000";
 	static String betahttp="http://beta.proptiger-ws.com";
 	static String betassl="https://beta.proptiger-ws.com";
-	static String BaseUrl=http;
+	static String BaseUrl=betassl;
 	public static void Responsive(WebDriver driver, String name) throws InterruptedException {	
 			driver.get(BaseUrl+"/all-builders");
 			Thread.sleep(8000L);
@@ -150,7 +150,7 @@ public class DesktopResponsive_Test {
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
 		boolean headerText= t1.isElementPresent(driver,By.xpath("//div[@class='row contHeaderInfo']//h1[@class='contSubheaderInfo']"));
-	 	boolean image= t1.isElementPresent(driver,(By.xpath("//img[@src='http://im.pt-img2.com/1/143769/4/samruddhi-group-wintergreen-layout-plan-357091.jpeg']")));
+	 	boolean image= t1.isElementPresent(driver,(By.xpath("//img[@src='https://im.pt-img2.com/1/143769/4/samruddhi-group-wintergreen-layout-plan-357091.jpeg']")));
 	    boolean previousbutton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy m-carousel-prev']"));
 	    boolean NextButton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy m-carousel-next']"));
 	    if(headerText==false)

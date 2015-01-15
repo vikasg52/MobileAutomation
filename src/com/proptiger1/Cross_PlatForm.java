@@ -19,7 +19,7 @@ public class Cross_PlatForm {
 	static String mobbeta="http://mob-beta.proptiger-ws.com";
 	static String local= "http://192.168.0.216:5000";
 	static String betassl="https://beta.proptiger-ws.com";
-	static String BaseUrl=http;
+	static String BaseUrl=betassl;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
 		driver.manage().window().setSize(new Dimension(300,630));
 		driver.manage().deleteAllCookies();		
@@ -90,7 +90,7 @@ public class Cross_PlatForm {
 				driver.navigate().back();
 				Thread.sleep(4000L);
 			}
-			driver.findElement(By.xpath("//img[@src='http://im.proptiger.com/1/643769/6/samruddhi-group-wintergreen-elevation-555334.jpeg?width=400&height=300']")).click();
+			driver.findElement(By.xpath("//img[@src='https://im.proptiger.com/1/643769/6/samruddhi-group-wintergreen-elevation-555334.jpeg?width=400&height=300']")).click();
 			Thread.sleep(20000L);
 			String ProjectPage= driver.getCurrentUrl();
 			Thread.sleep(5000L);
@@ -109,7 +109,7 @@ public class Cross_PlatForm {
 			String LocalityUrl= driver.getCurrentUrl();
 			//Thread.sleep(9000L);
 			String Localityheading= driver.findElement(By.xpath("//h1[@title='Locality Name']")).getText();
-			boolean LocalityImage= t1.isElementPresent(driver,  By.xpath("//img[@src='http://im.pt-img1.com/4/270/15/bellandur-bangalore-road-382762.jpeg?width=400&height=300']"));
+			boolean LocalityImage= t1.isElementPresent(driver,  By.xpath("//img[@src='https://im.pt-img1.com/4/270/15/bellandur-bangalore-road-382762.jpeg?width=400&height=300']"));
 			if(!LocalityUrl.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate/bellandur-overview-50270")
 					&& !Localityheading.equalsIgnoreCase("Bellandur") && LocalityImage==false)
 			{
