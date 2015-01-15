@@ -103,11 +103,11 @@ public class PaymentGatewayTest {
 				Assert.fail("\n*RedirectUrl is wrong frompayment status page: " +RedirectUrl);
 				
 			}
-			/*if(z==false)
+			if(z==false)
 			{
-				Assert.fail("\n*Final Payment status page has not rendered");
+				Assert.fail("\n*TRY AGAIN* button is not coming on the final page if payment is not successfull.");
 				//driver.quit();
-			}*/
+			}
 			else
 			{
 				System.out.println("Payment gateway is up and running");
