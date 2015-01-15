@@ -11,7 +11,7 @@ public class DesktopTestBed {
 	public void start()
 	{
 		System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.Jdk14Logger");
-		System.out.println("============== DESKTOP RESPONSIVE PAGE TEST STARTED ===============");
+		System.out.println("============== DESKTOP RESPONSIVE PAGE TEST STARTED-BETA ===============");
 	}
 	@Test(priority=5)
 	void ResponsicePage_FireFox_Linux() throws InterruptedException 

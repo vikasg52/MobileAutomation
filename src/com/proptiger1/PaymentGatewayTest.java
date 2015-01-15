@@ -54,8 +54,8 @@ public class PaymentGatewayTest {
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
 		driver.findElement(By.xpath("//section[@class='project-config']//section[@id='config-banner-propties']")).click();
-		Thread.sleep(5000L);
-		driver.findElement(By.xpath("//div[@data-selecttext='20,000 coupon selected for 2BHK+2T (1200 sq ft) in Bellandur, Bangalore']")).click();
+		Thread.sleep(7000L);
+		driver.findElement(By.xpath("//div[@data-selecttext='1 coupon selected for 2BHK+2T (1200 sq ft) in Bellandur, Bangalore']")).click();
 		Thread.sleep(5000L);
 		driver.findElement(By.xpath("//div[@class='btn-area']//a[@class='no-ajaxy btn btn-d-yellow pull-right continue-button']")).click();
 		String s7=driver.getCurrentUrl();

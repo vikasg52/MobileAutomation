@@ -19,7 +19,7 @@ public class CheckoutProcess_TestMatrix {
 	public void start()
 	{
 		System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.Jdk14Logger");
-		System.out.println("============== PAYMENT GATEWAY TEST STARTED ===============");
+		System.out.println("============== PAYMENT GATEWAY TEST STARTED-BETA ===============");
 	}
 	
 	@Test(priority=0)
