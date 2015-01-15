@@ -33,9 +33,10 @@ public class PaymentGatewayTest {
 		try
 		{
 		driver.get(BaseUrl);
+		Thread.sleep(5000L);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-		Thread.sleep(5000L);
+		//Thread.sleep(5000L);
 	    }catch(NoSuchElementException e)
 	    {
 	    	Assert.fail("\n Global home page is not opening-either site is down or net is not working");
@@ -92,22 +93,22 @@ public class PaymentGatewayTest {
 		{
 			driver.findElement(By.xpath("//a[@id='btn-guestPaymentCancel-temp9']")).click();
 			driver.findElement(By.xpath("//button[@id='jqi_state0_buttonYes']")).click();
+			Thread.sleep(4000L);
 			//driver.findElement(By.xpath("//div[@class='jqi_state']//button[@id='jqi_state1_buttonCancelTransaction']")).click();
-			Alert alert = driver.switchTo().alert();
+			/*Alert alert = driver.switchTo().alert();
 			alert.accept();
-			Thread.sleep(3000L);
+			Thread.sleep(3000L);*/
 			String RedirectUrl=driver.getCurrentUrl();		
 			boolean y=RedirectUrl.contains(BaseUrl);
-			boolean z=t1.isElementPresent(driver,  By.xpath("//a[@class='btn btn-d-yellow no-ajaxy']"));
+			boolean z=t1.isElementPresent(driver,  By.xpath("//div[@class='btn btn-d-yellow no-ajaxy']"));
 			if(y==false)
 			{
-				Assert.fail("\n*RedirectUrl is wrong frompayment status page: " +RedirectUrl);
+				Assert.fail("\n*RedirectUrl is wrong from payment status page: " +RedirectUrl);
 				
 			}
 			if(z==false)
 			{
-				Assert.fail("\n*Final Payment status page has not rendered");
-				//driver.quit();
+				Assert.fail("\n*TRY AGAIN* button is not coming on the final page if payment is not successfull.");
 			}
 			else
 			{
