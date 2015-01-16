@@ -23,9 +23,11 @@ public class DesktopResponsive_Test {
 	static String BaseUrl=http;
 	public static void Responsive(WebDriver driver, String name) throws InterruptedException {	
 			driver.get(BaseUrl+"/all-builders");
-			Thread.sleep(8000L);
+			Thread.sleep(7000L);
 			Cookie cookie = new Cookie("TESTING_USER", "1");
-		    driver.manage().addCookie(cookie);
+		        driver.manage().addCookie(cookie);
+		        driver.navigate().refresh();
+		        Thread.sleep(4000L);
 			String AllBuilderTitle= driver.findElement(By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']")).getText();
 			if(!AllBuilderTitle.equalsIgnoreCase("Builders in India"))
 			{
