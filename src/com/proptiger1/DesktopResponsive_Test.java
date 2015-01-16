@@ -36,7 +36,9 @@ public class DesktopResponsive_Test {
 			}
 			System.out.println("2. All India builders page opening properly in desktop website in  "+name);
 			driver.get(BaseUrl+"/bangalore/all-builders");
-			Thread.sleep(8000L);
+			Thread.sleep(4000L);
+			driver.navigate().refresh();
+			Thread.sleep(4000L);
 			String CityBuilderTitle= driver.findElement(By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in Bangalore']")).getText();
 			if(!CityBuilderTitle.equalsIgnoreCase("Builders in Bangalore"))
 			{
