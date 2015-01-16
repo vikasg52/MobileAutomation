@@ -24,7 +24,7 @@ public class PaymentGatewayTest {
 	static String betahttp="http://beta.proptiger-ws.com";
 	static String betassl="https://beta.proptiger-ws.com";
 	static String BaseUrl=http;
-	static String pgurl=pg;
+	static String pgurl=ssl;
 	public static void Pg_Test(WebDriver driver) throws InterruptedException
 	{   
 		driver.manage().window().setSize(new Dimension(300,650));
