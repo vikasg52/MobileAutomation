@@ -20,7 +20,7 @@ public class DesktopResponsive_Test {
 	static String local= "http://192.168.0.216:5000";
 	static String betahttp="http://beta.proptiger-ws.com";
 	static String betassl="https://beta.proptiger-ws.com";
-	static String BaseUrl=betassl;
+	static String BaseUrl=ssl;
 	public static void Responsive(WebDriver driver, String name) throws InterruptedException {	
 			driver.get(BaseUrl+"/all-builders");
 			Thread.sleep(8000L);

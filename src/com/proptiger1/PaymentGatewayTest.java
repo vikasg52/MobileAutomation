@@ -23,8 +23,8 @@ public class PaymentGatewayTest {
 	static String local= "http://192.168.0.216:5000";
 	static String betahttp="http://beta.proptiger-ws.com";
 	static String betassl="https://beta.proptiger-ws.com";
-	static String BaseUrl=betassl;
-	static String pgurl=betapg;
+	static String BaseUrl=ssl;
+	static String pgurl=pg;
 	public static void Pg_Test(WebDriver driver) throws InterruptedException
 	{   
 		driver.manage().window().setSize(new Dimension(300,650));
@@ -33,36 +33,34 @@ public class PaymentGatewayTest {
 		try
 		{
 		driver.get(BaseUrl);
-		Thread.sleep(5000L);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-		//Thread.sleep(5000L);
+		Thread.sleep(5000L);
 	    }catch(NoSuchElementException e)
 	    {
 	    	Assert.fail("\n Global home page is not opening-either site is down or net is not working");
 	    }
 		driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
-		Thread.sleep(15000L);
+		Thread.sleep(25000L);
 		driver.findElement(By.xpath("//span[@class='see-all-wrap']")).click();
 		Thread.sleep(8000L);
 		//Validation of offer landing page
 		ValidateOfferLanding(driver);
 		Select select2 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
-		select2.selectByIndex(2);
-		Thread.sleep(5000L);
+		select2.selectByIndex(1);
 		driver.findElement(By.xpath("//li[@data-url='/bangalore/bellandur/samruddhi-group-winter-green-643769']")).click();
-		Thread.sleep(15000L);
+		Thread.sleep(25000L);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
 		driver.findElement(By.xpath("//section[@class='project-config']//section[@id='config-banner-propties']")).click();
 		Thread.sleep(7000L);
-		driver.findElement(By.xpath("//div[@data-selecttext='1 coupon selected for 2BHK+2T (1200 sq ft) in Bellandur, Bangalore']")).click();
+		driver.findElement(By.xpath("//div[@data-selecttext='20,000 coupon selected for 2BHK+2T (1275 sq ft) in Bellandur, Bangalore']")).click();
 		Thread.sleep(5000L);
 		driver.findElement(By.xpath("//div[@class='btn-area']//a[@class='no-ajaxy btn btn-d-yellow pull-right continue-button']")).click();
 		String s7=driver.getCurrentUrl();
 		int ran;
 	    ran = 100 + (int)(Math.random() * ((10000 - 100) + 1));
-		System.out.println("=============================================");
+		System.out.println("===========================================================");
 		driver.findElement(By.xpath("//form[@class='dtl-form']//input[@class='full-name']")).sendKeys("PropTiger-QA");
 		driver.findElement(By.xpath("//form[@class='dtl-form']//input[@class='email']")).sendKeys("Proptigerqa+"+ran+"@gmail.com");
 		driver.findElement(By.xpath("//form[@class='dtl-form']//input[@class='mobile-no checkout-mobile-no']")).sendKeys("1900000000");
@@ -93,22 +91,22 @@ public class PaymentGatewayTest {
 		{
 			driver.findElement(By.xpath("//a[@id='btn-guestPaymentCancel-temp9']")).click();
 			driver.findElement(By.xpath("//button[@id='jqi_state0_buttonYes']")).click();
-			Thread.sleep(4000L);
 			//driver.findElement(By.xpath("//div[@class='jqi_state']//button[@id='jqi_state1_buttonCancelTransaction']")).click();
-			/*Alert alert = driver.switchTo().alert();
+			Alert alert = driver.switchTo().alert();
 			alert.accept();
-			Thread.sleep(3000L);*/
+			Thread.sleep(3000L);
 			String RedirectUrl=driver.getCurrentUrl();		
 			boolean y=RedirectUrl.contains(BaseUrl);
-			boolean z=t1.isElementPresent(driver,  By.xpath("//div[@class='btn btn-d-yellow no-ajaxy']"));
+			boolean z=t1.isElementPresent(driver,  By.xpath("//a[@class='btn btn-d-yellow no-ajaxy']"));
 			if(y==false)
 			{
-				Assert.fail("\n*RedirectUrl is wrong from payment status page: " +RedirectUrl);
+				Assert.fail("\n*RedirectUrl is wrong frompayment status page: " +RedirectUrl);
 				
 			}
 			if(z==false)
 			{
 				Assert.fail("\n*TRY AGAIN* button is not coming on the final page if payment is not successfull.");
+				//driver.quit();
 			}
 			else
 			{
@@ -123,7 +121,7 @@ public class PaymentGatewayTest {
 	{
 		int Pune = 0, Bang = 0,India;
 		driver.navigate().refresh();
-		Thread.sleep(6000L);
+		Thread.sleep(15000L);
 		boolean OfferCity= t1.isElementPresent(driver,By.xpath("//select[@class='citydd offer-city']"));
 		boolean projectCount=t1.isElementPresent(driver, By.xpath("//span[@class='pro-count']"));
 		String selectedCity= driver.findElement(By.xpath("//select[@class='citydd offer-city']//option[@selected='selected']")).getText();
@@ -155,27 +153,10 @@ public class PaymentGatewayTest {
 		Select select = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
 		select.selectByIndex(1);
 		Thread.sleep(3000L);
-		driver.navigate().refresh();
+		driver.navigate().refresh();		
 		Thread.sleep(5000L);
 		String ChangeUrl=driver.getCurrentUrl();
 		String selectedCity1= driver.findElement(By.xpath("//select[@class='citydd offer-city']//option[@selected='selected']")).getText();
-		boolean projectCountPune=t1.isElementPresent(driver, By.xpath("//span[@class='pro-count']"));
-		String s2= driver.findElement(By.xpath("//span[@class='pro-count']")).getText();
-		if(!ChangeUrl.equalsIgnoreCase(BaseUrl+"/mega-property-sale/filters?cityLabel=pune") && !selectedCity1.equalsIgnoreCase("Pune"))
-		{
-			Assert.fail("Offer city change is not changing the URL correctly or selected city in dropdown in incorrect");
-		}
-		if(projectCountPune==false)
-		{Assert.fail("Project Count is missing on offer landing page of pune");}		
-		boolean FooterTextPune= t1.isElementPresent(driver,By.xpath("//a[@class='v-all all-project-link']"));
-		String FooterPune=driver.findElement(By.xpath("//a[@class='v-all all-project-link']")).getText();
-		boolean projectverify=driver.getPageSource().contains("/pune/");
-		if(FooterTextPune==false && !FooterPune.equalsIgnoreCase("VIEW ALL PROJECTS IN PUNE"))
-		{
-			Assert.fail("Text in the footer is missing or incorrect");
-		} 
-		if(projectverify==false)
-		{Assert.fail("Changing the offer city to Pune in dropdown is not fetching city specific projects");}
 		Select select1 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
 		select1.selectByIndex(0);
 		driver.navigate().refresh();
@@ -204,18 +185,7 @@ public class PaymentGatewayTest {
 		String CountProjectBang= s1.replaceAll("\\+s","");
 		Bang= Integer.parseInt(CountProjectBang);
 		}
-		if (s2.contains("Projects"))
-		{
-		String s3=s2.replace(" Projects in Pune","");
-		String CountProjectPune = s3.replaceAll("\\+s","");
-	    Pune= Integer.parseInt(CountProjectPune);
-		}
-		else
-		{
-		String s3=s2.replace("Project in Pune","");
-		String CountProjectPune = s3.replaceAll("\\+s","");
-		Pune = Integer.parseInt(CountProjectPune);
-		}
+		
 		India= Integer.parseInt(CountProjectIndia);
 		
 		if(India!=Bang+Pune)
@@ -224,4 +194,5 @@ public class PaymentGatewayTest {
 		}
 			}
 }
+
 
