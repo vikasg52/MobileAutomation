@@ -232,10 +232,10 @@ public class Cross_PlatForm {
 	// interstitial Verification
 	public static void interstitial(WebDriver driver, String name) throws InterruptedException
 	{
-		boolean interstitial = t1.isElementPresent(driver, By.xpath("//div[@data-lazyclass='interstial-container']"));
+		boolean interstitial = t1.isElementPresent(driver, By.xpath("//div[@class='interstial-container']"));
 		boolean appButton = t1.isElementPresent(driver, By.xpath("//div[@class='appbutton']"));
-		boolean interstitialClose= t1.isElementPresent(driver, By.xpath("//div[@data-lazyclass='interstial-container']//div[@class='closeoption']"));
-		boolean phoneimages= t1.isElementPresent(driver, By.xpath("//div[@data-lazyclass='mob-in-hand']"));
+		boolean interstitialClose= t1.isElementPresent(driver, By.xpath("//div[@class='interstial-container']//div[@class='closeoption']"));
+		boolean phoneimages= t1.isElementPresent(driver, By.xpath("//div[@class='mob-in-hand']"));
 		boolean NoThanksText= t1.isElementPresent(driver, By.xpath("//a[@class='no-thanks']"));
 		if(!name.equalsIgnoreCase("IE_Nokia_Lumia920"))
 		{
@@ -276,7 +276,7 @@ public class Cross_PlatForm {
 				}
 			}
 		//driver.navigate().back();
-		driver.findElement(By.xpath("//div[@data-lazyclass='interstial-container']//div[@class='closeoption']")).click();
+		driver.findElement(By.xpath("//div[@class='interstial-container']//div[@class='closeoption']")).click();
 		//driver.manage().deleteAllCookies();
 		boolean interstitial1= t1.isElementPresent(driver, By.xpath("//div[@id='interstitalPopup' and @class='open']"));
 		if(interstitial1==true)

@@ -12,7 +12,7 @@ public class MobileTestBed {
 	public void start() throws InterruptedException 
 	{
 		System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.Jdk14Logger");
-		System.out.println("============ ALL PAGE ACCESSIBILITY TEST STARTED-BETA ==============");
+		System.out.println("============ ALL PAGE ACCESSIBILITY TEST STARTED ==============");
 	}
 		
 	@Test(priority=8)
