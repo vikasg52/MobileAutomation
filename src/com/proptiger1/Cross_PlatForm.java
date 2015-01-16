@@ -197,7 +197,7 @@ public class Cross_PlatForm {
 				driver.close();
 			}
 			driver.get(BaseUrl+"/bangalore/all-localities");
-			Thread.sleep(4000L)
+			Thread.sleep(4000L);
 			String AllLocalityTitle= driver.getTitle();
 			if(!AllLocalityTitle.equalsIgnoreCase("Bangalore Localities - List of top localities/Areas in Bangalore"))
 			{
