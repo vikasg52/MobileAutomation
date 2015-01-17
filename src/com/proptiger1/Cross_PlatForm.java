@@ -48,19 +48,14 @@ public class Cross_PlatForm {
 				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
 				//driver.navigate().refresh();
-				Thread.sleep(25000L);
+				Thread.sleep(28000L);
 				String CityHomeUrl= driver.getCurrentUrl();
 				String ExpectedURL=BaseUrl+"/bangalore-real-estate-overview";
 				String CitySelected= driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='selected']")).getText();
 				if(!CityHomeUrl.equalsIgnoreCase(ExpectedURL))
 				{
-					driver.navigate().refresh();
-					Thread.sleep(20000L);
+					Assert.fail("City Overview page url is wrong or not opening in"+name);			
 				}
-					if(!CityHomeUrl.equalsIgnoreCase(ExpectedURL))
-					{
-					Assert.fail("City Overview page url is wrong or not opening in"+name);
-					}
 				if(!CitySelected.equalsIgnoreCase("Bangalore"))
 				{
 					Assert.fail("\n Selected City in the dropdown on overview page is wrong in"+name);	
@@ -95,7 +90,7 @@ public class Cross_PlatForm {
 				driver.navigate().back();
 				Thread.sleep(4000L);
 			}
-			driver.findElement(By.xpath("//li[@data-url='/bangalore/bellandur/samruddhi-group-winter-green-643769']")).click();
+			driver.findElement(By.xpath("//img[@src='https://im.proptiger.com/1/643769/6/samruddhi-group-wintergreen-elevation-555334.jpeg?width=400&height=300']")).click();
 			Thread.sleep(20000L);
 			String ProjectPage= driver.getCurrentUrl();
 			Thread.sleep(5000L);
@@ -168,8 +163,8 @@ public class Cross_PlatForm {
 				Assert.fail("Builder listing page is not opening in"+name);
 				driver.close();
 			}
-			driver.get(BaseUrl+"/all-builders");
-			Thread.sleep(10000L);
+			driver.navigate().to(BaseUrl+"/all-builders");
+			Thread.sleep(8000L);
 			boolean builders= t1.isElementPresent(driver,By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']"));
 			if(builders==false)
 			{
@@ -181,23 +176,22 @@ public class Cross_PlatForm {
 				Assert.fail("Builder page is not opening in"+name);
 				driver.close();
 			}
-			driver.get(BaseUrl+"/bangalore/all-builders");
-			Thread.sleep(6000L);
+			driver.navigate().to(BaseUrl+"/bangalore/all-builders");
+			Thread.sleep(4000L);
 			String CityBuilderTitle= driver.findElement(By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in Bangalore']")).getText();
 			if(!CityBuilderTitle.equalsIgnoreCase("Builders in Bangalore"))
 			{
 				Assert.fail("City Builder page is not opening in"+name);
 				driver.close();
 			}
-			driver.get(BaseUrl+"/all-cities");
+			driver.navigate().to(BaseUrl+"/all-cities");
 			String AllCityTitle= driver.getTitle();
 			if(!AllCityTitle.equalsIgnoreCase("Cities in India - Best Buy/Sale Property Investment Towns in India"))
 			{
 				Assert.fail("All city page is not opening in"+name);
 				driver.close();
 			}
-			driver.get(BaseUrl+"/bangalore/all-localities");
-			Thread.sleep(4000L);
+			driver.navigate().to(BaseUrl+"/bangalore/all-localities");	 
 			String AllLocalityTitle= driver.getTitle();
 			if(!AllLocalityTitle.equalsIgnoreCase("Bangalore Localities - List of top localities/Areas in Bangalore"))
 			{
