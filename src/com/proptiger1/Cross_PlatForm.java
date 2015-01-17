@@ -48,7 +48,7 @@ public class Cross_PlatForm {
 				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
 				//driver.navigate().refresh();
-				Thread.sleep(5000L);
+				Thread.sleep(25000L);
 				String CityHomeUrl= driver.getCurrentUrl();
 				String ExpectedURL=BaseUrl+"/bangalore-real-estate-overview";
 				String CitySelected= driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='selected']")).getText();
@@ -95,7 +95,7 @@ public class Cross_PlatForm {
 				driver.navigate().back();
 				Thread.sleep(4000L);
 			}
-			driver.findElement(By.xpath("//img[@src='https://im.proptiger.com/1/643769/6/samruddhi-group-wintergreen-elevation-555334.jpeg?width=400&height=300']")).click();
+			driver.findElement(By.xpath("//li[@data-url='/bangalore/bellandur/samruddhi-group-winter-green-643769']")).click();
 			Thread.sleep(20000L);
 			String ProjectPage= driver.getCurrentUrl();
 			Thread.sleep(5000L);

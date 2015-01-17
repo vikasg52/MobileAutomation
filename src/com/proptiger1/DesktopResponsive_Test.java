@@ -74,7 +74,7 @@ public class DesktopResponsive_Test {
 		Thread.sleep(15000L);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-	    Thread.sleep(5000L);
+	    Thread.sleep(6000L);
 		String LocalityName= driver.findElement(By.xpath("//h1[@class='locality-name']")).getText();
 		boolean CityDropDown= t1.isElementPresent(driver, By.xpath("//select[@class='city-select-dd']//option[@selected='true']"));
 		String  SelectedCity=driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='true']")).getText();

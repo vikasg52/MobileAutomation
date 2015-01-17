@@ -41,13 +41,13 @@ public class PaymentGatewayTest {
 	    	Assert.fail("\n Global home page is not opening-either site is down or net is not working");
 	    }
 		driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
-		Thread.sleep(25000L);
+		Thread.sleep(20000L);
 		driver.findElement(By.xpath("//span[@class='see-all-wrap']")).click();
 		Thread.sleep(8000L);
 		//Validation of offer landing page
 		ValidateOfferLanding(driver);
 		Select select2 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
-		select2.selectByIndex(1);
+		select2.selectByIndex(2);
 		driver.findElement(By.xpath("//li[@data-url='/bangalore/bellandur/samruddhi-group-winter-green-643769']")).click();
 		Thread.sleep(25000L);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
@@ -92,8 +92,8 @@ public class PaymentGatewayTest {
 			driver.findElement(By.xpath("//a[@id='btn-guestPaymentCancel-temp9']")).click();
 			driver.findElement(By.xpath("//button[@id='jqi_state0_buttonYes']")).click();
 			//driver.findElement(By.xpath("//div[@class='jqi_state']//button[@id='jqi_state1_buttonCancelTransaction']")).click();
-			Alert alert = driver.switchTo().alert();
-			alert.accept();
+			/*Alert alert = driver.switchTo().alert();
+			alert.accept();*/
 			Thread.sleep(3000L);
 			String RedirectUrl=driver.getCurrentUrl();		
 			boolean y=RedirectUrl.contains(BaseUrl);
@@ -150,25 +150,33 @@ public class PaymentGatewayTest {
 		{
 		Assert.fail("Text in the footer on offer landing page is incorrect or missing");	
 		}
+		// Pune selection
 		Select select = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
 		select.selectByIndex(1);
-		Thread.sleep(3000L);
+		//Thread.sleep(3000L);
 		driver.navigate().refresh();		
-		Thread.sleep(5000L);
-		String ChangeUrl=driver.getCurrentUrl();
-		String selectedCity1= driver.findElement(By.xpath("//select[@class='citydd offer-city']//option[@selected='selected']")).getText();
+		Thread.sleep(3000L);
+		String PuneUrl=driver.getCurrentUrl();
+		String s2= driver.findElement(By.xpath("//span[@class='pro-count']")).getText();
+		String s3=s2.replace(" Projects in India","");
+	    String CountProjectPune=s3.replaceAll("\\+s","");
+	 	Select select11= new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
+		String selectedCity1= select11.getFirstSelectedOption().getText();
+		if(!PuneUrl.equalsIgnoreCase(BaseUrl+"/mega-property-sale/filters?cityLabel=pune") && !selectedCity1.equalsIgnoreCase("pune"))
+		{
+			Assert.fail("Changing Offer city from dropdown is not changing the URL correctly");
+		}
+// All India selection
 		Select select1 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
 		select1.selectByIndex(0);
 		driver.navigate().refresh();
 		Thread.sleep(4000L);
 		String ChangeUrlIndia=driver.getCurrentUrl();
-		//String selectedCity2= driver.findElement(By.xpath("//select[@class='citydd offer-city']//option[@selected='selected']")).getText();
 		Select select2 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
-		
 		String selectedCity2= select2.getFirstSelectedOption().getText();
 		if(!ChangeUrlIndia.equalsIgnoreCase(BaseUrl+"/mega-property-sale/filters?cityLabel=india") && !selectedCity2.equalsIgnoreCase("All India"))
 		{
-			Assert.fail("Offer city change is not changing the URL correctly or selected city in dropdown in incorrect");
+			Assert.fail("Changing Offer city from dropdown is not changing the URL correctly");
 		}
 		String s4= driver.findElement(By.xpath("//span[@class='pro-count']")).getText();
 		String s5=s4.replace(" Projects in India","");
@@ -184,6 +192,18 @@ public class PaymentGatewayTest {
 		String s1=s.replace(" Project in Bangalore","");
 		String CountProjectBang= s1.replaceAll("\\+s","");
 		Bang= Integer.parseInt(CountProjectBang);
+		}
+	    if (s2.contains("Projects"))
+		{
+		s3=s2.replace(" Projects in Pune","");
+		CountProjectPune= s3.replaceAll("\\+s","");
+		Pune= Integer.parseInt(CountProjectPune);
+		}
+	    else
+		{
+		String s1=s.replace(" Project in Pune","");
+		CountProjectPune= s1.replaceAll("\\+s","");
+		Pune= Integer.parseInt(CountProjectPune);
 		}
 		
 		India= Integer.parseInt(CountProjectIndia);
