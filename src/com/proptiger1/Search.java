@@ -14,7 +14,7 @@ public class Search {
 		 driver.get(BaseUrl);
 		Thread.sleep(7000L);
 		driver.findElement(By.xpath("//a[@href='bangalore-real-estate-overview']")).click();
-		Thread.sleep(4000L);
+		Thread.sleep(8000L);
 		boolean search_box= t.isElementPresent(driver , By.xpath("//input[@class='fake-search-box search-input wd85percent']"));
 		boolean search_button= t.isElementPresent(driver , By.xpath("//button[@class='srch-btn wd14percent']"));
 		String Default_Text= driver.findElement(By.xpath("//input[@class='fake-search-box search-input wd85percent']")).getAttribute("placeholder");
