@@ -14,7 +14,7 @@ public class DesktopTestBed {
 		System.out.println("============== DESKTOP RESPONSIVE PAGE TEST STARTED ===============");
 	}
 	@Test(priority=5)
-	void ResponsicePage_FireFox_Linux() throws InterruptedException 
+	void ResponsivePage_FireFox_Linux() throws InterruptedException 
 	{
 		java.lang.String name="FireFox_Linux";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -35,7 +35,7 @@ public class DesktopTestBed {
     	driver.quit();
 	}
 	@Test(priority=1)
-	void ResponsicePage_Chrome_Linux() throws InterruptedException 
+	void ResponsivePage_Chrome_Linux() throws InterruptedException 
 	{
 		java.lang.String name="Chrome_Linux";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -56,7 +56,7 @@ public class DesktopTestBed {
   	    driver.quit();
 	}
 	@Test(priority=0)
-	void ResponsicePage_FireFox_Windows() throws InterruptedException 
+	void ResponsivePage_FireFox_Windows() throws InterruptedException 
 	{
 		java.lang.String name="FireFox_Windows";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -76,7 +76,7 @@ public class DesktopTestBed {
 		driver.quit();
 	}
 	@Test(priority=3)
-	void ResponsicePage_Chrome_Windows() throws InterruptedException 
+	void ResponsivePage_Chrome_Windows() throws InterruptedException 
 	{
 		java.lang.String name="Chrome_Windows";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -97,7 +97,7 @@ public class DesktopTestBed {
 		driver.quit();
 	}
 	@Test(priority=4)
-void ResponsicePage_Chrome_Mac() throws InterruptedException 
+void ResponsivePage_Chrome_Mac() throws InterruptedException 
 {
 	java.lang.String name="Chrome_Mac";
 	FirefoxProfile profile = new FirefoxProfile();
@@ -119,7 +119,7 @@ void ResponsicePage_Chrome_Mac() throws InterruptedException
 }
 	
 	@Test(priority=2)
-void ResponsicePage_Safari_Mac() throws InterruptedException 
+void ResponsivePage_Safari_Mac() throws InterruptedException 
 {
 	java.lang.String name="Safari_Mac";
 	FirefoxProfile profile = new FirefoxProfile();

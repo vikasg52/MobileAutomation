@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Mobile: Cross PlatForm Automation Framework">
-<test name="Payment Gateway Test==Nine Devices and Five Browsers">
+<suite name="Mobile:Cross PlatForm Testing Framework">
+<test name="Search Testing Across Devices and Browsers">
+    <classes>
+    <class name="com.proptiger1.Search_Testing">
+    </class>
+    <class name="com.proptiger1.TimeStamp">
+      </class>
+    </classes>
+  </test>
+<test name="Payment Gateway Testing Across Devices and Browsers">
     <classes>
     <class name="com.proptiger1.CheckoutProcess_TestMatrix">
     </class>
@@ -9,7 +17,7 @@
       </class>
     </classes>
   </test>
-    <test name="All Page Accessibility Test==Nine Devices and Bive Browsers ">
+    <test name="All Page Accessibility Testing Across Devices and Browsers ">
     <classes>
       <class name="com.proptiger1.MobileTestBed">     
       </class>
@@ -22,7 +30,7 @@
       </class>
     </classes>
   </test>
-  <test name="Desktop Responsive Page Test: Three OS and Three Browsers ">
+  <test name="Desktop Responsive Page Testing Across Devices and Browsers">
     <classes>
       <class name="com.proptiger1.DesktopTestBed">     
       </class>
