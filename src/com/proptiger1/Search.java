@@ -15,14 +15,10 @@ public class Search {
 		 driver.manage().deleteAllCookies();		
 		 driver.get(BaseUrl);
 		 WebDriverWait wait = new WebDriverWait(driver,120);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='city-name-info bangalore-info']")));
-		//Thread.sleep(10000L);
-		driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
+		 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='city-name-info bangalore-info']")));
 		driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
 		WebDriverWait wait1 = new WebDriverWait(driver,120);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@class='fake-search-box search-input wd85percent']")));
-		//Thread.sleep(30000L);
-		boolean search= driver.findElement(By.xpath("//input[@class='fake-search-box search-input wd85percent']")).isDisplayed();
+		wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@class='fake-search-box search-input wd85percent']")));
 		boolean search_box= t.isElementPresent(driver , By.xpath("//input[@class='fake-search-box search-input wd85percent']"));
 		boolean search_button= t.isElementPresent(driver , By.xpath("//button[@class='srch-btn wd14percent']"));
 		String Default_Text= driver.findElement(By.xpath("//input[@class='fake-search-box search-input wd85percent']")).getAttribute("placeholder");
