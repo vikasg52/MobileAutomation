@@ -2,6 +2,8 @@ package com.proptiger1;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 public class Search {
 	static String BaseUrl="https://www.proptiger.com";
@@ -12,9 +14,15 @@ public class Search {
 		 driver.manage().window().setSize(new Dimension(300,630));
 		 driver.manage().deleteAllCookies();		
 		 driver.get(BaseUrl);
-		Thread.sleep(8000L);
+		 WebDriverWait wait = new WebDriverWait(driver,120);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='city-name-info bangalore-info']")));
+		//Thread.sleep(10000L);
 		driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
-		Thread.sleep(20000L);
+		driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
+		WebDriverWait wait1 = new WebDriverWait(driver,120);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@class='fake-search-box search-input wd85percent']")));
+		//Thread.sleep(30000L);
+		boolean search= driver.findElement(By.xpath("//input[@class='fake-search-box search-input wd85percent']")).isDisplayed();
 		boolean search_box= t.isElementPresent(driver , By.xpath("//input[@class='fake-search-box search-input wd85percent']"));
 		boolean search_button= t.isElementPresent(driver , By.xpath("//button[@class='srch-btn wd14percent']"));
 		String Default_Text= driver.findElement(By.xpath("//input[@class='fake-search-box search-input wd85percent']")).getAttribute("placeholder");
