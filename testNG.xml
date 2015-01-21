@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Mobile:Cross PlatForm Testing Framework">
-<test name="Search Testing Across Devices and Browsers">
-    <classes>
-    <class name="com.proptiger1.Search_Testing">
-    </class>
-    <class name="com.proptiger1.TimeStamp">
-      </class>
-    </classes>
-  </test>
+<suite name="Mobile Website Sanity Testing Framework">
 <test name="Payment Gateway Testing Across Devices and Browsers">
     <classes>
     <class name="com.proptiger1.CheckoutProcess_TestMatrix">

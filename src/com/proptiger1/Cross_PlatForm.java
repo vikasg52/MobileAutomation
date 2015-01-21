@@ -8,6 +8,8 @@ import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class Cross_PlatForm {
@@ -24,10 +26,11 @@ public class Cross_PlatForm {
 		driver.manage().window().setSize(new Dimension(300,630));
 		driver.manage().deleteAllCookies();		
 		driver.get(BaseUrl);
+		WebDriverWait wait1 = new WebDriverWait(driver,120);
+		wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='city-name-info bangalore-info']")));
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-		Thread.sleep(8000L);
-		boolean homepage= t1.isElementPresent(driver, By.xpath("//div[@class='home-top-textInfo']"));
+	    boolean homepage= t1.isElementPresent(driver, By.xpath("//div[@class='home-top-textInfo']"));
 		boolean CityStrip= t1.isElementPresent(driver, By.xpath("//div[@class='city-name-info bangalore-info']"));
 		Cross_PlatForm.interstitial(driver, name);
 		if(homepage==false && CityStrip==false)
@@ -41,14 +44,11 @@ public class Cross_PlatForm {
 			if(cityCount!=10)
 			{
 				Assert.fail("\n Count of diplayed cities on home page is wrong!!");
-				driver.close();
 			}
 			try
 			{
-				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
-				//driver.navigate().refresh();
-				Thread.sleep(28000L);
+				t1.wait(driver, "//select[@class='city-select-dd']//option[@selected='selected']");
 				String CityHomeUrl= driver.getCurrentUrl();
 				String ExpectedURL=BaseUrl+"/bangalore-real-estate-overview";
 				String CitySelected= driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='selected']")).getText();
@@ -65,7 +65,7 @@ public class Cross_PlatForm {
 			// Verify menu drawer page on city page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
 			driver.findElement(By.partialLinkText("All projects in")).click();
-			Thread.sleep(25000L);
+			t1.wait(driver, "//div[@class='listing-title']");
 			String ListingUrl=driver.getCurrentUrl();
 			String ListingTitle= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
 			if(!ListingUrl.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate") && !ListingTitle.equalsIgnoreCase("Bangalore"))
@@ -75,12 +75,9 @@ public class Cross_PlatForm {
 			}
 			// Verify menu drawer page on city listing page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
-			Thread.sleep(8000L);
-			//boolean mapButton= t1.isElementPresent(driver, By.xpath("//td[@class='ta-right padding5']//a[@class='no-ajaxy pull-right btn btn-default show-map-btn']"));
 			if(!name.equalsIgnoreCase("IE_Nokia_Lumia920"))
 			{
 				driver.findElement(By.xpath("//td[@class='ta-right padding5']//a[@class='no-ajaxy pull-right btn btn-default show-map-btn']")).click();
-				Thread.sleep(5000L);
 				String MapPage=driver.getCurrentUrl();				
 				if(!MapPage.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate#mapStaticPopupBlock"))
 				{
@@ -88,12 +85,11 @@ public class Cross_PlatForm {
 					driver.close();
 				}
 				driver.navigate().back();
-				Thread.sleep(4000L);
+				Thread.sleep(3000L);
 			}
 			driver.findElement(By.xpath("//img[@src='https://im.proptiger.com/1/643769/6/samruddhi-group-wintergreen-elevation-555334.jpeg?width=400&height=300']")).click();
-			Thread.sleep(20000L);
+			t1.wait(driver, "//h1[@class='proj-name put-ellipsis']");
 			String ProjectPage= driver.getCurrentUrl();
-			Thread.sleep(5000L);
 			String Projectheading= driver.findElement(By.xpath("//h1[@class='proj-name put-ellipsis']")).getText();
 			if(!ProjectPage.equalsIgnoreCase(BaseUrl+"/bangalore/bellandur/samruddhi-group-winter-green-643769")
 					&& !Projectheading.equalsIgnoreCase("Samruddhi Group Winter Green"))
@@ -105,9 +101,8 @@ public class Cross_PlatForm {
 			// Verify menu drawer page on project page
 			Cross_PlatForm.VerifyMenuDrawer(driver);	    
 			driver.findElement(By.linkText("Explore this Locality")).click();
-			Thread.sleep(15000L);
+			t1.wait(driver, "//h1[@title='Locality Name']");
 			String LocalityUrl= driver.getCurrentUrl();
-			//Thread.sleep(9000L);
 			String Localityheading= driver.findElement(By.xpath("//h1[@title='Locality Name']")).getText();
 			boolean LocalityImage= t1.isElementPresent(driver,  By.xpath("//img[@src='https://im.pt-img1.com/4/270/15/bellandur-bangalore-road-382762.jpeg?width=400&height=300']"));
 			if(!LocalityUrl.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate/bellandur-overview-50270")
@@ -118,9 +113,9 @@ public class Cross_PlatForm {
 			}
 			// Verify menu drawer page on Locality overview page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
-		driver.findElement(By.linkText("View all Projects")).click();
-			Thread.sleep(20000L);
-			String LocalityListURL= driver.getCurrentUrl();
+		    driver.findElement(By.linkText("View all Projects")).click();
+			t1.wait(driver, "//div[@class='listing-title']");
+		    String LocalityListURL= driver.getCurrentUrl();
 			String LocalityListheading= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
 			if(!LocalityListURL.equalsIgnoreCase(BaseUrl+"/bangalore/property-sale-bellandur-50270") 
 					&& !LocalityListheading.equalsIgnoreCase("Bellandur, Bangalore"))
@@ -132,9 +127,9 @@ public class Cross_PlatForm {
 			// Verify menu drawer page on Locality listing page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
 			driver.navigate().back();
-			Thread.sleep(5000L);
+			t1.wait(driver, "//div[@class='btn btn-light-gray locality-change-btn']");
 			driver.findElement(By.xpath("//div[@class='btn btn-light-gray locality-change-btn']")).click();
-			Thread.sleep(3000L);
+		    t1.wait(driver, "//div[@class='capitalize ta-center city-name']");
 			String ChangeLocalityUrl=driver.getCurrentUrl();
 			Boolean ChangeLocality= t1.isElementPresent(driver, By.xpath("//div[@class='capitalize ta-center city-name']"));
 			String ChangeLocalityText= driver.findElement(By.xpath("//div[@class='capitalize ta-center city-name']")).getText();
@@ -145,9 +140,8 @@ public class Cross_PlatForm {
 				driver.close();
 			}
 			driver.findElement(By.xpath("//div[@class='pull-left back-btn']")).click();		
-			Thread.sleep(6000L);
+			t1.wait(driver, "//span[@class='logo pull-left']");
 			boolean b= t1.isElementPresent(driver , By.xpath("//span[@class='logo pull-left']"));
-			Thread.sleep(4000L);
 			driver.findElement(By.xpath("//span[@class='logo pull-left']")).click();
 			String s4= driver.getCurrentUrl();
 			if(!s4.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate-overview") && b==false)
@@ -156,7 +150,7 @@ public class Cross_PlatForm {
 				driver.close();
 			}
 			driver.get(BaseUrl+"/dlf-100002");
-			Thread.sleep(6000L);
+            t1.wait(driver, "//div[@class='listing-title']");
 			String BuilderTitle= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
 			if(!BuilderTitle.equalsIgnoreCase("DLF"))
 			{
@@ -164,7 +158,7 @@ public class Cross_PlatForm {
 				driver.close();
 			}
 			driver.navigate().to(BaseUrl+"/all-builders");
-			Thread.sleep(8000L);
+			t1.wait(driver, "//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']");
 			boolean builders= t1.isElementPresent(driver,By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']"));
 			if(builders==false)
 			{
@@ -177,7 +171,7 @@ public class Cross_PlatForm {
 				driver.close();
 			}
 			driver.navigate().to(BaseUrl+"/bangalore/all-builders");
-			Thread.sleep(4000L);
+			t1.wait(driver,"//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in Bangalore']");
 			String CityBuilderTitle= driver.findElement(By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in Bangalore']")).getText();
 			if(!CityBuilderTitle.equalsIgnoreCase("Builders in Bangalore"))
 			{
@@ -204,14 +198,14 @@ public class Cross_PlatForm {
 	// Menu Drawer Verification
 	public static void VerifyMenuDrawer(WebDriver driver) throws InterruptedException
 	{
-		Thread.sleep(3000L);
+		t1.wait(driver, "//i[@class='icon-navicon']");
 		boolean drawer= t1.isElementPresent(driver, By.xpath("//i[@class='icon-navicon']"));
 		if(drawer==false)
 		{
 			Assert.fail("\nMenu Drawer is not present on city overview page");
 			driver.close();
 		}
-		driver.findElement(By.xpath("//div[@id='header-drawer-button']")).click();
+		driver.findElement(By.xpath("//button[@class='topMenuBtn seoclick header-drawer']")).click();
 		boolean DrawerChangeCitydropwdown = t1.isElementPresent(driver , By.xpath("//select[@class='change-city']"));
 		boolean cityHomeIcon= t1.isElementPresent(driver, By.xpath("//i[@class='cityLabel icon-apartment']"));
 		String OtherSection= driver.findElement(By.xpath("//div[@class='sections others']//h4[@class='md']")).getText();
@@ -220,16 +214,16 @@ public class Cross_PlatForm {
 			Assert.fail("\n Menau Drawer is not clickable or not opening basis home icon in menu drawer missing,label others and chnage city dropdown");
 			driver.close();
 		}
-		driver.findElement(By.xpath("//div[@id='header-drawer-button']")).click();			
+		driver.findElement(By.xpath("//button[@class='topMenuBtn seoclick header-drawer']")).click();			
 	}
 
 	// interstitial Verification
 	public static void interstitial(WebDriver driver, String name) throws InterruptedException
 	{
-		boolean interstitial = t1.isElementPresent(driver, By.xpath("//div[@class='interstial-container']"));
+		boolean interstitial = t1.isElementPresent(driver, By.xpath("//div[@data-lazyclass='interstial-container']"));
 		boolean appButton = t1.isElementPresent(driver, By.xpath("//div[@class='appbutton']"));
-		boolean interstitialClose= t1.isElementPresent(driver, By.xpath("//div[@class='interstial-container']//div[@class='closeoption']"));
-		boolean phoneimages= t1.isElementPresent(driver, By.xpath("//div[@class='mob-in-hand']"));
+		boolean interstitialClose= t1.isElementPresent(driver, By.xpath("//div[@data-lazyclass='interstial-container']//div[@class='closeoption']"));
+		boolean phoneimages= t1.isElementPresent(driver, By.xpath("//div[@data-lazyclass='mob-in-hand']"));
 		boolean NoThanksText= t1.isElementPresent(driver, By.xpath("//a[@class='no-thanks']"));
 		if(!name.equalsIgnoreCase("IE_Nokia_Lumia920"))
 		{
@@ -270,7 +264,7 @@ public class Cross_PlatForm {
 				}
 			}
 		//driver.navigate().back();
-		driver.findElement(By.xpath("//div[@class='interstial-container']//div[@class='closeoption']")).click();
+		driver.findElement(By.xpath("//div[@data-lazyclass='interstial-container']//div[@class='closeoption']")).click();
 		//driver.manage().deleteAllCookies();
 		boolean interstitial1= t1.isElementPresent(driver, By.xpath("//div[@id='interstitalPopup' and @class='open']"));
 		if(interstitial1==true)
@@ -285,7 +279,7 @@ public class Cross_PlatForm {
 	public static void Check404Page(WebDriver driver) throws InterruptedException
 	{
 		driver.get(BaseUrl+"/noida/sector-118/supertech-romano-652425/atms");
-		Thread.sleep(4000L);
+		t1.wait(driver, "//*[@id='content']/div/table/tbody/tr/td/h2");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
 			String ErrorText= driver.findElement(By.xpath("//*[@id='content']/div/table/tbody/tr/td/h2")).getText();
@@ -307,7 +301,7 @@ public class Cross_PlatForm {
 				//driver.close();
 			}
 			driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']")).click();
-			Thread.sleep(4000L);
+			t1.wait(driver, "//a[@class='no-ajaxy bigbtn projects-near-me']");
 			String RedirectURl=driver.getCurrentUrl();
 			if(!RedirectURl.equalsIgnoreCase(BaseUrl+"/"))
 			{
@@ -321,7 +315,7 @@ public class Cross_PlatForm {
 	public static void CheckAmenityPages(WebDriver driver) throws InterruptedException
 	{
 		driver.get(BaseUrl+"/mumbai/panvel-50006/atms");
-		Thread.sleep(9000L);
+		t1.wait(driver, "//h1[@class='locality-name']");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
 		String LocalityName= driver.findElement(By.xpath("//h1[@class='locality-name']")).getText();

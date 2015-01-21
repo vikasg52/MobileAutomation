@@ -23,11 +23,9 @@ public class DesktopResponsive_Test {
 	static String BaseUrl=ssl;
 	public static void Responsive(WebDriver driver, String name) throws InterruptedException {	
 			driver.get(BaseUrl+"/all-builders");
-			Thread.sleep(7000L);
+			t1.wait(driver,"//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']");
 			Cookie cookie = new Cookie("TESTING_USER", "1");
 		        driver.manage().addCookie(cookie);
-		        driver.navigate().refresh();
-		        Thread.sleep(4000L);
 			String AllBuilderTitle= driver.findElement(By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']")).getText();
 			if(!AllBuilderTitle.equalsIgnoreCase("Builders in India"))
 			{
@@ -36,9 +34,7 @@ public class DesktopResponsive_Test {
 			}
 			System.out.println("2. All India builders page opening properly in desktop website in  "+name);
 			driver.get(BaseUrl+"/bangalore/all-builders");
-			Thread.sleep(4000L);
-			driver.navigate().refresh();
-			Thread.sleep(4000L);
+			t1.wait(driver, "//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in Bangalore']");
 			String CityBuilderTitle= driver.findElement(By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in Bangalore']")).getText();
 			if(!CityBuilderTitle.equalsIgnoreCase("Builders in Bangalore"))
 			{
@@ -71,10 +67,9 @@ public class DesktopResponsive_Test {
 	public static void CheckAmenityPages(WebDriver driver, String name) throws InterruptedException
 	{
 		driver.get(BaseUrl+"/mumbai/panvel-50006/atms");
-		Thread.sleep(15000L);
+		t1.wait(driver, "//h1[@class='locality-name']");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-	    Thread.sleep(6000L);
 		String LocalityName= driver.findElement(By.xpath("//h1[@class='locality-name']")).getText();
 		boolean CityDropDown= t1.isElementPresent(driver, By.xpath("//select[@class='city-select-dd']//option[@selected='true']"));
 		String  SelectedCity=driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='true']")).getText();
@@ -150,10 +145,9 @@ public class DesktopResponsive_Test {
 	public static void Gallery(WebDriver driver, String name) throws InterruptedException
 	{
 		driver.get(BaseUrl+"/gallery/samruddhi-group-wintergreen-layout-plan-643769-357091");
-		Thread.sleep(4000L);
+		t1.wait(driver,"//div[@class='row contHeaderInfo']//h1[@class='contSubheaderInfo']");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-	    Thread.sleep(1000);
 		boolean headerText= t1.isElementPresent(driver,By.xpath("//div[@class='row contHeaderInfo']//h1[@class='contSubheaderInfo']"));
 	 	boolean image= t1.isElementPresent(driver,(By.xpath("//img[@src='https://im.proptiger.com/1/143769/4/samruddhi-group-wintergreen-layout-plan-357091.jpeg']")));
 	    boolean previousbutton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy m-carousel-prev']"));
@@ -188,7 +182,7 @@ public class DesktopResponsive_Test {
 			driver.get(BaseUrl+"/delhi/zone-p-ii-51905/atms");
 			Cookie cookie = new Cookie("TESTING_USER", "1");
 		    driver.manage().addCookie(cookie);
-			Thread.sleep(4000L);
+			t1.wait(driver, "//div[@class='form-info']//input[@id='fullname']");
 			int ran;
 		    ran = 100 + (int)(Math.random() * ((10000 - 100) + 1));
 		   /* long mobile = (long) Math.floor(Math.random() * 9000000000L) + 1000000000L;*/
@@ -199,7 +193,7 @@ public class DesktopResponsive_Test {
 			Select select = new Select(driver.findElement(By.xpath("//div[@class='formRow']//select[@class='form-control query-country']")));
 		    select.selectByVisibleText("India");
 			driver.findElement(By.xpath("//span[@class='btn btn-danger wd75percent']")).click();
-			Thread.sleep(5000L);
+			t1.wait(driver, "//div[@class='title ta-center']");
 			Set<String> windows = driver.getWindowHandles();
 			for (String window : windows) {
 				driver.switchTo().window(window);
@@ -216,7 +210,7 @@ public class DesktopResponsive_Test {
 	public static void GP(WebDriver driver,String userName, String name) throws InterruptedException
 	{     
 		TimeStamp t1= new TimeStamp();
-		Thread.sleep(10000L);
+		t1.wait(driver, "//section[@class='proj-info-bg projectImgSection']");
 		boolean tooltip= t1.isElementPresent(driver,By.xpath("//div[@class='tooltip']"));
 		boolean guaraantee= t1.isElementPresent(driver, By.xpath("//i[@class='icon-guarantee']"));
 		boolean bigimage= t1.isElementPresent(driver,By.xpath("//section[@class='proj-info-bg projectImgSection']"));
@@ -240,7 +234,7 @@ public class DesktopResponsive_Test {
 	    Set<String> windows = driver.getWindowHandles();
 		for (String window : windows) {
 			driver.switchTo().window(window);
-			Thread.sleep(6000L);
+			t1.wait(driver, "//div[@class='form-info']//input[@id='fullname']");
 			boolean namme= t1.isElementPresent(driver, By.xpath("//div[@class='form-info']//input[@id='fullname']"));
 		if(namme==false)
 		{
@@ -259,11 +253,10 @@ public class DesktopResponsive_Test {
 		//System.out.println("7. Lead submitted successfully from GP13 in desktop website using"+name);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-		Thread.sleep(6000L);
+	    t1.wait(driver,"//div[@class='ta-center' and text()='Thank You']");
 	    Set<String> windowss = driver.getWindowHandles();
 	    for (String windo : windowss) {
 		driver.switchTo().window(windo);
-		Thread.sleep(5000L);
 		WebElement element= driver.findElement(By.xpath("//div[@class='ta-center' and text()='Thank You']"));
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", element);
