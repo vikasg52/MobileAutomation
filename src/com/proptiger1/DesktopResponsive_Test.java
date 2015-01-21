@@ -53,7 +53,7 @@ public class DesktopResponsive_Test {
 			System.out.println("4. All India cities page is opening properly in desktop website using  "+name);
 			
 			driver.get(BaseUrl+"/bangalore/all-localities");
-			Thread.sleep(4000L);
+			t1.wait(driver, "//a[@href='/bangalore-real-estate/hebbal-overview-50175']");
 			String AllLocalityTitle= driver.getTitle();
 			if(!AllLocalityTitle.equalsIgnoreCase("Bangalore Localities - List of top localities/Areas in Bangalore"))
 			{
