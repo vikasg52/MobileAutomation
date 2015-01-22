@@ -203,9 +203,10 @@ public class Cross_PlatForm {
 		if(drawer==false)
 		{
 			Assert.fail("\nMenu Drawer is not present on city overview page");
-			driver.close();
+			//driver.close();
 		}
-		driver.findElement(By.xpath("//button[@class='topMenuBtn seoclick header-drawer']")).click();
+		t1.wait(driver,"//button[contains(@class,'topMenuBtn')]");
+		driver.findElement(By.xpath("//button[contains(@class,'topMenuBtn')]")).click();
 		boolean DrawerChangeCitydropwdown = t1.isElementPresent(driver , By.xpath("//select[@class='change-city']"));
 		boolean cityHomeIcon= t1.isElementPresent(driver, By.xpath("//i[@class='cityLabel icon-apartment']"));
 		String OtherSection= driver.findElement(By.xpath("//div[@class='sections others']//h4[@class='md']")).getText();
@@ -214,7 +215,7 @@ public class Cross_PlatForm {
 			Assert.fail("\n Menau Drawer is not clickable or not opening basis home icon in menu drawer missing,label others and chnage city dropdown");
 			driver.close();
 		}
-		driver.findElement(By.xpath("//button[@class='topMenuBtn seoclick header-drawer']")).click();			
+		driver.findElement(By.xpath("//button[contains(@class,'topMenuBtn')]")).click();			
 	}
 
 	// interstitial Verification
