@@ -47,6 +47,8 @@ public class PaymentGatewayTest {
 		ValidateOfferLanding(driver);
 		Select select2 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
 		select2.selectByIndex(2);
+		Thread.sleep(4000L);
+		driver.navigate().refresh();
 		driver.findElement(By.xpath("//li[@data-url='/bangalore/bellandur/samruddhi-group-winter-green-643769']")).click();
 		t1.wait(driver, "//section[@class='project-config']//section[@id='config-banner-propties']");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
@@ -97,19 +99,24 @@ public class PaymentGatewayTest {
 				t1.wait(driver, "//a[@class='btn btn-d-yellow no-ajaxy']");
 				String RedirectUrl=driver.getCurrentUrl();		
 				boolean y=RedirectUrl.contains(BaseUrl);
+				boolean TransactionFail= t1.isElementPresent(driver,By.xpath("//section[@class='sorry-status']//div[@class='p-msg']"));
 				boolean z=t1.isElementPresent(driver,  By.xpath("//a[@class='btn btn-d-yellow no-ajaxy']"));
 				if(y==false)
 				{
-					Assert.fail("\n*RedirectUrl is wrong frompayment status page: " +RedirectUrl);
+					Assert.fail("\n*RedirectUrl is wrong from payment status page: " +RedirectUrl);
 
+				}
+				if(TransactionFail==false)
+				{
+					Assert.fail("\n* Transaction unsuccessfull message is not displayed or is wrong.");
 				}
 				if(z==false)
 				{
 					Assert.fail("\n*TRY AGAIN* button is not coming on the final page if payment is not successfull.");
 					//driver.quit();
 				}}}catch(Exception e1)
-				{ //driver.quit();
-			Assert.fail("*. Payment gateway is not working");
+				{ 
+			      Assert.fail("*. Payment gateway is not working");
 			    }
 			System.out.println("Payment gateway is up and running");
 			}
@@ -167,6 +174,7 @@ public class PaymentGatewayTest {
 		// All India selection
 		Select select1 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
 		select1.selectByIndex(0);
+		Thread.sleep(3000L);
 		driver.navigate().refresh();
 		t1.wait(driver, "//select[@class='citydd offer-city']");
 		String ChangeUrlIndia=driver.getCurrentUrl();
