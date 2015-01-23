@@ -47,6 +47,8 @@ public class PaymentGatewayTest {
 		ValidateOfferLanding(driver);
 		Select select2 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
 		select2.selectByIndex(2);
+		Thread.sleep(4000L);
+		driver.navigate.refresh();
 		driver.findElement(By.xpath("//li[@data-url='/bangalore/bellandur/samruddhi-group-winter-green-643769']")).click();
 		t1.wait(driver, "//section[@class='project-config']//section[@id='config-banner-propties']");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
@@ -172,6 +174,7 @@ public class PaymentGatewayTest {
 		// All India selection
 		Select select1 = new Select(driver.findElement(By.xpath("//select[@class='citydd offer-city']")));
 		select1.selectByIndex(0);
+		Thread.sleep(3000L);
 		driver.navigate().refresh();
 		t1.wait(driver, "//select[@class='citydd offer-city']");
 		String ChangeUrlIndia=driver.getCurrentUrl();
