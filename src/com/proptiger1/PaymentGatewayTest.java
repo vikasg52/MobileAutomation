@@ -49,13 +49,13 @@ public class PaymentGatewayTest {
 		select2.selectByIndex(2);
 		Thread.sleep(4000L);
 		driver.navigate().refresh();
-		driver.findElement(By.xpath("//li[@data-url='/bangalore/bellandur/samruddhi-group-winter-green-643769']")).click();
+		driver.findElement(By.xpath("//li[@data-url='/bangalore/electronics-city/patel-townsville-501369']")).click();
 		t1.wait(driver, "//section[@class='project-config']//section[@id='config-banner-propties']");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 		driver.manage().addCookie(cookie);
 		driver.findElement(By.xpath("//section[@class='project-config']//section[@id='config-banner-propties']")).click();
-		t1.wait(driver,"//div[@data-selecttext='20,000 coupon selected for 2BHK+2T (1275 sq ft) in Bellandur, Bangalore']");
-		driver.findElement(By.xpath("//div[@data-selecttext='20,000 coupon selected for 2BHK+2T (1275 sq ft) in Bellandur, Bangalore']")).click();
+		t1.wait(driver,"//div[@data-selecttext='40,000 coupon selected for 3.5BHK+3T (3377 sq ft) in Electronics City, Bangalore']");
+		driver.findElement(By.xpath("//div[@data-selecttext='40,000 coupon selected for 3.5BHK+3T (3377 sq ft) in Electronics City, Bangalore']")).click();
 		t1.wait(driver,"//div[@class='btn-area']//a[@class='no-ajaxy btn btn-d-yellow pull-right continue-button']");
 		driver.findElement(By.xpath("//div[@class='btn-area']//a[@class='no-ajaxy btn btn-d-yellow pull-right continue-button']")).click();
 		String s7=driver.getCurrentUrl();
