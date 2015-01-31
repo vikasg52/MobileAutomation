@@ -23,7 +23,7 @@ public class Cross_PlatForm {
 	static String betassl="https://beta.proptiger-ws.com";
 	static String BaseUrl=ssl;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
-		//driver.manage().window().setSize(new Dimension(300,630));
+driver.manage().window().setSize(new Dimension(540,650));
 		driver.manage().deleteAllCookies();		
 		driver.get(BaseUrl);
 		WebDriverWait wait1 = new WebDriverWait(driver,120);
