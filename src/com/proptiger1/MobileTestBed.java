@@ -15,7 +15,7 @@ public class MobileTestBed {
 		System.out.println("============ ALL PAGE ACCESSIBILITY TEST STARTED ==============");
 	}
 		
-	@Test(priority=8)
+	@Test(priority=0)
 	void Chrome_iPhone_AllPageTest() throws InterruptedException 
 	{
 		java.lang.String name="Chrome_iPhone";
@@ -34,7 +34,7 @@ public class MobileTestBed {
 		driver.quit();
 	}
 	
-	@Test(priority=0)
+	@Test(priority=8)
 	void Chrome_AndroidTablet_AllPageTest() throws InterruptedException 
 	{
 		java.lang.String name="Chrome_AndroidTablet";
@@ -50,7 +50,7 @@ public class MobileTestBed {
 		driver.quit();
 	}
 	
-	@Test(priority=6)
+	@Test(priority=3)
 	void Chrome_AndroidMobile__AllPageTest() throws InterruptedException 
 	{
 		java.lang.String name="Chrome_AndroidMobile";
@@ -93,7 +93,7 @@ public class MobileTestBed {
 		System.out.println("5.All Pages are accessible on iOS8");
 		driver.quit();
 	}
-	@Test(priority=7)
+	@Test(priority=2)
 	void Safari_iOS7__AllPageTest() throws InterruptedException 
 	{
 		java.lang.String name="Safari_iOS7";
@@ -108,7 +108,7 @@ public class MobileTestBed {
 		System.out.println("8.All Pages are accessible on iOS7");
 		driver.quit();
 	}
-	@Test(priority=2)
+	@Test(priority=7)
 	void IE_Nokia_Lumia920__AllPageTest() throws InterruptedException 
 	{
 		java.lang.String name="IE_Nokia_Lumia920";
@@ -137,7 +137,7 @@ public class MobileTestBed {
 		System.out.println("2.All Pages are accessible on OperaMini_iPhone");
 		driver.quit();		
 	}
-	@Test(priority=3)
+	@Test(priority=6)
 	void OperaMini_Android__AllPageTest() throws InterruptedException 
 	{
 		java.lang.String name="OperaMini_Android";
