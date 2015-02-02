@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverh
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -99,11 +99,11 @@ driver.manage().window().setSize(new Dimension(540,650));
 			}
 			driver.navigate().refresh();		
 			// Verify menu drawer page on project page
-			Cross_PlatForm.VerifyMenuDrawer(driver);	    
-			driver.findElement(By.linkText("Explore this Locality")).click();
-			t1.wait(driver, "//h1[@title='Locality Name']");
-			String LocalityUrl= driver.getCurrentUrl();
-			String Localityheading= driver.findElement(By.xpath("//h1[@title='Locality Name']")).getText();
+			Cross_PlatForm.VerifyMenuDrawer(driver);
+			driver.findElement(By.linkText("//a[@class='btn btn-blu explore-this-locality']")).click();
+			t1.wait(driver, "//div[@class='proj-info-wrap']//h1[contains(text(),'Bellandur')]");
+                        String LocalityUrl= driver.getCurrentUrl();
+                        String Localityheading= driver.findElement(By.xpath("//div[@class='proj-info-wrap']//h1[contains(text(),'Bellandur')]")).getText();
 			boolean LocalityImage= t1.isElementPresent(driver,  By.xpath("//img[@src='https://im.pt-img1.com/4/270/15/bellandur-bangalore-road-382762.jpeg?width=400&height=300']"));
 			if(!LocalityUrl.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate/bellandur-overview-50270")
 					&& !Localityheading.equalsIgnoreCase("Bellandur") && LocalityImage==false)
