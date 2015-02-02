@@ -100,7 +100,7 @@ driver.manage().window().setSize(new Dimension(540,650));
 			driver.navigate().refresh();		
 			// Verify menu drawer page on project page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
-			driver.findElement(By.linkText("//a[@class='btn btn-blu explore-this-locality']")).click();
+			driver.findElement(By.xpath("//a[@class='btn btn-blu explore-this-locality']")).click();
 			t1.wait(driver, "//div[@class='proj-info-wrap']//h1[contains(text(),'Bellandur')]");
                         String LocalityUrl= driver.getCurrentUrl();
                         String Localityheading= driver.findElement(By.xpath("//div[@class='proj-info-wrap']//h1[contains(text(),'Bellandur')]")).getText();
