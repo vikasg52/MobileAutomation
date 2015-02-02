@@ -87,7 +87,7 @@ driver.manage().window().setSize(new Dimension(540,650));
 				driver.navigate().back();
 				Thread.sleep(3000L);
 			}
-			driver.findElement(By.xpath("//img[@src='https://im.proptiger.com/1/643769/6/samruddhi-group-wintergreen-elevation-555334.jpeg?width=400&height=300']")).click();
+			driver.findElement(By.xpath("//img[contains(@src,'https://im.proptiger.com/1/643769/6/samruddhi')]")).click();
 			t1.wait(driver, "//h1[@class='proj-name put-ellipsis']");
 			String ProjectPage= driver.getCurrentUrl();
 			String Projectheading= driver.findElement(By.xpath("//h1[@class='proj-name put-ellipsis']")).getText();
