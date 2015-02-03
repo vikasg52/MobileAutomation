@@ -31,7 +31,7 @@ public class Search_Testing
 		WebDriver driver = new FirefoxDriver(fb, profile);*/
 		WebDriver driver= new FirefoxDriver(profile);
 		String name="Chrome_Iphone";
-	    Search.search(driver, name);
+	        Search.search(driver, name);
 		System.out.println("9.Search working fine in Chrome-iPhone");
 		driver.quit();
 	}
@@ -43,7 +43,6 @@ public class Search_Testing
 		profile.setPreference("general.useragent.override","Mozilla/5.0 (Linux; Android 4.1.2; Nexus 7 Build/JZ054K) AppleWebKit/535.19 "
 				+ "(KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19");
 		WebDriver driver= new FirefoxDriver(profile);
-		
 		String name="Chrome_AndroidTablet";
 		Search.search(driver, name);
 		System.out.println("2.Search working fine in Chrome-Android-Tablet");
@@ -58,7 +57,7 @@ public class Search_Testing
 				+ "(KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19");
 		WebDriver driver= new FirefoxDriver(profile);
 		String name="Chrome_AndroidMobile";
-	    Search.search(driver, name);	
+	        Search.search(driver, name);	
 		System.out.println("3.Search working fine in Chrome-AndroidMobile");
 		driver.quit();
 	}
@@ -70,8 +69,8 @@ public class Search_Testing
 		profile.setPreference("general.useragent.override","Mozilla/5.0 (Android; Tablet; rv:14.0) Gecko/14.0 Firefox/14.0");
 		WebDriver driver= new FirefoxDriver(profile);		
 		String name= "FireFox-Android";
-		driver.manage().deleteAllCookies();
-	    Search.search(driver, name);	
+		//driver.manage().deleteAllCookies();
+	        Search.search(driver, name);	
 		System.out.println("4.Search working fine in FireFox-Android");
 		driver.quit();
 	}
@@ -83,8 +82,8 @@ public class Search_Testing
 		WebDriver driver= new FirefoxDriver(profile);
 		
 		String name="iOS8-Safari";
-		driver.manage().deleteAllCookies();
-	    Search.search(driver, name);	
+		//driver.manage().deleteAllCookies();
+	        Search.search(driver, name);	
 		System.out.println("5.Search working fine in iOS8-Safari");
 		driver.quit();
 	}
@@ -97,8 +96,8 @@ public class Search_Testing
 		WebDriver driver= new FirefoxDriver(profile);
 				
 		String name= "iOS-Safari";
-		driver.manage().deleteAllCookies();
-	    Search.search(driver, name);	
+		//driver.manage().deleteAllCookies();
+	        Search.search(driver, name);	
 		System.out.println("6.Search working fine in iOS7-Safari");
 		driver.quit();
 	}
@@ -111,19 +110,19 @@ public class Search_Testing
 		WebDriver driver= new FirefoxDriver(profile);
 				
 		String name="IE_Nokia_Lumia920";
-	    Search.search(driver, name);	
+	        Search.search(driver, name);	
 		System.out.println("7.Search working fine in IE_Nokia_Lumia920 ");
 		driver.quit();		
 	}
 	@Test(priority=7)
 	void SearchOperaMini_iPhone() throws InterruptedException 
 	{
-		String name="OperaMini_iPhone";
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override","Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_2 like Mac OS X) "
 				+ "AppleWebKit/600.1.4 (KHTML, like Gecko) OPiOS/9.1.0.86723 Mobile/12B440 Safari/9537.53");
 		WebDriver driver= new FirefoxDriver(profile);
-				
+		String name="OperaMini_iPhone";
+			
 		Search.search(driver, name);
 		System.out.println("8.Search working fine in OperaMini_iPhone");
 		driver.quit();		
@@ -133,7 +132,7 @@ public class Search_Testing
 	{
 		String name="OperaMini_Android";
 		 FirefoxProfile profile = new FirefoxProfile();
-        profile.setPreference("general.useragent.override","Opera/9.80 (Android; Opera Mini/7.5.33361/31.1448; U; en)"
+                   profile.setPreference("general.useragent.override","Opera/9.80 (Android; Opera Mini/7.5.33361/31.1448; U; en)"
         		+ " Presto/2.8.119 Version/11.1010");
 		WebDriver driver= new FirefoxDriver(profile);		
 		Search.search(driver, name);
@@ -142,7 +141,7 @@ public class Search_Testing
 	}
 	@AfterClass
 	public static void teardown()  
-	{
+	 {
 		System.out.println("============== SEARCH TEST FINISHED ===============\n");
      }
 }
