@@ -36,7 +36,7 @@ public class Search_Testing
 		driver.quit();
 	}
 	
-	@Test(priority=1)
+	@Test(priority=4)
 	void SearchChrome_AndroidTablet() throws InterruptedException 
 	{
 		FirefoxProfile profile = new FirefoxProfile();
@@ -45,7 +45,7 @@ public class Search_Testing
 		WebDriver driver= new FirefoxDriver(profile);
 		String name="Chrome_AndroidTablet";
 		Search.search(driver, name);
-		System.out.println("2.Search working fine in Chrome-Android-Tablet");
+		System.out.println("5.Search working fine in Chrome-Android-Tablet");
 		driver.quit();
 	}
 	
@@ -61,7 +61,7 @@ public class Search_Testing
 		System.out.println("3.Search working fine in Chrome-AndroidMobile");
 		driver.quit();
 	}
-	@Test(priority=3)
+	@Test(priority=0)
 	void SearchFireFox_Android() throws InterruptedException 
 	{
 		TimeStamp t= new TimeStamp();;
@@ -71,10 +71,10 @@ public class Search_Testing
 		String name= "FireFox-Android";
 		//driver.manage().deleteAllCookies();
 	        Search.search(driver, name);	
-		System.out.println("4.Search working fine in FireFox-Android");
+		System.out.println("1.Search working fine in FireFox-Android");
 		driver.quit();
 	}
-	@Test(priority=4)
+	@Test(priority=1)
 	void SearchSafari_iOS8() throws InterruptedException {
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override","Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 "
@@ -84,7 +84,7 @@ public class Search_Testing
 		String name="iOS8-Safari";
 		//driver.manage().deleteAllCookies();
 	        Search.search(driver, name);	
-		System.out.println("5.Search working fine in iOS8-Safari");
+		System.out.println("2.Search working fine in iOS8-Safari");
 		driver.quit();
 	}
 	@Test(priority=5)
@@ -127,7 +127,7 @@ public class Search_Testing
 		System.out.println("8.Search working fine in OperaMini_iPhone");
 		driver.quit();		
 	}
-	@Test(priority=0)
+	@Test(priority=3)
 	void SearchOperaMini_Android() throws InterruptedException 
 	{
 		String name="OperaMini_Android";
@@ -136,7 +136,7 @@ public class Search_Testing
         		+ " Presto/2.8.119 Version/11.1010");
 		WebDriver driver= new FirefoxDriver(profile);		
 		Search.search(driver, name);
-		System.out.println("1.Search working fine in OperaMini_Android");
+		System.out.println("4.Search working fine in OperaMini_Android");
 		driver.quit();		
 	}
 	@AfterClass
