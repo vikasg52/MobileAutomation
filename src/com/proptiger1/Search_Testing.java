@@ -17,16 +17,22 @@ public class Search_Testing
 		System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.Jdk14Logger");
 		System.out.println("============== SEARCH TEST STARTED ===============");
 	}	
-	@Test(priority=0)
+	@Test(priority=8)
 	void SearchChrome_iPhone() throws InterruptedException 
 	{
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS X) AppleWebKit/537.51.1 "
 				+ "(KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A501 Safari/8536.25");		
+		/*String Xport= System.getProperty("Importal.xvfb.id",":1");
+		final File firefoxPath= new File (System.getProperty("Importal.deploy.firefox.path","/usr/bin/firefox"));
+		FirefoxBinary fb= new FirefoxBinary(firefoxPath); 
+		fb.setEnvironmentProperty("DISPLAY", Xport);
+		String name="Chrome_Iphone";
+		WebDriver driver = new FirefoxDriver(fb, profile);*/
 		WebDriver driver= new FirefoxDriver(profile);
 		String name="Chrome_Iphone";
 	    Search.search(driver, name);
-		System.out.println("1.Search working fine in Chrome-iPhone");
+		System.out.println("9.Search working fine in Chrome-iPhone");
 		driver.quit();
 	}
 	
@@ -122,17 +128,16 @@ public class Search_Testing
 		System.out.println("8.Search working fine in OperaMini_iPhone");
 		driver.quit();		
 	}
-	@Test(priority=8)
+	@Test(priority=0)
 	void SearchOperaMini_Android() throws InterruptedException 
 	{
 		String name="OperaMini_Android";
 		 FirefoxProfile profile = new FirefoxProfile();
         profile.setPreference("general.useragent.override","Opera/9.80 (Android; Opera Mini/7.5.33361/31.1448; U; en)"
         		+ " Presto/2.8.119 Version/11.1010");
-		WebDriver driver= new FirefoxDriver(profile);
-				
+		WebDriver driver= new FirefoxDriver(profile);		
 		Search.search(driver, name);
-		System.out.println("9.Search working fine in OperaMini_Android");
+		System.out.println("1.Search working fine in OperaMini_Android");
 		driver.quit();		
 	}
 	@AfterClass
