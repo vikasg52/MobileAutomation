@@ -8,26 +8,28 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 public class Search {
-	static String BaseUrl="https://beta.proptiger-ws.com";
+	static String ssl="https://www.proptiger.com";
+	static String betassl="https:/beta.proptiger-ws.com";
+	static String BaseUrl=ssl;
 	static TimeStamp t= new TimeStamp();
 	 @SuppressWarnings("deprecation")
 	public static void search(WebDriver driver, String name) throws InterruptedException
 	 {
-		 driver.manage().window().setSize(new Dimension(360,630));
+		 driver.manage().window().setSize(new Dimension(520,730));
 		 driver.manage().deleteAllCookies();		
 		 driver.get(BaseUrl);
-		 WebDriverWait wait = new WebDriverWait(driver,120);
-		 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='city-name-info bangalore-info']")));
-		 //driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
-		 WebElement element = driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']"));
-		 JavascriptExecutor js = (JavascriptExecutor)driver;
-		 js.executeScript("arguments[0].click();", element);
-		 driver.navigate().refresh();
-		 WebDriverWait wait1 = new WebDriverWait(driver,120);
-		 wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@class='fake-search-box search-input wd85percent']")));
-		boolean search_box= t.isElementPresent(driver , By.xpath("//input[@class='fake-search-box search-input wd85percent']"));
+		 if(name!="IE_Nokia_Lumia920")
+		 {
+		 t.wait(driver,"//div[@data-lazyclass='interstial-container']//div[@class='closeoption']");
+		 driver.findElement(By.xpath("//div[@data-lazyclass='interstial-container']//div[@class='closeoption']")).click();
+		 }
+		 t.wait(driver,"//div[@class='bangalore-dec-info city-image']");
+		 //driver.findElement(By.linkText("Bangalore")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'bangalore-dec')]")).click();
+		t.wait(driver,"//input[contains(@class,'search-input wd85percent')]");
+		boolean search_box= t.isElementPresent(driver , By.xpath("//input[contains(@class,'search-input wd85percent')]"));
 		boolean search_button= t.isElementPresent(driver , By.xpath("//button[@class='srch-btn wd14percent']"));
-		String Default_Text= driver.findElement(By.xpath("//input[@class='fake-search-box search-input wd85percent']")).getAttribute("placeholder");
+		String Default_Text= driver.findElement(By.xpath("//input[contains(@class,'search-input wd85percent')]")).getAttribute("placeholder");
         boolean Search_icon = t.isElementPresent(driver, By.xpath("//i[@class='icon-search']"));
 		if(search_box==false)
         {
@@ -45,19 +47,23 @@ public class Search {
         {
         	Assert.fail("*. Default text in the serach text box is not present or incorrect when accessed via "+name);	
         }
-        driver.findElement(By.xpath("//input[@class='fake-search-box search-input wd85percent']")).click();
+        t.wait(driver,"//input[@class='fake-search-box search-input wd85percent']");
+        boolean x= driver.findElement(By.xpath("//input[@class='fake-search-box search-input wd85percent']")).isDisplayed();
+        if (x==true)
+        {
+        WebElement s=driver.findElement(By.xpath("//input[@class='fake-search-box search-input wd85percent']"));
+        s.submit();
+        }
         driver.getCurrentUrl();
-        WebElement element1 = driver.findElement(By.xpath("//input[@class='fake-search-box search-input wd85percent']"));
-		JavascriptExecutor js1 = (JavascriptExecutor)driver;
-		 js1.executeScript("arguments[0].click();", element1);		
-        if(!driver.getCurrentUrl().equalsIgnoreCase(BaseUrl+"/bangalore-real-estate-overview#searchPopup"))
+        boolean search_pagebox= t.isElementPresent(driver, By.xpath("//input[@class='search-input wd65percent']"));
+        if(!driver.getCurrentUrl().contains(BaseUrl+"/bangalore-real-estate-overview") && search_pagebox == false)
         {
         	Assert.fail("*. After tapping on search text box search page is not opening when accessed via "+name);
         }
         //=============================
         // search page object verification
         //=============================
-        boolean search_pagebox= t.isElementPresent(driver, By.xpath("//input[@class='search-input wd65percent']"));
+        search_pagebox= t.isElementPresent(driver, By.xpath("//input[@class='search-input wd65percent']"));
         boolean Search_pageicon = t.isElementPresent(driver, By.xpath("//i[@class='icon-search']"));
         boolean blue_text = t.isElementPresent(driver,By.xpath("//div[@class='ta-center blue']"));
         boolean grey_text =t.isElementPresent(driver,By.xpath("//div[@class='ta-center grey]"));
@@ -69,17 +75,11 @@ public class Search {
         {
         	Assert.fail("*.Blue text and grey color text is missing from the search page");
         }
-    	String bluetext=driver.findElement(By.xpath("//div[@class='ta-center blue']")).getText();
-    	if(!bluetext.equalsIgnoreCase("Start Exploring"))
-    	{
-    		Assert.fail("Blue text on search page is incorrect");
-    	}
-        String greytext=driver.findElement(By.xpath("//div[@class='ta-center grey']")).getText();
-        if(!greytext.equalsIgnoreCase("Search for a locality, project or builder"))
-    	{
-    		Assert.fail("Grey text on search page is incorrect");
-    	}
-        driver.findElement(By.xpath("//a[@class='no-ajaxy srch-cancel wd20percent']")).click();
+        t.wait(driver, "//a[@class='no-ajaxy srch-cancel wd20percent']");
+        WebElement e= driver.findElement(By.xpath("//a[@class='no-ajaxy srch-cancel wd20percent']"));
+        JavascriptExecutor js=(JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();",e);
+        //driver.findElement(By.xpath("//a[@class='no-ajaxy srch-cancel wd20percent']")).click();
         WebDriverWait wait3 = new WebDriverWait(driver,120);
 		wait3.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@class='fake-search-box search-input wd85percent']")));
 		if(!driver.getCurrentUrl().equalsIgnoreCase("https://www.proptiger.com/bangalore-real-estate-overview"))
@@ -118,7 +118,7 @@ public class Search {
         // Click on search result verification
         driver.findElement(By.xpath("//div[@class='put-ellipsis' and text()='DLF - Bella Greens - Bangalore']")).click();
         Thread.sleep(3000L);
-        if(!driver.getCurrentUrl().equalsIgnoreCase("https://www.proptiger.com/bangalore/begur/dlf-bella-greens-513482"))
+        if(!driver.getCurrentUrl().equalsIgnoreCase(BaseUrl+"/bangalore/begur/dlf-bella-greens-513482"))
         {
         	Assert.fail("Clicking on first search result the next page is not opening/ url of next page is wrong-tested on"+name);
         }
