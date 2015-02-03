@@ -1,31 +1,31 @@
 package com.proptiger1;
-import org.openqa.selenium.Dimension;
+import java.io.File;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterClass;
-public class Search_Testing {
-	
-	TimeStamp t= new TimeStamp();	
+public class Search_Testing 
+{
+    TimeStamp t= new TimeStamp();	
 	@BeforeTest
 	public void start()
 	{
 		System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.Jdk14Logger");
-		System.out.println("============== SEARCH TEST STARTED===============");
+		System.out.println("============== SEARCH TEST STARTED ===============");
 	}	
 	@Test(priority=0)
 	void SearchChrome_iPhone() throws InterruptedException 
 	{
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS X) AppleWebKit/537.51.1 "
-				+ "(KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A501 Safari/8536.25");
+				+ "(KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A501 Safari/8536.25");		
 		WebDriver driver= new FirefoxDriver(profile);
-		
 		String name="Chrome_Iphone";
-		Search.search(driver, name);
+	    Search.search(driver, name);
 		System.out.println("1.Search working fine in Chrome-iPhone");
 		driver.quit();
 	}
