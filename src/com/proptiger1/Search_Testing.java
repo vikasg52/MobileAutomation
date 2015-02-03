@@ -143,6 +143,6 @@ public class Search_Testing
 	@AfterClass
 	public static void teardown()  
 	{
-		System.out.println("============== SEARCH TEST FINISHED ==============\n");
+		System.out.println("============== SEARCH TEST FINISHED ===============\n");
      }
 }
