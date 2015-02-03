@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Mobile Website Sanity Testing Framework">
+<test name="Search Feature Testing Across Devices and Browsers ">
+    <classes>
+      <class name="com.proptiger1.Search_Testing">     
+      </class>
+      <class name="com.proptiger1.Search">
+      </class>
+      <class name="com.proptiger1.TimeStamp">
+      </class>
+    </classes>
+  </test>
   <test name="All Page Accessibility Testing Across Devices and Browsers ">
     <classes>
       <class name="com.proptiger1.MobileTestBed">     
@@ -14,17 +24,7 @@
       </class>
     </classes>
   </test>
-  <test name="Search Feature Testing Across Devices and Browsers ">
-    <classes>
-      <class name="com.proptiger1.Search_Testing">     
-      </class>
-      <class name="com.proptiger1.Search">
-      </class>
-      <class name="com.proptiger1.TimeStamp">
-      </class>
-    </classes>
-  </test>
-      <test name="Desktop Responsive Page Testing Across Devices and Browsers">
+  <test name="Desktop Responsive Page Testing Across Devices and Browsers">
     <classes>
       <class name="com.proptiger1.DesktopTestBed">     
       </class>
