@@ -96,7 +96,7 @@ public class Search {
         boolean searchResult= t.isElementPresent(driver, By.xpath("//div[@class='search-results']"));
         boolean searchCancel=t.isElementPresent(driver,By.xpath("//span[@class='search-cancel']"));
         boolean FirstResulticon= t.isElementPresent(driver, By.xpath("//div[@data-opt-idx='0']//i[@class='icon-apartment pull-left paddingR5']"));
-        String FirstResult=driver.findElement(By.xpath("//div[@class='put-ellipsis' and text()='DLF - Bella Greens - Bangalore']")).getText();
+        String FirstResult=driver.findElement(By.xpath("//div[@class='search-results']//div[@data-opt-idx='0']")).getText();
         int Resultcount = driver.findElements(By.xpath("//div[@class='ac-opt']")).size();
         if(searchResult==false && searchCancel==false)
         {
@@ -116,7 +116,7 @@ public class Search {
         }
         
         // Click on search result verification
-        driver.findElement(By.xpath("//div[@class='put-ellipsis' and text()='DLF - Bella Greens - Bangalore']")).click();
+        driver.findElement(By.xpath("//div[@class='search-results']//div[@data-opt-idx='0']")).click();
         Thread.sleep(3000L);
         if(!driver.getCurrentUrl().equalsIgnoreCase(BaseUrl+"/bangalore/begur/dlf-bella-greens-513482"))
         {
