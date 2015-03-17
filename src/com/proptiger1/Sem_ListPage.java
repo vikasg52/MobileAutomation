@@ -49,14 +49,14 @@ public class Sem_ListPage {
 			    "+919555606060"};
 		String Cookie= "?utm_source=google&utm_adgroup=PropTiger%20Branding&utm_medium=cpc&utm_term=proptiger&utm_content=52210766295&utm_campaign=PropTiger%20Branding&Network=Search";
 		String [] URLs={
-				BaseUrl+"/mumbai-real-estate"+Cookie,
-				BaseUrl+"/noida-real-estate"+Cookie,
-				BaseUrl+"/gurgaon-real-estate"+Cookie,
-				BaseUrl+"/bangalore-real-estate"+Cookie,
-				BaseUrl+"/pune-real-estate"+Cookie,
-				BaseUrl+"/chennai-real-estate"+Cookie,
+				BaseUrl+"/projects-in-mumbai"+Cookie,
+				BaseUrl+"/projects-in-noida"+Cookie,
+				BaseUrl+"/projects-in-gurgaon"+Cookie,
+				BaseUrl+"/projects-in-bangalore"+Cookie,
+				BaseUrl+"/projects-in-pune"+Cookie,
+				BaseUrl+"/projects-in-chennai"+Cookie,
 				//BaseUrl+"/bangalore/itpl/prestige-shantiniketan-502704"+Cookie,
-				BaseUrl+"/ghaziabad-real-estate"+Cookie};
+				BaseUrl+"/projects-in-ghaziabad"+Cookie};
 		String Failed=""; 
 		for(int i = 0;i<URLs.length;i++)
 		{
