@@ -23,9 +23,9 @@ public class Cross_PlatForm {
 	static String betassl="https://beta.proptiger-ws.com";
 	static String BaseUrl=ssl;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
-driver.manage().window().setSize(new Dimension(540,650));
-		driver.manage().deleteAllCookies();		
+		driver.manage().window().setSize(new Dimension(300,630));
 		driver.get(BaseUrl);
+		driver.manage().deleteAllCookies();	
 		WebDriverWait wait1 = new WebDriverWait(driver,120);
 		wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='city-name-info bangalore-info']")));
 		Cookie cookie = new Cookie("TESTING_USER", "1");
@@ -47,10 +47,11 @@ driver.manage().window().setSize(new Dimension(540,650));
 			}
 			try
 			{
-				driver.findElement(By.xpath("//div[@class='city-name-info bangalore-info']")).click();
+				driver.manage().deleteAllCookies();
+				driver.findElement(By.xpath("//div[@class='bangalore-dec-info city-image']")).click();
 				t1.wait(driver, "//select[@class='city-select-dd']//option[@selected='selected']");
 				String CityHomeUrl= driver.getCurrentUrl();
-				String ExpectedURL=BaseUrl+"/bangalore-real-estate-overview";
+				String ExpectedURL=BaseUrl+"/bangalore-real-estate";
 				String CitySelected= driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='selected']")).getText();
 				if(!CityHomeUrl.equalsIgnoreCase(ExpectedURL))
 				{
@@ -65,6 +66,8 @@ driver.manage().window().setSize(new Dimension(540,650));
 			// Verify menu drawer page on city page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
 			driver.findElement(By.partialLinkText("All projects in")).click();
+			Cookie cookie1 = new Cookie("TESTING_USER", "1");
+		    driver.manage().addCookie(cookie1);
 			t1.wait(driver, "//div[@class='listing-title']");
 			String ListingUrl=driver.getCurrentUrl();
 			String ListingTitle= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
@@ -79,38 +82,71 @@ driver.manage().window().setSize(new Dimension(540,650));
 			{
 				driver.findElement(By.xpath("//td[@class='ta-right padding5']//a[@class='no-ajaxy pull-right btn btn-default show-map-btn']")).click();
 				String MapPage=driver.getCurrentUrl();				
-				if(!MapPage.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate#mapStaticPopupBlock"))
+				if(!MapPage.equalsIgnoreCase(BaseUrl+"/projects-in-bangalore#mapStaticPopupBlock"))
 				{
 					Assert.fail("\n Map page is not opening in"+name);
 					driver.close();
 				}
 				driver.navigate().back();
-				Thread.sleep(4000L);
+				Thread.sleep(3000L);
 			}
-			driver.findElement(By.xpath("//img[contains(@data-src,'https://im.proptiger.com/1/643769/6/samruddhi')]")).click();
-			t1.wait(driver, "//h1[@class='proj-name put-ellipsis']");
+			driver.findElement(By.xpath("//img[@src='https://im.proptiger.com/1/643769/6/samruddhi-group-wintergreen-elevation-555334.jpeg?width=400&height=300']")).click();
+			t1.wait(driver, "//h1[@title='Project Name']");
 			String ProjectPage= driver.getCurrentUrl();
-			String Projectheading= driver.findElement(By.xpath("//h1[@class='proj-name put-ellipsis']")).getText();
+			String Projectheading= driver.findElement(By.xpath("//h1[@title='Project Name']")).getText();
 			if(!ProjectPage.equalsIgnoreCase(BaseUrl+"/bangalore/bellandur/samruddhi-group-winter-green-643769")
 					&& !Projectheading.equalsIgnoreCase("Samruddhi Group Winter Green"))
 			{
 				Assert.fail("\n Project Page is not opening-URL is wrong, title is wrong or project name is wrong"+name);	
 				driver.close();
 			}
-			driver.navigate().refresh();		
-			// Verify menu drawer page on project page
-			Cross_PlatForm.VerifyMenuDrawer(driver);
-			driver.findElement(By.xpath("//a[@class='btn btn-blu explore-this-locality']")).click();
+			driver.navigate().refresh();
+	        Cross_PlatForm.VerifyMenuDrawer(driver);
+	        t1.wait(driver, "//div[@class='ta-center marginT20']//a[@class='btn btn-blu explore-this-locality']");
+			driver.findElement(By.xpath("//div[@class='ta-center marginT20']//a[@class='btn btn-blu explore-this-locality']")).click();
 			t1.wait(driver, "//div[@class='proj-info-wrap']//h1[contains(text(),'Bellandur')]");
-                        String LocalityUrl= driver.getCurrentUrl();
-                        String Localityheading= driver.findElement(By.xpath("//div[@class='proj-info-wrap']//h1[contains(text(),'Bellandur')]")).getText();
-			boolean LocalityImage= t1.isElementPresent(driver,  By.xpath("//img[@src='https://im.pt-img1.com/4/270/15/bellandur-bangalore-road-382762.jpeg?width=400&height=300']"));
+			String LocalityUrl= driver.getCurrentUrl();
+			String Localityheading= driver.findElement(By.xpath("//div[@class='proj-info-wrap']//h1[contains(text(),'Bellandur')]")).getText();
+			boolean LocalityImage= t1.isElementPresent(driver,By.xpath("//img[@data-src='https://im.pt-img1.com/4/270/15/bellandur-bangalore-road-382762.jpeg?width=400&height=300']"));
 			if(!LocalityUrl.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate/bellandur-overview-50270")
 					&& !Localityheading.equalsIgnoreCase("Bellandur") && LocalityImage==false)
 			{
 				Assert.fail("\n Locality page is not opening, basis URL is incorrect/heading is incorrect/image is missing"+name);
 				driver.close();  		
 			}
+			driver.findElement(By.xpath("//table[@class='tab-list']//td[@id='pricetrend-tab-link']")).click();
+			t1.wait(driver,  "//canvas[@id='appartment-price-trend']");
+			//Price Trends
+			boolean PriceTrendLabel=t1.isElementPresent(driver,By.xpath("//div[@class='title tcw' and text()=' Price Trends']"));
+			boolean PTApartmentActiveTab=t1.isElementPresent(driver,By.xpath("//a[@id='apt-chart-tab']"));
+			boolean PTActive= t1.isElementPresent(driver,By.xpath("//section[@class='white-bg-pad10 marginTB10 locality-price-trend-card open']//a[@class='no-ajaxy graph-tab active']"));
+			boolean PTVillaTab=t1.isElementPresent(driver,By.xpath("//a[@id='villa-chart-tab']"));
+			boolean PTPlotTab=t1.isElementPresent(driver,By.xpath("//a[@id='plot-chart-tab']"));
+			
+			boolean PTCardclose=t1.isElementPresent(driver, By.xpath("//div[@class='title tcw' and text()=' Price Trends']//i[@class='toggle-icon']"));
+			boolean Graph= t1.isElementPresent(driver, By.xpath("//canvas[@id='appartment-price-trend']"));
+			//Price compare part
+			boolean PriceComparelabel=t1.isElementPresent(driver,By.xpath("//div[@class='title tcw' and text()=' Price Comparison']"));
+			boolean PCActiveTab=t1.isElementPresent(driver,By.xpath("//section[@class='white-bg-pad10 marginTB10 price-comparison-card open']//a[@class='no-ajaxy graph-tab active']"));
+			boolean ApartmentTab=t1.isElementPresent(driver,By.xpath("//a[@id='apt-chart=tab-comparison']"));
+			boolean VillaTab=t1.isElementPresent(driver,By.xpath("//a[@id='villa-chart=tab-comparison']"));
+			boolean PlotTab=t1.isElementPresent(driver,By.xpath("//a[@id='plot-chart=tab-comparison']"));
+			boolean PCCardClose= t1.isElementPresent(driver,By.xpath("//div[@class='title tcw' and text()=' Price Comparison']//i[@class='toggle-icon']"));
+			
+			driver.findElement(By.xpath("//table[@class='tab-list']//td[@id='neighbourhood-tab-link']")).click();
+			boolean School= t1.isElementPresent(driver,By.xpath("//span//i[@class='icon-Sch']"));
+			boolean Hospital= t1.isElementPresent(driver,By.xpath("//span//i[@class='icon-hospital']"));
+			boolean Petrol= t1.isElementPresent(driver,By.xpath("//span//i[@class='icon-petrol-station']"));
+			boolean Bank= t1.isElementPresent(driver,By.xpath("//span//i[@class='icon-bank']"));
+			boolean Restaurant= t1.isElementPresent(driver,By.xpath("//span//i[@class='icon-restaurant']"));
+			boolean AppDownload= t1.isElementPresent(driver,By.xpath("//span//i[@class='icon-Apple and text()='DOWNLOAD OUR iPhone APP']"));
+			boolean DownloadLink=t1.isElementPresent(driver,By.xpath("https://itunes.apple.com/in/app/proptiger-real-estate-property/id935244607?ls="
+					+ "1&mt=8&referrer=utm_source=(direct)&utm_medium=(none)&utm_content=LOCALITY-OVERVIEW&utm_campaign=mobilesite"));
+		    driver.findElement(By.xpath("//table[@class='tab-list']//td[@id='reviews-tab-link']")).click();
+			Boolean rating= t1.isElementPresent(driver,By.xpath("//div[@class='user-rating mini-title']"));
+			driver.findElement(By.xpath("//table[@class='tab-list']//td[@id='overview-tab-link']")).click();
+			t1.wait(driver,"//img[@src='https://im.proptiger.com/4/270/15/bellandur-bangalore-road-382762.jpeg?width=400&height=300']");
+			boolean image= t1.isElementPresent(driver,By.xpath("//img[@src='https://im.proptiger.com/4/270/15/bellandur-bangalore-road-382762.jpeg?width=400&height=300']"));
 			// Verify menu drawer page on Locality overview page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
 		    driver.findElement(By.linkText("View all Projects")).click();
