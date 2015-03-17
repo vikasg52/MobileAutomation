@@ -48,6 +48,7 @@ public class Cross_PlatForm {
 			try
 			{
 				driver.manage().deleteAllCookies();
+				t1.wait(driver, "//div[@class='bangalore-dec-info city-image']");
 				driver.findElement(By.xpath("//div[@class='bangalore-dec-info city-image']")).click();
 				t1.wait(driver, "//select[@class='city-select-dd']//option[@selected='selected']");
 				String CityHomeUrl= driver.getCurrentUrl();
