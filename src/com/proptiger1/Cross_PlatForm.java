@@ -32,7 +32,7 @@ public class Cross_PlatForm {
 	    driver.manage().addCookie(cookie);
 	    boolean homepage= t1.isElementPresent(driver, By.xpath("//div[@class='home-top-textInfo']"));
 		boolean CityStrip= t1.isElementPresent(driver, By.xpath("//div[@class='city-name-info bangalore-info']"));
-		Cross_PlatForm.interstitial(driver, name);
+		//Cross_PlatForm.interstitial(driver, name);
 		if(homepage==false && CityStrip==false)
 		{
 			Assert.fail("\n Global home Page could not be opened in"+name);
