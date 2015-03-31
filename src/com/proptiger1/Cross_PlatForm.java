@@ -41,7 +41,7 @@ public class Cross_PlatForm {
 		else
 		{
 			int cityCount= driver.findElements(By.xpath("//a[@class='city-list']")).size();
-			if(cityCount!=10)
+			if(cityCount!=13)
 			{
 				Assert.fail("\n Count of diplayed cities on home page is wrong!!");
 			}
