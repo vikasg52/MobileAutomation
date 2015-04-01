@@ -1,4 +1,6 @@
 package com.proptiger1;
+import java.io.IOException;
+
 import org.apache.xpath.operations.String;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,7 +14,7 @@ public class MobileTestBed {
 	public void start() throws InterruptedException 
 	{
 		System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.Jdk14Logger");
-		System.out.println("============ ALL PAGE ACCESSIBILITY TEST STARTED-BETA ==============");
+		System.out.println("============ ALL PAGE ACCESSIBILITY TEST STARTED ==============");
 	}
 		
 	@Test(priority=8)
@@ -34,7 +36,7 @@ public class MobileTestBed {
 		driver.quit();
 	}
 	
-	@Test(priority=0)
+	@Test(priority=9)
 	void Chrome_AndroidTablet_AllPageTest() throws InterruptedException 
 	{
 		java.lang.String name="Chrome_AndroidTablet";
@@ -152,6 +154,14 @@ public class MobileTestBed {
 		System.out.println("4.All Pages are accessible on OperaMini_Android");
 		driver.quit();		
 	}
+	
+	@Test(priority=0)
+	void UrlCheck() throws InterruptedException, IOException 
+	{
+		Cross_PlatForm.CheckUrls();
+		System.out.println("All URLS are passed ");		
+	}
+	
 	@AfterClass
 	public static void teardown()  
 	{
