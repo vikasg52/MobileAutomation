@@ -48,7 +48,7 @@ public class MobileTestBed {
 		Cross_PlatForm.AllPages(driver,name);
 		Cross_PlatForm.Check404Page(driver);
 		Cross_PlatForm.CheckAmenityPages(driver);
-		System.out.println("1.All Pages are accessible on Chrome_AndroidTablet");
+		System.out.println("10.All Pages are accessible on Chrome_AndroidTablet");
 		driver.quit();
 	}
 	
@@ -159,7 +159,7 @@ public class MobileTestBed {
 	void UrlCheck() throws InterruptedException, IOException 
 	{
 		Cross_PlatForm.CheckUrls();
-		System.out.println("All URLS are passed ");		
+		System.out.println("1.All urls are working");		
 	}
 	
 	@AfterClass
