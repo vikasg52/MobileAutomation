@@ -23,6 +23,7 @@ import org.testng.Assert;
 public class Cross_PlatForm {
 	public static TimeStamp t1= new TimeStamp();
 	static String name="";
+	static int count=0;
 	static String http="http://www.proptiger.com";
 	static String ssl="https://www.proptiger.com";
 	static String betahttp="http://beta.proptiger-ws.com";
@@ -417,8 +418,8 @@ public class Cross_PlatForm {
 		    if(con.getResponseCode()!=200)
 		    {
 		    	System.err.println(i+":"+URLs+"  "+con.getResponseCode()+" Not Ok");
-		    	Assert.fail("This URL :"+URLs+"is not Ok");
 		    }
+		    
 		  } catch (MalformedURLException e1) {
 		    e1.printStackTrace();
 		  } catch (  UnknownHostException unknownHostException) {
@@ -427,8 +428,26 @@ public class Cross_PlatForm {
 		    System.err.println("This Url is not correct: " + ex);
 		  }
      	}	
-      } 
+      
+   for(int i=0;i<=sheet.getLastRowNum();i++)
+   { 
+	        String URLs= BaseUrl1+"/"+sheet.getRow(i).getCell((short) 1).getStringCellValue();
+		    URL url = new URL(URLs);
+		    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+		    con.setRequestProperty("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_3 like Mac OS X) AppleWebKit/600.1.4"
+				+ "(KHTML, like Gecko) CriOS/40.0.2214.73 Mobile/12B466 Safari/600.14");
+		    con.setRequestProperty("Connection", "close");
+		    con.connect();
+		   if(con.getResponseCode()!=200)
+		    {
+		    	count=count+1;
+		    }
+		}
+   if(count>1)
+   {
+	   Assert.fail("Some URLS are not OK. Please check report for status.");
+   }
+   }
 }
-   
    
    
