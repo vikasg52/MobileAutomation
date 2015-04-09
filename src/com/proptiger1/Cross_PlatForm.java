@@ -26,6 +26,7 @@ public class Cross_PlatForm {
 	static int count=0;
 	static String http="http://www.proptiger.com";
 	static String ssl="https://www.proptiger.com";
+	static String ssl1= "https://www.proptiger.com/";
 	static String betahttp="http://beta.proptiger-ws.com";
 	static String mobbeta="http://mob-beta.proptiger-ws.com";
 	static String local= "http://192.168.0.216:5000";
@@ -396,7 +397,7 @@ public class Cross_PlatForm {
 	}
    public static void CheckUrls() throws IOException
    {
-	   FileInputStream newFile1 = new FileInputStream("./Input/MainUrls.xls"); 
+	   FileInputStream newFile1 = new FileInputStream("./Input/Main.xls"); 
 		 HSSFWorkbook workbook = new HSSFWorkbook(newFile1);
 		 HSSFSheet sheet = workbook.getSheetAt(0);
 		 System.out.println(" PROCESSING Urls..........");

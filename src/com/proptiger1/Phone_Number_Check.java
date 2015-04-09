@@ -46,7 +46,9 @@ public class Phone_Number_Check
 	@Test(priority=1)
 	public void GooglePages_SEM_Number(String x) throws InterruptedException
 	{ 
-		x="https://beta.proptiger-ws.com";
+		String beta="https://beta.proptiger-ws.com";
+		String prod="https://www.proptiger.com";
+		x=beta;
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS X) AppleWebKit/537.51.1 "
 				+ "(KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A501 Safari/8536.25");
@@ -109,7 +111,9 @@ public class Phone_Number_Check
 	@Test(priority=2)
 	public String internal_Mailer(String y)
 	{
-		y="https://beta.proptiger-ws.com";
+		String beta="https://beta.proptiger-ws.com";
+		String prod="https://www.proptiger.com";
+		y=beta;
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS X) AppleWebKit/537.51.1 "
 				+ "(KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A501 Safari/8536.25");
@@ -190,7 +194,9 @@ public class Phone_Number_Check
 	@Test(priority=3)
 	public String External_Mailer(String z)
 	{	
-		z= "https://beta.proptiger-ws.com";
+		String beta="https://beta.proptiger-ws.com";
+		String prod="https://www.proptiger.com";
+		z= beta;
 		FirefoxProfile profile = new FirefoxProfile();
 	profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) "
 			+ "AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53");

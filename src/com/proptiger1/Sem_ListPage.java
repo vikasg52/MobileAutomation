@@ -19,7 +19,9 @@ public class Sem_ListPage {
 	 @Test(priority=0)
 	public void Sem_ListingPage(String BaseUrl) throws InterruptedException
 	{
-		BaseUrl="https://beta.proptiger-ws.com";
+		 String beta="https://beta.proptiger-ws.com";
+		String prod="https://www.proptiger.com";
+		BaseUrl=beta;
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS X) AppleWebKit/537.51.1 "
 				+ "(KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A501 Safari/8536.25");
