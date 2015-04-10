@@ -90,7 +90,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">10 methods, 1 failed,   9 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -101,64 +101,10 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.proptiger1.MobileTestBed" hash-for-method="UrlCheck">UrlCheck</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="Caching.CachingTest" hash-for-method="PageCaching">PageCaching</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
-                  </li>
-                  <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
-                    </span>
-                    <div class="method-list-content passed suite-Default_suite">
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.proptiger1.MobileTestBed" hash-for-method="Chrome_AndroidMobile__AllPageTest">Chrome_AndroidMobile__AllPageTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.proptiger1.MobileTestBed" hash-for-method="Chrome_AndroidTablet_AllPageTest">Chrome_AndroidTablet_AllPageTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.proptiger1.MobileTestBed" hash-for-method="Chrome_iPhone_AllPageTest">Chrome_iPhone_AllPageTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.proptiger1.MobileTestBed" hash-for-method="FireFox_Android_AllPageTest">FireFox_Android_AllPageTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.proptiger1.MobileTestBed" hash-for-method="IE_Nokia_Lumia920__AllPageTest">IE_Nokia_Lumia920__AllPageTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.proptiger1.MobileTestBed" hash-for-method="OperaMini_Android__AllPageTest">OperaMini_Android__AllPageTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.proptiger1.MobileTestBed" hash-for-method="OperaMini_iPhone__AllPageTest">OperaMini_iPhone__AllPageTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.proptiger1.MobileTestBed" hash-for-method="Safari_iOS7__AllPageTest">Safari_iOS7__AllPageTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.proptiger1.MobileTestBed" hash-for-method="Safari_iOS8__AllPageTest">Safari_iOS8__AllPageTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content passed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -173,18 +119,19 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">com.proptiger1.MobileTestBed</span>
+              <span class="class-name">Caching.CachingTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="UrlCheck">
-                  </a> <!-- UrlCheck -->
-                  <span class="method-name">UrlCheck</span>
-                  <div class="stack-trace">java.lang.AssertionError: Some URLS are not OK. Please check report for status.
-	at org.testng.Assert.fail(Assert.java:94)
-	at com.proptiger1.Cross_PlatForm.CheckUrls(Cross_PlatForm.java:448)
-	at com.proptiger1.MobileTestBed.UrlCheck(MobileTestBed.java:161)
+                  <a name="PageCaching">
+                  </a> <!-- PageCaching -->
+                  <span class="method-name">PageCaching</span>
+                  <div class="stack-trace">java.io.FileNotFoundException: ./Input/Main1.xls (No such file or directory)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:146)
+	at java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:101)
+	at Caching.CachingTest.PageCaching(CachingTest.java:20)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -215,81 +162,10 @@
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-failed -->
-          <div class="suite-Default_suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.proptiger1.MobileTestBed</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="Chrome_AndroidMobile__AllPageTest">
-                  </a> <!-- Chrome_AndroidMobile__AllPageTest -->
-                  <span class="method-name">Chrome_AndroidMobile__AllPageTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="Chrome_AndroidTablet_AllPageTest">
-                  </a> <!-- Chrome_AndroidTablet_AllPageTest -->
-                  <span class="method-name">Chrome_AndroidTablet_AllPageTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="Chrome_iPhone_AllPageTest">
-                  </a> <!-- Chrome_iPhone_AllPageTest -->
-                  <span class="method-name">Chrome_iPhone_AllPageTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="FireFox_Android_AllPageTest">
-                  </a> <!-- FireFox_Android_AllPageTest -->
-                  <span class="method-name">FireFox_Android_AllPageTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="IE_Nokia_Lumia920__AllPageTest">
-                  </a> <!-- IE_Nokia_Lumia920__AllPageTest -->
-                  <span class="method-name">IE_Nokia_Lumia920__AllPageTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="OperaMini_Android__AllPageTest">
-                  </a> <!-- OperaMini_Android__AllPageTest -->
-                  <span class="method-name">OperaMini_Android__AllPageTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="OperaMini_iPhone__AllPageTest">
-                  </a> <!-- OperaMini_iPhone__AllPageTest -->
-                  <span class="method-name">OperaMini_iPhone__AllPageTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="Safari_iOS7__AllPageTest">
-                  </a> <!-- Safari_iOS7__AllPageTest -->
-                  <span class="method-name">Safari_iOS7__AllPageTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="Safari_iOS8__AllPageTest">
-                  </a> <!-- Safari_iOS8__AllPageTest -->
-                  <span class="method-name">Safari_iOS8__AllPageTest</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/7w/rn52ltqn4j71clm3tpxfgztc0000gn/T/testng-eclipse--535254385/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/7w/rn52ltqn4j71clm3tpxfgztc0000gn/T/testng-eclipse--1848440989/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -298,7 +174,7 @@
 &lt;suite name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.proptiger1.MobileTestBed&quot;/&gt;
+      &lt;class name=&quot;Caching.CachingTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -338,52 +214,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(10);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Chrome_AndroidTablet_AllPageTest')
-data.setCell(0, 2, 'com.proptiger1.MobileTestBed')
-data.setCell(0, 3, 432964);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'Safari_iOS8__AllPageTest')
-data.setCell(1, 2, 'com.proptiger1.MobileTestBed')
-data.setCell(1, 3, 349724);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'OperaMini_Android__AllPageTest')
-data.setCell(2, 2, 'com.proptiger1.MobileTestBed')
-data.setCell(2, 3, 345772);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'FireFox_Android_AllPageTest')
-data.setCell(3, 2, 'com.proptiger1.MobileTestBed')
-data.setCell(3, 3, 336843);
-data.setCell(4, 0, 4)
-data.setCell(4, 1, 'UrlCheck')
-data.setCell(4, 2, 'com.proptiger1.MobileTestBed')
-data.setCell(4, 3, 335696);
-data.setCell(5, 0, 5)
-data.setCell(5, 1, 'Safari_iOS7__AllPageTest')
-data.setCell(5, 2, 'com.proptiger1.MobileTestBed')
-data.setCell(5, 3, 332326);
-data.setCell(6, 0, 6)
-data.setCell(6, 1, 'Chrome_iPhone_AllPageTest')
-data.setCell(6, 2, 'com.proptiger1.MobileTestBed')
-data.setCell(6, 3, 237987);
-data.setCell(7, 0, 7)
-data.setCell(7, 1, 'OperaMini_iPhone__AllPageTest')
-data.setCell(7, 2, 'com.proptiger1.MobileTestBed')
-data.setCell(7, 3, 227225);
-data.setCell(8, 0, 8)
-data.setCell(8, 1, 'IE_Nokia_Lumia920__AllPageTest')
-data.setCell(8, 2, 'com.proptiger1.MobileTestBed')
-data.setCell(8, 3, 165961);
-data.setCell(9, 0, 9)
-data.setCell(9, 1, 'Chrome_AndroidMobile__AllPageTest')
-data.setCell(9, 2, 'com.proptiger1.MobileTestBed')
-data.setCell(9, 3, 132327);
+data.setCell(0, 1, 'PageCaching')
+data.setCell(0, 2, 'Caching.CachingTest')
+data.setCell(0, 3, 14);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 48 minutes</span>
+              <span class="suite-total-time">Total running time: 14 ms</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -409,57 +249,13 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.proptiger1.MobileTestBed</div> <!-- chronological-class-name -->
-              <div class="configuration-test before">
-                <span class="method-name">start</span>
-                <span class="method-start">0 ms</span>
-              </div> <!-- configuration-test before -->
+              <div class="chronological-class-name">Caching.CachingTest</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">UrlCheck</span>
-                <span class="method-start">18 ms</span>
+                <span class="method-name">PageCaching</span>
+                <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">OperaMini_iPhone__AllPageTest</span>
-                <span class="method-start">335718 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">IE_Nokia_Lumia920__AllPageTest</span>
-                <span class="method-start">562945 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">OperaMini_Android__AllPageTest</span>
-                <span class="method-start">728907 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">Safari_iOS8__AllPageTest</span>
-                <span class="method-start">1074680 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">FireFox_Android_AllPageTest</span>
-                <span class="method-start">1424405 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">Chrome_AndroidMobile__AllPageTest</span>
-                <span class="method-start">1761249 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">Safari_iOS7__AllPageTest</span>
-                <span class="method-start">1893576 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">Chrome_iPhone_AllPageTest</span>
-                <span class="method-start">2225903 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">Chrome_AndroidTablet_AllPageTest</span>
-                <span class="method-start">2463891 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-class after">
-                <span class="method-name">teardown</span>
-                <span class="method-start">2896855 ms</span>
-              </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="10" passed="9">
+<testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="2896861" started-at="2015-04-01T15:41:43Z" finished-at="2015-04-01T16:30:00Z">
+  <suite name="Default suite" duration-ms="37" started-at="2015-04-10T10:27:29Z" finished-at="2015-04-10T10:27:29Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="2896861" started-at="2015-04-01T15:41:43Z" finished-at="2015-04-01T16:30:00Z">
-      <class name="com.proptiger1.MobileTestBed">
-        <test-method status="PASS" signature="start()[pri:0, instance:com.proptiger1.MobileTestBed@4a73d6bb]" name="start" is-config="true" duration-ms="11" started-at="2015-04-01T21:11:43Z" finished-at="2015-04-01T21:11:43Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- start -->
-        <test-method status="FAIL" signature="UrlCheck()[pri:0, instance:com.proptiger1.MobileTestBed@4a73d6bb]" name="UrlCheck" duration-ms="335696" started-at="2015-04-01T21:11:43Z" finished-at="2015-04-01T21:17:18Z">
-          <exception class="java.lang.AssertionError">
+    <test name="Default test" duration-ms="37" started-at="2015-04-10T10:27:29Z" finished-at="2015-04-10T10:27:29Z">
+      <class name="Caching.CachingTest">
+        <test-method status="FAIL" signature="PageCaching()[pri:0, instance:Caching.CachingTest@39e53a48]" name="PageCaching" duration-ms="14" started-at="2015-04-10T15:57:29Z" finished-at="2015-04-10T15:57:29Z">
+          <exception class="java.io.FileNotFoundException">
             <message>
-              <![CDATA[Some URLS are not OK. Please check report for status.]]>
+              <![CDATA[./Input/Main1.xls (No such file or directory)]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Some URLS are not OK. Please check report for status.
-	at org.testng.Assert.fail(Assert.java:94)
-	at com.proptiger1.Cross_PlatForm.CheckUrls(Cross_PlatForm.java:448)
-	at com.proptiger1.MobileTestBed.UrlCheck(MobileTestBed.java:161)
+              <![CDATA[java.io.FileNotFoundException: ./Input/Main1.xls (No such file or directory)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at java.io.FileInputStream.<init>(FileInputStream.java:101)
+	at Caching.CachingTest.PageCaching(CachingTest.java:20)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -47,51 +44,11 @@
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- java.io.FileNotFoundException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- UrlCheck -->
-        <test-method status="PASS" signature="OperaMini_iPhone__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@4a73d6bb]" name="OperaMini_iPhone__AllPageTest" duration-ms="227225" started-at="2015-04-01T21:17:18Z" finished-at="2015-04-01T21:21:06Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- OperaMini_iPhone__AllPageTest -->
-        <test-method status="PASS" signature="IE_Nokia_Lumia920__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@4a73d6bb]" name="IE_Nokia_Lumia920__AllPageTest" duration-ms="165961" started-at="2015-04-01T21:21:06Z" finished-at="2015-04-01T21:23:52Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- IE_Nokia_Lumia920__AllPageTest -->
-        <test-method status="PASS" signature="OperaMini_Android__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@4a73d6bb]" name="OperaMini_Android__AllPageTest" duration-ms="345772" started-at="2015-04-01T21:23:52Z" finished-at="2015-04-01T21:29:37Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- OperaMini_Android__AllPageTest -->
-        <test-method status="PASS" signature="Safari_iOS8__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@4a73d6bb]" name="Safari_iOS8__AllPageTest" duration-ms="349724" started-at="2015-04-01T21:29:37Z" finished-at="2015-04-01T21:35:27Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Safari_iOS8__AllPageTest -->
-        <test-method status="PASS" signature="FireFox_Android_AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@4a73d6bb]" name="FireFox_Android_AllPageTest" duration-ms="336843" started-at="2015-04-01T21:35:27Z" finished-at="2015-04-01T21:41:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- FireFox_Android_AllPageTest -->
-        <test-method status="PASS" signature="Chrome_AndroidMobile__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@4a73d6bb]" name="Chrome_AndroidMobile__AllPageTest" duration-ms="132327" started-at="2015-04-01T21:41:04Z" finished-at="2015-04-01T21:43:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Chrome_AndroidMobile__AllPageTest -->
-        <test-method status="PASS" signature="Safari_iOS7__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@4a73d6bb]" name="Safari_iOS7__AllPageTest" duration-ms="332326" started-at="2015-04-01T21:43:16Z" finished-at="2015-04-01T21:48:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Safari_iOS7__AllPageTest -->
-        <test-method status="PASS" signature="Chrome_iPhone_AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@4a73d6bb]" name="Chrome_iPhone_AllPageTest" duration-ms="237987" started-at="2015-04-01T21:48:49Z" finished-at="2015-04-01T21:52:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Chrome_iPhone_AllPageTest -->
-        <test-method status="PASS" signature="Chrome_AndroidTablet_AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@4a73d6bb]" name="Chrome_AndroidTablet_AllPageTest" duration-ms="432964" started-at="2015-04-01T21:52:47Z" finished-at="2015-04-01T22:00:00Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Chrome_AndroidTablet_AllPageTest -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.proptiger1.MobileTestBed@4a73d6bb]" name="teardown" is-config="true" duration-ms="1" started-at="2015-04-01T22:00:00Z" finished-at="2015-04-01T22:00:00Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- com.proptiger1.MobileTestBed -->
+        </test-method> <!-- PageCaching -->
+      </class> <!-- Caching.CachingTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
