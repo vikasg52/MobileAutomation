@@ -193,6 +193,7 @@ public class DesktopResponsive_Test {
 			Select select = new Select(driver.findElement(By.xpath("//div[@class='formRow']//select[@class='form-control query-country']")));
 		    select.selectByVisibleText("India");
 			driver.findElement(By.xpath("//span[@class='btn btn-danger wd75percent']")).click();
+			//driver.wait(4000L);
 			t1.wait(driver, "//div[@class='title ta-center']");
 			Set<String> windows = driver.getWindowHandles();
 			for (String window : windows) {
