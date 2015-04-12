@@ -1,8 +1,16 @@
 package com.proptiger1;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.jar.Attributes.Name;
 
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Dimension;
@@ -13,17 +21,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class Cross_PlatForm {
-	static TimeStamp t1= new TimeStamp();
+	public static TimeStamp t1= new TimeStamp();
 	static String name="";
+	static int count=0;
 	static String http="http://www.proptiger.com";
 	static String ssl="https://www.proptiger.com";
+	static String ssl1= "https://www.proptiger.com/";
 	static String betahttp="http://beta.proptiger-ws.com";
 	static String mobbeta="http://mob-beta.proptiger-ws.com";
 	static String local= "http://192.168.0.216:5000";
 	static String betassl="https://beta.proptiger-ws.com";
+	static String betassl1="https://beta.proptiger-ws.com/";
 	static String BaseUrl=ssl;
+	static String BaseUrl1=ssl1;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
-		driver.manage().window().setSize(new Dimension(300,630));
+		driver.manage().window().setSize(new Dimension(540,630));
 		driver.get(BaseUrl);
 		driver.manage().deleteAllCookies();	
 		WebDriverWait wait1 = new WebDriverWait(driver,120);
@@ -383,4 +395,60 @@ public class Cross_PlatForm {
 			driver.close();
 		}
 	}
+   public static void CheckUrls() throws IOException
+   {
+	   FileInputStream newFile1 = new FileInputStream("./Input/Main.xls"); 
+		 HSSFWorkbook workbook = new HSSFWorkbook(newFile1);
+		 HSSFSheet sheet = workbook.getSheetAt(0);
+		 System.out.println(" PROCESSING Urls..........");
+       System.out.println("*************************************************************************************");
+      for(int i=0;i<=sheet.getLastRowNum();i++)
+     	{
+     	 String URLs= BaseUrl1+sheet.getRow(i).getCell((short) 1).getStringCellValue();
+		try {
+		    URL url = new URL(URLs);
+		    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+		    con.setRequestProperty("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_3 like Mac OS X) AppleWebKit/600.1.4"
+				+ "(KHTML, like Gecko) CriOS/40.0.2214.73 Mobile/12B466 Safari/600.14");
+		    con.setRequestProperty("Connection", "close");
+		    con.connect();
+		    if (con.getResponseCode()==200) 
+		    {
+		       System.out.println(i+":"+URLs+"  "+con.getResponseCode()+"  Ok");
+		    }
+		    if(con.getResponseCode()!=200)
+		    {
+		    	System.err.println(i+":"+URLs+"  "+con.getResponseCode()+" Not Ok");
+		    }
+		    
+		  } catch (MalformedURLException e1) {
+		    e1.printStackTrace();
+		  } catch (  UnknownHostException unknownHostException) {
+		    System.err.println("This Url is not correct: " + unknownHostException);
+		  }catch (  NullPointerException ex) {
+		    System.err.println("This Url is not correct: " + ex);
+		  }
+     	}	
+      
+   for(int i=0;i<=sheet.getLastRowNum();i++)
+   { 
+	        String URLs= BaseUrl1+"/"+sheet.getRow(i).getCell((short) 1).getStringCellValue();
+		    URL url = new URL(URLs);
+		    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+		    con.setRequestProperty("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_3 like Mac OS X) AppleWebKit/600.1.4"
+				+ "(KHTML, like Gecko) CriOS/40.0.2214.73 Mobile/12B466 Safari/600.14");
+		    con.setRequestProperty("Connection", "close");
+		    con.connect();
+		   if(con.getResponseCode()!=200)
+		    {
+		    	count=count+1;
+		    }
+		}
+   if(count>1)
+   {
+	   Assert.fail("Some URLS are not OK. Please check report for status.");
+   }
+   }
 }
+   
+   
