@@ -201,7 +201,16 @@ public class DesktopResponsive_Test {
 			JavascriptExecutor js = (JavascriptExecutor)driver;
 			js.executeScript("arguments[0].click();", element);
 			//driver.findElement(By.xpath("//div[@class='title ta-center']")).click();
+			driver.findElement(By.xpath("");
+			String ThankText= driver.findElement(By.cssSelector(".thanks-wrap.ta-center")).getAttribute("textContent");
+			if(!ThankText.contains("Thanks for submitting")
+			{
+				System.out.println("Lead can not be submitted from amenity page");
+			}
+			else
+			{
 			System.out.println("7. Lead submitted successfully from amenity page in desktop website");
+			}
 			//driver.quit();
 		}
 	}
@@ -260,6 +269,11 @@ public class DesktopResponsive_Test {
 		WebElement element= driver.findElement(By.xpath("//div[@class='ta-center' and text()='Thank You']"));
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", element);
+		String ThankText= driver.findElement(By.cssSelector(".thanks-wrap.ta-center")).getAttribute("textContent");
+			if(!ThankText.contains("Thanks for")
+			{
+				System.out.println("Lead can not be submitted");
+			}
 	//driver.findElement(By.xpath("//div[@class='ta-center' and text()='Thank You']")).click();	
 	}
 	}catch(Exception e)
