@@ -12,14 +12,14 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.proptiger1.TimeStamp;
-
-public class Sem_ListPage {
-	 TimeStamp t= new TimeStamp();
+public class Sem_ListPage<t> {
+	TimeStamp t= new TimeStamp();
 	 @Test(priority=0)
-	public void Sem_ListingPage(String BaseUrl) throws InterruptedException
+	public <t> void Sem_ListingPage(String BaseUrl1) throws InterruptedException
 	{
-		BaseUrl="https://www.proptiger.com";
+		String prod="https://www.proptiger.com";
+		String beta="https://beta.proptiger-ws.com";
+		String BaseUrl=prod;
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS X) AppleWebKit/537.51.1 "
 				+ "(KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A501 Safari/8536.25");
@@ -49,14 +49,14 @@ public class Sem_ListPage {
 			    "+919555606060"};
 		String Cookie= "?utm_source=google&utm_adgroup=PropTiger%20Branding&utm_medium=cpc&utm_term=proptiger&utm_content=52210766295&utm_campaign=PropTiger%20Branding&Network=Search";
 		String [] URLs={
-				BaseUrl+"/projects-in-mumbai"+Cookie,
-				BaseUrl+"/projects-in-noida"+Cookie,
-				BaseUrl+"/projects-in-gurgaon"+Cookie,
-				BaseUrl+"/projects-in-bangalore"+Cookie,
-				BaseUrl+"/projects-in-pune"+Cookie,
-				BaseUrl+"/projects-in-chennai"+Cookie,
+				BaseUrl1+"/projects-in-mumbai"+Cookie,
+				BaseUrl1+"/projects-in-noida"+Cookie,
+				BaseUrl1+"/projects-in-gurgaon"+Cookie,
+				BaseUrl1+"/projects-in-bangalore"+Cookie,
+				BaseUrl1+"/projects-in-pune"+Cookie,
+				BaseUrl1+"/projects-in-chennai"+Cookie,
 				//BaseUrl+"/bangalore/itpl/prestige-shantiniketan-502704"+Cookie,
-				BaseUrl+"/projects-in-ghaziabad"+Cookie};
+				BaseUrl1+"/projects-in-ghaziabad"+Cookie};
 		String Failed=""; 
 		for(int i = 0;i<URLs.length;i++)
 		{
