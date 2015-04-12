@@ -203,9 +203,9 @@ public class DesktopResponsive_Test {
 			//driver.findElement(By.xpath("//div[@class='title ta-center']")).click();
 			driver.findElement(By.xpath("");
 			String ThankText= driver.findElement(By.cssSelector(".thanks-wrap.ta-center")).getAttribute("textContent");
-			if(!ThankText.contains("Thanks for submitting");
+			if(!ThankText.contains("Thanks for submitting")
 			{
-				System.out.println("Lead can not be submitted from amenity page");
+				System.out.println("Lead can not be submitted");
 			}
 			else
 			{
@@ -270,9 +270,13 @@ public class DesktopResponsive_Test {
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", element);
 		String ThankText= driver.findElement(By.cssSelector(".thanks-wrap.ta-center")).getAttribute("textContent");
-			if(!ThankText.contains("Thanks for");
+			if(!ThankText.contains("Thanks for")
 			{
 				System.out.println("Lead can not be submitted");
+			}
+			else
+			{
+			System.out.println("Lead can not be submitted");
 			}
 	//driver.findElement(By.xpath("//div[@class='ta-center' and text()='Thank You']")).click();	
 	}
