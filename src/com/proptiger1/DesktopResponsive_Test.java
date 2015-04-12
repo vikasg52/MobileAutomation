@@ -205,7 +205,7 @@ public class DesktopResponsive_Test {
 			String ThankText= driver.findElement(By.cssSelector(".thanks-wrap.ta-center")).getAttribute("textContent");
 			if(!ThankText.contains("Thanks for submitting"))
 			{
-				System.out.println("Lead can not be submitted");
+				Assert.fail("Lead can not be submitted");
 			}
 			else
 			{
@@ -272,11 +272,11 @@ public class DesktopResponsive_Test {
 		String ThankText= driver.findElement(By.cssSelector(".thanks-wrap.ta-center")).getAttribute("textContent");
 			if(!ThankText.contains("Thanks for"))
 			{
-				System.out.println("Lead can not be submitted");
+			     Assert.fail("Lead can not be submitted");
 			}
 			else
 			{
-			System.out.println("Lead can not be submitted");
+			System.out.println("Lead submitted");
 			}
 	//driver.findElement(By.xpath("//div[@class='ta-center' and text()='Thank You']")).click();	
 	}
@@ -313,7 +313,7 @@ public class DesktopResponsive_Test {
 		driver.get(URL);
 		Thread.sleep(5000L);
 		GP(driver,userName, name);
-	    System.out.println("10. Lead submitted successfully from GP15 using"+name);
+	        System.out.println("10. Lead submitted successfully from GP15 using"+name);
 	   	}
 	}
 	
