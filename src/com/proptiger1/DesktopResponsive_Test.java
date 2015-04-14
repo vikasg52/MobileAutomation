@@ -198,11 +198,11 @@ public class DesktopResponsive_Test {
 			Set<String> windows = driver.getWindowHandles();
 			for (String window : windows) {
 				driver.switchTo().window(window);
-			WebElement element= driver.findElement(By.xpath("//div[@class='title ta-center']"));
-			JavascriptExecutor js = (JavascriptExecutor)driver;
-			js.executeScript("arguments[0].click();", element);
+			WebElement element= driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']"));
+			//JavascriptExecutor js = (JavascriptExecutor)driver;
+			//js.executeScript("arguments[0].click();", element);
 			//driver.findElement(By.xpath("//div[@class='title ta-center']")).click();
-			//driver.findElement(By.xpath("");
+			driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']")).click();
 			String ThankText= driver.findElement(By.cssSelector(".thanks-wrap.ta-center")).getAttribute("textContent");
 			if(!ThankText.contains("Thanks for submitting"))
 			{
