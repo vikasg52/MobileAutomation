@@ -129,7 +129,6 @@ void ResponsivePage_Safari_Mac() throws InterruptedException
 	driver.manage().deleteAllCookies();
 	driver.manage().window().maximize();
 	System.out.println("==================================================================================");
-	DesktopResponsive_Test.DesktopAmenityLead(driver, name);
 	DesktopResponsive_Test.Gallery(driver,name);
 	DesktopResponsive_Test.Responsive(driver, name);
 	DesktopResponsive_Test.CheckAmenityPages(driver,name);
