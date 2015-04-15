@@ -69,12 +69,12 @@ public class DesktopResponsive_Test {
 	{
 		driver.get(BaseUrl+"/mumbai/panvel-50006/atms");
 		Thread.sleep(3000L);
-		//t1.wait(driver, "//section[@class='top-area max1170']//h1[@class='locality-name']");
+		t1.wait(driver, "//section[@class='top-area max1170']//h1[@class='locality-name']");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-		//String LocalityName= driver.findElement(By.xpath("//section[@class='top-area max1170']//h1[@class='locality-name']")).getText();
+		String LocalityName= driver.findElement(By.xpath("//section[@class='top-area max1170']//h1[@class='locality-name']")).getText();
 		boolean CityDropDown= t1.isElementPresent(driver, By.xpath("//select[@class='city-select-dd']//option[@selected='true']"));
-		//String  SelectedCity=driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='true']")).getText();
+		String  SelectedCity=driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='true']")).getText();
 		boolean AmenityButton=t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy btn btn-warning']//i[@class='imageIcon']"));
 		boolean ATMiCon=t1.isElementPresent(driver,By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-rupee']"));
 		boolean SchooliCon=t1.isElementPresent(driver,By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-Sch']"));
@@ -85,11 +85,11 @@ public class DesktopResponsive_Test {
 		String defaultActiceAmenity=driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-default active']")).getText();
 		driver.findElement(By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-bank']")).click();
 		String ChangebankButton=driver.getCurrentUrl();
-		/*if(!LocalityName.equalsIgnoreCase("ATMs in panvel"))
+		if(!LocalityName.equalsIgnoreCase("ATMs in panvel"))
 		{
 			Assert.fail("Amenity page is not opening for panvel-mumbai  "+name);
 			driver.close();
-		}*/
+		}
 		if(!defaultActiceAmenity.equalsIgnoreCase("Atms"))
 		{
 			Assert.fail("Default selected amenity is not ATM  "+name);
@@ -128,11 +128,11 @@ public class DesktopResponsive_Test {
 			Assert.fail("CityDrop down and amenity dropdown is missing from the amenity page  "+name);	
 			driver.close();
 		}
-	/*	if(!SelectedCity.equalsIgnoreCase("mumbai"))
+		if(!SelectedCity.equalsIgnoreCase("mumbai"))
 		{
 			Assert.fail("Selected city in city dropdown is wrong  "+name);	
 			driver.close();
-		}*/
+		}
 		if (!ChangebankButton.equalsIgnoreCase(BaseUrl+"/mumbai/panvel-50006/banks"))
 		{
 			Assert.fail("Clicking on bank button is not opening bank amenity page   "+name);
