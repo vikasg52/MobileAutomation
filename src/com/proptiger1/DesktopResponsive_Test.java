@@ -69,12 +69,12 @@ public class DesktopResponsive_Test {
 	{
 		driver.get(BaseUrl+"/mumbai/panvel-50006/atms");
 		Thread.sleep(3000L);
-		//t1.wait(driver, "//section[@class='top-area max1170']//h1[@class='locality-name']");
+		t1.wait(driver, "//section[@class='top-area max1170']//h1[@class='locality-name']");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-		//String LocalityName= driver.findElement(By.xpath("//section[@class='top-area max1170']//h1[@class='locality-name']")).getText();
+	    String LocalityName= driver.findElement(By.xpath("//section[@class='top-area max1170']//h1[@class='locality-name']")).getText();
 		boolean CityDropDown= t1.isElementPresent(driver, By.xpath("//select[@class='city-select-dd']//option[@selected='true']"));
-		//String  SelectedCity=driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='true']")).getText();
+		String  SelectedCity=driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='true']")).getText();
 		boolean AmenityButton=t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy btn btn-warning']//i[@class='imageIcon']"));
 		boolean ATMiCon=t1.isElementPresent(driver,By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-rupee']"));
 		boolean SchooliCon=t1.isElementPresent(driver,By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-Sch']"));
@@ -83,13 +83,14 @@ public class DesktopResponsive_Test {
 		boolean PetroiCon=t1.isElementPresent(driver,By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-petrol-station']"));
 		boolean HospitaliCon=t1.isElementPresent(driver,By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-hospital']"));
 		String defaultActiceAmenity=driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-default active']")).getText();
-		driver.findElement(By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-bank']")).click();
-		String ChangebankButton=driver.getCurrentUrl();
-		/*if(!LocalityName.equalsIgnoreCase("ATMs in panvel"))
+		//driver.findElement(By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-bank']")).click();
+		//String ChangebankButton=driver.getCurrentUrl();
+		if(!LocalityName.equalsIgnoreCase("ATMs in panvel"))
 		{
 			Assert.fail("Amenity page is not opening for panvel-mumbai  "+name);
 			driver.close();
-		}*/
+		}
+		
 		if(!defaultActiceAmenity.equalsIgnoreCase("Atms"))
 		{
 			Assert.fail("Default selected amenity is not ATM  "+name);
@@ -121,61 +122,25 @@ public class DesktopResponsive_Test {
 		if(CityDropDown==false)
 		{
 			Assert.fail("City dropdown is missing from the amenity page  "+name);		
-			driver.close();
 		}
 		if(CityDropDown==false && AmenityButton==false)
 		{
 			Assert.fail("CityDrop down and amenity dropdown is missing from the amenity page  "+name);	
-			driver.close();
-		}
-	/*	if(!SelectedCity.equalsIgnoreCase("mumbai"))
+	 	}
+	   if(!SelectedCity.equalsIgnoreCase("mumbai"))
 		{
 			Assert.fail("Selected city in city dropdown is wrong  "+name);	
-			driver.close();
-		}*/
-		if (!ChangebankButton.equalsIgnoreCase(BaseUrl+"/mumbai/panvel-50006/banks"))
+		}
+	
+		/*if (!ChangebankButton.equalsIgnoreCase(BaseUrl+"/mumbai/panvel-50006/banks"))
 		{
 			Assert.fail("Clicking on bank button is not opening bank amenity page   "+name);
-		}
+		}*/
 		else
 		{
 		System.out.println("6. Amenity page is opening properly in  "+name);
 	     }
 		}
-		
-	// Verify Gallery page in desktop
-	public static void Gallery(WebDriver driver, String name) throws InterruptedException
-	{
-		driver.get(BaseUrl+"/gallery/samruddhi-group-wintergreen-layout-plan-643769-357091");
-		t1.wait(driver,"//div[@class='row contHeaderInfo']//h1[@class='contSubheaderInfo']");
-		Cookie cookie = new Cookie("TESTING_USER", "1");
-	    driver.manage().addCookie(cookie);
-		boolean headerText= t1.isElementPresent(driver,By.xpath("//div[@class='row contHeaderInfo']//h1[@class='contSubheaderInfo']"));
-	 	boolean image= t1.isElementPresent(driver,(By.xpath("//img[@src='https://im.proptiger.com/1/143769/4/samruddhi-group-wintergreen-layout-plan-357091.jpeg']")));
-	    boolean previousbutton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy m-carousel-prev']"));
-	    boolean NextButton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy m-carousel-next']"));
-	    if(headerText==false)
-	    {
-	    	Assert.fail("Header text is not appearing");
-	    }
-	   if (image==false)
-	    {
-	    	Assert.fail("Gallery image is not appearing on gallery page in  "+name);
-	    }
-	    if(previousbutton==false)
-	    {
-	    	Assert.fail("Back button on gallery page is not found in  "+name);
-	    }
-	    if(NextButton==false)
-	    {
-	    	Assert.fail("Next button on gallery page is not found in  "+name);
-	    }
-	    
-	    else
-	    {
-	  	System.out.println("1. Desktop Gallery page is opening properly in  "+name);
-	    }
-	}
 	
 	public static void DesktopAmenityLead(WebDriver driver, String name) throws InterruptedException
 	{       TimeStamp time= new TimeStamp();
