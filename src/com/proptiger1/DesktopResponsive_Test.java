@@ -7,6 +7,7 @@ import org.openqa.selenium.Cookie;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -67,7 +68,8 @@ public class DesktopResponsive_Test {
 	public static void CheckAmenityPages(WebDriver driver, String name) throws InterruptedException
 	{
 		driver.get(BaseUrl+"/mumbai/panvel-50006/atms");
-		t1.wait(driver, "//section[@class='top-area max1170']//h1[@class='locality-name']");
+		Thread.sleep(3000L);
+		//t1.wait(driver, "//section[@class='top-area max1170']//h1[@class='locality-name']");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
 		String LocalityName= driver.findElement(By.xpath("//section[@class='top-area max1170']//h1[@class='locality-name']")).getText();
@@ -199,9 +201,13 @@ public class DesktopResponsive_Test {
 			for (String window : windows) {
 				driver.switchTo().window(window);
 			WebElement element= driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']"));
-			JavascriptExecutor js = (JavascriptExecutor)driver;
+			/*JavascriptExecutor js = (JavascriptExecutor)driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", element);
-			js.executeScript("arguments[0].click();", element);
+			js.executeScript("arguments[0].click();", element);*/
+			Actions actionname = new Actions(driver);
+	        actionname.moveToElement(driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']")));
+	        //builder.perform();
+	        actionname.build().perform();
 			Thread.sleep(3000L);
 			//driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']")).click();
 			String ThankText= driver.findElement(By.cssSelector(".thanks-wrap.ta-center")).getAttribute("textContent");

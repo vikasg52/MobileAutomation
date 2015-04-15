@@ -133,8 +133,11 @@ void ResponsivePage_Safari_Mac() throws InterruptedException
 	DesktopResponsive_Test.Responsive(driver, name);
 	DesktopResponsive_Test.CheckAmenityPages(driver,name);
 	DesktopResponsive_Test.DesktopAmenityLead(driver, name);
+	Thread.sleep(3000L);
 	DesktopResponsive_Test.gp13(driver, name);
+	Thread.sleep(3000L);
 	DesktopResponsive_Test.gp14(driver, name);
+	Thread.sleep(3000L);
 	DesktopResponsive_Test.gp15(driver, name);	
 	System.out.println("==================================================================================");
 	driver.quit();
