@@ -141,6 +141,40 @@ public class DesktopResponsive_Test {
 		System.out.println("6. Amenity page is opening properly in  "+name);
 	     }
 		}
+		
+	// Verify Gallery page in desktop
+	public static void Gallery(WebDriver driver, String name) throws InterruptedException
+	{
+		driver.get(BaseUrl+"/gallery/samruddhi-group-wintergreen-layout-plan-643769-357091");
+		t1.wait(driver,"//div[@class='row contHeaderInfo']//h1[@class='contSubheaderInfo']");
+		Cookie cookie = new Cookie("TESTING_USER", "1");
+	    driver.manage().addCookie(cookie);
+		boolean headerText= t1.isElementPresent(driver,By.xpath("//div[@class='row contHeaderInfo']//h1[@class='contSubheaderInfo']"));
+	 	boolean image= t1.isElementPresent(driver,(By.xpath("//img[@src='https://im.proptiger.com/1/143769/4/samruddhi-group-wintergreen-layout-plan-357091.jpeg']")));
+	    boolean previousbutton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy m-carousel-prev']"));
+	    boolean NextButton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy m-carousel-next']"));
+	    if(headerText==false)
+	    {
+	    	Assert.fail("Header text is not appearing");
+	    }
+	   if (image==false)
+	    {
+	    	Assert.fail("Gallery image is not appearing on gallery page in  "+name);
+	    }
+	    if(previousbutton==false)
+	    {
+	    	Assert.fail("Back button on gallery page is not found in  "+name);
+	    }
+	    if(NextButton==false)
+	    {
+	    	Assert.fail("Next button on gallery page is not found in  "+name);
+	    }
+	    
+	    else
+	    {
+	  	System.out.println("1. Desktop Gallery page is opening properly in  "+name);
+	    }
+	}
 	
 	public static void DesktopAmenityLead(WebDriver driver, String name) throws InterruptedException
 	{       TimeStamp time= new TimeStamp();
