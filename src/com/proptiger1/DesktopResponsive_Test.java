@@ -72,7 +72,7 @@ public class DesktopResponsive_Test {
 		//t1.wait(driver, "//section[@class='top-area max1170']//h1[@class='locality-name']");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-		String LocalityName= driver.findElement(By.xpath("//section[@class='top-area max1170']//h1[@class='locality-name']")).getText();
+		//String LocalityName= driver.findElement(By.xpath("//section[@class='top-area max1170']//h1[@class='locality-name']")).getText();
 		boolean CityDropDown= t1.isElementPresent(driver, By.xpath("//select[@class='city-select-dd']//option[@selected='true']"));
 		String  SelectedCity=driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='true']")).getText();
 		boolean AmenityButton=t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy btn btn-warning']//i[@class='imageIcon']"));
