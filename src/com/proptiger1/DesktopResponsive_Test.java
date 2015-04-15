@@ -123,10 +123,10 @@ public class DesktopResponsive_Test {
 		{
 			Assert.fail("City dropdown is missing from the amenity page  "+name);		
 		}
-		if(CityDropDown==false && AmenityButton==false)
+		/*if(CityDropDown==false && AmenityButton==false)
 		{
 			Assert.fail("CityDrop down and amenity dropdown is missing from the amenity page  "+name);	
-	 	}
+	 	}*/
 	   if(!SelectedCity.equalsIgnoreCase("mumbai"))
 		{
 			Assert.fail("Selected city in city dropdown is wrong  "+name);	
