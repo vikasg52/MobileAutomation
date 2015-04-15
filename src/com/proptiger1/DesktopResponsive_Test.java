@@ -82,19 +82,19 @@ public class DesktopResponsive_Test {
 		boolean RestroiCon=t1.isElementPresent(driver,By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-restaurant']"));
 		boolean PetroiCon=t1.isElementPresent(driver,By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-petrol-station']"));
 		boolean HospitaliCon=t1.isElementPresent(driver,By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-hospital']"));
-		String defaultActiceAmenity=driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-default active']")).getText();
-		//driver.findElement(By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-bank']")).click();
-		//String ChangebankButton=driver.getCurrentUrl();
+		//String defaultActiceAmenity=driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-default active']")).getText();
+		driver.findElement(By.xpath("//div[@class='btn-group hidden-xs']//i[@class='icon-bank']")).click();
+		String ChangebankButton=driver.getCurrentUrl();
 		if(!LocalityName.equalsIgnoreCase("ATMs in panvel"))
 		{
 			Assert.fail("Amenity page is not opening for panvel-mumbai  "+name);
 			driver.close();
 		}
 		
-		if(!defaultActiceAmenity.equalsIgnoreCase("Atms"))
+		/*if(!defaultActiceAmenity.equalsIgnoreCase("Atms"))
 		{
 			Assert.fail("Default selected amenity is not ATM  "+name);
-		}
+		}*/
 		if(ATMiCon==false)
 		{
 		Assert.fail("Atms icon is not available on amenity page  "+name);	
@@ -132,10 +132,10 @@ public class DesktopResponsive_Test {
 			Assert.fail("Selected city in city dropdown is wrong  "+name);	
 		}
 	
-		/*if (!ChangebankButton.equalsIgnoreCase(BaseUrl+"/mumbai/panvel-50006/banks"))
+		if (!ChangebankButton.equalsIgnoreCase(BaseUrl+"/mumbai/panvel-50006/banks"))
 		{
 			Assert.fail("Clicking on bank button is not opening bank amenity page   "+name);
-		}*/
+		}
 		else
 		{
 		System.out.println("6. Amenity page is opening properly in  "+name);
