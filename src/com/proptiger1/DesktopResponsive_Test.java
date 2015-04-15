@@ -193,16 +193,15 @@ public class DesktopResponsive_Test {
 			Select select = new Select(driver.findElement(By.xpath("//div[@class='formRow']//select[@class='form-control query-country']")));
 		    select.selectByVisibleText("India");
 			driver.findElement(By.xpath("//span[@class='btn btn-danger wd75percent']")).click();
-			//driver.wait(4000L);
+			//driver.wait(3000L);
 			t1.wait(driver, "//div[@class='title ta-center']");
 			Set<String> windows = driver.getWindowHandles();
 			for (String window : windows) {
 				driver.switchTo().window(window);
 			WebElement element= driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']"));
-			//JavascriptExecutor js = (JavascriptExecutor)driver;
-			//js.executeScript("arguments[0].click();", element);
-			//driver.findElement(By.xpath("//div[@class='title ta-center']")).click();
-			driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']")).click();
+			JavascriptExecutor js = (JavascriptExecutor)driver;
+			js.executeScript("arguments[0].click();", element);
+			//driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']")).click();
 			String ThankText= driver.findElement(By.cssSelector(".thanks-wrap.ta-center")).getAttribute("textContent");
 			if(!ThankText.contains("Thanks for submitting"))
 			{
