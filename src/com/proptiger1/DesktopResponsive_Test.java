@@ -187,7 +187,7 @@ public class DesktopResponsive_Test {
 		    ran = 100 + (int)(Math.random() * ((10000 - 100) + 1));
 		   /* long mobile = (long) Math.floor(Math.random() * 9000000000L) + 1000000000L;*/
 		   // String m= String.valueOf(mobile);
-		    driver.findElement(By.xpath("//div[@class='form-info']//input[@id='fullname']")).sendKeys("AmenityLeadTest");
+		    driver.findElement(By.xpath("//div[@class='form-info']//input[@id='fullname']")).sendKeys("AmenityLeadTest"+ran);
 			driver.findElement(By.xpath("//div[@class='form-info']//input[@id='email']")).sendKeys("proptigerqa+"+ran+"@gmail.com");
 			driver.findElement(By.xpath("//div[@class='form-info']//input[@id='mobile']")).sendKeys("1900000000");
 			Select select = new Select(driver.findElement(By.xpath("//div[@class='formRow']//select[@class='form-control query-country']")));
@@ -214,7 +214,7 @@ public class DesktopResponsive_Test {
 			}
 			else
 			{
-			System.out.println("7. Lead submitted successfully from amenity page in desktop website");
+			System.out.println("6. Lead submitted successfully from amenity page in desktop website");
 			}
 			//driver.quit();
 		}
@@ -277,13 +277,9 @@ public class DesktopResponsive_Test {
 		String ThankText= driver.findElement(By.cssSelector(".thanks-wrap.ta-center")).getAttribute("textContent");
 			if(!ThankText.contains("Thanks for"))
 			{
-			     Assert.fail("Lead can not be submitted");
+			     Assert.fail("Lead can not be submitted from"+userName);
 			}
-			else
-			{
-			System.out.println("Lead submitted");
-			}
-	//driver.findElement(By.xpath("//div[@class='ta-center' and text()='Thank You']")).click();	
+			//driver.findElement(By.xpath("//div[@class='ta-center' and text()='Thank You']")).click();	
 	}
 	}catch(Exception e)
 	{System.out.println(e.getMessage());
@@ -298,7 +294,7 @@ public class DesktopResponsive_Test {
 		driver.get(URL);
 		Thread.sleep(5000L);
 		GP(driver,userName,name);
-	    System.out.println("8. Lead submitted successfully from GP13 using"+name);
+	    System.out.println("7. Lead submitted successfully from GP13 using"+name);
 	}
 	//GP14
 	public static void gp14 (WebDriver driver,String name) throws InterruptedException
@@ -308,7 +304,7 @@ public class DesktopResponsive_Test {
 		driver.get(URL);
 		Thread.sleep(5000L);
 	    GP(driver,userName,name);
-	    System.out.println("9. Lead submitted successfully from GP14 using"+name);
+	    System.out.println("8. Lead submitted successfully from GP14 using"+name);
 	}
 	//GP15
 	public static void gp15 (WebDriver driver, String name) throws InterruptedException
@@ -318,7 +314,7 @@ public class DesktopResponsive_Test {
 		driver.get(URL);
 		Thread.sleep(5000L);
 		GP(driver,userName, name);
-	        System.out.println("10. Lead submitted successfully from GP15 using"+name);
+	        System.out.println("9. Lead submitted successfully from GP15 using"+name);
 	   	}
 	}
 	

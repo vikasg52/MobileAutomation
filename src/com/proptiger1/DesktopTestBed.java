@@ -13,7 +13,6 @@ public class DesktopTestBed {
 		System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.Jdk14Logger");
 		System.out.println("============== DESKTOP RESPONSIVE PAGE TEST STARTED ===============");
 	}
-	/*
 	@Test(priority=5)
 	void ResponsivePage_FireFox_Linux() throws InterruptedException 
 	{
@@ -27,7 +26,7 @@ public class DesktopTestBed {
 		System.out.println("==============================================================================");
 		DesktopResponsive_Test.Gallery(driver,name);
 		DesktopResponsive_Test.Responsive(driver, name);
-		DesktopResponsive_Test.CheckAmenityPages(driver,name);
+		//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 		DesktopResponsive_Test.DesktopAmenityLead(driver, name);
 		DesktopResponsive_Test.gp13(driver, name);
 		DesktopResponsive_Test.gp14(driver, name);
@@ -48,7 +47,7 @@ public class DesktopTestBed {
 		System.out.println("==============================================================================");
 		DesktopResponsive_Test.Gallery(driver,name);
 		DesktopResponsive_Test.Responsive(driver, name);
-		DesktopResponsive_Test.CheckAmenityPages(driver,name);
+		//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 		DesktopResponsive_Test.DesktopAmenityLead(driver, name);
 		DesktopResponsive_Test.gp13(driver, name);
 		DesktopResponsive_Test.gp14(driver, name);
@@ -68,7 +67,7 @@ public class DesktopTestBed {
 		driver.manage().window().maximize();
 		DesktopResponsive_Test.Gallery(driver,name);
 		DesktopResponsive_Test.Responsive(driver, name);
-		DesktopResponsive_Test.CheckAmenityPages(driver,name);
+		//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 		DesktopResponsive_Test.DesktopAmenityLead(driver, name);
 		DesktopResponsive_Test.gp13(driver, name);
 		DesktopResponsive_Test.gp14(driver, name);
@@ -89,7 +88,7 @@ public class DesktopTestBed {
 		System.out.println("==============================================================================");
 		DesktopResponsive_Test.Gallery(driver,name);
 		DesktopResponsive_Test.Responsive(driver, name);
-		DesktopResponsive_Test.CheckAmenityPages(driver,name);
+		//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 		DesktopResponsive_Test.DesktopAmenityLead(driver, name);
 		DesktopResponsive_Test.gp13(driver, name);
 		DesktopResponsive_Test.gp14(driver, name);
@@ -110,7 +109,7 @@ void ResponsivePage_Chrome_Mac() throws InterruptedException
 	System.out.println("==================================================================================");
 	DesktopResponsive_Test.Gallery(driver,name);
 	DesktopResponsive_Test.Responsive(driver, name);
-	DesktopResponsive_Test.CheckAmenityPages(driver,name);
+	//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 	DesktopResponsive_Test.DesktopAmenityLead(driver, name);
 	DesktopResponsive_Test.gp13(driver, name);
 	DesktopResponsive_Test.gp14(driver, name);
@@ -118,7 +117,6 @@ void ResponsivePage_Chrome_Mac() throws InterruptedException
 	System.out.println("==================================================================================");
 	driver.quit();
 }
-	*/
 	@Test(priority=0)
 void ResponsivePage_Safari_Mac() throws InterruptedException 
 {
