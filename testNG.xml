@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Mobile Website Sanity Testing Framework">
-     <test name="Desktop Responsive Page Testing Across Devices and Browsers">
-    <classes>
-      <class name="com.proptiger1.DesktopTestBed">     
-      </class>
-      <class name="com.proptiger1.DesktopResponsive_Test">
-      </class>
-      <class name="com.proptiger1.TimeStamp">
-      </class>
-    </classes>
-    </test>
-      <test name="Phone number validation on different pages">
+   <test name="Phone number validation on different pages">
     <classes>
       <class name="com.proptiger1.Mailer_Number_Check">     
       </class>
@@ -19,7 +9,7 @@
       </class>
     </classes>
   </test>
- <test name="All Page Accessibility Testing Across Devices and Browsers ">
+  <test name="All Page Accessibility Testing Across Devices and Browsers ">
     <classes>
       <class name="com.proptiger1.MobileTestBed">     
       </class>
@@ -32,4 +22,14 @@
       </class>
     </classes>
   </test>  
- </suite>
+     <test name="Desktop Responsive Page Testing Across Devices and Browsers">
+    <classes>
+      <class name="com.proptiger1.DesktopTestBed">     
+      </class>
+      <class name="com.proptiger1.DesktopResponsive_Test">
+      </class>
+      <class name="com.proptiger1.TimeStamp">
+      </class>
+    </classes>
+    </test>
+    </suite>
