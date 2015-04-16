@@ -22,7 +22,8 @@ public class DesktopResponsive_Test {
 	static String betahttp="http://beta.proptiger-ws.com";
 	static String betassl="https://beta.proptiger-ws.com";
 	static String BaseUrl=ssl;
-	public static void Responsive(WebDriver driver, String name) throws InterruptedException {	
+	public static void Responsive(WebDriver driver, String name) throws InterruptedException 
+	{	
 			driver.get(BaseUrl+"/all-builders");
 			t1.wait(driver,"//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']");
 			Cookie cookie = new Cookie("TESTING_USER", "1");
@@ -62,9 +63,8 @@ public class DesktopResponsive_Test {
 				//driver.close();
 		     }
 			System.out.println("5. All Localities page of bangalore is opening properly in desktop website using  "+name);
-          }
-	
-	// Verify Amenity pages
+	}
+	/*
 	public static void CheckAmenityPages(WebDriver driver, String name) throws InterruptedException
 	{
 		driver.get(BaseUrl+"/mumbai/panvel-50006/atms");
@@ -123,10 +123,10 @@ public class DesktopResponsive_Test {
 		{
 			Assert.fail("City dropdown is missing from the amenity page  "+name);		
 		}
-		/*if(CityDropDown==false && AmenityButton==false)
+		if(CityDropDown==false && AmenityButton==false)
 		{
 			Assert.fail("CityDrop down and amenity dropdown is missing from the amenity page  "+name);	
-	 	}*/
+	 	}
 	   if(!SelectedCity.equalsIgnoreCase("mumbai"))
 		{
 			Assert.fail("Selected city in city dropdown is wrong  "+name);	
@@ -140,8 +140,7 @@ public class DesktopResponsive_Test {
 		{
 		System.out.println("6. Amenity page is opening properly in  "+name);
 	     }
-		}
-		
+}*/
 	// Verify Gallery page in desktop
 	public static void Gallery(WebDriver driver, String name) throws InterruptedException
 	{
@@ -175,7 +174,7 @@ public class DesktopResponsive_Test {
 	  	System.out.println("1. Desktop Gallery page is opening properly in  "+name);
 	    }
 	}
-	
+
 	public static void DesktopAmenityLead(WebDriver driver, String name) throws InterruptedException
 	{       TimeStamp time= new TimeStamp();
 			driver.manage().deleteAllCookies();
@@ -200,13 +199,12 @@ public class DesktopResponsive_Test {
 			for (String window : windows) {
 				driver.switchTo().window(window);
 			WebElement element= driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']"));
-			/*JavascriptExecutor js = (JavascriptExecutor)driver;
+			JavascriptExecutor js = (JavascriptExecutor)driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", element);
-			js.executeScript("arguments[0].click();", element);*/
-			Actions actionname = new Actions(driver);
-	        actionname.moveToElement(driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']")));
-	        //builder.perform();
-	        actionname.build().perform();
+			js.executeScript("arguments[0].click();", element);
+			//Actions actionname = new Actions(driver);
+	       // actionname.moveToElement(driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']")));
+	        //actionname.build().perform();
 			Thread.sleep(3000L);
 			//driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']")).click();
 			String ThankText= driver.findElement(By.cssSelector(".thanks-wrap.ta-center")).getAttribute("textContent");

@@ -13,6 +13,7 @@ public class DesktopTestBed {
 		System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.Jdk14Logger");
 		System.out.println("============== DESKTOP RESPONSIVE PAGE TEST STARTED ===============");
 	}
+	/*
 	@Test(priority=5)
 	void ResponsivePage_FireFox_Linux() throws InterruptedException 
 	{
@@ -117,7 +118,7 @@ void ResponsivePage_Chrome_Mac() throws InterruptedException
 	System.out.println("==================================================================================");
 	driver.quit();
 }
-	
+	*/
 	@Test(priority=0)
 void ResponsivePage_Safari_Mac() throws InterruptedException 
 {
@@ -131,7 +132,7 @@ void ResponsivePage_Safari_Mac() throws InterruptedException
 	System.out.println("==================================================================================");
 	DesktopResponsive_Test.Gallery(driver,name);
 	DesktopResponsive_Test.Responsive(driver, name);
-	DesktopResponsive_Test.CheckAmenityPages(driver,name);
+	//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 	DesktopResponsive_Test.DesktopAmenityLead(driver, name);
 	Thread.sleep(3000L);
 	DesktopResponsive_Test.gp13(driver, name);
