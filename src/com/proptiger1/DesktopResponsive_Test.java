@@ -264,6 +264,7 @@ public class DesktopResponsive_Test {
 		Select select = new Select(driver.findElement(By.xpath("//div[@class='formRow desktop-wd-1third']//select[@class='form-control query-country']")));
 	    select.selectByVisibleText("India");
 		driver.findElement(By.xpath("//span[@class='btn btn-danger wd75percent']")).click();
+		Thread.sleep(3000L);
 		//System.out.println("7. Lead submitted successfully from GP13 in desktop website using"+name);
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
