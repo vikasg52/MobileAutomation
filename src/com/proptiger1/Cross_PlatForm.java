@@ -35,7 +35,7 @@ public class Cross_PlatForm {
 	static String BaseUrl=ssl;
 	static String BaseUrl1=ssl1;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
-		driver.manage().window().setSize(new Dimension(540,630));
+		driver.manage().window().setSize(new Dimension(560,630));
 		driver.get(BaseUrl);
 		driver.manage().deleteAllCookies();	
 		WebDriverWait wait1 = new WebDriverWait(driver,120);
@@ -365,12 +365,12 @@ public class Cross_PlatForm {
 	public static void CheckAmenityPages(WebDriver driver) throws InterruptedException
 	{
 		driver.get(BaseUrl+"/mumbai/panvel-50006/atms");
-		t1.wait(driver, "//h1[@class='locality-name']");
+		t1.wait(driver, "//section[@class='top-area max1170']//h1[@class='locality-name']");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-		String LocalityName= driver.findElement(By.xpath("//h1[@class='locality-name']")).getText();
-		boolean CityDropDown= t1.isElementPresent(driver, By.xpath("//select[@class='city-select-dd']//option[@selected='true']"));
-		String  SelectedCity=driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='true']")).getText();
+		String LocalityName= driver.findElement(By.xpath("//section[@class='top-area max1170']//h1[@class='locality-name']")).getText();
+		boolean CityDropDown= t1.isElementPresent(driver, By.xpath("//select[@class='city-select-dd js-city-change-dropdown']//option[@selected='true']"));
+		String  SelectedCity=driver.findElement(By.xpath("//select[@class='city-select-dd js-city-change-dropdown']//option[@selected='true']")).getText();
 		boolean AmenityButton=t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy btn btn-warning']//i[@class='imageIcon']"));
 		boolean AmenityButtonIcon=t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy btn btn-warning']//i[@class='imageIcon']"));
 		String SelectedAmenity= driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-warning']")).getText();
