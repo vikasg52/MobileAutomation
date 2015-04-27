@@ -14,7 +14,7 @@ public class Mailer_Number_Check {
 	static String betassl="https://beta.proptiger-ws.com";
 	static String BaseUrl=ssl;
 	@Test()
-	public void numbertest() throws InterruptedException
+	public void numbertest() throws InterruptedException																																															
 	{
 		Phone_Number_Check Check_Number= new Phone_Number_Check();
 		Sem_ListPage checkNumber= new Sem_ListPage();
@@ -22,7 +22,7 @@ public class Mailer_Number_Check {
         checkNumber.Sem_ListingPage(BaseUrl);
         Check_Number.GooglePages_SEM_Number(BaseUrl);
 		System.out.println("\n");
-		//driver.manage().deleteAllCookies();
+		//driver.manage().deleteAllCookies();																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																									
 		Check_Number.internal_Mailer(BaseUrl);
 		//driver.manage().deleteAllCookies();
 		System.out.println("\n");
@@ -30,6 +30,6 @@ public class Mailer_Number_Check {
 		}
 	public void teardown()
 	{
-		
+	
 	}
 }

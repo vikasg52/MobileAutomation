@@ -1,54 +1,52 @@
 package com.proptiger1;
-
 import java.util.concurrent.TimeUnit;
-
-import junit.framework.Assert;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.proptiger1.TimeStamp;
 public class Phone_Number_Check 
 {
 	TimeStamp t= new TimeStamp();
-	public String x="";
 	String [] City =
 		   {"Mumbai",
 			"Noida",
 			"Gurgaon",
-			"Mumbai",
 			"Banglore",
 			"Pune",
 			"Chennai",
 			"Ghaziabad",
-			"Banglore-resale Google page 4",
+			"Ahemdabad",
+			"Kolkata",
 			"Banglore-resale Project Page",
 			 };
 
 	String[] Number = 
-		   {"+918080921094",
-			"+919278721212",
-			"+919278719191",
-			"+918080921094",
-			"+919590522774",
-			"+917304245566",
-			"+918144109869",
+		   {"+912261054545",
+			"+911166765333",
+			"+911166765111",
+			"+918033512373",
+			"+912067082636",
+			"+914439942555",
 	        "+919555606060",
+	        "+917961343766",
+	        "+913330566477",
 	        "+918067417767",	        
-	        "+918067417767",
 	        };
 
-	//public WebDriver driver = new FirefoxDriver();
-	@Test(priority=1)
+	//public WebDriver driver = new FirefoBaseUrlDriver();
 	public void GooglePages_SEM_Number(String x) throws InterruptedException
 	{ 
-		x="https://www.proptiger.com";
+		String beta="https://beta.proptiger-ws.com";
+		String prod="https://www.proptiger.com";
+		String BaseUrl=prod;
 		FirefoxProfile profile = new FirefoxProfile();
-		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS X) AppleWebKit/537.51.1 "
+		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS BaseUrl) AppleWebKit/537.51.1 "
 				+ "(KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A501 Safari/8536.25");
 		WebDriver driver= new FirefoxDriver(profile);
 		driver.manage().window().setSize(new Dimension(280,650));
@@ -58,21 +56,22 @@ public class Phone_Number_Check
 		System.out.println("***************************************************************************************");
 		//driver.manage().deleteAllCookies();
 		String cookie= "utm_source=google&utm_medium=cpc&utm_campaign=Hot%20Projects%20Bangalore&utm_term={keyword}&utm_content={creative}&Network={ifContent:Content}{ifSearch:Search}&SiteTarget={placement}";
-		String[] URLs={x+"/google_page_13.php?projectId=501552&"+cookie,
-				x+"/google_page_13.php?projectId=501403&"+cookie,
-		x+"/google_page_13.php?projectId=662047&"+cookie,
-		x+"/google_page_14.php?projectId=501552&"+cookie,
-		x+"/google_page_15.php?projectId=664356&"+cookie,
-		x+"/pune/mohammadwadi/majestique-landmark-euriska-664237?"+cookie,
-		x+"/chennai/medavakkam/indiabulls-greens-501248?"+cookie,
-		x+"/ghaziabad/crossing-republik/akvs-india-infra-surya-heights-647495?"+cookie,
-		x+"/google_page_4.php?projectId=502704&"+cookie,
-		x+"/bangalore/itpl/prestige-shantiniketan-502704?"+cookie,
+		String[] URLs={BaseUrl+"/google_page_4.php?projectId=501552&"+cookie,
+				BaseUrl+"/google_page_13.php?projectId=501403&"+cookie,
+		BaseUrl+"/google_page_14.php?projectId=662047&"+cookie,
+		BaseUrl+"/bangalore/varthur/artha-crest-660735?"+cookie,
+		BaseUrl+"/pune/hinjewadi/mittal-brothers-hillside-urban-666318?"+cookie,
+		BaseUrl+"/chennai/navallur/adroit-urban-district-s-510882?"+cookie,
+		BaseUrl+"/ghaziabad/pratap-vihar/prateek-group-grand-city-654996?"+cookie,
+		BaseUrl+"/ahmedabad/near-vaishno-devi-circle-on-sg-highway/adani-elysium-647819?"+cookie,
+		BaseUrl+"/kolkata/patuli/unimark-group-lakewood-estate-668039?"+cookie,
+		BaseUrl+"/bangalore/itpl/prestige-shantiniketan-502704?"+cookie,
 		};
-		String Failed=""; 
-		for(int i = 0;i<URLs.length;i++)
+		String Failed="";
+		int i=0; 
+		while(i!=URLs.length)
 		{
-			driver.manage().deleteAllCookies();
+			//driver.manage().deleteAllCookies();
 			driver.get(URLs[i]);
 			t.wait(driver,"//a[@class='no-ajaxy pull-left btn btn-success wd48percent main-page-call-btn']");
 			String s=driver.findElement(By.xpath("//a[@class='no-ajaxy pull-left btn btn-success wd48percent main-page-call-btn']")).getAttribute("href");
@@ -87,6 +86,7 @@ public class Phone_Number_Check
 			{ 
 				System.out.println("SEM Number test has passed for:->"+City[i]+":    "+Sem);
 			}
+		i++;
 		}
 		if(Failed=="")
 		{
@@ -98,7 +98,6 @@ public class Phone_Number_Check
 		if(Failed!="")
 		{
 		   System.err.println("SEM number test has failed"+Failed);
-		   Assert.fail("Test Failed for SEM number on google pages");
 		   driver.quit();
 		}
 	}
@@ -106,16 +105,17 @@ public class Phone_Number_Check
 
 	//**********************************************************************************************
 	//**********************************************************************************************
-	@Test(priority=2)
 	public String internal_Mailer(String y)
 	{
-		y="https://www.proptiger.com";
+		String beta="https://beta.proptiger-ws.com";
+		String prod="https://www.proptiger.com";
+		String BaseUrl=prod;
 		FirefoxProfile profile = new FirefoxProfile();
-		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS X) AppleWebKit/537.51.1 "
+		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS BaseUrl) AppleWebKit/537.51.1 "
 				+ "(KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A501 Safari/8536.25");
 		WebDriver driver= new FirefoxDriver(profile);
 		driver.manage().window().setSize(new Dimension(300,650));
-		//driver.manage().deleteAllCookies();
+		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		//driver.manage().deleteAllCookies();
 		System.out.println("3.Checking Mailer Internal Numbers for GP & Project pages wit UTM parameters in cookie.");
@@ -129,24 +129,27 @@ public class Phone_Number_Check
 				"Banglore",
 				"Pune",
 				"Chennai",
+				"Ahemdabad"
 			     };
 
 		String[] Number = 
-			   {"+919250404698",
-				"+919278722226",
-				"+918080930810",
-				"+919019295625",
-				"+917304408611",
-				"+917667075488",
+			   {"01166765300",
+				"01130803623",
+				"02261054546",
+				"08067417772",
+				"02030157200",
+				"04439942777",
+				"07961343767"
 			   };
 		
 		String[] URLs=
-			   {y+"/google_page_4.php?projectId=661151&"+cookie,
-				y+"/google_page_13.php?projectId=662047&"+cookie,
-				y+"/google_page_14.php?projectId=501552&"+cookie,
-				y+"/google_page_15.php?projectId=664356&"+cookie,
-				y+"/pune/mohammadwadi/majestique-landmark-euriska-664237?"+cookie,
-				y+"/chennai/medavakkam/indiabulls-greens-501248?"+cookie,
+			   {BaseUrl+"/google_page_4.php?projectId=661151&"+cookie,
+				BaseUrl+"/google_page_13.php?projectId=662047&"+cookie,
+				BaseUrl+"/google_page_14.php?projectId=501552&"+cookie,
+				BaseUrl+"/google_page_15.php?projectId=664356&"+cookie,
+				BaseUrl+"/pune/mohammadwadi/majestique-landmark-euriska-664237?"+cookie,
+				BaseUrl+"/chennai/medavakkam/indiabulls-greens-501248?"+cookie,
+				BaseUrl+"/ahmedabad/chandkheda/swati-procon-greens-667055?"+cookie,
 				};
 		String Failed=""; 
 		for(int i = 0;i<URLs.length;i++)
@@ -176,7 +179,6 @@ public class Phone_Number_Check
 		else
 		{
 		System.err.println("Internal Mailer Phone number test has failed"+Failed);
-		Assert.fail("Test Failed for Internal Mailer Phone number on google pages");
 		}
 		driver.quit();
 		return y;	
@@ -186,17 +188,19 @@ public class Phone_Number_Check
 
 	//*********************************************************************************
 	//*********************************************************************************
-	// External Mailers
+	// EBaseUrlternal Mailers
 	@Test(priority=3)
 	public String External_Mailer(String z)
 	{	
-		z= "https://www.proptiger.com";
+		String beta="https://beta.proptiger-ws.com";
+		String prod="https://www.proptiger.com";
+		String BaseUrl=prod;
 		FirefoxProfile profile = new FirefoxProfile();
 	profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) "
 			+ "AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53");
 	WebDriver driver2= new FirefoxDriver(profile);
 	driver2.manage().window().setSize(new Dimension(300,650));
-	//driver.manage().deleteAllCookies();
+	driver2.manage().deleteAllCookies();
 	driver2.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	System.out.println("4.Checking Mailer External Numbers for Google & Project pages with UTM parameters in cookie.");
 	System.out.println("******************************************************************************************");
@@ -204,33 +208,35 @@ public class Phone_Number_Check
 				+ "Projects%20Bangalore&utm_term={keyword}&utm_content={creative}&Network=%22{ifContent:Content}{ifSearch:Search}"
 				+ "&SiteTarget={placement}";
 
-		String [] City =
-			   {"Noida",
-				"Gurgaon",	
-				"Mumbai",
-				"Banglore",
-				"Pune",
-				"Chennai",
-		        };
+	String [] City =
+		{"Noida",
+		"Gurgaon",
+		"Mumbai",
+		"Banglore",
+		"Pune",
+		"Chennai",
+		"Ahemdabad"
+	     };
 
-		String[] Number =
-			   {"+919278722211",
-				"+919278722223",
-				"+918080930820",
-				"+919019407477",                          
-				"+917304408622",
-				"+917667703680",
-				"+918067417767",	        
-			    "+918067417767",
-			   };
+       String[] Number = 
+	   {"01166765300",
+		"01166764111",
+		"02261054547",
+		"08067417773",
+		"02067082924",
+		"04439942666",
+		"07961343767"
+	   };
 
-		String[] URLs={z+"/google_page_4.php?projectId=661151&"+cookie,
-				z+"/google_page_13.php?projectId=662047&"+cookie,
-				z+"/google_page_14.php?projectId=501552&"+cookie,
-				z+"/google_page_15.php?projectId=664356&"+cookie,
-				z+"/pune/mohammadwadi/majestique-landmark-euriska-664237?"+cookie,
-				z+"/chennai/medavakkam/indiabulls-greens-501248?"+cookie,
-				};
+       String[] URLs=
+	   {BaseUrl+"/google_page_4.php?projectId=661151&"+cookie,
+		BaseUrl+"/google_page_13.php?projectId=662047&"+cookie,
+		BaseUrl+"/google_page_14.php?projectId=501552&"+cookie,
+		BaseUrl+"/google_page_15.php?projectId=664356&"+cookie,
+		BaseUrl+"/pune/mohammadwadi/majestique-landmark-euriska-664237?"+cookie,
+		BaseUrl+"/chennai/medavakkam/indiabulls-greens-501248?"+cookie,
+		BaseUrl+"/ahmedabad/chandkheda/swati-procon-greens-667055?"+cookie,
+		};
 		String Failed=""; 
 		for(int i = 0;i<URLs.length;i++)
 		{
@@ -264,9 +270,4 @@ public class Phone_Number_Check
 	}
 		return Failed;
 }
-	public void teardown()
-	{
-		
-	}
 }
-
