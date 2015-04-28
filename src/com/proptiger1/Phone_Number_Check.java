@@ -178,7 +178,7 @@ public class Phone_Number_Check
 		}
 		else
 		{
-		System.err.println("Internal Mailer Phone number test has failed"+Failed);
+		System.err.println("\n Internal Mailer Phone number test has failed"+Failed);
 		}
 		driver.quit();
 		return y;	
@@ -219,7 +219,7 @@ public class Phone_Number_Check
 	     };
 
        String[] Number = 
-	   {"01166765300",
+	   {"01166764004",
 		"01166764111",
 		"02261054547",
 		"08067417773",
@@ -229,7 +229,7 @@ public class Phone_Number_Check
 	   };
 
        String[] URLs=
-	   {BaseUrl+"/google_page_4.php?projectId=661151&"+cookie,
+	   {BaseUrl+"/google_page_4.php?projectId=513497&"+cookie,
 		BaseUrl+"/google_page_13.php?projectId=662047&"+cookie,
 		BaseUrl+"/google_page_14.php?projectId=501552&"+cookie,
 		BaseUrl+"/google_page_15.php?projectId=664356&"+cookie,
@@ -264,9 +264,8 @@ public class Phone_Number_Check
           }
 		else
 		{
-			System.err.println("External Mailer Phone number tests Have Failed"+Failed);
+	   Assert.fail("External Mailer Phone number tests Have Failed"+Failed);
 		driver2.quit();
-		Assert.fail("\n External phone check failed..");
 	}
 		return Failed;
 }
