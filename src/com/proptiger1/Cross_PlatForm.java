@@ -103,7 +103,7 @@ public class Cross_PlatForm {
 				driver.navigate().back();
 				Thread.sleep(3000L);
 			}
-			driver.findElement(By.xpath("//img[@src='https://im.proptiger.com/1/643769/6/samruddhi-group-winter-green-elevation-677119.jpeg?width=400&amp;height=300']")).click();
+			driver.findElement(By.xpath("//img[@src='https://im.proptiger.com/1/643769/6/samruddhi-group-winter-green-elevation-677119.jpeg?width=400&height=300']")).click();
 			t1.wait(driver, "//h1[@title='Project Name']");
 			String ProjectPage= driver.getCurrentUrl();
 			String Projectheading= driver.findElement(By.xpath("//h1[@title='Project Name']")).getText();
