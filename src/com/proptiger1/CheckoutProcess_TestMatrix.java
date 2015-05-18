@@ -20,7 +20,7 @@ public class CheckoutProcess_TestMatrix {
 	{   
 		t.timestamp();
 		System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.Jdk14Logger");
-		System.out.println("============== PAYMENT GATEWAY TEST STARTED-Beta===============");
+		System.out.println("============== PAYMENT GATEWAY TEST STARTED:Prod===============");
 	}
 	
 	@Test(priority=0)
@@ -44,6 +44,7 @@ public class CheckoutProcess_TestMatrix {
 		WebDriver driver= new FirefoxDriver(profile);
 		PaymentGatewayTest.Pg_Test(driver);	
 		System.out.println("2.Checkout working fine in Chrome_AndroidTablet");
+		driver.quit();
 		}
 	
 	@Test(priority=2)
@@ -54,20 +55,19 @@ public class CheckoutProcess_TestMatrix {
 				+ "(KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19");
 		//profile.setPreference("general.screensize. " );
 		WebDriver driver= new FirefoxDriver(profile);
-		PaymentGatewayTest.Pg_Test(driver);			
+		PaymentGatewayTest.Pg_Test(driver);		
 		System.out.println("3.Checkout working fine in Chrome_AndroidMobile");
-		driver.quit();
+			driver.quit();
 	}
 	@Test(priority=3)
 	void CheckoutFireFox_Android() throws InterruptedException 
 	{
-		TimeStamp t= new TimeStamp();;
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override","Mozilla/5.0 (Android; Tablet; rv:14.0) Gecko/14.0 Firefox/14.0");
 		WebDriver driver= new FirefoxDriver(profile);
 	    PaymentGatewayTest.Pg_Test(driver);	
 		System.out.println("4.Checkout working fine in FireFox_Android");
-		driver.quit();		
+		driver.quit();
 			}
 	@Test(priority=4)
 	void CheckoutSafari_iOS8() throws InterruptedException {
@@ -75,6 +75,7 @@ public class CheckoutProcess_TestMatrix {
 		profile.setPreference("general.useragent.override","Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 "
 				+ "(KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4");
 		WebDriver driver= new FirefoxDriver(profile);
+		 PaymentGatewayTest.Pg_Test(driver);	
 		System.out.println("5.Checkout working fine in Safari_iOS8");
 		driver.quit();
 	}

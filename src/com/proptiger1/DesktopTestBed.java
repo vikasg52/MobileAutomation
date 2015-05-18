@@ -25,16 +25,18 @@ public class DesktopTestBed {
 		driver.manage().window().maximize();
 		System.out.println("==============================================================================");
 		DesktopResponsive_Test.Gallery(driver,name);
+		
 		DesktopResponsive_Test.Responsive(driver, name);
-		DesktopResponsive_Test.CheckAmenityPages(driver,name);
+		//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 		DesktopResponsive_Test.DesktopAmenityLead(driver, name);
+		DesktopResponsive_Test.Careers(driver, name);
 		DesktopResponsive_Test.gp13(driver, name);
 		DesktopResponsive_Test.gp14(driver, name);
 		DesktopResponsive_Test.gp15(driver, name);		
 		System.out.println("=============================================================================");
     	driver.quit();
 	}
-	@Test(priority=1)
+	@Test(priority=4)
 	void ResponsivePage_Chrome_Linux() throws InterruptedException 
 	{
 		java.lang.String name="Chrome_Linux";
@@ -46,16 +48,18 @@ public class DesktopTestBed {
 		driver.manage().window().maximize();
 		System.out.println("==============================================================================");
 		DesktopResponsive_Test.Gallery(driver,name);
+		
 		DesktopResponsive_Test.Responsive(driver, name);
-		DesktopResponsive_Test.CheckAmenityPages(driver,name);
+		//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 		DesktopResponsive_Test.DesktopAmenityLead(driver, name);
+		DesktopResponsive_Test.Careers(driver, name);
 		DesktopResponsive_Test.gp13(driver, name);
 		DesktopResponsive_Test.gp14(driver, name);
 		DesktopResponsive_Test.gp15(driver, name);
 		System.out.println("==============================================================================");
   	    driver.quit();
 	}
-	@Test(priority=0)
+	@Test(priority=2)
 	void ResponsivePage_FireFox_Windows() throws InterruptedException 
 	{
 		java.lang.String name="FireFox_Windows";
@@ -66,9 +70,11 @@ public class DesktopTestBed {
 		driver.manage().deleteAllCookies();	
 		driver.manage().window().maximize();
 		DesktopResponsive_Test.Gallery(driver,name);
+		//DesktopResponsive_Test.Careers(driver, name);
 		DesktopResponsive_Test.Responsive(driver, name);
-		DesktopResponsive_Test.CheckAmenityPages(driver,name);
+		//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 		DesktopResponsive_Test.DesktopAmenityLead(driver, name);
+		DesktopResponsive_Test.Careers(driver, name);
 		DesktopResponsive_Test.gp13(driver, name);
 		DesktopResponsive_Test.gp14(driver, name);
 		DesktopResponsive_Test.gp15(driver, name);
@@ -87,16 +93,18 @@ public class DesktopTestBed {
 		driver.manage().window().maximize();
 		System.out.println("==============================================================================");
 		DesktopResponsive_Test.Gallery(driver,name);
+		//DesktopResponsive_Test.Careers(driver, name);
 		DesktopResponsive_Test.Responsive(driver, name);
-		DesktopResponsive_Test.CheckAmenityPages(driver,name);
+		//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 		DesktopResponsive_Test.DesktopAmenityLead(driver, name);
+		DesktopResponsive_Test.Careers(driver, name);
 		DesktopResponsive_Test.gp13(driver, name);
 		DesktopResponsive_Test.gp14(driver, name);
 		DesktopResponsive_Test.gp15(driver, name);
 		System.out.println("==============================================================================");
 		driver.quit();
 	}
-	@Test(priority=4)
+	@Test(priority=1)
 void ResponsivePage_Chrome_Mac() throws InterruptedException 
 {
 	java.lang.String name="Chrome_Mac";
@@ -108,17 +116,18 @@ void ResponsivePage_Chrome_Mac() throws InterruptedException
 	driver.manage().window().maximize();
 	System.out.println("==================================================================================");
 	DesktopResponsive_Test.Gallery(driver,name);
+	//DesktopResponsive_Test.Careers(driver, name);
 	DesktopResponsive_Test.Responsive(driver, name);
-	DesktopResponsive_Test.CheckAmenityPages(driver,name);
+	//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 	DesktopResponsive_Test.DesktopAmenityLead(driver, name);
+	DesktopResponsive_Test.Careers(driver, name);
 	DesktopResponsive_Test.gp13(driver, name);
 	DesktopResponsive_Test.gp14(driver, name);
 	DesktopResponsive_Test.gp15(driver, name);
 	System.out.println("==================================================================================");
 	driver.quit();
 }
-	
-	@Test(priority=2)
+	@Test(priority=0)
 void ResponsivePage_Safari_Mac() throws InterruptedException 
 {
 	java.lang.String name="Safari_Mac";
@@ -130,9 +139,11 @@ void ResponsivePage_Safari_Mac() throws InterruptedException
 	driver.manage().window().maximize();
 	System.out.println("==================================================================================");
 	DesktopResponsive_Test.Gallery(driver,name);
+	//DesktopResponsive_Test.Careers(driver, name);
 	DesktopResponsive_Test.Responsive(driver, name);
-	DesktopResponsive_Test.CheckAmenityPages(driver,name);
+	//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 	DesktopResponsive_Test.DesktopAmenityLead(driver, name);
+	DesktopResponsive_Test.Careers(driver, name);
 	DesktopResponsive_Test.gp13(driver, name);
 	DesktopResponsive_Test.gp14(driver, name);
 	DesktopResponsive_Test.gp15(driver, name);	

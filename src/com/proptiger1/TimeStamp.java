@@ -17,7 +17,7 @@ public class TimeStamp<WebElement> {
 	}
 	public void wait(WebDriver driver, String element)
 	{
-		WebDriverWait wait1 = new WebDriverWait(driver,50);
+		WebDriverWait wait1 = new WebDriverWait(driver,120);
 		wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(element)));
 	}
 	public static String timestamp()

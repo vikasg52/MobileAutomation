@@ -31,11 +31,11 @@ public class Cross_PlatForm {
 	static String mobbeta="http://mob-beta.proptiger-ws.com";
 	static String local= "http://192.168.0.216:5000";
 	static String betassl="https://beta.proptiger-ws.com";
-	static String betassl1="https://beta.proptiger-ws.com";
+	static String betassl1="https://beta.proptiger-ws.com/";
 	static String BaseUrl=betassl;
 	static String BaseUrl1=betassl1;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
-		driver.manage().window().setSize(new Dimension(300,630));
+		driver.manage().window().setSize(new Dimension(560,630));
 		driver.get(BaseUrl);
 		driver.manage().deleteAllCookies();	
 		WebDriverWait wait1 = new WebDriverWait(driver,120);
@@ -103,7 +103,7 @@ public class Cross_PlatForm {
 				driver.navigate().back();
 				Thread.sleep(3000L);
 			}
-			driver.findElement(By.xpath("//img[@src='https://im.proptiger.com/1/643769/6/samruddhi-group-wintergreen-elevation-555334.jpeg?width=400&height=300']")).click();
+			driver.findElement(By.xpath("//img[@src='https://im.proptiger.com/1/643769/6/samruddhi-group-winter-green-elevation-677119.jpeg?width=400&height=300']")).click();
 			t1.wait(driver, "//h1[@title='Project Name']");
 			String ProjectPage= driver.getCurrentUrl();
 			String Projectheading= driver.findElement(By.xpath("//h1[@title='Project Name']")).getText();
@@ -365,12 +365,12 @@ public class Cross_PlatForm {
 	public static void CheckAmenityPages(WebDriver driver) throws InterruptedException
 	{
 		driver.get(BaseUrl+"/mumbai/panvel-50006/atms");
-		t1.wait(driver, "//h1[@class='locality-name']");
+		t1.wait(driver, "//section[@class='top-area max1170']//h1[@class='locality-name']");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-		String LocalityName= driver.findElement(By.xpath("//h1[@class='locality-name']")).getText();
-		boolean CityDropDown= t1.isElementPresent(driver, By.xpath("//select[@class='city-select-dd']//option[@selected='true']"));
-		String  SelectedCity=driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='true']")).getText();
+		String LocalityName= driver.findElement(By.xpath("//section[@class='top-area max1170']//h1[@class='locality-name']")).getText();
+		boolean CityDropDown= t1.isElementPresent(driver, By.xpath("//select[@class='city-select-dd js-city-change-dropdown']//option[@selected='true']"));
+		String  SelectedCity=driver.findElement(By.xpath("//select[@class='city-select-dd js-city-change-dropdown']//option[@selected='true']")).getText();
 		boolean AmenityButton=t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy btn btn-warning']//i[@class='imageIcon']"));
 		boolean AmenityButtonIcon=t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy btn btn-warning']//i[@class='imageIcon']"));
 		String SelectedAmenity= driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-warning']")).getText();
@@ -404,7 +404,7 @@ public class Cross_PlatForm {
        System.out.println("*************************************************************************************");
       for(int i=0;i<=sheet.getLastRowNum();i++)
      	{
-     	 String URLs= BaseUrl1+"/"+sheet.getRow(i).getCell((short) 1).getStringCellValue();
+     	 String URLs= BaseUrl1+sheet.getRow(i).getCell((short) 1).getStringCellValue();
 		try {
 		    URL url = new URL(URLs);
 		    HttpURLConnection con = (HttpURLConnection) url.openConnection();
