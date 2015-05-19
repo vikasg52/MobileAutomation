@@ -30,9 +30,7 @@ public class DesktopTestBed {
 		//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 		DesktopResponsive_Test.DesktopAmenityLead(driver, name);
 		DesktopResponsive_Test.Careers(driver, name);
-		DesktopResponsive_Test.gp13(driver, name);
-		DesktopResponsive_Test.gp14(driver, name);
-		DesktopResponsive_Test.gp15(driver, name);		
+	
 		System.out.println("=============================================================================");
     	driver.quit();
 	}
@@ -53,9 +51,7 @@ public class DesktopTestBed {
 		//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 		DesktopResponsive_Test.DesktopAmenityLead(driver, name);
 		DesktopResponsive_Test.Careers(driver, name);
-		DesktopResponsive_Test.gp13(driver, name);
-		DesktopResponsive_Test.gp14(driver, name);
-		DesktopResponsive_Test.gp15(driver, name);
+		
 		System.out.println("==============================================================================");
   	    driver.quit();
 	}
@@ -75,9 +71,6 @@ public class DesktopTestBed {
 		//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 		DesktopResponsive_Test.DesktopAmenityLead(driver, name);
 		DesktopResponsive_Test.Careers(driver, name);
-		DesktopResponsive_Test.gp13(driver, name);
-		DesktopResponsive_Test.gp14(driver, name);
-		DesktopResponsive_Test.gp15(driver, name);
 		System.out.println("==============================================================================");
 		driver.quit();
 	}
@@ -98,9 +91,6 @@ public class DesktopTestBed {
 		//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 		DesktopResponsive_Test.DesktopAmenityLead(driver, name);
 		DesktopResponsive_Test.Careers(driver, name);
-		DesktopResponsive_Test.gp13(driver, name);
-		DesktopResponsive_Test.gp14(driver, name);
-		DesktopResponsive_Test.gp15(driver, name);
 		System.out.println("==============================================================================");
 		driver.quit();
 	}
@@ -121,9 +111,6 @@ void ResponsivePage_Chrome_Mac() throws InterruptedException
 	//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 	DesktopResponsive_Test.DesktopAmenityLead(driver, name);
 	DesktopResponsive_Test.Careers(driver, name);
-	DesktopResponsive_Test.gp13(driver, name);
-	DesktopResponsive_Test.gp14(driver, name);
-	DesktopResponsive_Test.gp15(driver, name);
 	System.out.println("==================================================================================");
 	driver.quit();
 }
@@ -144,9 +131,6 @@ void ResponsivePage_Safari_Mac() throws InterruptedException
 	//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 	DesktopResponsive_Test.DesktopAmenityLead(driver, name);
 	DesktopResponsive_Test.Careers(driver, name);
-	DesktopResponsive_Test.gp13(driver, name);
-	DesktopResponsive_Test.gp14(driver, name);
-	DesktopResponsive_Test.gp15(driver, name);	
 	System.out.println("==================================================================================");
 	driver.quit();
 }

@@ -124,10 +124,10 @@ public class DesktopResponsive_Test {
 	public static void Gallery(WebDriver driver, String name) throws InterruptedException
 	{
 		driver.get(BaseUrl+"/gallery/zonasha-estates-elegance-elevation-657209-584583");
-		t1.wait(driver,"//div[@class='row contHeaderInfo']//h1[@class='contSubheaderInfo']");
+		t1.wait(driver,"//div[@class='gallHeadInfo']//h1[@class='contSubheaderInfo']");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-		boolean headerText= t1.isElementPresent(driver,By.xpath("//div[@class='row contHeaderInfo']//h1[@class='contSubheaderInfo']"));
+		boolean headerText= t1.isElementPresent(driver,By.xpath("//div[@class='gallHeadInfo']//h1[@class='contSubheaderInfo']"));
 	 	boolean image= t1.isElementPresent(driver,(By.xpath("//img[@src='https://im.proptiger.com/1/657209/6/zonasha-estates-elegance-elevation-584583.jpeg']")));
 	    boolean previousbutton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy m-carousel-prev']"));
 	    boolean NextButton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy m-carousel-next']"));
@@ -178,9 +178,10 @@ public class DesktopResponsive_Test {
 			for (String window : windows) {
 				driver.switchTo().window(window);
 			WebElement element= driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']"));
-			JavascriptExecutor js = (JavascriptExecutor)driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", element);
-			js.executeScript("arguments[0].click();", element);
+			element.click();
+			//JavascriptExecutor js = (JavascriptExecutor)driver;
+			//js.executeScript("arguments[0].scrollIntoView(true);", element);
+			//js.executeScript("arguments[0].click();", element);
 			//Actions actionname = new Actions(driver);
 	       // actionname.moveToElement(driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']")));
 	        //actionname.build().perform();
@@ -200,6 +201,7 @@ public class DesktopResponsive_Test {
 	}
 	
 	//GP13
+	/*
 	public static void GP(WebDriver driver,String userName, String name) throws InterruptedException
 	{     
 		TimeStamp t1= new TimeStamp();
@@ -221,8 +223,8 @@ public class DesktopResponsive_Test {
 	    }
 		int ran;
 	    ran = 100 + (int)(Math.random() * ((10000 - 100) + 1));
-	   /* long mobile = (long) Math.floor(Math.random() * 9000000000L) + 1000000000L;
-	    String m= String.valueOf(mobile);*/
+	    long mobile = (long) Math.floor(Math.random() * 9000000000L) + 1000000000L;
+	    String m= String.valueOf(mobile);
 	    
 	    Set<String> windows = driver.getWindowHandles();
 		for (String window : windows) {
@@ -252,8 +254,9 @@ public class DesktopResponsive_Test {
 	    for (String windo : windowss) {
 		driver.switchTo().window(windo);
 		WebElement element= driver.findElement(By.xpath("//div[@class='ta-center' and text()='Thank You']"));
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", element);
+		//JavascriptExecutor js = (JavascriptExecutor)driver;
+		//js.executeScript("arguments[0].click();", element);
+		element.click();
 		String ThankText= driver.findElement(By.cssSelector(".thanks-wrap.ta-center")).getAttribute("textContent");
 			if(!ThankText.contains("Thanks for"))
 			{
@@ -265,36 +268,6 @@ public class DesktopResponsive_Test {
 	{System.out.println(e.getMessage());
 	}
 	}
+}*/
 }
-		// GP13
-	public static void gp13 (WebDriver driver,String name) throws InterruptedException
-	{       	
-		String userName="GP13LeadTest";
-		String URL= BaseUrl+"/google_page_13.php?projectId=648393";
-		driver.get(URL);
-		Thread.sleep(5000L);
-		GP(driver,userName,name);
-	    System.out.println("8. Lead submitted successfully from GP13 using"+name);
-	}
-	//GP14
-	public static void gp14 (WebDriver driver,String name) throws InterruptedException
-	{       
-		String URL= BaseUrl+"/google_page_14.php?projectId=648393";
-		String userName="GP14LeadTest";
-		driver.get(URL);
-		Thread.sleep(5000L);
-	    GP(driver,userName,name);
-	    System.out.println("9. Lead submitted successfully from GP14 using"+name);
-	}
-	//GP15
-	public static void gp15 (WebDriver driver, String name) throws InterruptedException
-		{       	
-		String URL= BaseUrl+"/google_page_15.php?projectId=648393";	
-		String userName="GP15LeadTest";
-		driver.get(URL);
-		Thread.sleep(5000L);
-		GP(driver,userName, name);
-	        System.out.println("10. Lead submitted successfully from GP15 using"+name);
-	   	}
-	}
 	
