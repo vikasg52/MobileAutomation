@@ -124,10 +124,10 @@ public class DesktopResponsive_Test {
 	public static void Gallery(WebDriver driver, String name) throws InterruptedException
 	{
 		driver.get(BaseUrl+"/gallery/zonasha-estates-elegance-elevation-657209-584583");
-		t1.wait(driver,"//div[@class='row contHeaderInfo']//h1[@class='contSubheaderInfo']");
+		t1.wait(driver,"//div[@class='gallHeadInfo']//h1[@class='contSubheaderInfo']");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-		boolean headerText= t1.isElementPresent(driver,By.xpath("//div[@class='row contHeaderInfo']//h1[@class='contSubheaderInfo']"));
+		boolean headerText= t1.isElementPresent(driver,By.xpath("//div[@class='gallHeadInfo']//h1[@class='contSubheaderInfo']"));
 	 	boolean image= t1.isElementPresent(driver,(By.xpath("//img[@src='https://im.proptiger.com/1/657209/6/zonasha-estates-elegance-elevation-584583.jpeg']")));
 	    boolean previousbutton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy m-carousel-prev']"));
 	    boolean NextButton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy m-carousel-next']"));
