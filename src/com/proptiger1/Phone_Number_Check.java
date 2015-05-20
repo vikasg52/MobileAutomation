@@ -106,7 +106,7 @@ public class Phone_Number_Check
 	{
 		String beta="https://beta.proptiger-ws.com";
 		String prod="https://www.proptiger.com";
-		String BaseUrl=beta;
+		String BaseUrl=prod;
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS BaseUrl) AppleWebKit/537.51.1 "
 				+ "(KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A501 Safari/8536.25");
@@ -191,7 +191,7 @@ public class Phone_Number_Check
 	{	
 		String beta="https://beta.proptiger-ws.com";
 		String prod="https://www.proptiger.com";
-		String BaseUrl=beta;
+		String BaseUrl=prod;
 		FirefoxProfile profile = new FirefoxProfile();
 	profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) "
 			+ "AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53");
