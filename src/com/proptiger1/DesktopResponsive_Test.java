@@ -178,10 +178,10 @@ public class DesktopResponsive_Test {
 			for (String window : windows) {
 				driver.switchTo().window(window);
 			WebElement element= driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']"));
-			element.click();
-			//JavascriptExecutor js = (JavascriptExecutor)driver;
-			//js.executeScript("arguments[0].scrollIntoView(true);", element);
-			//js.executeScript("arguments[0].click();", element);
+			//element.click();
+			JavascriptExecutor js = (JavascriptExecutor)driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", element);
+			js.executeScript("arguments[0].click();", element);
 			//Actions actionname = new Actions(driver);
 	       // actionname.moveToElement(driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']")));
 	        //actionname.build().perform();

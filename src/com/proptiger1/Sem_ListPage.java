@@ -37,7 +37,6 @@ public class Sem_ListPage<t> {
 			{   "Mumbai",
 				"Noida",
 				"Gurgaon",
-				"Banglore",
 				"Pune",
 				"Chennai",
 				"Ghaziabad",
@@ -46,7 +45,6 @@ public class Sem_ListPage<t> {
 			   {"+912261054545",
 				"+911166765333",
 				"+911166765111",
-				"+918033512373",
 				"+912067082636",
 				"+914439942555",
 			    "+919555606060"};
@@ -55,7 +53,7 @@ public class Sem_ListPage<t> {
 				BaseUrl11+"/projects-in-mumbai"+Cookie,
 				BaseUrl11+"/projects-in-noida"+Cookie,
 				BaseUrl11+"/projects-in-gurgaon"+Cookie,
-				BaseUrl11+"/projects-in-bangalore"+Cookie,
+				//BaseUrl11+"/projects-in-bangalore"+Cookie,
 				BaseUrl11+"/projects-in-pune"+Cookie,
 				BaseUrl11+"/projects-in-chennai"+Cookie,
 				BaseUrl11+"/projects-in-ghaziabad"+Cookie};

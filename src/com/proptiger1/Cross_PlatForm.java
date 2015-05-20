@@ -103,12 +103,12 @@ public class Cross_PlatForm {
 				driver.navigate().back();
 				Thread.sleep(3000L);
 			}
-			driver.findElement(By.xpath("//img[@src='https://im.proptiger.com/1/643769/6/samruddhi-group-winter-green-elevation-677119.jpeg?width=400&height=300']")).click();
+			driver.findElement(By.xpath("//img[@src='https://im.proptiger.com/1/504226/6/mythreyi-group-naimisha-elevation-472821.jpeg?width=400&height=300']")).click();
 			t1.wait(driver, "//h1[@title='Project Name']");
 			String ProjectPage= driver.getCurrentUrl();
 			String Projectheading= driver.findElement(By.xpath("//h1[@title='Project Name']")).getText();
-			if(!ProjectPage.equalsIgnoreCase(BaseUrl+"/bangalore/bellandur/samruddhi-group-winter-green-643769")
-					&& !Projectheading.equalsIgnoreCase("Samruddhi Group Winter Green"))
+			if(!ProjectPage.equalsIgnoreCase(BaseUrl+"/bangalore/adugodi/mythreyi-group-naimisha-504226")
+					&& !Projectheading.equalsIgnoreCase("Mythreyi Group Naimisha"))
 			{
 				Assert.fail("\n Project Page is not opening-URL is wrong, title is wrong or project name is wrong"+name);	
 				driver.close();
@@ -117,12 +117,12 @@ public class Cross_PlatForm {
 	        Cross_PlatForm.VerifyMenuDrawer(driver);
 	        t1.wait(driver, "//div[@class='ta-center marginT20']//a[@class='btn btn-blu explore-this-locality']");
 			driver.findElement(By.xpath("//div[@class='ta-center marginT20']//a[@class='btn btn-blu explore-this-locality']")).click();
-			t1.wait(driver, "//div[@class='proj-info-wrap']//h1[contains(text(),'Bellandur')]");
+			t1.wait(driver, "//h1[@class='metah1' and text()='Property in Adugodi']");
 			String LocalityUrl= driver.getCurrentUrl();
-			String Localityheading= driver.findElement(By.xpath("//div[@class='proj-info-wrap']//h1[contains(text(),'Bellandur')]")).getText();
-			boolean LocalityImage= t1.isElementPresent(driver,By.xpath("//img[@src='https://im.proptiger.com/1/643769/6/samruddhi-group-wintergreen-elevation-555334.jpeg?width=400&height=300']"));
-			if(!LocalityUrl.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate/bellandur-overview-50270")
-					&& !Localityheading.equalsIgnoreCase("Bellandur") && LocalityImage==false)
+			String Localityheading= driver.findElement(By.xpath("//div[@class='capitalize put-ellipsis']")).getText();
+			//boolean LocalityImage= t1.isElementPresent(driver,By.xpath("//img[@data-src='https://im.proptiger.com/1/504226/6/mythreyi-group-naimisha-elevation-472821.jpeg?width=400&height=300']"));
+			if(!LocalityUrl.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate/adugodi-overview-52720")
+					&& !Localityheading.equalsIgnoreCase("Adugodi"))
 			{
 				Assert.fail("\n Locality page is not opening, basis URL is incorrect/heading is incorrect/image is missing"+name);
 				driver.close();  		
@@ -158,16 +158,16 @@ public class Cross_PlatForm {
 		    driver.findElement(By.xpath("//table[@class='tab-list']//td[@id='reviews-tab-link']")).click();
 			Boolean rating= t1.isElementPresent(driver,By.xpath("//div[@class='user-rating mini-title']"));
 			driver.findElement(By.xpath("//table[@class='tab-list']//td[@id='overview-tab-link']")).click();
-			t1.wait(driver,"//img[@src='https://im.proptiger.com/4/270/15/bellandur-bangalore-road-382762.jpeg?width=400&height=300']");
-			boolean image= t1.isElementPresent(driver,By.xpath("//img[@src='https://im.proptiger.com/4/270/15/bellandur-bangalore-road-382762.jpeg?width=400&height=300']"));
+			//t1.wait(driver,"//img[@src='https://im.proptiger.com/4/270/15/bellandur-bangalore-road-382762.jpeg?width=400&height=300']");
+			//boolean image= t1.isElementPresent(driver,By.xpath("//img[@src='https://im.proptiger.com/4/270/15/bellandur-bangalore-road-382762.jpeg?width=400&height=300']"));
 			// Verify menu drawer page on Locality overview page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
 		    driver.findElement(By.linkText("View all Projects")).click();
 			t1.wait(driver, "//div[@class='listing-title']");
 		    String LocalityListURL= driver.getCurrentUrl();
 			String LocalityListheading= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
-			if(!LocalityListURL.equalsIgnoreCase(BaseUrl+"/bangalore/property-sale-bellandur-50270") 
-					&& !LocalityListheading.equalsIgnoreCase("Bellandur, Bangalore"))
+			if(!LocalityListURL.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate/adugodi-overview-52720") 
+					&& !LocalityListheading.equalsIgnoreCase("Adugodi, Bangalore"))
 			{
 				Assert.fail("\n Locality listing page is not opening basis URL is wrong and heading is wrong"+name);
                 driver.close();
@@ -183,7 +183,7 @@ public class Cross_PlatForm {
 			Boolean ChangeLocality= t1.isElementPresent(driver, By.xpath("//div[@class='capitalize ta-center city-name']"));
 			String ChangeLocalityText= driver.findElement(By.xpath("//div[@class='capitalize ta-center city-name']")).getText();
 			boolean serachbox= t1.isElementPresent(driver,By.xpath("//input[@placeholder='Search for locality']"));
-			if(!ChangeLocalityUrl.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate/bellandur-overview-50270#localitySearchPopup") && serachbox==false && ChangeLocality==false && ChangeLocalityText!="Bangalore")
+			if(!ChangeLocalityUrl.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate/adugodi-overview-52720#localitySearchPopup") && serachbox==false && ChangeLocality==false && ChangeLocalityText!="Bangalore")
 			{
 				Assert.fail("\n Change locality page is not opening basis url is wrong, searchbox not found and heading is wrong in"+name);
 				driver.close();
