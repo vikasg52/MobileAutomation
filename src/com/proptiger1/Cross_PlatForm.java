@@ -35,7 +35,7 @@ public class Cross_PlatForm {
 	static String BaseUrl=betassl;
 	static String BaseUrl1=betassl1;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
-		driver.manage().window().setSize(new Dimension(560,630));
+		driver.manage().window().setSize(new Dimension(460,880));
 		driver.get(BaseUrl);
 		driver.manage().deleteAllCookies();	
 		WebDriverWait wait1 = new WebDriverWait(driver,120);
