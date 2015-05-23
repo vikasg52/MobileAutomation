@@ -14,8 +14,12 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -103,7 +107,14 @@ public class Cross_PlatForm {
 				driver.navigate().back();
 				Thread.sleep(3000L);
 			}
-			driver.findElement(By.xpath("//img[@src='https://im.proptiger.com/1/504226/6/mythreyi-group-naimisha-elevation-472821.jpeg?width=400&height=300']")).click();
+			 boolean Alt= t1.isElementPresent(driver, By.xpath("//img[@alt='mythreyi-group naimisha Elevation']")); 
+			 while(Alt!=true)
+			 {
+			 Actions actions = new Actions(driver);
+			 actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
+			 Alt= t1.isElementPresent(driver, By.xpath("//img[@alt='mythreyi-group naimisha Elevation']")); 
+			 }
+			driver.findElement(By.xpath("//img[@alt='mythreyi-group naimisha Elevation']")).click();
 			t1.wait(driver, "//h1[@title='Project Name']");
 			String ProjectPage= driver.getCurrentUrl();
 			String Projectheading= driver.findElement(By.xpath("//h1[@title='Project Name']")).getText();
@@ -241,10 +252,9 @@ public class Cross_PlatForm {
 				Assert.fail("All locaities page is not opening in"+name);
 				driver.close();
 			}	
-          }
-	}
-
-	// Menu Drawer Verification
+			}
+		}
+			// Menu Drawer Verification
 	public static void VerifyMenuDrawer(WebDriver driver) throws InterruptedException
 	{
 		t1.wait(driver, "//i[@class='icon-navicon']");
