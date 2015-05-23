@@ -60,7 +60,7 @@ public class MobileTestBed {
 		profile.setPreference("general.useragent.override","Mozilla/5.0 (Linux; Android 4.4.4; XT1030 Build/SU4.21) "
 				+ "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.102 Mobile Safari/537.36");
 		WebDriver driver= new FirefoxDriver(profile);
-		driver.manage().deleteAllCookies();
+		//driver.manage().deleteAllCookies();
 		Cross_PlatForm.AllPages(driver,name);
 		Cross_PlatForm.Check404Page(driver);
 		Cross_PlatForm.CheckAmenityPages(driver);
@@ -74,7 +74,7 @@ public class MobileTestBed {
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override","Mozilla/5.0 (Android; Tablet; rv:14.0) Gecko/14.0 Firefox/14.0");
 		WebDriver driver= new FirefoxDriver(profile);
-		driver.manage().deleteAllCookies();
+		//driver.manage().deleteAllCookies();
 		Cross_PlatForm.AllPages(driver,name);
 		Cross_PlatForm.Check404Page(driver);
 		Cross_PlatForm.CheckAmenityPages(driver);
@@ -118,7 +118,7 @@ public class MobileTestBed {
 		profile.setPreference("general.useragent.override","Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0;"
 				+ " Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 920");
 		WebDriver driver= new FirefoxDriver(profile);
-		driver.manage().deleteAllCookies();
+		//driver.manage().deleteAllCookies();
 		Cross_PlatForm.AllPages(driver,name);	
 		Cross_PlatForm.Check404Page(driver);
 		Cross_PlatForm.CheckAmenityPages(driver);
