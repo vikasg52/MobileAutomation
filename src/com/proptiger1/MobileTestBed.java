@@ -125,7 +125,7 @@ public class MobileTestBed {
 		System.out.println("3.All Pages are accessible on IE_Nokia_Lumia920");
 		driver.quit();		
 	}
-@Test(priority=1)
+@Test(priority=3)
 	void OperaMini_iPhone__AllPageTest() throws InterruptedException 
 	{
 		java.lang.String name="OperaMini_iPhone";
@@ -136,10 +136,10 @@ public class MobileTestBed {
 		Cross_PlatForm.AllPages(driver,name);	
 		Cross_PlatForm.Check404Page(driver);
 		Cross_PlatForm.CheckAmenityPages(driver);
-		System.out.println("2.All Pages are accessible on OperaMini_iPhone");																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+		System.out.println("4.All Pages are accessible on OperaMini_iPhone");																																																																																																																																																																																																																																																																																																																																																																																																																																																																
 		driver.quit();		
 	}
-	@Test(priority=3)
+	@Test(priority=1)
 	void OperaMini_Android__AllPageTest() throws InterruptedException 
 	{
 		java.lang.String name="OperaMini_Android";
@@ -151,7 +151,7 @@ public class MobileTestBed {
 		Cross_PlatForm.AllPages(driver,name);	
 		Cross_PlatForm.Check404Page(driver);
 		Cross_PlatForm.CheckAmenityPages(driver);
-		System.out.println("4.All Pages are accessible on OperaMini_Android");
+		System.out.println("2.All Pages are accessible on OperaMini_Android");
 		driver.quit();		
 	}
 	
