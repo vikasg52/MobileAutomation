@@ -361,6 +361,8 @@ public class Cross_PlatForm {
 				//driver.close();
 			}
 			driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']")).click();
+			Thread.sleep(3000L);
+			driver.navigate().refresh();
 			t1.wait(driver, "//div[@class='pt-row-two-column paddingR5']//a[@class='no-ajaxy bigbtn projects-near-me']");
 			String RedirectURl=driver.getCurrentUrl();
 			if(!RedirectURl.equalsIgnoreCase(BaseUrl+"/"))
