@@ -14,8 +14,12 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -25,8 +29,8 @@ public class Cross_PlatForm {
 	static String name="";
 	static int count=0;
 	static String http="http://www.proptiger.com";
-	static String ssl="https://www.proptiger.com";
-	static String ssl1= "https://www.proptiger.com/";
+	static String ssl="https://failover.proptiger.com";
+	static String ssl1= "https://failover.proptiger.com/";
 	static String betahttp="http://beta.proptiger-ws.com";
 	static String mobbeta="http://mob-beta.proptiger-ws.com";
 	static String local= "http://192.168.0.216:5000";
@@ -35,7 +39,7 @@ public class Cross_PlatForm {
 	static String BaseUrl=betassl;
 	static String BaseUrl1=betassl1;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
-		driver.manage().window().setSize(new Dimension(460,880));
+		driver.manage().window().setSize(new Dimension(560,830));
 		driver.get(BaseUrl);
 		driver.manage().deleteAllCookies();	
 		WebDriverWait wait1 = new WebDriverWait(driver,120);
@@ -103,7 +107,14 @@ public class Cross_PlatForm {
 				driver.navigate().back();
 				Thread.sleep(3000L);
 			}
-			driver.findElement(By.xpath("//img[@src='https://im.proptiger.com/1/504226/6/mythreyi-group-naimisha-elevation-472821.jpeg?width=400&height=300']")).click();
+			 boolean Alt= t1.isElementPresent(driver, By.xpath("//img[@alt='mythreyi-group naimisha Elevation']")); 
+			 while(Alt!=true)
+			 {
+			 Actions actions = new Actions(driver);
+			 actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
+			 Alt= t1.isElementPresent(driver, By.xpath("//img[@alt='mythreyi-group naimisha Elevation']")); 
+			 }
+			driver.findElement(By.xpath("//img[@alt='mythreyi-group naimisha Elevation']")).click();
 			t1.wait(driver, "//h1[@title='Project Name']");
 			String ProjectPage= driver.getCurrentUrl();
 			String Projectheading= driver.findElement(By.xpath("//h1[@title='Project Name']")).getText();
@@ -241,10 +252,9 @@ public class Cross_PlatForm {
 				Assert.fail("All locaities page is not opening in"+name);
 				driver.close();
 			}	
-          }
-	}
-
-	// Menu Drawer Verification
+			}
+		}
+			// Menu Drawer Verification
 	public static void VerifyMenuDrawer(WebDriver driver) throws InterruptedException
 	{
 		t1.wait(driver, "//i[@class='icon-navicon']");
@@ -351,7 +361,14 @@ public class Cross_PlatForm {
 				//driver.close();
 			}
 			driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']")).click();
-			t1.wait(driver, "//a[@class='no-ajaxy bigbtn projects-near-me']");
+				Thread.sleep(4000L);	//driver.navigate().refresh();
+				boolean button = t1.isElementPresent(driver,By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']"));
+				if(button==true)
+				{
+					driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']")).click();
+				}
+			t1.wait(driver, "//div[@class='pt-row-two-column paddingR5']//a[@class='no-ajaxy bigbtn projects-near-me']");
+				
 			String RedirectURl=driver.getCurrentUrl();
 			if(!RedirectURl.equalsIgnoreCase(BaseUrl+"/"))
 			{
@@ -439,16 +456,24 @@ public class Cross_PlatForm {
 				+ "(KHTML, like Gecko) CriOS/40.0.2214.73 Mobile/12B466 Safari/600.14");
 		    con.setRequestProperty("Connection", "close");
 		    con.connect();
-		   if(con.getResponseCode()!=200)
-		    {
-		    	count=count+1;
-		    }
+				   if(con.getResponseCode()!=200)
+				    {
+				    	count=count+1;
+				    }
+				}
+		   if(count>1)
+		   {
+			   Assert.fail("Some URLS are not OK. Please check report for status.");
+		   }
+		   }
 		}
-   if(count>1)
-   {
-	   Assert.fail("Some URLS are not OK. Please check report for status.");
-   }
-   }
-}
-   
-   
+		  	   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+				   
