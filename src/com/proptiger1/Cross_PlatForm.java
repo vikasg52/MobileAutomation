@@ -361,8 +361,15 @@ public class Cross_PlatForm {
 				//driver.close();
 			}
 			driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']")).click();
-			Thread.sleep(3000L);
-			driver.navigate().refresh();
+			Thread.sleep(4000L);
+			boolean homeButton=t1.isElementPresent(driver,By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']"));
+			while(homeButton==true)
+			{
+				driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']")).click();
+				Thread.sleep(4000L);
+				homeButton=t1.isElementPresent(driver,By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']"));
+			}
+			//driver.navigate().refresh();
 			t1.wait(driver, "//div[@class='pt-row-two-column paddingR5']//a[@class='no-ajaxy bigbtn projects-near-me']");
 			String RedirectURl=driver.getCurrentUrl();
 			if(!RedirectURl.equalsIgnoreCase(BaseUrl+"/"))

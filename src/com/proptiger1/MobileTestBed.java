@@ -158,8 +158,8 @@ public class MobileTestBed {
 	@Test(priority=0)
 	void UrlCheck() throws InterruptedException, IOException 
 	{
-		Cross_PlatForm.CheckUrls();
-		System.out.println("1.All urls are working");		
+		//Cross_PlatForm.CheckUrls();
+		//System.out.println("1.All urls are working");		
 	}
 	
 	@AfterClass

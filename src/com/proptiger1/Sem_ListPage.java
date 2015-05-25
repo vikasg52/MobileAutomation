@@ -20,7 +20,7 @@ public class Sem_ListPage<t> {
 	@Test(priority=0)
 	public <t> void Sem_ListingPage(String x) throws InterruptedException
 	{
-		String prod="https://www.proptiger.com";
+		String prod="https://failover.proptiger.com";
 		String beta="https://beta.proptiger-ws.com";
 		String BaseUrl11=prod;
 		FirefoxProfile profile = new FirefoxProfile();

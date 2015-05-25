@@ -11,7 +11,7 @@ public class Mailer_Number_Check {
 	static String betahttp="http://beta.proptiger-ws.com";
 	static String mobbeta="http://mob-beta.proptiger-ws.com";
 	static String local= "http://192.168.0.216:5000";
-	static String betassl="https://beta.proptiger-ws.com";
+	static String betassl="https://www.proptiger-ws.com";
 	static String BaseUrl=betassl;
 	@Test()
 	public void numbertest() throws InterruptedException																																															

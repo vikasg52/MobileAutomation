@@ -68,7 +68,6 @@ public class DesktopResponsive_Test {
 	// Careers Page
 	public static void Careers(WebDriver driver, String name)
 	{
-		String BaseUrl= "https://www.proptiger.com";
 		driver.get(BaseUrl+"/careers");
 		t1.wait(driver, "//div[@class='career_bnr']");
 		boolean logo = t1.isElementPresent(driver,By.xpath("//span[@class='logo']//img[@src='/responsive/images/logo.png']"));
