@@ -40,7 +40,7 @@ public class Phone_Number_Check
 	public void GooglePages_SEM_Number(String x) throws InterruptedException
 	{ 
 		String beta="https://beta.proptiger-ws.com";
-		String prod="https://failover.proptiger.com";
+		String prod="https://www.proptiger.com";
 		String BaseUrl=prod;
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS BaseUrl) AppleWebKit/537.51.1 "
@@ -105,7 +105,7 @@ public class Phone_Number_Check
 	public String internal_Mailer(String y)
 	{
 		String beta="https://beta.proptiger-ws.com";
-		String prod="https://failover.proptiger.com";
+		String prod="https://www.proptiger.com";
 		String BaseUrl=prod;
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS BaseUrl) AppleWebKit/537.51.1 "
@@ -190,7 +190,7 @@ public class Phone_Number_Check
 	public String External_Mailer(String z)
 	{	
 		String beta="https://beta.proptiger-ws.com";
-		String prod="https://failover.proptiger.com";
+		String prod="https://www.proptiger.com";
 		String BaseUrl=prod;
 		FirefoxProfile profile = new FirefoxProfile();
 	profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) "
