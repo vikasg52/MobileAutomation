@@ -29,8 +29,8 @@ public class Cross_PlatForm {
 	static String name="";
 	static int count=0;
 	static String http="http://www.proptiger.com";
-	static String ssl="https://failover.proptiger.com";
-	static String ssl1= "https://failover.proptiger.com/";
+	static String ssl="https://www.proptiger.com";
+	static String ssl1= "https://www.proptiger.com/";
 	static String betahttp="http://beta.proptiger-ws.com";
 	static String mobbeta="http://mob-beta.proptiger-ws.com";
 	static String local= "http://192.168.0.216:5000";
@@ -360,15 +360,15 @@ public class Cross_PlatForm {
 				Assert.fail("Goto Home page button is missing on the 404 page");
 				//driver.close();
 			}
-			driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']")).click();
-				Thread.sleep(4000L);	//driver.navigate().refresh();
-				boolean button = t1.isElementPresent(driver,By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']"));
-				if(button==true)
-				{
-					driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']")).click();
-				}
+			t1.wait(driver,"//a[@class='no-ajaxy btn btn-d-yellow']");
+			WebElement e= driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']"));
+            Actions s = new Actions(driver);
+            s.doubleClick(e);
+            s.perform();
+			//driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']")).click();
+			Thread.sleep(4000L);
+			driver.navigate().refresh();
 			t1.wait(driver, "//div[@class='pt-row-two-column paddingR5']//a[@class='no-ajaxy bigbtn projects-near-me']");
-				
 			String RedirectURl=driver.getCurrentUrl();
 			if(!RedirectURl.equalsIgnoreCase(BaseUrl+"/"))
 			{
@@ -456,24 +456,14 @@ public class Cross_PlatForm {
 				+ "(KHTML, like Gecko) CriOS/40.0.2214.73 Mobile/12B466 Safari/600.14");
 		    con.setRequestProperty("Connection", "close");
 		    con.connect();
-				   if(con.getResponseCode()!=200)
-				    {
-				    	count=count+1;
-				    }
-				}
-		   if(count>1)
-		   {
-			   Assert.fail("Some URLS are not OK. Please check report for status.");
-		   }
-		   }
+		   if(con.getResponseCode()!=200)
+		    {
+		    	count=count+1;
+		    }
 		}
-		  	   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
-				   
+   if(count>1)
+   {
+	   Assert.fail("Some URLS are not OK. Please check report for status.");
+   }
+   }
+}
