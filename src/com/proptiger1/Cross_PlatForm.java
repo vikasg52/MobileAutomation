@@ -95,6 +95,7 @@ public class Cross_PlatForm {
 			}
 			// Verify menu drawer page on city listing page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
+			Thread.sleep(2000L);
 			if(!name.equalsIgnoreCase("IE_Nokia_Lumia920"))
 			{
 				driver.findElement(By.xpath("//td[@class='ta-right padding5']//a[@class='no-ajaxy pull-right btn btn-default show-map-btn']")).click();
@@ -360,17 +361,11 @@ public class Cross_PlatForm {
 				Assert.fail("Goto Home page button is missing on the 404 page");
 				//driver.close();
 			}
-			driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']")).click();
-			Thread.sleep(4000L);
-			driver.navigate().refresh();
-			boolean homeButton=t1.isElementPresent(driver,By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']"));
-			while(homeButton==true)
-			{
-				driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']")).click();
-				Thread.sleep(4000L);
-				driver.navigate().refresh();
-				homeButton=t1.isElementPresent(driver,By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']"));
-			}
+			t1.wait(driver,"//a[@class='no-ajaxy btn btn-d-yellow']");
+            WebElement e= driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']"));
+            Actions s = new Actions(driver);
+            s.doubleClick(e);
+            s.perform();
 			//driver.navigate().refresh();
 			t1.wait(driver, "//div[@class='pt-row-two-column paddingR5']//a[@class='no-ajaxy bigbtn projects-near-me']");
 			String RedirectURl=driver.getCurrentUrl();
