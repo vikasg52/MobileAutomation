@@ -29,8 +29,8 @@ public class Cross_PlatForm {
 	static String name="";
 	static int count=0;
 	static String http="http://www.proptiger.com";
-	static String ssl="https://www.proptiger.com";
-	static String ssl1= "https://www.proptiger.com/";
+	static String ssl="https://failover.proptiger.com";
+	static String ssl1= "https://failover.proptiger.com/";
 	static String betahttp="http://beta.proptiger-ws.com";
 	static String mobbeta="http://mob-beta.proptiger-ws.com";
 	static String local= "http://192.168.0.216:5000";
