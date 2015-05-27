@@ -39,7 +39,7 @@ public class Cross_PlatForm {
 	static String BaseUrl=betassl;
 	static String BaseUrl1=betassl1;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
-		driver.manage().window().setSize(new Dimension(560,830));
+		driver.manage().window().setSize(new Dimension(540,700));
 		driver.get(BaseUrl);
 		driver.manage().deleteAllCookies();	
 		WebDriverWait wait1 = new WebDriverWait(driver,120);
@@ -86,6 +86,7 @@ public class Cross_PlatForm {
 			Cookie cookie1 = new Cookie("TESTING_USER", "1");
 		    driver.manage().addCookie(cookie1);
 			t1.wait(driver, "//div[@class='listing-title']");
+			driver.navigate().refresh();
 			String ListingUrl=driver.getCurrentUrl();
 			String ListingTitle= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
 			if(!ListingUrl.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate") && !ListingTitle.equalsIgnoreCase("Bangalore"))
@@ -95,6 +96,7 @@ public class Cross_PlatForm {
 			}
 			// Verify menu drawer page on city listing page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
+			Thread.sleep(2000L);
 			if(!name.equalsIgnoreCase("IE_Nokia_Lumia920"))
 			{
 				driver.findElement(By.xpath("//td[@class='ta-right padding5']//a[@class='no-ajaxy pull-right btn btn-default show-map-btn']")).click();
