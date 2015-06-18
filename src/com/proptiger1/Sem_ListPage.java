@@ -21,7 +21,7 @@ public class Sem_ListPage<t> {
 	public <t> void Sem_ListingPage(String x) throws InterruptedException
 	{
 		String prod="https://www.proptiger.com";
-		String beta="https://beta.proptiger-ws.com";
+		String beta="https://qa.proptiger-ws.com";
 		String BaseUrl11=beta;
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS X) AppleWebKit/537.51.1 "

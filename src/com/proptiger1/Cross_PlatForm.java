@@ -31,15 +31,15 @@ public class Cross_PlatForm {
 	static String http="http://www.proptiger.com";
 	static String ssl="https://www.proptiger.com";
 	static String ssl1= "https://www.proptiger.com/";
-	static String betahttp="http://beta.proptiger-ws.com";
+	static String betahttp="http://qa.proptiger-ws.com";
 	static String mobbeta="http://mob-beta.proptiger-ws.com";
 	static String local= "http://192.168.0.216:5000";
-	static String betassl="https://beta.proptiger-ws.com";
+	static String betassl="https://qa.proptiger-ws.com";
 	static String betassl1="https://beta.proptiger-ws.com/";
 	static String BaseUrl=betassl;
 	static String BaseUrl1=betassl1;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
-		driver.manage().window().setSize(new Dimension(540,700));
+		driver.manage().window().setSize(new Dimension(590,700));
 		driver.get(BaseUrl);
 		driver.manage().deleteAllCookies();	
 		WebDriverWait wait1 = new WebDriverWait(driver,120);
@@ -259,6 +259,7 @@ public class Cross_PlatForm {
 			// Menu Drawer Verification
 	public static void VerifyMenuDrawer(WebDriver driver) throws InterruptedException
 	{
+		t1.wait(driver, "");
 		t1.wait(driver, "//i[@class='icon-navicon']");
 		boolean drawer= t1.isElementPresent(driver, By.xpath("//i[@class='icon-navicon']"));
 		if(drawer==false)
