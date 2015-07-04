@@ -40,6 +40,7 @@ public class Cross_PlatForm {
 	static String qassl1="https://qa.proptiger-ws.com/";
 	static String BaseUrl=ssl;
 	static String BaseUrl1=ssl1;
+	static URL url;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
 		driver.manage().window().setSize(new Dimension(600,860));
 		driver.get(BaseUrl);
@@ -527,7 +528,7 @@ public static void locality(WebDriver driver) throws InterruptedException{
    for(int i=1;i<=sheet.getLastRowNum();i++)
    { 
 	        String URLs= BaseUrl1+"/"+sheet.getRow(i).getCell((short) 1).getStringCellValue();
-		    URL url = new URL(URLs);
+		    url = new URL(URLs);
 		    HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		    con.setRequestProperty("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_3 like Mac OS X) AppleWebKit/600.1.4"
 				+ "(KHTML, like Gecko) CriOS/40.0.2214.73 Mobile/12B466 Safari/600.14");
@@ -538,7 +539,7 @@ public static void locality(WebDriver driver) throws InterruptedException{
 		    	count=count+1;
 		    }
 		}
-   System.out.println(count);
+   System.out.println("Some URLS are not OK. Please check report for status"+count+url);
    if(count>=1)
    {
 	   Assert.fail("Some URLS are not OK. Please check report for status.");
