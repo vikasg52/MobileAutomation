@@ -70,8 +70,8 @@ public class Phone_Number_Check
 		while(i!=URLs.length)
 		{
 			driver.get(URLs[i]);
-			t.wait(driver, "//a[@class='no-ajaxy pull-right btn header-call-button']");
-			String s1=driver.findElement(By.xpath("//a[@class='no-ajaxy pull-right btn header-call-button']")).getAttribute("href");
+			t.wait(driver, "//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']");
+			String s1=driver.findElement(By.xpath("//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']")).getAttribute("href");
 			String Sem1=s1.replace("tel:","");
 			if(!Sem1.equalsIgnoreCase(Number[i]))
 			{
@@ -94,7 +94,7 @@ public class Phone_Number_Check
 		if(Failed!="")
 		{
 		   System.err.println("SEM number test has failed"+Failed);
-		   driver.quit();
+		   //driver.quit();
 		}
 	}
 
@@ -105,7 +105,7 @@ public class Phone_Number_Check
 	{
 		String beta="https://beta.proptiger-ws.com";
 		String prod="https://www.proptiger.com";
-		String BaseUrl=beta;
+		String BaseUrl=prod;
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS BaseUrl) AppleWebKit/537.51.1 "
 				+ "(KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A501 Safari/8536.25");
@@ -150,8 +150,8 @@ public class Phone_Number_Check
 		for(int i = 0;i<URLs.length;i++)
 		{
 			driver.get(URLs[i]);	
-			t.wait(driver,"//a[@class='no-ajaxy pull-right btn header-call-button']");
-			String s=driver.findElement(By.xpath("//a[@class='no-ajaxy pull-right btn header-call-button']")).getAttribute("href");
+			t.wait(driver,"//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']");
+			String s=driver.findElement(By.xpath("//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']")).getAttribute("href");
 			String Sem=s.replace("tel:", "");
 			// String City=sheet.getRow(i).getCell((short)1).getStringCellValue();
 			if(!Sem.equalsIgnoreCase(Number[i]))
@@ -189,7 +189,7 @@ public class Phone_Number_Check
 	{	
 		String beta="https://beta.proptiger-ws.com";
 		String prod="https://www.proptiger.com";
-		String BaseUrl=beta;
+		String BaseUrl=prod;
 		FirefoxProfile profile = new FirefoxProfile();
 	profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) "
 			+ "AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53");
@@ -199,7 +199,7 @@ public class Phone_Number_Check
 	driver2.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	System.out.println("4.Checking Mailer External Numbers for Google & Project pages with UTM parameters in cookie.");
 	System.out.println("******************************************************************************************");
-	String cookie= "utm_source=external&utm_medium=mailerEnternal&utm_campaign=Mailer_Campaign";
+	String cookie= "utm_source=mailerEnternal&utm_medium=mailerEnternal&utm_campaign=Mailer_Campaign";
 
 	String [] City =
 		{"Noida",
@@ -234,8 +234,9 @@ String[] URLs=
 		for(int i = 0;i<URLs.length;i++)
 		{
 			driver2.get(URLs[i]);
-			t.wait(driver2,"//a[@class='no-ajaxy pull-right btn header-call-button']");
-			String s=driver2.findElement(By.xpath("//a[@class='no-ajaxy pull-right btn header-call-button']")).getAttribute("href");
+			t.wait(driver2,"//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']");
+			driver2.navigate().refresh();
+			String s=driver2.findElement(By.xpath("//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']")).getAttribute("href");
 			String Sem=s.replace("tel:", "");
 			// String City=sheet.getRow(i).getCell((short)1).getStringCellValue();
 			if(!Sem.equalsIgnoreCase(Number[i]))

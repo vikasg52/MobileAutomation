@@ -20,12 +20,12 @@ public class Mailer_Number_Check {
 	{
 		Phone_Number_Check Check_Number= new Phone_Number_Check();
 		Sem_ListPage<?> checkNumber= new Sem_ListPage<Object>();
-		WebDriver driver = new FirefoxDriver();
+		//WebDriver driver = new FirefoxDriver();
 	    System.out.println("You have entered : " + BaseUrl);
-        checkNumber.Sem_ListingPage(BaseUrl);
-        Check_Number.GooglePages_SEM_Number(BaseUrl);
+        //checkNumber.Sem_ListingPage(BaseUrl);
+        //Check_Number.GooglePages_SEM_Number(BaseUrl);
 		System.out.println("\n");
-		Check_Number.internal_Mailer(BaseUrl);
+		//Check_Number.internal_Mailer(BaseUrl);
 		System.out.println("\n");
 		Check_Number.External_Mailer(BaseUrl);
 		System.out.println("\n");

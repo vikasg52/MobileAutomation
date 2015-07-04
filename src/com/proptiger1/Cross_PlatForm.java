@@ -539,10 +539,10 @@ public static void locality(WebDriver driver) throws InterruptedException{
 		    	count=count+1;
 		    }
 		}
-   System.out.println("Some URLS are not OK. Please check report for status"+count+url);
+   System.out.println("Some URLS are not OK. Please check report for status"+count);
    if(count>=1)
    {
-	   Assert.fail("Some URLS are not OK. Please check report for status.");
+	   Assert.fail("Some URLS are failing.");
    }
    }
 }
