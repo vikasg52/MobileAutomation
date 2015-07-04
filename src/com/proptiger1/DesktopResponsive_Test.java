@@ -47,9 +47,9 @@ public class DesktopResponsive_Test {
 			driver.get(BaseUrl+"/all-cities");
 			Thread.sleep(4000L);
 			String AllCityTitle= driver.getTitle();
-			if(!AllCityTitle.equalsIgnoreCase("Cities in India - Best Buy/Sale Property Investment Towns in India"))
+			if(!AllCityTitle.equalsIgnoreCase("Cities in India - Best Buy/Sale Property Investment Towns in India :Proptiger.com"))
 			{
-				Assert.fail("All city page is not opening in  "+name);
+				Assert.fail("All city page is not opening/ title is wrong on the page in  "+name);
 				//driver.close();
 			}
 			System.out.println("4. All India cities page is opening properly in desktop website using  "+name);
@@ -57,7 +57,7 @@ public class DesktopResponsive_Test {
 			driver.get(BaseUrl+"/bangalore/all-localities");
 			t1.wait(driver, "//a[@href='/bangalore-real-estate/hebbal-overview-50175']");
 			String AllLocalityTitle= driver.getTitle();
-			if(!AllLocalityTitle.equalsIgnoreCase("Bangalore Localities - List of top localities/Areas in Bangalore"))
+			if(!AllLocalityTitle.equalsIgnoreCase("Bangalore Localities - List of top localities/Areas in Bangalore :Proptiger.com"))
 			{
 				Assert.fail("All locaities page is not opening in  "+name);
 				//driver.close();
