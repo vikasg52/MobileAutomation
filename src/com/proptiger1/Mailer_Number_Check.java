@@ -14,7 +14,7 @@ public class Mailer_Number_Check {
 	static String mobbeta="http://mob-beta.proptiger-ws.com";
 	static String local= "http://192.168.0.216:5000";
 	static String betassl="https://www.proptiger-ws.com";
-	static String BaseUrl=ssl;
+	static String BaseUrl=betahttp;
 	@Test()
 	public void numbertest() throws InterruptedException																																															
 	{
@@ -22,10 +22,10 @@ public class Mailer_Number_Check {
 		Sem_ListPage<?> checkNumber= new Sem_ListPage<Object>();
 		//WebDriver driver = new FirefoxDriver();
 	    System.out.println("You have entered : " + BaseUrl);
-        //checkNumber.Sem_ListingPage(BaseUrl);
-        //Check_Number.GooglePages_SEM_Number(BaseUrl);
+        checkNumber.Sem_ListingPage(BaseUrl);
+        Check_Number.GooglePages_SEM_Number(BaseUrl);
 		System.out.println("\n");
-		//Check_Number.internal_Mailer(BaseUrl);
+		Check_Number.internal_Mailer(BaseUrl);
 		System.out.println("\n");
 		Check_Number.External_Mailer(BaseUrl);
 		System.out.println("\n");

@@ -199,7 +199,7 @@ public class Phone_Number_Check
 	driver2.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	System.out.println("4.Checking Mailer External Numbers for Google & Project pages with UTM parameters in cookie.");
 	System.out.println("******************************************************************************************");
-	String cookie= "utm_source=mailerEnternal&utm_medium=mailerEnternal&utm_campaign=Mailer_Campaign";
+	String cookie="utm_source=digitalmailers&utm_medium=mailerExternal&utm_campaign=Mailer%20Campaign%20Kolkata&localityId=51323";
 
 	String [] City =
 		{"Noida",
