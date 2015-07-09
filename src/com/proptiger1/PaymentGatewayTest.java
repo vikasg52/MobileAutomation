@@ -23,8 +23,8 @@ public class PaymentGatewayTest {
 	static String ssl="https://www.proptiger.com";
 	static String local= "http://192.168.0.216:5000";
 	static String betahttp="http://beta.proptiger-ws.com";
-	static String betassl="https://beta.proptiger-ws.com";
-	static String BaseUrl=ssl;
+	static String betassl="https://qa.proptiger-ws.com";
+	static String BaseUrl=betassl;
 	static String pgurl=pg;
 	public static void Pg_Test(WebDriver driver) throws InterruptedException
 	{   

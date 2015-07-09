@@ -36,55 +36,63 @@ public class Cross_PlatForm {
 	static String local= "http://192.168.0.216:5000";
 	static String betassl="https://beta.proptiger-ws.com";
 	static String betassl1="https://beta.proptiger-ws.com/";
-	static String qassl="https://qa.proptiger-ws.com";
-	static String qassl1="https://qa.proptiger-ws.com/";
+	static String qassl="https://beta.proptiger-ws.com";
+	static String qassl1="https://beta.proptiger-ws.com/";
 	static String BaseUrl=ssl;
 	static String BaseUrl1=ssl1;
 	static URL url;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
-		driver.manage().window().setSize(new Dimension(600,860));
+		driver.manage().window().setSize(new Dimension(350,700));
 		driver.get(BaseUrl);
 		driver.manage().deleteAllCookies();	
 		WebDriverWait wait1 = new WebDriverWait(driver,120);
-		wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='city-name-info bangalore-info']")));
+		wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='city-selector']")));
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-	    boolean homepage= t1.isElementPresent(driver, By.xpath("//div[@class='home-top-textInfo']"));
-		boolean CityStrip= t1.isElementPresent(driver, By.xpath("//div[@class='city-name-info bangalore-info']"));
-		if(homepage==false && CityStrip==false)
+	    boolean SelectCity= t1.isElementPresent(driver, By.xpath("//div[@class='city-selector']"));
+		boolean SearchBTN= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy srch-btn']"));
+		if(SelectCity==false && SearchBTN==false)
 		{
             Assert.fail("\n Global home Page could not be opened in"+name);
 			driver.close();
 		}
 		else
 		{
-			int cityCount= driver.findElements(By.xpath("//a[@class='city-list']")).size();
-			if(cityCount!=13)
+			driver.findElement(By.xpath("//div[@class='city-selector']")).click();
+			Thread.sleep(3000L);
+			int cityCount= driver.findElements(By.xpath("//li[@class='js-city-list']")).size();
+			if(cityCount!=14)
 			{
 				Assert.fail("\n Count of diplayed cities on home page is wrong!!");
 			}
 			try
 			{
 				driver.manage().deleteAllCookies();
-				t1.wait(driver, "//div[@class='bangalore-dec-info city-image']");
-				driver.findElement(By.xpath("//div[@class='bangalore-dec-info city-image']")).click();
-				t1.wait(driver, "//select[@class='city-select-dd']//option[@selected='selected']");
+				t1.wait(driver, "//li[@data-city-name='Bangalore']");
+				driver.findElement(By.xpath("//li[@class='js-city-list' and text()='Bangalore']")).click();
+				driver.findElement(By.xpath("//input[@type='search']")).click();
+				t1.wait(driver, "//div[@data-redirect-url='/bangalore/property-sale-kr-puram-50167']");
+				driver.findElement(By.xpath("//div[contains(text(),'KR')]")).click();
+				Thread.sleep(4000L);
+				String title= driver.findElement(By.xpath("//h1[contains(text(),'Property for Sale')]")).getText();
+				if(!title.equalsIgnoreCase("Property for sale in KR Puram"))
+				{
+					System.out.println("Locality listing page pf KR puram is not opening");
+				}
+				driver.findElement(By.xpath("//button[@class='topMenuBtn seoclick header-drawer js-toggle-menu']")).click();
+				t1.wait(driver,"//a[@href='/projects-in-bangalore']");
+				driver.findElement(By.xpath("//ul[@class='drawer-list']//a[contains(text(),'See all')]")).click();
+				Thread.sleep(3000L);
 				String CityHomeUrl= driver.getCurrentUrl();
-				String ExpectedURL=BaseUrl+"/bangalore-real-estate";
-				String CitySelected= driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='selected']")).getText();
+				String ExpectedURL=BaseUrl+"/projects-in-bangalore";
 				if(!CityHomeUrl.equalsIgnoreCase(ExpectedURL))
 				{
 					Assert.fail("City Overview page url is wrong or not opening in"+name);			
 				}
-				if(!CitySelected.equalsIgnoreCase("Bangalore"))
-				{
-					Assert.fail("\n Selected City in the dropdown on overview page is wrong in"+name);	
-					//driver.close();
-				}}catch(NoSuchElementException e)
-				{System.out.println("\n City Overview page is not opened in"+name);}
+				
 			// Verify menu drawer page on city page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
-			driver.findElement(By.partialLinkText("All projects in")).click();
+			//driver.findElement(By.partialLinkText("All projects in")).click();
 			Cookie cookie1 = new Cookie("TESTING_USER", "1");
 		    driver.manage().addCookie(cookie1);
 			t1.wait(driver, "//div[@class='listing-title']");
@@ -100,7 +108,7 @@ public class Cross_PlatForm {
 			Thread.sleep(2000L);
 			if(!name.equalsIgnoreCase("IE_Nokia_Lumia920"))
 			{
-				driver.findElement(By.xpath("//td[@class='ta-right padding5']//a[@class='no-ajaxy pull-right btn btn-default show-map-btn']")).click();
+				driver.findElement(By.xpath("//td[@class='ta-right map-btn-wrapper']//a[@class='no-ajaxy pull-right btn btn-default show-map-btn']")).click();
 				String MapPage=driver.getCurrentUrl();				
 				if(!MapPage.equalsIgnoreCase(BaseUrl+"/projects-in-bangalore#mapStaticPopupBlock"))
 				{
@@ -200,12 +208,18 @@ public class Cross_PlatForm {
 			}*/
 		    boolean floorplanimage1=t1.isElementPresent(driver,By.xpath("//img[@src='https://im.proptiger.com/2/5064479/12/skylark-ithaca-floor-plan-1bhk-1t-605-sq-ft-475951.jpeg?width=350&height=200']"));
 			boolean uparrow= t1.isElementPresent(driver,By.xpath("//i[@class='icon-chevron-up js-icon-chevron-up show']"));
-			//boolean locality_Button= t1.isElementPresent(driver,By.name("Explore Locality"));
+			boolean locality_Button= t1.isElementPresent(driver,By.name("Explore Locality"));
 			driver.navigate().refresh();
 	        Cross_PlatForm.VerifyMenuDrawer(driver);	
-			t1.wait(driver, "//span[@class='logo pull-left']");
-			boolean b= t1.isElementPresent(driver , By.xpath("//span[@class='logo pull-left']"));
-			driver.findElement(By.xpath("//span[@class='logo pull-left']")).click();
+			t1.wait(driver, "//a[@id='headerLogo']");
+			boolean b= t1.isElementPresent(driver , By.xpath("//a[@id='headerLogo']"));
+			while(b!=true)
+			{
+				Actions actions = new Actions(driver);
+			    actions.keyDown(Keys.CONTROL).sendKeys(Keys.UP).perform();
+			   b = t1.isElementPresent(driver , By.xpath("//a[@id='headerLogo']"));
+			}
+			driver.findElement(By.xpath("//a[@id='headerLogo']")).click();
 			String s4= driver.getCurrentUrl();
 			if(!s4.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate-overview") && b==false)
 			{
@@ -266,7 +280,6 @@ public class Cross_PlatForm {
 				Assert.fail("All locaities page is not opening in"+name);
 				driver.close();
 			}	
-			}
 		driver.navigate().to(BaseUrl+"/gurgaon/all-suburbs");	 
 		String AllSuburbs= driver.getTitle();
 		if(!AllSuburbs.equalsIgnoreCase("Best Residential Areas in Gurgaon | All Suburbs of Gurgaon :PropTiger.com"))
@@ -287,11 +300,12 @@ public class Cross_PlatForm {
 			actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
 			pagination= t1.isElementPresent(driver,By.xpath("//ul[@class='custom-pagi pull-right']//a[@href='//all-builders']"));	
 		}
+	
 		if(pagination==false && pagination2==false)
 		{
 			Assert.fail("Pagination is missing on all suburb page in bottom");
-		}
-    }
+		}}catch(Exception e){System.out.println(e.getLocalizedMessage());}
+		}}
 			// Menu Drawer Verification
 	public static void VerifyMenuDrawer(WebDriver driver) throws InterruptedException
 	{
@@ -446,7 +460,7 @@ public static void locality(WebDriver driver) throws InterruptedException{
             s.doubleClick(e);
             s.perform();
 			//driver.navigate().refresh();
-			t1.wait(driver, "//div[@class='pt-row-two-column paddingR5']//a[@class='no-ajaxy bigbtn projects-near-me']");
+			t1.wait(driver, "//h3[contains(text(),'Explore more')]");
 			String RedirectURl=driver.getCurrentUrl();
 			if(!RedirectURl.equalsIgnoreCase(BaseUrl+"/"))
 			{
@@ -539,7 +553,7 @@ public static void locality(WebDriver driver) throws InterruptedException{
 		    	count=count+1;
 		    }
 		}
-   System.out.println("Some URLS are not OK. Please check report for status"+count);
+   System.err.println("1.Some URLS are not OK. Please check report for status:500/404"+count);
    if(count>=1)
    {
 	   Assert.fail("Some URLS are failing.");
