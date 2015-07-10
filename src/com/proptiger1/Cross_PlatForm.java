@@ -30,10 +30,10 @@ public class Cross_PlatForm {
 	static int count=0;
 	static String http="http://www.proptiger.com";
 	static String ssl="https://www.proptiger.com";
-	static String ssl1= "https://www.proptiger.com/";
+	static String ssl1="https://www.proptiger.com/";
 	static String betahttp="http://beta.proptiger-ws.com";
 	static String mobbeta="http://mob-beta.proptiger-ws.com";
-	static String local= "http://192.168.0.216:5000";
+	static String local="http://192.168.0.216:5000";
 	static String betassl="https://beta.proptiger-ws.com";
 	static String betassl1="https://beta.proptiger-ws.com/";
 	static String qassl="https://beta.proptiger-ws.com";
@@ -553,7 +553,7 @@ public static void locality(WebDriver driver) throws InterruptedException{
 		    	count=count+1;
 		    }
 		}
-   System.err.println("1.Some URLS are not OK. Please check report for status:500/404"+count);
+   //System.err.println("1.Some URLS are not OK. Please check report for status:500/404"+count);
    if(count>=1)
    {
 	   Assert.fail("Some URLS are failing.");
