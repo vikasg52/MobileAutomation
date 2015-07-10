@@ -558,6 +558,8 @@ public static void locality(WebDriver driver) throws InterruptedException{
    {
 	   Assert.fail("Some URLS are failing.");
    }
+   else
+	   System.out.println();
    }
 }
    
