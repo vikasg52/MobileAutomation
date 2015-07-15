@@ -16,11 +16,13 @@ public class DesktopResponsive_Test {
 	static String name="";
 	static String name1="";
 	static String http="http://www.proptiger.com";
+	static String beta="https://beta.proptiger.com";
+	static String beta1="http://beta.proptiger.com/";
 	static String ssl="https://www.proptiger.com";
 	static String mobbeta="http://mob-beta.proptiger-ws.com";
 	static String local= "http://192.168.0.216:5000";
-	static String betahttp="http://beta.proptiger-ws.com";
-	static String betassl="https://beta.proptiger-ws.com";
+	static String betassl="http://beta.proptiger-ws.com";
+	static String qassl="https://qa.proptiger-ws.com";
 	static String BaseUrl=betassl;
 	public static void Responsive(WebDriver driver, String name) throws InterruptedException 
 	{	
@@ -47,9 +49,9 @@ public class DesktopResponsive_Test {
 			driver.get(BaseUrl+"/all-cities");
 			Thread.sleep(4000L);
 			String AllCityTitle= driver.getTitle();
-			if(!AllCityTitle.equalsIgnoreCase("Cities in India - Best Buy/Sale Property Investment Towns in India"))
+			if(!AllCityTitle.equalsIgnoreCase("Cities in India - Best Buy/Sale Property Investment Towns in India :Proptiger.com"))
 			{
-				Assert.fail("All city page is not opening in  "+name);
+				Assert.fail("All city page is not opening/ title is wrong on the page in  "+name);
 				//driver.close();
 			}
 			System.out.println("4. All India cities page is opening properly in desktop website using  "+name);
@@ -57,7 +59,7 @@ public class DesktopResponsive_Test {
 			driver.get(BaseUrl+"/bangalore/all-localities");
 			t1.wait(driver, "//a[@href='/bangalore-real-estate/hebbal-overview-50175']");
 			String AllLocalityTitle= driver.getTitle();
-			if(!AllLocalityTitle.equalsIgnoreCase("Bangalore Localities - List of top localities/Areas in Bangalore"))
+			if(!AllLocalityTitle.equalsIgnoreCase("Bangalore Localities - List of top localities/Areas in Bangalore :Proptiger.com"))
 			{
 				Assert.fail("All locaities page is not opening in  "+name);
 				//driver.close();
@@ -68,7 +70,6 @@ public class DesktopResponsive_Test {
 	// Careers Page
 	public static void Careers(WebDriver driver, String name)
 	{
-		String BaseUrl= "https://www.proptiger.com";
 		driver.get(BaseUrl+"/careers");
 		t1.wait(driver, "//div[@class='career_bnr']");
 		boolean logo = t1.isElementPresent(driver,By.xpath("//span[@class='logo']//img[@src='/responsive/images/logo.png']"));
@@ -178,10 +179,9 @@ public class DesktopResponsive_Test {
 			for (String window : windows) {
 				driver.switchTo().window(window);
 			WebElement element= driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']"));
-			element.click();
-			//JavascriptExecutor js = (JavascriptExecutor)driver;
-			//js.executeScript("arguments[0].scrollIntoView(true);", element);
-			//js.executeScript("arguments[0].click();", element);
+			JavascriptExecutor js = (JavascriptExecutor)driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", element);
+			js.executeScript("arguments[0].click();", element);
 			//Actions actionname = new Actions(driver);
 	       // actionname.moveToElement(driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']")));
 	        //actionname.build().perform();
@@ -200,74 +200,6 @@ public class DesktopResponsive_Test {
 		}
 	}
 	
-	//GP13
-	/*
-	public static void GP(WebDriver driver,String userName, String name) throws InterruptedException
-	{     
-		TimeStamp t1= new TimeStamp();
-		t1.wait(driver, "//section[@class='proj-info-bg projectImgSection']");
-		boolean tooltip= t1.isElementPresent(driver,By.xpath("//div[@class='tooltip']"));
-		boolean guaraantee= t1.isElementPresent(driver, By.xpath("//i[@class='icon-guarantee']"));
-		boolean bigimage= t1.isElementPresent(driver,By.xpath("//section[@class='proj-info-bg projectImgSection']"));
-	    if(tooltip==false)
-	    {
-	    	Assert.fail("Tooltip is missing from the gp page 13");
-	    }
-	    if(guaraantee==false)
-	    {
-	    	Assert.fail("guarantee seal is missing from the gp page 13");
-	    }
-	    if(bigimage==false)
-	    {
-	    	Assert.fail("Gallery Image is missing from the gp page 13");
-	    }
-		int ran;
-	    ran = 100 + (int)(Math.random() * ((10000 - 100) + 1));
-	    long mobile = (long) Math.floor(Math.random() * 9000000000L) + 1000000000L;
-	    String m= String.valueOf(mobile);
-	    
-	    Set<String> windows = driver.getWindowHandles();
-		for (String window : windows) {
-			driver.switchTo().window(window);
-			t1.wait(driver, "//div[@class='form-info']//input[@id='fullname']");
-			boolean namme= t1.isElementPresent(driver, By.xpath("//div[@class='form-info']//input[@id='fullname']"));
-		if(namme==false)
-		{
-			System.out.println("lead form is not identified");
-		}
-		try{
-		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='fullname']")).clear();
-		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='fullname']")).sendKeys(userName);
-		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='email']")).clear();
-		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='email']")).sendKeys("proptigerqa+"+ran+"@gmail.com");
-		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='mobile']")).clear();
-		driver.findElement(By.xpath("//div[@class='form-info']//input[@id='mobile']")).sendKeys("1900000000");
-		Select select = new Select(driver.findElement(By.xpath("//div[@class='formRow desktop-wd-1third']//select[@class='form-control query-country']")));
-	    select.selectByVisibleText("India");
-		driver.findElement(By.xpath("//span[@class='btn btn-danger wd75percent']")).click();
-		Thread.sleep(3000L);
-		//System.out.println("7. Lead submitted successfully from GP13 in desktop website using"+name);
-		Cookie cookie = new Cookie("TESTING_USER", "1");
-	    driver.manage().addCookie(cookie);
-	    t1.wait(driver,"//div[@class='ta-center' and text()='Thank You']");
-	    Set<String> windowss = driver.getWindowHandles();
-	    for (String windo : windowss) {
-		driver.switchTo().window(windo);
-		WebElement element= driver.findElement(By.xpath("//div[@class='ta-center' and text()='Thank You']"));
-		//JavascriptExecutor js = (JavascriptExecutor)driver;
-		//js.executeScript("arguments[0].click();", element);
-		element.click();
-		String ThankText= driver.findElement(By.cssSelector(".thanks-wrap.ta-center")).getAttribute("textContent");
-			if(!ThankText.contains("Thanks for"))
-			{
-			     Assert.fail("Lead can not be submitted from"+userName);
-			}
-			//driver.findElement(By.xpath("//div[@class='ta-center' and text()='Thank You']")).click();	
+	
 	}
-	}catch(Exception e)
-	{System.out.println(e.getMessage());
-	}
-	}
-}*/
-}
 	
