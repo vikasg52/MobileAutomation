@@ -41,6 +41,7 @@ public class Phone_Number_Check
 	{ 
 		String beta="https://beta.proptiger-ws.com";
 		String prod="https://www.proptiger.com";
+		String qa="https://qa.proptiger-ws.com";
 		String BaseUrl=beta;
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS BaseUrl) AppleWebKit/537.51.1 "
@@ -53,11 +54,12 @@ public class Phone_Number_Check
 		System.out.println("***************************************************************************************");
 		//driver.manage().deleteAllCookies();
 		String cookie= "utm_source=google&utm_medium=cpc&utm_campaign=Hot%20Projects%20Bangalore&utm_term={keyword}&utm_content={creative}&Network={ifContent:Content}{ifSearch:Search}&SiteTarget={placement}";
-		String[] URLs={BaseUrl+"/google_page_4.php?projectId=501552&"+cookie,
-				BaseUrl+"/google_page_13.php?projectId=501403&"+cookie,
-		BaseUrl+"/google_page_14.php?projectId=662047&"+cookie,
-		BaseUrl+"/bangalore/varthur/artha-crest-660735?"+cookie,
-		BaseUrl+"/pune/hinjewadi/mittal-brothers-hillside-urban-666318?"+cookie,
+		String[] URLs={
+		BaseUrl+"/mumbai/dombivali/runwal-codename-walk-669321?"+cookie,
+		BaseUrl+"/noida/knowledge-park-v/supertech-sports-village-665980?"+cookie,
+		BaseUrl+"/gurgaon/sector-2-sohna/ashiana-homes-mulberry-668272?"+cookie,
+		BaseUrl+"/bangalore/adugodi/mythreyi-group-naimisha-504226?"+cookie,
+		BaseUrl+"/pune/undri/godrej-prana-655929?"+cookie,
 		BaseUrl+"/chennai/navallur/adroit-urban-district-s-510882?"+cookie,
 		BaseUrl+"/ghaziabad/pratap-vihar/prateek-group-grand-city-654996?"+cookie,
 		BaseUrl+"/ahmedabad/near-vaishno-devi-circle-on-sg-highway/adani-elysium-647819?"+cookie,
@@ -68,20 +70,18 @@ public class Phone_Number_Check
 		int i=0; 
 		while(i!=URLs.length)
 		{
-			//driver.manage().deleteAllCookies();
 			driver.get(URLs[i]);
-			t.wait(driver,"//a[@class='no-ajaxy pull-left btn btn-success wd48percent main-page-call-btn']");
-			String s=driver.findElement(By.xpath("//a[@class='no-ajaxy pull-left btn btn-success wd48percent main-page-call-btn']")).getAttribute("href");
-			String Sem=s.replace("tel:", "");
-			// String City=sheet.getRow(i).getCell((short)1).getStringCellValue();
-			if(!Sem.equalsIgnoreCase(Number[i]))
+			t.wait(driver, "//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']");
+			String s1=driver.findElement(By.xpath("//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']")).getAttribute("href");
+			String Sem1=s1.replace("tel:","");
+			if(!Sem1.equalsIgnoreCase(Number[i]))
 			{
-				Failed=Failed+"*for :-> "+City[i]+"== Expected Number:"+Number[i]+"|| Actual Number:"+Sem+"\n";
-				//System.out.println(Failed);
+				Failed=Failed+"*for :-> "+City[i]+"== Expected Number:"+Number[i]+"|| Actual Number:"+Sem1+"\n";
+				//System.err.print(Failed);
 			}
 			else
 			{ 
-				System.out.println("SEM Number test has passed for:->"+City[i]+":    "+Sem);
+				System.out.println("SEM Number test has passed for:->"+City[i]+":    "+Sem1);
 			}
 		i++;
 		}
@@ -95,7 +95,7 @@ public class Phone_Number_Check
 		if(Failed!="")
 		{
 		   System.err.println("SEM number test has failed"+Failed);
-		   driver.quit();
+		   //driver.quit();
 		}
 	}
 
@@ -106,19 +106,19 @@ public class Phone_Number_Check
 	{
 		String beta="https://beta.proptiger-ws.com";
 		String prod="https://www.proptiger.com";
+		String qa="https://qa.proptiger-ws.com";
 		String BaseUrl=beta;
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS BaseUrl) AppleWebKit/537.51.1 "
 				+ "(KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A501 Safari/8536.25");
 		WebDriver driver= new FirefoxDriver(profile);
 		driver.manage().window().setSize(new Dimension(300,650));
-		driver.manage().deleteAllCookies();
+		//driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		//driver.manage().deleteAllCookies();
 		System.out.println("3.Checking Mailer Internal Numbers for GP & Project pages wit UTM parameters in cookie.");
 		System.out.println("***************************************************************************************");
-		String cookie= "utm_source=internal&utm_medium=mailerInternal&utm_campaign=Hot%20Projects%20Bangalore&utm_term={keyword}&utm_content={creative}&Network="
-				+ "{ifContent:Content}{ifSearch:Search}&SiteTarget={placement}";
+		String cookie= "utm_source=internal&utm_medium=mailerInternal&utm_campaign=Mailer_Campaign";
 		String [] City =
 				{"Noida",
 				"Gurgaon",
@@ -140,10 +140,10 @@ public class Phone_Number_Check
 			   };
 		
 		String[] URLs=
-			   {BaseUrl+"/google_page_4.php?projectId=661151&"+cookie,
-				BaseUrl+"/google_page_13.php?projectId=662047&"+cookie,
-				BaseUrl+"/google_page_14.php?projectId=501552&"+cookie,
-				BaseUrl+"/google_page_15.php?projectId=664356&"+cookie,
+			   {BaseUrl+"/noida/knowledge-park-v/supertech-sports-village-665980?"+cookie,
+				BaseUrl+"/gurgaon/sector-2-sohna/ashiana-homes-mulberry-668272?"+cookie,
+				BaseUrl+"/mumbai/dombivali/runwal-codename-walk-669321?"+cookie,
+				BaseUrl+"/bangalore/itpl/prestige-shantiniketan-502704?"+cookie,
 				BaseUrl+"/pune/mohammadwadi/majestique-landmark-euriska-664237?"+cookie,
 				BaseUrl+"/chennai/medavakkam/indiabulls-greens-501248?"+cookie,
 				BaseUrl+"/ahmedabad/chandkheda/swati-procon-greens-667055?"+cookie,
@@ -152,8 +152,8 @@ public class Phone_Number_Check
 		for(int i = 0;i<URLs.length;i++)
 		{
 			driver.get(URLs[i]);	
-			t.wait(driver,"//a[@class='no-ajaxy pull-left btn btn-success wd48percent main-page-call-btn']");
-			String s=driver.findElement(By.xpath("//a[@class='no-ajaxy pull-left btn btn-success wd48percent main-page-call-btn']")).getAttribute("href");
+			t.wait(driver,"//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']");
+			String s=driver.findElement(By.xpath("//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']")).getAttribute("href");
 			String Sem=s.replace("tel:", "");
 			// String City=sheet.getRow(i).getCell((short)1).getStringCellValue();
 			if(!Sem.equalsIgnoreCase(Number[i]))
@@ -191,19 +191,18 @@ public class Phone_Number_Check
 	{	
 		String beta="https://beta.proptiger-ws.com";
 		String prod="https://www.proptiger.com";
+		String qa="https://qa.proptiger-ws.com";
 		String BaseUrl=beta;
 		FirefoxProfile profile = new FirefoxProfile();
 	profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) "
 			+ "AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53");
 	WebDriver driver2= new FirefoxDriver(profile);
 	driver2.manage().window().setSize(new Dimension(300,650));
-	driver2.manage().deleteAllCookies();
+	//driver2.manage().deleteAllCookies();
 	driver2.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	System.out.println("4.Checking Mailer External Numbers for Google & Project pages with UTM parameters in cookie.");
 	System.out.println("******************************************************************************************");
-	String cookie= "utm_source=mailerExternal&utm_medium=mailerExternal&utm_campaign=Hot%20"
-				+ "Projects%20Bangalore&utm_term={keyword}&utm_content={creative}&Network=%22{ifContent:Content}{ifSearch:Search}"
-				+ "&SiteTarget={placement}";
+	String cookie="utm_source=digitalmailers&utm_medium=mailerExternal&utm_campaign=Mailer%20Campaign%20Kolkata&localityId=51323";
 
 	String [] City =
 		{"Noida",
@@ -215,7 +214,7 @@ public class Phone_Number_Check
 		"Ahemdabad"
 	     };
 
-       String[] Number = 
+String[] Number = 
 	   {"01166764004",
 		"01166764111",
 		"02261054547",
@@ -225,11 +224,11 @@ public class Phone_Number_Check
 		"07961343767"
 	   };
 
-       String[] URLs=
-	   {BaseUrl+"/google_page_4.php?projectId=513497&"+cookie,
-		BaseUrl+"/google_page_13.php?projectId=662047&"+cookie,
-		BaseUrl+"/google_page_14.php?projectId=501552&"+cookie,
-		BaseUrl+"/google_page_15.php?projectId=664356&"+cookie,
+String[] URLs=
+	   {BaseUrl+"/noida/knowledge-park-v/supertech-sports-village-665980?"+cookie,
+		BaseUrl+"/gurgaon/sector-2-sohna/ashiana-homes-mulberry-668272?"+cookie,
+		BaseUrl+"/mumbai/dombivali/runwal-codename-walk-669321?"+cookie,
+		BaseUrl+"/bangalore/itpl/prestige-shantiniketan-502704?"+cookie,
 		BaseUrl+"/pune/mohammadwadi/majestique-landmark-euriska-664237?"+cookie,
 		BaseUrl+"/chennai/medavakkam/indiabulls-greens-501248?"+cookie,
 		BaseUrl+"/ahmedabad/chandkheda/swati-procon-greens-667055?"+cookie,
@@ -238,8 +237,9 @@ public class Phone_Number_Check
 		for(int i = 0;i<URLs.length;i++)
 		{
 			driver2.get(URLs[i]);
-			t.wait(driver2,"//a[@class='no-ajaxy pull-left btn btn-success wd48percent main-page-call-btn']");
-			String s=driver2.findElement(By.xpath("//a[@class='no-ajaxy pull-left btn btn-success wd48percent main-page-call-btn']")).getAttribute("href");
+			t.wait(driver2,"//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']");
+			driver2.navigate().refresh();
+			String s=driver2.findElement(By.xpath("//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']")).getAttribute("href");
 			String Sem=s.replace("tel:", "");
 			// String City=sheet.getRow(i).getCell((short)1).getStringCellValue();
 			if(!Sem.equalsIgnoreCase(Number[i]))
