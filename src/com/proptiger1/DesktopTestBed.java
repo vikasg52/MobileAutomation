@@ -30,7 +30,7 @@ public class DesktopTestBed {
 		//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 		DesktopResponsive_Test.DesktopAmenityLead(driver, name);
 		DesktopResponsive_Test.Careers(driver, name);
-	
+		
 		System.out.println("=============================================================================");
     	driver.quit();
 	}
@@ -51,7 +51,6 @@ public class DesktopTestBed {
 		//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 		DesktopResponsive_Test.DesktopAmenityLead(driver, name);
 		DesktopResponsive_Test.Careers(driver, name);
-		
 		System.out.println("==============================================================================");
   	    driver.quit();
 	}
@@ -130,7 +129,7 @@ void ResponsivePage_Safari_Mac() throws InterruptedException
 	DesktopResponsive_Test.Responsive(driver, name);
 	//DesktopResponsive_Test.CheckAmenityPages(driver,name);
 	DesktopResponsive_Test.DesktopAmenityLead(driver, name);
-	DesktopResponsive_Test.Careers(driver, name);
+	DesktopResponsive_Test.Careers(driver, name);	
 	System.out.println("==================================================================================");
 	driver.quit();
 }
