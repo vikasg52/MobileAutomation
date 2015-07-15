@@ -30,63 +30,74 @@ public class Cross_PlatForm {
 	static int count=0;
 	static String http="http://www.proptiger.com";
 	static String ssl="https://www.proptiger.com";
-	static String ssl1= "https://www.proptiger.com/";
-	static String betahttp="http://qa.proptiger-ws.com";
+	static String ssl1="https://www.proptiger.com/";
+	static String betahttp="http://beta.proptiger-ws.com";
+	static String beta="https://beta.proptiger.com";
+	static String beta1="https://beta.proptiger.com/";
 	static String mobbeta="http://mob-beta.proptiger-ws.com";
-	static String local= "http://192.168.0.216:5000";
-	static String betassl="https://qa.proptiger-ws.com";
+	static String local="http://192.168.0.216:5000";
+	static String betassl="https://beta.proptiger-ws.com";
 	static String betassl1="https://beta.proptiger-ws.com/";
+	static String qassl="https://qa.proptiger-ws.com";
+	static String qassl1="https://qa.proptiger-ws.com/";
 	static String BaseUrl=betassl;
 	static String BaseUrl1=betassl1;
+	static URL url;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
-		driver.manage().window().setSize(new Dimension(590,700));
+		driver.manage().window().setSize(new Dimension(350,700));
 		driver.get(BaseUrl);
 		driver.manage().deleteAllCookies();	
 		WebDriverWait wait1 = new WebDriverWait(driver,120);
-		wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='city-name-info bangalore-info']")));
+		wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='city-selector']")));
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-	    boolean homepage= t1.isElementPresent(driver, By.xpath("//div[@class='home-top-textInfo']"));
-		boolean CityStrip= t1.isElementPresent(driver, By.xpath("//div[@class='city-name-info bangalore-info']"));
-		//Cross_PlatForm.interstitial(driver, name);
-		if(homepage==false && CityStrip==false)
+	    boolean SelectCity= t1.isElementPresent(driver, By.xpath("//div[@class='city-selector']"));
+		boolean SearchBTN= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy srch-btn']"));
+		if(SelectCity==false && SearchBTN==false)
 		{
-			Assert.fail("\n Global home Page could not be opened in"+name);
+            Assert.fail("\n Global home Page could not be opened in"+name);
 			driver.close();
 		}
 		else
 		{
-			int cityCount= driver.findElements(By.xpath("//a[@class='city-list']")).size();
-			if(cityCount!=13)
+			driver.findElement(By.xpath("//div[@class='city-selector']")).click();
+			Thread.sleep(3000L);
+			int cityCount= driver.findElements(By.xpath("//li[@class='js-city-list']")).size();
+			if(cityCount!=14)
 			{
 				Assert.fail("\n Count of diplayed cities on home page is wrong!!");
 			}
 			try
 			{
 				driver.manage().deleteAllCookies();
-				t1.wait(driver, "//div[@class='bangalore-dec-info city-image']");
-				driver.findElement(By.xpath("//div[@class='bangalore-dec-info city-image']")).click();
-				t1.wait(driver, "//select[@class='city-select-dd']//option[@selected='selected']");
+				t1.wait(driver, "//li[@data-city-name='Bangalore']");
+				driver.findElement(By.xpath("//li[@class='js-city-list' and text()='Bangalore']")).click();
+				driver.findElement(By.xpath("//input[@type='search']")).click();
+				t1.wait(driver, "//div[@data-redirect-url='/bangalore/property-sale-kr-puram-50167']");
+				driver.findElement(By.xpath("//div[contains(text(),'KR')]")).click();
+				Thread.sleep(4000L);
+				String title= driver.findElement(By.xpath("//h1[contains(text(),'Property for Sale')]")).getText();
+				if(!title.equalsIgnoreCase("Property for sale in KR Puram"))
+				{
+					System.out.println("Locality listing page pf KR puram is not opening");
+				}
+				driver.findElement(By.xpath("//button[@class='topMenuBtn seoclick header-drawer js-toggle-menu']")).click();
+				t1.wait(driver,"//a[@href='/projects-in-bangalore']");
+				driver.findElement(By.xpath("//ul[@class='drawer-list']//a[contains(text(),'See all')]")).click();
+				Thread.sleep(3000L);
 				String CityHomeUrl= driver.getCurrentUrl();
-				String ExpectedURL=BaseUrl+"/bangalore-real-estate";
-				String CitySelected= driver.findElement(By.xpath("//select[@class='city-select-dd']//option[@selected='selected']")).getText();
+				String ExpectedURL=BaseUrl+"/projects-in-bangalore";
 				if(!CityHomeUrl.equalsIgnoreCase(ExpectedURL))
 				{
 					Assert.fail("City Overview page url is wrong or not opening in"+name);			
 				}
-				if(!CitySelected.equalsIgnoreCase("Bangalore"))
-				{
-					Assert.fail("\n Selected City in the dropdown on overview page is wrong in"+name);	
-					//driver.close();
-				}}catch(NoSuchElementException e)
-				{System.out.println("\n City Overview page is not opened in"+name);}
+				
 			// Verify menu drawer page on city page
 			Cross_PlatForm.VerifyMenuDrawer(driver);
-			driver.findElement(By.partialLinkText("All projects in")).click();
+			//driver.findElement(By.partialLinkText("All projects in")).click();
 			Cookie cookie1 = new Cookie("TESTING_USER", "1");
 		    driver.manage().addCookie(cookie1);
 			t1.wait(driver, "//div[@class='listing-title']");
-			driver.navigate().refresh();
 			String ListingUrl=driver.getCurrentUrl();
 			String ListingTitle= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
 			if(!ListingUrl.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate") && !ListingTitle.equalsIgnoreCase("Bangalore"))
@@ -99,7 +110,7 @@ public class Cross_PlatForm {
 			Thread.sleep(2000L);
 			if(!name.equalsIgnoreCase("IE_Nokia_Lumia920"))
 			{
-				driver.findElement(By.xpath("//td[@class='ta-right padding5']//a[@class='no-ajaxy pull-right btn btn-default show-map-btn']")).click();
+				driver.findElement(By.xpath("//td[@class='ta-right map-btn-wrapper']//a[@class='no-ajaxy pull-right btn btn-default show-map-btn']")).click();
 				String MapPage=driver.getCurrentUrl();				
 				if(!MapPage.equalsIgnoreCase(BaseUrl+"/projects-in-bangalore#mapStaticPopupBlock"))
 				{
@@ -109,26 +120,244 @@ public class Cross_PlatForm {
 				driver.navigate().back();
 				Thread.sleep(3000L);
 			}
-			 boolean Alt= t1.isElementPresent(driver, By.xpath("//img[@alt='mythreyi-group naimisha Elevation']")); 
+			 boolean Alt= t1.isElementPresent(driver, By.xpath("//img[@alt='skylark ithaca Elevation']")); 
 			 while(Alt!=true)
 			 {
 			 Actions actions = new Actions(driver);
 			 actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
-			 Alt= t1.isElementPresent(driver, By.xpath("//img[@alt='mythreyi-group naimisha Elevation']")); 
+			 Alt= t1.isElementPresent(driver, By.xpath("//img[@alt='skylark ithaca Elevation']")); 
 			 }
-			driver.findElement(By.xpath("//img[@alt='mythreyi-group naimisha Elevation']")).click();
-			t1.wait(driver, "//h1[@title='Project Name']");
+			driver.findElement(By.xpath("//img[@alt='skylark ithaca Elevation']")).click();
+			t1.wait(driver, "//div[@class='proj-name']");
 			String ProjectPage= driver.getCurrentUrl();
-			String Projectheading= driver.findElement(By.xpath("//h1[@title='Project Name']")).getText();
-			if(!ProjectPage.equalsIgnoreCase(BaseUrl+"/bangalore/adugodi/mythreyi-group-naimisha-504226")
-					&& !Projectheading.equalsIgnoreCase("Mythreyi Group Naimisha"))
+			String ProjName= driver.findElement(By.xpath("//div[@class='proj-name']")).getText();
+			String LocName= driver.findElement(By.xpath("//div[@class='loc-name']")).getText();
+			if(!ProjectPage.equalsIgnoreCase(BaseUrl+"/bangalore/kr-puram/skylark-ithaca-642535")
+					&& !ProjName.equalsIgnoreCase("Skylark ithaca"))
 			{
-				Assert.fail("\n Project Page is not opening-URL is wrong, title is wrong or project name is wrong"+name);	
-				driver.close();
+				Assert.fail("\n Project Page is not opening/URL is wrong or project name/locality name is missing"+name);	
+			}
+			boolean prjImg= t1.isElementPresent(driver,By.xpath("//div[@class='img-banner']"));
+			if(prjImg==false)Assert.fail("Image not found on project page:"+prjImg);
+			boolean socialShareLinks=t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy whiteStrokeBtn js-share-button active']"));
+			boolean socialshareIcon=t1.isElementPresent(driver, By.xpath("//i[@class='icon-share-o']"));
+			boolean phoneIcon= t1.isElementPresent(driver,By.xpath("//i[@class='icon-phone']"));
+			boolean serachIcon=t1.isElementPresent(driver, By.xpath("//i[2class='icon-search']"));
+			String Overview= driver.findElement(By.xpath("//section[@class='section-proj-overview js-section-proj-overview']//h3[@class='section-title']")).getText();
+			String SubTitle= driver.findElement(By.xpath("//section[@class='section-proj-overview js-section-proj-overview']//span[@class='subtitle']")).getText();
+			boolean RupeeIcon= t1.isElementPresent(driver,By.xpath("//i[@class='icon-rupee-o']"));
+			String PriceRange= driver.findElement(By.xpath("//section[@class='section-proj-overview js-section-proj-overview']//div[@class='price-txt']")).getText();
+			boolean bedicon= t1.isElementPresent(driver, By.xpath("//i[@class='icon-bed-o']"));
+			String bhkoption= driver.findElement(By.xpath("//div[@class='type-txt']")).getText();
+			boolean flooricon= t1.isElementPresent(driver, By.xpath("//i[@class='icon-floor-o']"));
+			String sizetext= driver.findElement(By.xpath("//div[@class='size-txt']")).getText();
+			String FloorPlan= driver.findElement(By.xpath("//span[@class='linktxt']")).getText();
+			boolean possession= t1.isElementPresent(driver,By.xpath("//i[@class='icon-key-o']"));
+			String possessionDate= driver.findElement(By.xpath("//div[@class='possn-txt']")).getText();
+			boolean MoreLink= t1.isElementPresent(driver, By.xpath("//div[@class='proj-desc js-more-less-parent js-short-overview-link']//a[@class='more-link js-more-less no-ajaxy']"));
+			while(MoreLink!=true)
+			{
+			Actions actions = new Actions(driver);
+			actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
+			MoreLink= t1.isElementPresent(driver, By.xpath("//div[@class='proj-desc js-more-less-parent js-short-overview-link']//a[@class='more-link js-more-less no-ajaxy']"));
 			}
 			driver.navigate().refresh();
-	        Cross_PlatForm.VerifyMenuDrawer(driver);
-	        t1.wait(driver, "//div[@class='ta-center marginT20']//a[@class='btn btn-blu explore-this-locality']");
+			if(MoreLink==false)Assert.fail("More link is not visible in description");
+			else
+			driver.findElement(By.xpath("//a[@data-read-more-type='overview']")).click();
+			boolean LessLink= t1.isElementPresent(driver,By.xpath("//a[@class='more-link js-more-less no-ajaxy']"));
+			while(LessLink!=true)
+			{
+			Actions actions = new Actions(driver);
+			actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
+			LessLink= t1.isElementPresent(driver, By.xpath("//div[@class='proj-desc js-more-less-parent js-long-overview-link']//a[@class='more-link js-more-less no-ajaxy']"));
+			}
+			if(LessLink==false)
+			{
+				System.out.println("Clicking on more link text is not expanding or more link is not coming");
+			}
+			driver.findElement(By.xpath("//div[@class='proj-desc js-more-less-parent js-long-overview-link']//a[@class='more-link js-more-less no-ajaxy']")).click();
+		    boolean more2= t1.isElementPresent(driver, By.xpath("//div[@class='proj-desc js-more-less-parent js-short-overview-link']//a[@class='more-link js-more-less no-ajaxy']"));
+			if(more2==false)
+			{
+				System.out.println("Clicking on less link text is not shrinking or less link is not working");
+			}
+			boolean livability=t1.isElementPresent(driver,By.xpath("//i[@class='icon-livability-o']"));
+			boolean arrowup=t1.isElementPresent(driver,By.xpath("//i[@class='icon-arrow-up']"));
+			boolean livabilityscore=t1.isElementPresent(driver,By.xpath("//div[@class='col-xs-6 ta-center']//span[@class='count']"));
+			if(livabilityscore==false)
+			{
+		    livabilityscore=t1.isElementPresent(driver,By.xpath("//div[@class='col-xs-12 ta-center']//span[@class='count']"));
+			String LivabilityScore=driver.findElement(By.xpath("//div[@class='col-xs-12 ta-center']//span[@class='count']")).getText();
+			}
+			else{
+				livabilityscore=t1.isElementPresent(driver,By.xpath("//div[@class='col-xs-6 ta-center']//span[@class='count']"));
+				String LivabilityScore=driver.findElement(By.xpath("//div[@class='col-xs-6 ta-center']//span[@class='count']")).getText();				}
+			boolean facts= t1.isElementPresent(driver,By.xpath("//div[@class='facts-wrap']"));
+			String Heading= driver.findElement(By.xpath("//span[@class='txt-area']")).getText();
+	    	/*boolean builderprpt=t1.isElementPresent(driver,By.xpath("//div[@class='option js-builder-properties']"));
+			String builderprttext=driver.findElement(By.xpath("//div[@class='option js-builder-properties']")).getText();
+			boolean resalerprpt=t1.isElementPresent(driver,By.xpath("//div[@class='option resale js-resale-properties active']"));
+			String resaleprpttext=driver.findElement(By.xpath("//div[@class='option resale js-resale-properties active']")).getText();
+			String newcount= driver.findElement(By.xpath("//div[@class='option js-builder-properties']//span[@class='count']")).getText();
+		    String countresale= driver.findElement(By.xpath("//div[@class='option resale js-resale-properties active']//span[@class='count']")).getText();
+		    String c1=countresale.replace("(","");
+			String c2=c1.replace(")","");
+		    int rcount= Integer.parseInt(c2);
+			if(rcount!=6)
+			{
+				Assert.fail("Count of resale listings on new project page is incorrect");
+			}*/
+		    boolean floorplanimage1=t1.isElementPresent(driver,By.xpath("//img[@src='https://im.proptiger.com/2/5064479/12/skylark-ithaca-floor-plan-1bhk-1t-605-sq-ft-475951.jpeg?width=350&height=200']"));
+			boolean uparrow= t1.isElementPresent(driver,By.xpath("//i[@class='icon-chevron-up js-icon-chevron-up show']"));
+			boolean locality_Button= t1.isElementPresent(driver,By.name("Explore Locality"));
+			driver.navigate().refresh();
+	        Cross_PlatForm.VerifyMenuDrawer(driver);	
+			t1.wait(driver, "//a[@id='headerLogo']");
+			boolean b= t1.isElementPresent(driver , By.xpath("//a[@id='headerLogo']"));
+			while(b!=true)
+			{
+				Actions actions = new Actions(driver);
+			    actions.keyDown(Keys.CONTROL).sendKeys(Keys.UP).perform();
+			   b = t1.isElementPresent(driver , By.xpath("//a[@id='headerLogo']"));
+			}
+			driver.findElement(By.xpath("//a[@id='headerLogo']")).click();
+			String s4= driver.getCurrentUrl();
+			if(!s4.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate-overview") && b==false)
+			{
+				Assert.fail("\n logo click is not opening city home page in "+name);
+				driver.close();
+			}
+			driver.get(BaseUrl+"/dlf-100002");
+            t1.wait(driver, "//div[@class='listing-title']");
+			String BuilderTitle= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
+			if(!BuilderTitle.equalsIgnoreCase("DLF"))
+			{
+				Assert.fail("Builder listing page is not opening in"+name);
+				driver.close();
+			}
+			driver.navigate().to(BaseUrl+"/all-builders");
+			t1.wait(driver, "//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']");
+			boolean builders= t1.isElementPresent(driver,By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']"));
+			if(builders==false)
+			{
+				Assert.fail("Heading is missing from builder page or is not loading");
+			}
+			String AllBuilderTitle= driver.findElement(By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']")).getText();
+			if(!AllBuilderTitle.equalsIgnoreCase("Builders in India"))
+			{
+				Assert.fail("Builder page is not opening in"+name);
+				driver.close();
+			}
+			/*boolean pagination= t1.isElementPresent(driver,By.xpath("//ul[@class='custom-pagi pull-right']//a[@href='//all-builders']"));
+			boolean pagination2= t1.isElementPresent(driver,By.xpath("//ul[@class='custom-pagi pull-right']//a[@href='//all-builders?page=2']"));
+			while(pagination!=true){
+				Actions actions = new Actions(driver);
+				actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
+				pagination= t1.isElementPresent(driver,By.xpath("//ul[@class='custom-pagi pull-right']//a[@href='//all-builders']"));	
+			}
+			if(pagination==false && pagination2==false)
+			{
+				Assert.fail("Pagination is missing on all builders page");
+			}*/
+			driver.navigate().to(BaseUrl+"/bangalore/all-builders");
+			t1.wait(driver,"//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in Bangalore']");
+			String CityBuilderTitle= driver.findElement(By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in Bangalore']")).getText();
+			if(!CityBuilderTitle.equalsIgnoreCase("Builders in Bangalore"))
+			{
+				Assert.fail("City Builder page is not opening in"+name);
+				driver.close();
+			}
+			driver.navigate().to(BaseUrl+"/all-cities");
+			String AllCityTitle= driver.getTitle();
+			if(!AllCityTitle.equalsIgnoreCase("Cities in India - Best Buy/Sale Property Investment Towns in India :PropTiger.com"))
+			{
+				Assert.fail("All city page is not opening in"+name);
+				driver.close();
+			}
+			driver.navigate().to(BaseUrl+"/bangalore/all-localities");	 
+			String AllLocalityTitle= driver.getTitle();
+			if(!AllLocalityTitle.equalsIgnoreCase("Bangalore Localities - List of top localities/Areas in Bangalore :PropTiger.com"))
+			{
+				Assert.fail("All locaities page is not opening in"+name);
+				driver.close();
+			}	
+		driver.navigate().to(BaseUrl+"/gurgaon/all-suburbs");	 
+		String AllSuburbs= driver.getTitle();
+		if(!AllSuburbs.equalsIgnoreCase("Best Residential Areas in Gurgaon | All Suburbs of Gurgaon :PropTiger.com"))
+		{
+			Assert.fail("All suburb page is not opening in"+name);
+			driver.close();
+		}	
+		String suburb_heading=driver.findElement(By.xpath("//h1[@style='margin:0 0 10px -5px;']")).getText();
+		if(!suburb_heading.equalsIgnoreCase("Best Residential Areas in Gurgaon"))
+				{
+			Assert.fail("suburb page heading is missing/ page is not opening");
+				}
+		boolean pagination= t1.isElementPresent(driver,By.xpath("//ul[@class='custom-pagi pull-right']//a[@href='/gurgaon/all-suburbs']"));
+		boolean pagination2= t1.isElementPresent(driver,By.xpath("//ul[@class='custom-pagi pull-right']//a[@href='/gurgaon/all-suburbs?page=2']"));
+		while(pagination!=true)
+		{
+			Actions actions = new Actions(driver);
+			actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
+			pagination= t1.isElementPresent(driver,By.xpath("//ul[@class='custom-pagi pull-right']//a[@href='//all-builders']"));	
+		}
+	
+		if(pagination==false && pagination2==false)
+		{
+			Assert.fail("Pagination is missing on all suburb page in bottom");
+		}}catch(Exception e){System.out.println(e.getLocalizedMessage());}
+		}}
+			// Menu Drawer Verification
+	public static void VerifyMenuDrawer(WebDriver driver) throws InterruptedException
+	{
+		t1.wait(driver, "//i[@class='icon icon-mapmarker']");
+		boolean localityicon= t1.isElementPresent(driver, By.xpath("//i[@class='icon icon-mapmarker']"));
+		if(localityicon==false)
+		{
+			Assert.fail("\nMenu Drawer is not present on city overview page");
+			//driver.close();
+		}
+		t1.wait(driver,"//button[contains(@class,'topMenuBtn')]");
+		driver.findElement(By.xpath("//button[contains(@class,'topMenuBtn')]")).click();
+		boolean citydropdown= t1.isElementPresent(driver, By.xpath("//div[@class='city-selector-box js-city-selector-box']"));
+		boolean cityHomeIcon= t1.isElementPresent(driver, By.xpath("//i[@class='icon icon-mapmarker']"));
+		boolean facebook= t1.isElementPresent(driver, By.xpath("//div[@class='menu-drawer-wrap js-menu-drawer-wrap']//i[@class='icon-facebook']"));
+		boolean googleplus= t1.isElementPresent(driver, By.xpath("//div[@class='menu-drawer-wrap js-menu-drawer-wrap']//i[@class='icon-google-plus']"));
+		boolean linkedin= t1.isElementPresent(driver, By.xpath("//div[@class='menu-drawer-wrap js-menu-drawer-wrap']//i[@class='icon-linkedin']"));
+		boolean youtube= t1.isElementPresent(driver, By.xpath("//div[@class='menu-drawer-wrap js-menu-drawer-wrap']//i[@class='icon-youtube']"));
+		boolean twitter= t1.isElementPresent(driver, By.xpath("//div[@class='menu-drawer-wrap js-menu-drawer-wrap']//i[@class='icon-twitter']"));
+		if(citydropdown==false && cityHomeIcon==false)
+		{
+			Assert.fail("\n Menau Drawer is not clickable or not opening basis home icon in menu drawer is missing");
+			driver.close();
+		}
+		if(facebook==false )
+		{
+			Assert.fail("facebook link is missing in the menu drawer");
+		}
+		if(googleplus==false )
+		{
+			Assert.fail("Google Plus link is missing in the menu drawer");
+		}
+		if(linkedin==false )
+		{
+			Assert.fail("LinkedIn link is missing in the menu drawer");
+		}
+		if(youtube==false )
+		{
+			Assert.fail("Youtube link is missing in the menu drawer");
+		}
+		if(twitter==false )
+		{
+			Assert.fail("Twitter Link is missing in the menu drawer");
+		}
+		driver.findElement(By.xpath("//label[@id='drawer-overlay']")).click();			
+	}
+
+	
+public static void locality(WebDriver driver) throws InterruptedException{
+    t1.wait(driver, "//div[@class='ta-center marginT20']//a[@class='btn btn-blu explore-this-locality']");
 			driver.findElement(By.xpath("//div[@class='ta-center marginT20']//a[@class='btn btn-blu explore-this-locality']")).click();
 			t1.wait(driver, "//h1[@class='metah1' and text()='Property in Adugodi']");
 			String LocalityUrl= driver.getCurrentUrl();
@@ -183,7 +412,7 @@ public class Cross_PlatForm {
 					&& !LocalityListheading.equalsIgnoreCase("Adugodi, Bangalore"))
 			{
 				Assert.fail("\n Locality listing page is not opening basis URL is wrong and heading is wrong"+name);
-                driver.close();
+              driver.close();
 			}
 
 			// Verify menu drawer page on Locality listing page
@@ -193,7 +422,7 @@ public class Cross_PlatForm {
 			driver.findElement(By.xpath("//div[@class='btn btn-light-gray locality-change-btn']")).click();
 		    t1.wait(driver, "//div[@class='capitalize ta-center city-name']");
 			String ChangeLocalityUrl=driver.getCurrentUrl();
-			Boolean ChangeLocality= t1.isElementPresent(driver, By.xpath("//div[@class='capitalize ta-center city-name']"));
+			boolean ChangeLocality= t1.isElementPresent(driver, By.xpath("//div[@class='capitalize ta-center city-name']"));
 			String ChangeLocalityText= driver.findElement(By.xpath("//div[@class='capitalize ta-center city-name']")).getText();
 			boolean serachbox= t1.isElementPresent(driver,By.xpath("//input[@placeholder='Search for locality']"));
 			if(!ChangeLocalityUrl.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate/adugodi-overview-52720#localitySearchPopup") && serachbox==false && ChangeLocality==false && ChangeLocalityText!="Bangalore")
@@ -201,143 +430,7 @@ public class Cross_PlatForm {
 				Assert.fail("\n Change locality page is not opening basis url is wrong, searchbox not found and heading is wrong in"+name);
 				driver.close();
 			}
-			driver.findElement(By.xpath("//div[@class='pull-left back-btn']")).click();		
-			t1.wait(driver, "//span[@class='logo pull-left']");
-			boolean b= t1.isElementPresent(driver , By.xpath("//span[@class='logo pull-left']"));
-			driver.findElement(By.xpath("//span[@class='logo pull-left']")).click();
-			String s4= driver.getCurrentUrl();
-			if(!s4.equalsIgnoreCase(BaseUrl+"/bangalore-real-estate-overview") && b==false)
-			{
-				Assert.fail("\n logo click is not opening city home page in "+name);
-				driver.close();
-			}
-			driver.get(BaseUrl+"/dlf-100002");
-            t1.wait(driver, "//div[@class='listing-title']");
-			String BuilderTitle= driver.findElement(By.xpath("//div[@class='listing-title']")).getText();
-			if(!BuilderTitle.equalsIgnoreCase("DLF"))
-			{
-				Assert.fail("Builder listing page is not opening in"+name);
-				driver.close();
-			}
-			driver.navigate().to(BaseUrl+"/all-builders");
-			t1.wait(driver, "//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']");
-			boolean builders= t1.isElementPresent(driver,By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']"));
-			if(builders==false)
-			{
-				Assert.fail("Heading is missing from builder page or is not loading");
-			}
-			String AllBuilderTitle= driver.findElement(By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in India']")).getText();
-			if(!AllBuilderTitle.equalsIgnoreCase("Builders in India"))
-			{
-				Assert.fail("Builder page is not opening in"+name);
-				driver.close();
-			}
-			driver.navigate().to(BaseUrl+"/bangalore/all-builders");
-			t1.wait(driver,"//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in Bangalore']");
-			String CityBuilderTitle= driver.findElement(By.xpath("//div[@class='col-xs-12 col-md-6 col-sm-6' and h1='Builders in Bangalore']")).getText();
-			if(!CityBuilderTitle.equalsIgnoreCase("Builders in Bangalore"))
-			{
-				Assert.fail("City Builder page is not opening in"+name);
-				driver.close();
-			}
-			driver.navigate().to(BaseUrl+"/all-cities");
-			String AllCityTitle= driver.getTitle();
-			if(!AllCityTitle.equalsIgnoreCase("Cities in India - Best Buy/Sale Property Investment Towns in India"))
-			{
-				Assert.fail("All city page is not opening in"+name);
-				driver.close();
-			}
-			driver.navigate().to(BaseUrl+"/bangalore/all-localities");	 
-			String AllLocalityTitle= driver.getTitle();
-			if(!AllLocalityTitle.equalsIgnoreCase("Bangalore Localities - List of top localities/Areas in Bangalore"))
-			{
-				Assert.fail("All locaities page is not opening in"+name);
-				driver.close();
-			}	
-			}
-		}
-			// Menu Drawer Verification
-	public static void VerifyMenuDrawer(WebDriver driver) throws InterruptedException
-	{
-		t1.wait(driver, "");
-		t1.wait(driver, "//i[@class='icon-navicon']");
-		boolean drawer= t1.isElementPresent(driver, By.xpath("//i[@class='icon-navicon']"));
-		if(drawer==false)
-		{
-			Assert.fail("\nMenu Drawer is not present on city overview page");
-			//driver.close();
-		}
-		t1.wait(driver,"//button[contains(@class,'topMenuBtn')]");
-		driver.findElement(By.xpath("//button[contains(@class,'topMenuBtn')]")).click();
-		boolean DrawerChangeCitydropwdown = t1.isElementPresent(driver , By.xpath("//select[@class='change-city']"));
-		boolean cityHomeIcon= t1.isElementPresent(driver, By.xpath("//i[@class='cityLabel icon-apartment']"));
-		String OtherSection= driver.findElement(By.xpath("//div[@class='sections others']//h4[@class='md']")).getText();
-		if(DrawerChangeCitydropwdown==false && cityHomeIcon==false && !OtherSection.equalsIgnoreCase("Others"))
-		{
-			Assert.fail("\n Menau Drawer is not clickable or not opening basis home icon in menu drawer missing,label others and chnage city dropdown");
-			driver.close();
-		}
-		driver.findElement(By.xpath("//button[contains(@class,'topMenuBtn')]")).click();			
-	}
-
-	// interstitial Verification
-	public static void interstitial(WebDriver driver, String name) throws InterruptedException
-	{
-		boolean interstitial = t1.isElementPresent(driver, By.xpath("//div[@data-lazyclass='interstial-container']"));
-		boolean appButton = t1.isElementPresent(driver, By.xpath("//div[@class='appbutton']"));
-		boolean interstitialClose= t1.isElementPresent(driver, By.xpath("//div[@data-lazyclass='interstial-container']//div[@class='closeoption']"));
-		boolean phoneimages= t1.isElementPresent(driver, By.xpath("//div[@data-lazyclass='mob-in-hand']"));
-		boolean NoThanksText= t1.isElementPresent(driver, By.xpath("//a[@class='no-thanks']"));
-		if(!name.equalsIgnoreCase("IE_Nokia_Lumia920"))
-		{
-			if(interstitial==false)
-			{
-				Assert.fail("Interstitial is not coming on home page");
-			}
-			if(appButton==false)
-			{
-				Assert.fail("All download button is not coming on interstitial");
-			}
-			if(interstitialClose==false)
-			{
-				Assert.fail("Close button is not found on interstitial");
-			}
-			if(phoneimages==false)
-			{
-				Assert.fail("Phone images are not found on interstitial");
-			}
-			if(NoThanksText==false)
-			{
-				Assert.fail("No Thanks Text is not found on interstitial");	
-			}		
-			if(name.contains("Android"))
-			{
-				boolean storeadd=t1.isElementPresent(driver,By.xpath("//a[@href='https://play.google.com/store/apps/details?id=com.proptiger']"));
-				if(storeadd==false)
-				{
-					Assert.fail("Android App download link is incorrect or not opening");
-				}
-			}
-			if(name.contains("iPhone"))
-			{
-				boolean storeadd=t1.isElementPresent(driver,By.xpath("//a[@href='https://itunes.apple.com/in/app/proptiger-real-estate-property/id935244607?ls=1&mt=8']"));
-				if(storeadd==false)
-				{
-					Assert.fail("iOS App download link is incorrect or not opening");
-				}
-			}
-		//driver.navigate().back();
-		driver.findElement(By.xpath("//div[@data-lazyclass='interstial-container']//div[@class='closeoption']")).click();
-		//driver.manage().deleteAllCookies();
-		boolean interstitial1= t1.isElementPresent(driver, By.xpath("//div[@id='interstitalPopup' and @class='open']"));
-		if(interstitial1==true)
-		{
-			Assert.fail("Interstitial close button is not working");
-		}
-	  }
-	}
-	
-
+}
 
 	public static void Check404Page(WebDriver driver) throws InterruptedException
 	{
@@ -364,14 +457,12 @@ public class Cross_PlatForm {
 				//driver.close();
 			}
 			t1.wait(driver,"//a[@class='no-ajaxy btn btn-d-yellow']");
-			WebElement e= driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']"));
+            WebElement e= driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']"));
             Actions s = new Actions(driver);
             s.doubleClick(e);
             s.perform();
-			//driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']")).click();
-			Thread.sleep(4000L);
-			driver.navigate().refresh();
-			t1.wait(driver, "//div[@class='pt-row-two-column paddingR5']//a[@class='no-ajaxy bigbtn projects-near-me']");
+			//driver.navigate().refresh();
+			t1.wait(driver, "//h3[contains(text(),'Explore more')]");
 			String RedirectURl=driver.getCurrentUrl();
 			if(!RedirectURl.equalsIgnoreCase(BaseUrl+"/"))
 			{
@@ -422,7 +513,7 @@ public class Cross_PlatForm {
 		 HSSFSheet sheet = workbook.getSheetAt(0);
 		 System.out.println(" PROCESSING Urls..........");
        System.out.println("*************************************************************************************");
-      for(int i=0;i<=sheet.getLastRowNum();i++)
+      for(int i=1;i<=sheet.getLastRowNum();i++)
      	{
      	 String URLs= BaseUrl1+sheet.getRow(i).getCell((short) 1).getStringCellValue();
 		try {
@@ -450,10 +541,10 @@ public class Cross_PlatForm {
 		  }
      	}	
       
-   for(int i=0;i<=sheet.getLastRowNum();i++)
+   for(int i=1;i<=sheet.getLastRowNum();i++)
    { 
 	        String URLs= BaseUrl1+"/"+sheet.getRow(i).getCell((short) 1).getStringCellValue();
-		    URL url = new URL(URLs);
+		    url = new URL(URLs);
 		    HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		    con.setRequestProperty("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_3 like Mac OS X) AppleWebKit/600.1.4"
 				+ "(KHTML, like Gecko) CriOS/40.0.2214.73 Mobile/12B466 Safari/600.14");
@@ -464,9 +555,106 @@ public class Cross_PlatForm {
 		    	count=count+1;
 		    }
 		}
-   if(count>1)
+   //System.err.println("1.Some URLS are not OK. Please check report for status:500/404"+count);
+   if(count>=1)
    {
-	   Assert.fail("Some URLS are not OK. Please check report for status.");
+	   Assert.fail("Some URLS are failing.");
    }
+   else
+	   System.out.println();
    }
+  
+   public static void compare(WebDriver driver)
+   {
+	   driver.get("https://www.proptiger.com/compare/sector-120-vs-electronics-city-50078-50186");
+	   boolean localityname= t1.isElementPresent(driver, By.xpath("//div[@class='locality-name']"));
+	   if(localityname=false)
+	   {
+		   Assert.fail("comparable localities are not available on page");
+	   }
+	   boolean Noida120Name= t1.isElementPresent(driver, By.xpath("//div[@class='locality-name']"));
+	   if(Noida120Name==false)
+	   {
+		   Assert.fail("Noida120Name are not available on page");
+	   }
+	   boolean Noida120image= t1.isElementPresent(driver, By.xpath("//img[@alt='Sector 120-heroShot']"));
+	   if(Noida120image==false)
+	   {
+		   Assert.fail("Noida120image locality image is not available on page");
+	   }
+	   boolean ElectronicCity= t1.isElementPresent(driver, By.xpath("//img[@alt='Electronics City Bangalore road']"));
+	   if(ElectronicCity==false)
+	   {
+		   Assert.fail("ElectronicCity locality image is not available on page");
+	   }
+	   boolean CardScore= t1.isElementPresent(driver, By.xpath("//div[@class='card-scores']"));
+	   if(CardScore==false)
+	   {
+		   Assert.fail("CardScore is not available on compare page");
+	   }
+	   boolean fUserRating= t1.isElementPresent(driver, By.xpath("//div[@class='card-scores front']"));
+	   if(fUserRating==false)
+	   {
+		   Assert.fail("UserRating back card is not coming on compare page");
+	   }
+	   boolean bUserRating= t1.isElementPresent(driver, By.xpath("//div[@class='card-scores front']"));
+	   if(bUserRating==false)
+	   {
+		   Assert.fail("UserRating back card is not coming on compare page");
+	   }
+	   boolean TextonCard= t1.isElementPresent(driver, By.xpath("//div[@class='score-head']"));
+	   if(TextonCard==false)
+	   {
+		   Assert.fail("UserRating text on card is not coming  on page compare page");
+	   }
+	   String text1= driver.findElement(By.xpath("//div[@class='score-head']")).getText();
+	   if(!text1.equalsIgnoreCase("user ratings"))
+	   {
+		   Assert.fail("Uset Ratigs text is not coming on the card");
+	   }
+	   boolean Pricetrend= t1.isElementPresent(driver, By.xpath("//canvas[@id='appartment-price-trend']"));
+	   if(Pricetrend==false)
+	   {
+		   Assert.fail("Price trend graph is not coming on compare page");
+	   }
+	   boolean PricetrendHeading= t1.isElementPresent(driver, By.xpath("//div[@class='heading' and text()='PRICE TRENDS']"));
+	   if(PricetrendHeading==false)
+	   {
+		   Assert.fail("Price trend heading is not coming on the pice trend graph on compare page");
+	   }
+	   boolean localityBarGraph= t1.isElementPresent(driver, By.xpath("//canvas[@id='locality-bar-graph']"));
+	   if(localityBarGraph==false)
+	   {
+		   Assert.fail("localityBarGraph graph is not coming on compare page");
+	   }
+	   boolean localityGraphHeading= t1.isElementPresent(driver, By.xpath("//div[@class='heading' and text()='TOTAL PROJECT GRAPH']"));
+	   if(localityGraphHeading==false)
+	   {
+		   Assert.fail("locality Graph Heading is not coming on compare page");
+	   }
+	   boolean builderCompare= t1.isElementPresent(driver, By.xpath("//div[@class='comparison_top-builder']"));
+	   if(builderCompare==false)
+	   {
+		   Assert.fail("builderCompare section is not coming on compare page");
+	   }
+	   boolean TopProjectsHeading= t1.isElementPresent(driver, By.xpath("//div[@class='heading ta-center' and text()='Top Projects']"));
+	   if(TopProjectsHeading==false)
+	   {
+		   Assert.fail("locality Graph Heading is not coming on compare page");
+	   }
+	   boolean viewallbtn= t1.isElementPresent(driver, By.xpath("//div[@class='strokeBtn']"));
+	   if(viewallbtn==false)
+	   {
+		   Assert.fail("view all button is not coming on compare page");
+	   }
+	   boolean TopBuilder= t1.isElementPresent(driver, By.xpath("//div[@class='ta-center heading']"));
+	   if(TopBuilder==false)
+	   {
+		   Assert.fail("view all button is not coming on compare page");
+	   }
+   }
+   
+   
 }
+   
+   
