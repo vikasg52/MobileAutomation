@@ -32,14 +32,16 @@ public class Cross_PlatForm {
 	static String ssl="https://www.proptiger.com";
 	static String ssl1="https://www.proptiger.com/";
 	static String betahttp="http://beta.proptiger-ws.com";
+	static String beta="https://beta.proptiger.com";
+	static String beta1="https://beta.proptiger.com/";
 	static String mobbeta="http://mob-beta.proptiger-ws.com";
 	static String local="http://192.168.0.216:5000";
 	static String betassl="https://beta.proptiger-ws.com";
 	static String betassl1="https://beta.proptiger-ws.com/";
-	static String qassl="https://beta.proptiger-ws.com";
-	static String qassl1="https://beta.proptiger-ws.com/";
-	static String BaseUrl=ssl;
-	static String BaseUrl1=ssl1;
+	static String qassl="https://qa.proptiger-ws.com";
+	static String qassl1="https://qa.proptiger-ws.com/";
+	static String BaseUrl=betassl;
+	static String BaseUrl1=betassl1;
 	static URL url;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
 		driver.manage().window().setSize(new Dimension(350,700));
@@ -69,7 +71,7 @@ public class Cross_PlatForm {
 			{
 				driver.manage().deleteAllCookies();
 				t1.wait(driver, "//li[@data-city-name='Bangalore']");
-				driver.findElement(By.xpath("//li[@class='js-city-list' and text()='Bangalore']")).click();
+				driver.findElement(By.xpath("//li[@data-city-id='2']")).click();
 				driver.findElement(By.xpath("//input[@type='search']")).click();
 				t1.wait(driver, "//div[@data-redirect-url='/bangalore/property-sale-kr-puram-50167']");
 				driver.findElement(By.xpath("//div[contains(text(),'KR')]")).click();
@@ -135,7 +137,7 @@ public class Cross_PlatForm {
 			{
 				Assert.fail("\n Project Page is not opening/URL is wrong or project name/locality name is missing"+name);	
 			}
-			boolean prjImg= t1.isElementPresent(driver,By.xpath("//div[@class='img-banner']"));
+			boolean prjImg= t1.isElementPresent(driver,By.xpath("//div[@class='img-banner js-banner-image']"));
 			if(prjImg==false)Assert.fail("Image not found on project page:"+prjImg);
 			boolean socialShareLinks=t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy whiteStrokeBtn js-share-button active']"));
 			boolean socialshareIcon=t1.isElementPresent(driver, By.xpath("//i[@class='icon-share-o']"));
@@ -561,6 +563,98 @@ public static void locality(WebDriver driver) throws InterruptedException{
    else
 	   System.out.println();
    }
+  
+   public static void compare(WebDriver driver)
+   {
+	   driver.get("https://www.proptiger.com/compare/sector-120-vs-electronics-city-50078-50186");
+	   boolean localityname= t1.isElementPresent(driver, By.xpath("//div[@class='locality-name']"));
+	   if(localityname=false)
+	   {
+		   Assert.fail("comparable localities are not available on page");
+	   }
+	   boolean Noida120Name= t1.isElementPresent(driver, By.xpath("//div[@class='locality-name']"));
+	   if(Noida120Name==false)
+	   {
+		   Assert.fail("Noida120Name are not available on page");
+	   }
+	   boolean Noida120image= t1.isElementPresent(driver, By.xpath("//img[@alt='Sector 120-heroShot']"));
+	   if(Noida120image==false)
+	   {
+		   Assert.fail("Noida120image locality image is not available on page");
+	   }
+	   boolean ElectronicCity= t1.isElementPresent(driver, By.xpath("//img[@alt='Electronics City Bangalore road']"));
+	   if(ElectronicCity==false)
+	   {
+		   Assert.fail("ElectronicCity locality image is not available on page");
+	   }
+	   boolean CardScore= t1.isElementPresent(driver, By.xpath("//div[@class='card-scores']"));
+	   if(CardScore==false)
+	   {
+		   Assert.fail("CardScore is not available on compare page");
+	   }
+	   boolean fUserRating= t1.isElementPresent(driver, By.xpath("//div[@class='card-scores front']"));
+	   if(fUserRating==false)
+	   {
+		   Assert.fail("UserRating back card is not coming on compare page");
+	   }
+	   boolean bUserRating= t1.isElementPresent(driver, By.xpath("//div[@class='card-scores front']"));
+	   if(bUserRating==false)
+	   {
+		   Assert.fail("UserRating back card is not coming on compare page");
+	   }
+	   boolean TextonCard= t1.isElementPresent(driver, By.xpath("//div[@class='score-head']"));
+	   if(TextonCard==false)
+	   {
+		   Assert.fail("UserRating text on card is not coming  on page compare page");
+	   }
+	   String text1= driver.findElement(By.xpath("//div[@class='score-head']")).getText();
+	   if(!text1.equalsIgnoreCase("user ratings"))
+	   {
+		   Assert.fail("Uset Ratigs text is not coming on the card");
+	   }
+	   boolean Pricetrend= t1.isElementPresent(driver, By.xpath("//canvas[@id='appartment-price-trend']"));
+	   if(Pricetrend==false)
+	   {
+		   Assert.fail("Price trend graph is not coming on compare page");
+	   }
+	   boolean PricetrendHeading= t1.isElementPresent(driver, By.xpath("//div[@class='heading' and text()='PRICE TRENDS']"));
+	   if(PricetrendHeading==false)
+	   {
+		   Assert.fail("Price trend heading is not coming on the pice trend graph on compare page");
+	   }
+	   boolean localityBarGraph= t1.isElementPresent(driver, By.xpath("//canvas[@id='locality-bar-graph']"));
+	   if(localityBarGraph==false)
+	   {
+		   Assert.fail("localityBarGraph graph is not coming on compare page");
+	   }
+	   boolean localityGraphHeading= t1.isElementPresent(driver, By.xpath("//div[@class='heading' and text()='TOTAL PROJECT GRAPH']"));
+	   if(localityGraphHeading==false)
+	   {
+		   Assert.fail("locality Graph Heading is not coming on compare page");
+	   }
+	   boolean builderCompare= t1.isElementPresent(driver, By.xpath("//div[@class='comparison_top-builder']"));
+	   if(builderCompare==false)
+	   {
+		   Assert.fail("builderCompare section is not coming on compare page");
+	   }
+	   boolean TopProjectsHeading= t1.isElementPresent(driver, By.xpath("//div[@class='heading ta-center' and text()='Top Projects']"));
+	   if(TopProjectsHeading==false)
+	   {
+		   Assert.fail("locality Graph Heading is not coming on compare page");
+	   }
+	   boolean viewallbtn= t1.isElementPresent(driver, By.xpath("//div[@class='strokeBtn']"));
+	   if(viewallbtn==false)
+	   {
+		   Assert.fail("view all button is not coming on compare page");
+	   }
+	   boolean TopBuilder= t1.isElementPresent(driver, By.xpath("//div[@class='ta-center heading']"));
+	   if(TopBuilder==false)
+	   {
+		   Assert.fail("view all button is not coming on compare page");
+	   }
+   }
+   
+   
 }
    
    
