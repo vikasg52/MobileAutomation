@@ -152,7 +152,7 @@ public class Phone_Number_Check
 		for(int i = 0;i<URLs.length;i++)
 		{
 			driver.get(URLs[i]);	
-			t.wait(driver,"///a[@class='no-ajaxy header-call-button btnhdr js-phone-number']");
+			t.wait(driver,"//a[@class='no-ajaxy header-call-button btnhdr js-phone-number']");
 			String s=driver.findElement(By.xpath("//a[@class='no-ajaxy header-call-button btnhdr js-phone-number']")).getAttribute("href");
 			String Sem=s.replace("tel:", "");
 			// String City=sheet.getRow(i).getCell((short)1).getStringCellValue();
