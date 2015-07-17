@@ -71,7 +71,7 @@ public class Cross_PlatForm {
 			{
 				driver.manage().deleteAllCookies();
 				t1.wait(driver, "//li[@data-city-name='Bangalore']");
-				driver.findElement(By.xpath("//li[@class='js-city-list' and text()='Bangalore']")).click();
+				driver.findElement(By.xpath("//li[@data-city-id='2']")).click();
 				driver.findElement(By.xpath("//input[@type='search']")).click();
 				t1.wait(driver, "//div[@data-redirect-url='/bangalore/property-sale-kr-puram-50167']");
 				driver.findElement(By.xpath("//div[contains(text(),'KR')]")).click();
@@ -137,7 +137,7 @@ public class Cross_PlatForm {
 			{
 				Assert.fail("\n Project Page is not opening/URL is wrong or project name/locality name is missing"+name);	
 			}
-			boolean prjImg= t1.isElementPresent(driver,By.xpath("//div[@class='img-banner']"));
+			boolean prjImg= t1.isElementPresent(driver,By.xpath("//div[@class='img-banner js-banner-image']"));
 			if(prjImg==false)Assert.fail("Image not found on project page:"+prjImg);
 			boolean socialShareLinks=t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy whiteStrokeBtn js-share-button active']"));
 			boolean socialshareIcon=t1.isElementPresent(driver, By.xpath("//i[@class='icon-share-o']"));
