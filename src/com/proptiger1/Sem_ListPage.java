@@ -61,20 +61,20 @@ public class Sem_ListPage<t> {
 				BaseUrl11+"/projects-in-chennai"+Cookie,
 				BaseUrl11+"/projects-in-ghaziabad"+Cookie};
 		String Failed=""; 
-		int i=0;
-		while(i!=URLs.length)
+		int j=0;
+		while(j!=URLs.length)
 		{
 			driver.get(URLs[i]);
 			t.wait(driver, "//a[@class='no-ajaxy project-call']");
 			String ss=driver.findElement(By.xpath("//a[@class='no-ajaxy project-call']")).getAttribute("href");
 			String Sem=ss.replace("tel:", "");
-			if(!Sem.equalsIgnoreCase(Number[i]))
+			if(!Sem.equalsIgnoreCase(Number[j]))
 			{
-				Failed=Failed+"== Expected Number for " +City[i] + " is:"+Number[i]+":: Actual Number:"+Sem+"\n";
+				Failed=Failed+"== Expected Number for " +City[j] + " is:"+Number[j]+":: Actual Number:"+Sem+"\n";
 			}
 			else
 			{ 
-				System.out.println("SEM number test has passed on listing page for: "+City[i]+": "+Sem);
+				System.out.println("SEM number test has passed on listing page for: "+City[j]+": "+Sem);
 				
 			}
 			i++;
