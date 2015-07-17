@@ -71,8 +71,8 @@ public class Phone_Number_Check
 		while(i!=URLs.length)
 		{
 			driver.get(URLs[i]);
-			t.wait(driver, "//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']");
-			String s1=driver.findElement(By.xpath("//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']")).getAttribute("href");
+			t.wait(driver, "//a[@class='no-ajaxy header-call-button btnhdr js-phone-number']");
+			String s1=driver.findElement(By.xpath("//a[@class='no-ajaxy header-call-button btnhdr js-phone-number']")).getAttribute("href");
 			String Sem1=s1.replace("tel:","");
 			if(!Sem1.equalsIgnoreCase(Number[i]))
 			{
@@ -152,8 +152,8 @@ public class Phone_Number_Check
 		for(int i = 0;i<URLs.length;i++)
 		{
 			driver.get(URLs[i]);	
-			t.wait(driver,"//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']");
-			String s=driver.findElement(By.xpath("//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']")).getAttribute("href");
+			t.wait(driver,"//a[@class='no-ajaxy header-call-button btnhdr js-phone-number']");
+			String s=driver.findElement(By.xpath("//a[@class='no-ajaxy header-call-button btnhdr js-phone-number']")).getAttribute("href");
 			String Sem=s.replace("tel:", "");
 			// String City=sheet.getRow(i).getCell((short)1).getStringCellValue();
 			if(!Sem.equalsIgnoreCase(Number[i]))
@@ -237,9 +237,9 @@ String[] URLs=
 		for(int i = 0;i<URLs.length;i++)
 		{
 			driver2.get(URLs[i]);
-			t.wait(driver2,"//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']");
+			t.wait(driver2,"//a[@class='no-ajaxy header-call-button btnhdr js-phone-number']");
 			driver2.navigate().refresh();
-			String s=driver2.findElement(By.xpath("//a[@class='no-ajaxy pull-right btn header-call-button js-phone-number']")).getAttribute("href");
+			String s=driver2.findElement(By.xpath("//a[@class='no-ajaxy header-call-button btnhdr js-phone-number']")).getAttribute("href");
 			String Sem=s.replace("tel:", "");
 			// String City=sheet.getRow(i).getCell((short)1).getStringCellValue();
 			if(!Sem.equalsIgnoreCase(Number[i]))
