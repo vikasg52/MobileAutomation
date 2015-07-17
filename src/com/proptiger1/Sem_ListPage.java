@@ -64,7 +64,7 @@ public class Sem_ListPage<t> {
 		int j=0;
 		while(j!=URLs.length)
 		{
-			driver.get(URLs[i]);
+			driver.get(URLs[j]);
 			t.wait(driver, "//a[@class='no-ajaxy project-call']");
 			String ss=driver.findElement(By.xpath("//a[@class='no-ajaxy project-call']")).getAttribute("href");
 			String Sem=ss.replace("tel:", "");
@@ -77,7 +77,7 @@ public class Sem_ListPage<t> {
 				System.out.println("SEM number test has passed on listing page for: "+City[j]+": "+Sem);
 				
 			}
-			i++;
+			j++;
 		}
 		//driver.quit();
 		if(Failed!="")
