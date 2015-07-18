@@ -40,8 +40,8 @@ public class Cross_PlatForm {
 	static String betassl1="https://beta.proptiger-ws.com/";
 	static String qassl="https://qa.proptiger-ws.com";
 	static String qassl1="https://qa.proptiger-ws.com/";
-	static String BaseUrl=betassl;
-	static String BaseUrl1=betassl1;
+	static String BaseUrl=ssl;
+	static String BaseUrl1=ssl1;
 	static URL url;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
 		driver.manage().window().setSize(new Dimension(350,700));
