@@ -10,9 +10,9 @@ public class Mailer_Number_Check {
 	static String name="";
 	static String http="http://www.proptiger.com";
 	static String ssl="https://www.proptiger.com";
-	static String betahttp="http://beta.proptiger-ws.com";
+	static String betahttp="https://beta.proptiger-ws.com";
 	static String mobbeta="http://mob-beta.proptiger-ws.com";
-	static String local= "http://192.168.0.216:5000";
+	static String qa= "http://qa.proptger-ws.com";
 	static String betassl="https://www.proptiger-ws.com";
 	static String BaseUrl=betahttp;
 	@Test()

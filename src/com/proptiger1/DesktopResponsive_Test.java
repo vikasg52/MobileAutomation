@@ -16,11 +16,13 @@ public class DesktopResponsive_Test {
 	static String name="";
 	static String name1="";
 	static String http="http://www.proptiger.com";
+	static String beta="https://beta.proptiger.com";
+	static String beta1="http://beta.proptiger.com/";
 	static String ssl="https://www.proptiger.com";
 	static String mobbeta="http://mob-beta.proptiger-ws.com";
 	static String local= "http://192.168.0.216:5000";
-	static String betahttp="http://beta.proptiger-ws.com";
-	static String betassl="https://beta.proptiger-ws.com";
+	static String betassl="http://beta.proptiger-ws.com";
+	static String qassl="https://qa.proptiger-ws.com";
 	static String BaseUrl=ssl;
 	public static void Responsive(WebDriver driver, String name) throws InterruptedException 
 	{	

@@ -18,11 +18,12 @@ public class Sem_ListPage<t> {
 	TimeStamp t= new TimeStamp();
 	 @SuppressWarnings("deprecation")
 	@Test(priority=0)
-	public <t> void Sem_ListingPage(String x) throws InterruptedException
+	public void Sem_ListingPage(String x) throws InterruptedException
 	{
-		String prod="https://www.proptiger.com";
-		String beta="https://beta.proptiger-ws.com";
-		String BaseUrl11=prod;
+	String beta="https://beta.proptiger-ws.com";
+	String prod="https://www.proptiger.com";
+	String qa="https://qa.proptiger-ws.com";
+	String BaseUrl11=prod;
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS X) AppleWebKit/537.51.1 "
 				+ "(KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A501 Safari/8536.25");
