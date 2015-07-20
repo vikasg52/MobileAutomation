@@ -171,7 +171,7 @@ public class DesktopResponsive_Test {
 			driver.findElement(By.xpath("//div[@class='form-info']//input[@id='email']")).sendKeys("proptigerqa+"+ran+"@gmail.com");
 			driver.findElement(By.xpath("//div[@class='form-info']//input[@id='mobile']")).sendKeys("1900000000");
 			Select select = new Select(driver.findElement(By.xpath("//div[@class='formRow']//select[@class='form-control query-country']")));
-		    select.selectByVisibleText("India");
+		    select.selectByVisibleText("+91 India");
 			driver.findElement(By.xpath("//span[@class='btn btn-danger wd75percent']")).click();
 			//driver.wait(3000L);
 			t1.wait(driver, "//div[@class='title ta-center']");
