@@ -63,7 +63,7 @@ public class Cross_PlatForm {
 			driver.findElement(By.xpath("//div[@class='city-selector']")).click();
 			Thread.sleep(3000L);
 			int cityCount= driver.findElements(By.xpath("//li[@class='js-city-list']")).size();
-			if(cityCount!=14)
+			if(cityCount!=15)
 			{
 				Assert.fail("\n Count of diplayed cities on home page is wrong!!");
 			}
