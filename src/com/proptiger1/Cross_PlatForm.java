@@ -5,6 +5,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.jar.Attributes.Name;
@@ -48,10 +49,10 @@ public class Cross_PlatForm {
 		driver.get(BaseUrl);
 		driver.manage().deleteAllCookies();	
 		WebDriverWait wait1 = new WebDriverWait(driver,120);
-		wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='city-selector']")));
+		wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//select[@class='city-selector js-city-list-select']")));
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-	    boolean SelectCity= t1.isElementPresent(driver, By.xpath("//div[@class='city-selector']"));
+	    boolean SelectCity= t1.isElementPresent(driver, By.xpath("//select[@class='city-selector js-city-list-select']"));
 		boolean SearchBTN= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy srch-btn']"));
 		if(SelectCity==false && SearchBTN==false)
 		{
@@ -60,28 +61,32 @@ public class Cross_PlatForm {
 		}
 		else
 		{
-			driver.findElement(By.xpath("//div[@class='city-selector']")).click();
-			Thread.sleep(3000L);
-			int cityCount= driver.findElements(By.xpath("//li[@class='js-city-list']")).size();
-			if(cityCount!=15)
+			driver.findElement(By.xpath("//select[@class='city-selector js-city-list-select']")).click();
+			Thread.sleep(4000L);
+			int cityCount= driver.findElements(By.xpath("//option[@class='js-city-list']")).size();
+			if(cityCount!=19)
 			{
 				Assert.fail("\n Count of diplayed cities on home page is wrong!!");
 			}
 			try
 			{
 				driver.manage().deleteAllCookies();
-				t1.wait(driver, "//li[@data-city-name='Bangalore']");
-				driver.findElement(By.xpath("//li[@data-city-id='2']")).click();
-				driver.findElement(By.xpath("//input[@type='search']")).click();
-				t1.wait(driver, "//div[@data-redirect-url='/bangalore/property-sale-kr-puram-50167']");
-				driver.findElement(By.xpath("//div[contains(text(),'KR')]")).click();
-				Thread.sleep(4000L);
-				String title= driver.findElement(By.xpath("//h1[contains(text(),'Property for Sale')]")).getText();
+				t1.wait(driver, "//option[@data-city-name='Bangalore']");
+				driver.findElement(By.xpath("//select[@class='city-selector js-city-list-select']")).sendKeys("Bangalore");
+				driver.findElement(By.xpath("//input[@type='search']")).sendKeys("KR Puram");
+				//driver.findElement(By.xpath("//input[@type='search']")).click();
+				t1.wait(driver, "//div[@class='ac-options']//div[@class='ac-opt']");
+				List <WebElement> listItemss = driver.findElements(By.xpath("//div[@class='ac-options']//div[@class='ac-opt']"));
+				//System.out.println(listItemss.get(0).getText());
+				listItemss.get(0).click();
+				t1.wait(driver, "//h1[@class='metah1']");
+				//driver.findElement(By.linkText("KR Puram - Bangalore")).click();
+				String title= driver.findElement(By.xpath("//h1[@class='metah1']")).getText();
 				if(!title.equalsIgnoreCase("Property for sale in KR Puram"))
 				{
 					System.out.println("Locality listing page pf KR puram is not opening");
 				}
-				driver.findElement(By.xpath("//button[@class='topMenuBtn seoclick header-drawer js-toggle-menu']")).click();
+				driver.findElement(By.xpath("//button[@class='topMenuBtn seoclick header-drawer js-toggle-menu js-top-menu-btn']")).click();
 				t1.wait(driver,"//a[@href='/projects-in-bangalore']");
 				driver.findElement(By.xpath("//ul[@class='drawer-list']//a[contains(text(),'See all')]")).click();
 				Thread.sleep(3000L);
@@ -187,12 +192,12 @@ public class Cross_PlatForm {
 			boolean livabilityscore=t1.isElementPresent(driver,By.xpath("//div[@class='col-xs-6 ta-center']//span[@class='count']"));
 			if(livabilityscore==false)
 			{
-		    livabilityscore=t1.isElementPresent(driver,By.xpath("//div[@class='col-xs-12 ta-center']//span[@class='count']"));
-			String LivabilityScore=driver.findElement(By.xpath("//div[@class='col-xs-12 ta-center']//span[@class='count']")).getText();
+		    livabilityscore=t1.isElementPresent(driver,By.xpath("//div[@class='col-xs-6 ta-center js-open-livability']//span[@class='count']"));
+			String LivabilityScore=driver.findElement(By.xpath("//div[@class='col-xs-6 ta-center js-open-livability']//span[@class='count']")).getText();
 			}
 			else{
-				livabilityscore=t1.isElementPresent(driver,By.xpath("//div[@class='col-xs-6 ta-center']//span[@class='count']"));
-				String LivabilityScore=driver.findElement(By.xpath("//div[@class='col-xs-6 ta-center']//span[@class='count']")).getText();				}
+				livabilityscore=t1.isElementPresent(driver,By.xpath("//div[@class='col-xs-6 ta-center js-open-livability']//span[@class='count']"));
+				String LivabilityScore=driver.findElement(By.xpath("//div[@class='col-xs-6 ta-center js-open-livability']//span[@class='count']")).getText();				}
 			boolean facts= t1.isElementPresent(driver,By.xpath("//div[@class='facts-wrap']"));
 			String Heading= driver.findElement(By.xpath("//span[@class='txt-area']")).getText();
 	    	/*boolean builderprpt=t1.isElementPresent(driver,By.xpath("//div[@class='option js-builder-properties']"));
