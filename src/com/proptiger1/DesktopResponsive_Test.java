@@ -125,10 +125,10 @@ public class DesktopResponsive_Test {
 	public static void Gallery(WebDriver driver, String name) throws InterruptedException
 	{
 		driver.get(BaseUrl+"/gallery/zonasha-estates-elegance-elevation-657209-584583");
-		t1.wait(driver,"//div[@class='gallHeadInfo']//h1[@class='contSubheaderInfo']");
+		t1.wait(driver,"//h1[@class='contSubheaderInfo']");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
 	    driver.manage().addCookie(cookie);
-		boolean headerText= t1.isElementPresent(driver,By.xpath("//div[@class='gallHeadInfo']//h1[@class='contSubheaderInfo']"));
+		boolean headerText= t1.isElementPresent(driver,By.xpath("//h1[@class='contSubheaderInfo']"));
 	 	boolean image= t1.isElementPresent(driver,(By.xpath("//img[@src='https://im.proptiger.com/1/657209/6/zonasha-estates-elegance-elevation-584583.jpeg']")));
 	    boolean previousbutton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy m-carousel-prev']"));
 	    boolean NextButton= t1.isElementPresent(driver, By.xpath("//a[@class='no-ajaxy m-carousel-next']"));
@@ -173,22 +173,21 @@ public class DesktopResponsive_Test {
 			Select select = new Select(driver.findElement(By.xpath("//div[@class='formRow']//select[@class='form-control query-country']")));
 		    select.selectByVisibleText("+91 India");
 			driver.findElement(By.xpath("//span[@class='btn btn-danger wd75percent']")).click();
-			//driver.wait(3000L);
-			t1.wait(driver, "//div[@class='title ta-center']");
+			Thread.sleep(3000L);
 			Set<String> windows = driver.getWindowHandles();
 			for (String window : windows) {
 				driver.switchTo().window(window);
-			WebElement element= driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']"));
+				t1.wait(driver,"//div[@class='fwdFlow-wrap']//a[@class='no-ajaxy fwd-link js-skip-page']");	
+			WebElement element= driver.findElement(By.xpath("//div[@class='fwdFlow-wrap']//a[@class='no-ajaxy fwd-link js-skip-page']"));
 			JavascriptExecutor js = (JavascriptExecutor)driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", element);
 			js.executeScript("arguments[0].click();", element);
-			//Actions actionname = new Actions(driver);
-	       // actionname.moveToElement(driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']")));
-	        //actionname.build().perform();
-			Thread.sleep(3000L);
+			t1.wait(driver,"//span[@id='lead-detail-btn']");
+			driver.findElement(By.xpath("//span[@id='lead-detail-btn']")).click();
 			//driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']")).click();
-			String ThankText= driver.findElement(By.cssSelector(".thanks-wrap.ta-center")).getAttribute("textContent");
-			if(!ThankText.contains("Thanks for submitting"))
+			t1.wait(driver, "//div[@class='txtmsg']//span[contains(text(),'Your')]");
+			String ThankText= driver.findElement(By.xpath("//div[@class='txtmsg']//span[contains(text(),'Your')]")).getText();
+			if(!ThankText.contains("Your requirements are saved with us"))
 			{
 				Assert.fail("Lead can not be submitted");
 			}

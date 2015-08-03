@@ -45,7 +45,7 @@ public class Cross_PlatForm {
 	static String BaseUrl1=ssl1;
 	static URL url;
     static void AllPages(WebDriver driver, String name) throws InterruptedException {
-		driver.manage().window().setSize(new Dimension(350,700));
+		driver.manage().window().setSize(new Dimension(350,850));
 		driver.get(BaseUrl);
 		driver.manage().deleteAllCookies();	
 		WebDriverWait wait1 = new WebDriverWait(driver,120);
@@ -78,6 +78,10 @@ public class Cross_PlatForm {
 				t1.wait(driver, "//div[@class='ac-options']//div[@class='ac-opt']");
 				List <WebElement> listItemss = driver.findElements(By.xpath("//div[@class='ac-options']//div[@class='ac-opt']"));
 				//System.out.println(listItemss.get(0).getText());
+				WebElement element= listItemss.get(0);
+				JavascriptExecutor js = (JavascriptExecutor)driver;
+				js.executeScript("arguments[0].scrollIntoView(false);", element);
+				//js.executeScript("arguments[0].click();", element);
 				listItemss.get(0).click();
 				t1.wait(driver, "//h1[@class='metah1']");
 				//driver.findElement(By.linkText("KR Puram - Bangalore")).click();
