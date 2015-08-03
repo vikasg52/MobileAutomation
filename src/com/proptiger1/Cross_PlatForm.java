@@ -80,7 +80,7 @@ public class Cross_PlatForm {
 				//System.out.println(listItemss.get(0).getText());
 				WebElement element= listItemss.get(0);
 				JavascriptExecutor js = (JavascriptExecutor)driver;
-				js.executeScript("arguments[0].scrollIntoView(false);", element);
+				js.executeScript("arguments[0].scrollIntoView(true);", element);
 				//js.executeScript("arguments[0].click();", element);
 				listItemss.get(0).click();
 				t1.wait(driver, "//h1[@class='metah1']");
