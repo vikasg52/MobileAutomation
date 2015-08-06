@@ -46,7 +46,7 @@ public class Cross_PlatForm {
 	static String BaseUrl=ssl;
 	static String BaseUrl1=ssl1;
 	static URL url;
-	static int ApiProjectCount=0;
+	static int ApiCityCount=0, ApiCityProjectCount=0;
     static void AllPages(WebDriver driver, String name) throws InterruptedException, UnsupportedEncodingException {
 		driver.manage().window().setSize(new Dimension(350,850));
 		driver.get(BaseUrl);
@@ -73,11 +73,11 @@ public class Cross_PlatForm {
 			if(xx=true)
 			{
 				String yy = bodyText.substring(14, 16);
-				ApiProjectCount= Integer.parseInt(yy);
+				ApiCityCount= Integer.parseInt(yy);
 			}
 			driver.navigate().back();
 			int cityCount= driver.findElements(By.xpath("//option[@class='js-city-list']")).size();
-			if(cityCount!=ApiProjectCount)
+			if(cityCount!=ApiCityCount)
 			{
 				Assert.fail("\n Count of diplayed cities on home page is wrong!!");
 			}
@@ -454,12 +454,14 @@ public static void locality(WebDriver driver) throws InterruptedException{
 			}
 }
 
-	public static void Check404Page(WebDriver driver) throws InterruptedException
+	public static void Check404Page(WebDriver driver, String name) throws InterruptedException
 	{
 		driver.get(BaseUrl+"/noida/sector-118/supertech-romano-652425/atms");
+		
+			
 		t1.wait(driver, "//*[@id='content']/div/table/tbody/tr/td/h2");
 		Cookie cookie = new Cookie("TESTING_USER", "1");
-	    driver.manage().addCookie(cookie);
+	        driver.manage().addCookie(cookie);
 			String ErrorText= driver.findElement(By.xpath("//*[@id='content']/div/table/tbody/tr/td/h2")).getText();
 			String WarningMsg=driver.findElement(By.xpath("//*[@id='content']/div/table/tbody/tr/td/p[1]")).getText();
 			String ExpectedWarning="You've hit a wrong path. You may have followed an outdated link or entered an incorrect url.";
@@ -478,11 +480,14 @@ public static void locality(WebDriver driver) throws InterruptedException{
 				Assert.fail("Goto Home page button is missing on the 404 page");
 				//driver.close();
 			}
+			if(!name.contains("IE_Nokia_Lumia"))
+			{
 			t1.wait(driver,"//section[contains(@class, 'js-app-download')]");
 			boolean downlaod_app= t1.isElementPresent(driver,By.xpath("//section[contains(@class, 'js-app-download')]"));
 			if(downlaod_app==false)
 			{
 				Assert.fail("Download our link is not visible/ working");
+			}
 			}
 			t1.wait(driver,"//a[@class='no-ajaxy btn btn-d-yellow']");
             WebElement e= driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']"));

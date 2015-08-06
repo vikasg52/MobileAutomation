@@ -30,7 +30,7 @@ public class MobileTestBed {
 		//driver.manage().deleteAllCookies();
 		Cross_PlatForm.AllPages(driver,name);
 		//driver.quit();
-		Cross_PlatForm.Check404Page(driver);
+		Cross_PlatForm.Check404Page(driver,name);
 		//driver.quit();
 		Cross_PlatForm.CheckAmenityPages(driver);
 		//driver.quit();
@@ -48,7 +48,7 @@ public class MobileTestBed {
 		driver= new FirefoxDriver(profile);
 		driver.manage().deleteAllCookies();
 		Cross_PlatForm.AllPages(driver,name);
-		Cross_PlatForm.Check404Page(driver);
+		Cross_PlatForm.Check404Page(driver,name);
 		Cross_PlatForm.CheckAmenityPages(driver);
 		System.out.println("9.All Pages are accessible on Chrome_AndroidTablet");
 		driver.quit();
@@ -64,7 +64,7 @@ public class MobileTestBed {
 		driver= new FirefoxDriver(profile);
 		//driver.manage().deleteAllCookies();
 		Cross_PlatForm.AllPages(driver,name);
-		Cross_PlatForm.Check404Page(driver);
+		Cross_PlatForm.Check404Page(driver,name);
 		Cross_PlatForm.CheckAmenityPages(driver);
 		System.out.println("8.All Pages are accessible on Chrome_AndroidMobile");
 		driver.quit();
@@ -78,7 +78,7 @@ public class MobileTestBed {
 		driver= new FirefoxDriver(profile);
 		//driver.manage().deleteAllCookies();
 		Cross_PlatForm.AllPages(driver,name);
-		Cross_PlatForm.Check404Page(driver);
+		Cross_PlatForm.Check404Page(driver,name);
 		Cross_PlatForm.CheckAmenityPages(driver);
 		System.out.println("7.All Pages are accessible on FireFox_Android");
 		driver.quit();
@@ -92,7 +92,7 @@ public class MobileTestBed {
 		driver= new FirefoxDriver(profile);
 		//driver.manage().deleteAllCookies();
 		Cross_PlatForm.AllPages(driver,name);
-		Cross_PlatForm.Check404Page(driver);
+		Cross_PlatForm.Check404Page(driver,name);
 		Cross_PlatForm.CheckAmenityPages(driver);
 		System.out.println("6.All Pages are accessible on iOS8");
 		driver.quit();
@@ -107,7 +107,7 @@ public class MobileTestBed {
 		driver= new FirefoxDriver(profile);
 		driver.manage().deleteAllCookies();
 		Cross_PlatForm.AllPages(driver,name);
-		Cross_PlatForm.Check404Page(driver);
+		Cross_PlatForm.Check404Page(driver,name);
 		Cross_PlatForm.CheckAmenityPages(driver);
 		System.out.println("5.All Pages are accessible on iOS7");
 		driver.quit();
@@ -121,7 +121,7 @@ public class MobileTestBed {
 		driver= new FirefoxDriver(profile);
 		//driver.manage().deleteAllCookies();
 		Cross_PlatForm.AllPages(driver,name);	
-		Cross_PlatForm.Check404Page(driver);
+		Cross_PlatForm.Check404Page(driver,name);
 		Cross_PlatForm.CheckAmenityPages(driver);
 		System.out.println("4.All Pages are accessible on IE_Nokia_Lumia920");
 		driver.quit();		
@@ -135,7 +135,7 @@ public class MobileTestBed {
 				+ "AppleWebKit/600.1.4 (KHTML, like Gecko) OPiOS/10.2.0.93022 Mobile/12F70 Safari/9537.53");
 		driver= new FirefoxDriver(profile);
 		Cross_PlatForm.AllPages(driver,name);	
-		Cross_PlatForm.Check404Page(driver);
+		Cross_PlatForm.Check404Page(driver,name);
 		Cross_PlatForm.CheckAmenityPages(driver);
 		System.out.println("3.All Pages are accessible on OperaMini_iPhone");																																																																																																																																																																																																																																																																																																																																																																																																																																																																
 		driver.quit();		
@@ -150,7 +150,7 @@ public class MobileTestBed {
 		driver= new FirefoxDriver(profile);
 		driver.manage().deleteAllCookies();
 		Cross_PlatForm.AllPages(driver,name);	
-		Cross_PlatForm.Check404Page(driver);
+		Cross_PlatForm.Check404Page(driver,name);
 		Cross_PlatForm.CheckAmenityPages(driver);
 		System.out.println("2.All Pages are accessible on OperaMini_Android");
 		driver.quit();		
