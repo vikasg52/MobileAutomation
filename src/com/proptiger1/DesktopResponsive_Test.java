@@ -179,9 +179,10 @@ public class DesktopResponsive_Test {
 				driver.switchTo().window(window);
 				t1.wait(driver,"//div[@class='fwdFlow-wrap']//a[@class='no-ajaxy fwd-link js-skip-page']");	
 			WebElement element= driver.findElement(By.xpath("//div[@class='fwdFlow-wrap']//a[@class='no-ajaxy fwd-link js-skip-page']"));
-			JavascriptExecutor js = (JavascriptExecutor)driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", element);
-			js.executeScript("arguments[0].click();", element);
+			element.click();
+			//JavascriptExecutor js = (JavascriptExecutor)driver;
+			//js.executeScript("arguments[0].scrollIntoView(true);", element);
+			//js.executeScript("arguments[0].click();", element);
 			t1.wait(driver,"//span[@id='lead-detail-btn']");
 			driver.findElement(By.xpath("//span[@id='lead-detail-btn']")).click();
 			//driver.findElement(By.xpath("//section[@class='thanksFormWrapper']//div[@class='popup-back-btn']")).click();
