@@ -1,6 +1,7 @@
 package com.proptiger1;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -24,6 +25,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.AssertJUnit;
 
 public class Cross_PlatForm {
 	public static TimeStamp t1= new TimeStamp();
@@ -40,11 +42,12 @@ public class Cross_PlatForm {
 	static String betassl="https://beta.proptiger-ws.com";
 	static String betassl1="https://beta.proptiger-ws.com/";
 	static String qassl="https://qa.proptiger-ws.com";
-	static String qassl1="https://qa.proptiger-ws.com/";
+	static String qassl1="https://qa.proptiger-ws.com";
 	static String BaseUrl=ssl;
 	static String BaseUrl1=ssl1;
 	static URL url;
-    static void AllPages(WebDriver driver, String name) throws InterruptedException {
+	static int ApiProjectCount=0;
+    static void AllPages(WebDriver driver, String name) throws InterruptedException, UnsupportedEncodingException {
 		driver.manage().window().setSize(new Dimension(350,850));
 		driver.get(BaseUrl);
 		driver.manage().deleteAllCookies();	
@@ -63,8 +66,18 @@ public class Cross_PlatForm {
 		{
 			driver.findElement(By.xpath("//select[@class='city-selector js-city-list-select']")).click();
 			Thread.sleep(4000L);
+			String count11="http://proptiger.com/data/v1/entity/city?selector={%22filters%22:{%22or%22:[{%22equal%22:{%22displayPriority%22:1}},{%22equal%22:{%22displayPriority%22:2}}]},%22fields%22:[%22id%22,%22label%22,%22displayPriority%22,%22displayOrder%22,%22centerLatitude%22,%22centerLongitude%22,%22northEastLatitude%22,%22northEastLongitude%22,%22southWestLatitude%22,%22southWestLongitude%22,%22name%22,%22avgPriceRisePercentage%22,%22avgPriceRiseMonths%22,%22isCouponAvailable%22,%22maxDiscount%22,%22cityPropertyCount%22],%22paging%22:{%22start%22:0,%22rows%22:10000},%22sort%22:[{%22field%22:%22displayPriority%22,%22sortOrder%22:%22ASC%22},{%22field%22:%22displayOrder%22,%22sortOrder%22:%22ASC%22}]}";
+			driver.get(count11);
+			String bodyText = driver.findElement(By.tagName("body")).getText();
+			boolean xx= bodyText.contains("totalCount:");
+			if(xx=true)
+			{
+				String yy = bodyText.substring(14, 16);
+				ApiProjectCount= Integer.parseInt(yy);
+			}
+			driver.navigate().back();
 			int cityCount= driver.findElements(By.xpath("//option[@class='js-city-list']")).size();
-			if(cityCount!=19)
+			if(cityCount!=ApiProjectCount)
 			{
 				Assert.fail("\n Count of diplayed cities on home page is wrong!!");
 			}
@@ -74,10 +87,10 @@ public class Cross_PlatForm {
 				t1.wait(driver, "//option[@data-city-name='Bangalore']");
 				driver.findElement(By.xpath("//select[@class='city-selector js-city-list-select']")).sendKeys("Bangalore");
 				driver.findElement(By.xpath("//input[@type='search']")).sendKeys("KR Puram");
-				//driver.findElement(By.xpath("//input[@type='search']")).click();
+
 				t1.wait(driver, "//div[@class='ac-options']//div[@class='ac-opt']");
 				List <WebElement> listItemss = driver.findElements(By.xpath("//div[@class='ac-options']//div[@class='ac-opt']"));
-				//System.out.println(listItemss.get(0).getText());
+				
 				WebElement element= listItemss.get(0);
 				JavascriptExecutor js = (JavascriptExecutor)driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", element);
@@ -465,15 +478,23 @@ public static void locality(WebDriver driver) throws InterruptedException{
 				Assert.fail("Goto Home page button is missing on the 404 page");
 				//driver.close();
 			}
+			t1.wait(driver,"//section[contains(@class, 'js-app-download')]");
+			boolean downlaod_app= t1.isElementPresent(driver,By.xpath("//section[contains(@class, 'js-app-download')]"));
+			if(downlaod_app==false)
+			{
+				Assert.fail("Download our link is not visible/ working");
+			}
 			t1.wait(driver,"//a[@class='no-ajaxy btn btn-d-yellow']");
             WebElement e= driver.findElement(By.xpath("//a[@class='no-ajaxy btn btn-d-yellow']"));
             Actions s = new Actions(driver);
             s.doubleClick(e);
             s.perform();
 			//driver.navigate().refresh();
-			t1.wait(driver, "//h3[contains(text(),'Explore more')]");
+			t1.wait(driver, "//select[contains(@class, 'js-city-list-select')]");
+			boolean citydropdown= t1.isElementPresent(driver,By.xpath("//select[contains(@class, 'js-city-list-select')]"));
+			//a[contains(@class, 'js-prop-guide ')]
 			String RedirectURl=driver.getCurrentUrl();
-			if(!RedirectURl.equalsIgnoreCase(BaseUrl+"/"))
+			if(!RedirectURl.equalsIgnoreCase(BaseUrl+"/") && citydropdown==false)
 			{
 				Assert.fail("\n Goto home page button is not redirecting to home page from 404 page");
 				//driver.close();
@@ -552,7 +573,7 @@ public static void locality(WebDriver driver) throws InterruptedException{
       
    for(int i=1;i<=sheet.getLastRowNum();i++)
    { 
-	        String URLs= BaseUrl1+"/"+sheet.getRow(i).getCell((short) 1).getStringCellValue();
+	        String URLs= BaseUrl1+sheet.getRow(i).getCell((short) 1).getStringCellValue();
 		    url = new URL(URLs);
 		    HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		    con.setRequestProperty("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_3 like Mac OS X) AppleWebKit/600.1.4"

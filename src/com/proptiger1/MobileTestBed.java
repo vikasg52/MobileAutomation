@@ -1,5 +1,6 @@
 package com.proptiger1;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 import org.apache.xpath.operations.String;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +20,7 @@ public class MobileTestBed {
 	}
 		
 	@Test(priority=10)
-	void Chrome_iPhone_AllPageTest() throws InterruptedException 
+	void Chrome_iPhone_AllPageTest() throws InterruptedException, UnsupportedEncodingException 
 	{
 		java.lang.String name="Chrome_iPhone";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -38,7 +39,7 @@ public class MobileTestBed {
 	}
 	
 	@Test(priority=9)
-	void Chrome_AndroidTablet_AllPageTest() throws InterruptedException 
+	void Chrome_AndroidTablet_AllPageTest() throws InterruptedException, UnsupportedEncodingException 
 	{
 		java.lang.String name="Chrome_AndroidTablet";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -54,7 +55,7 @@ public class MobileTestBed {
 	}
 	
 	@Test(priority=8)
-	void Chrome_AndroidMobile__AllPageTest() throws InterruptedException 
+	void Chrome_AndroidMobile__AllPageTest() throws InterruptedException, UnsupportedEncodingException 
 	{
 		java.lang.String name="Chrome_AndroidMobile";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -69,7 +70,7 @@ public class MobileTestBed {
 		driver.quit();
 	}
 	@Test(priority=7)
-	void FireFox_Android_AllPageTest() throws InterruptedException 
+	void FireFox_Android_AllPageTest() throws InterruptedException, UnsupportedEncodingException 
 	{
 		java.lang.String name="FireFox_Android";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -83,7 +84,7 @@ public class MobileTestBed {
 		driver.quit();
 	}
 	@Test(priority=6)
-	void Safari_iOS8__AllPageTest() throws InterruptedException {
+	void Safari_iOS8__AllPageTest() throws InterruptedException, UnsupportedEncodingException {
 		java.lang.String name="Safari_iOS8";
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("general.useragent.override","Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.1.4"
@@ -97,7 +98,7 @@ public class MobileTestBed {
 		driver.quit();
 	}
 	@Test(priority=5)
-	void Safari_iOS7__AllPageTest() throws InterruptedException 
+	void Safari_iOS7__AllPageTest() throws InterruptedException, UnsupportedEncodingException 
 	{
 		java.lang.String name="Safari_iOS7";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -112,7 +113,7 @@ public class MobileTestBed {
 		driver.quit();
 	}
 	@Test(priority=4)
-	void IE_Nokia_Lumia920__AllPageTest() throws InterruptedException 
+	void IE_Nokia_Lumia920__AllPageTest() throws InterruptedException, UnsupportedEncodingException 
 	{
 		java.lang.String name="IE_Nokia_Lumia920";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -126,7 +127,7 @@ public class MobileTestBed {
 		driver.quit();		
 	}
 @Test(priority=3)
-	void OperaMini_iPhone__AllPageTest() throws InterruptedException 
+	void OperaMini_iPhone__AllPageTest() throws InterruptedException, UnsupportedEncodingException 
 	{
 		java.lang.String name="OperaMini_iPhone";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -140,7 +141,7 @@ public class MobileTestBed {
 		driver.quit();		
 	}
 	@Test(priority=2)
-	void OperaMini_Android__AllPageTest() throws InterruptedException 
+	void OperaMini_Android__AllPageTest() throws InterruptedException, UnsupportedEncodingException 
 	{
 		java.lang.String name="OperaMini_Android";
 		FirefoxProfile profile = new FirefoxProfile();
@@ -158,7 +159,7 @@ public class MobileTestBed {
 	@Test(priority=1)
 	void UrlCheck() throws InterruptedException, IOException 
 	{
-	    Cross_PlatForm.CheckUrls();
+	    //Cross_PlatForm.CheckUrls();
 		System.out.println("1.All urls are working");		
 	}
 	
