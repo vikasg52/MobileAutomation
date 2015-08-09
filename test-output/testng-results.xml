@@ -1,61 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="10" passed="10">
+<testng-results skipped="0" failed="0" total="17" passed="17">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1104769" started-at="2015-07-18T08:29:21Z" finished-at="2015-07-18T08:47:46Z">
+  <suite name="Mobile Website Sanity Testing Framework" duration-ms="1561461" started-at="2015-08-09T20:54:27Z" finished-at="2015-08-09T21:20:28Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="1104769" started-at="2015-07-18T08:29:21Z" finished-at="2015-07-18T08:47:46Z">
+    <test name="Phone number validation on different pages" duration-ms="509998" started-at="2015-08-09T20:54:27Z" finished-at="2015-08-09T21:02:57Z">
+      <class name="com.proptiger1.Mailer_Number_Check">
+        <test-method status="PASS" signature="numbertest()[pri:0, instance:com.proptiger1.Mailer_Number_Check@11531931]" name="numbertest" duration-ms="509978" started-at="2015-08-10T02:24:27Z" finished-at="2015-08-10T02:32:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- numbertest -->
+      </class> <!-- com.proptiger1.Mailer_Number_Check -->
+    </test> <!-- Phone number validation on different pages -->
+    <test name="All Page Accessibility Testing Across Devices and Browsers " duration-ms="841706" started-at="2015-08-09T21:02:57Z" finished-at="2015-08-09T21:16:59Z">
       <class name="com.proptiger1.MobileTestBed">
-        <test-method status="PASS" signature="start()[pri:0, instance:com.proptiger1.MobileTestBed@5a01ccaa]" name="start" is-config="true" duration-ms="19" started-at="2015-07-18T13:59:21Z" finished-at="2015-07-18T13:59:21Z">
+        <test-method status="PASS" signature="start()[pri:0, instance:com.proptiger1.MobileTestBed@7f63425a]" name="start" is-config="true" duration-ms="1" started-at="2015-08-10T02:32:57Z" finished-at="2015-08-10T02:32:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start -->
-        <test-method status="PASS" signature="UrlCheck()[pri:0, instance:com.proptiger1.MobileTestBed@5a01ccaa]" name="UrlCheck" duration-ms="500976" started-at="2015-07-18T13:59:21Z" finished-at="2015-07-18T14:07:42Z">
+        <test-method status="PASS" signature="UrlCheck()[pri:0, instance:com.proptiger1.MobileTestBed@7f63425a]" name="UrlCheck" duration-ms="304477" started-at="2015-08-10T02:32:57Z" finished-at="2015-08-10T02:38:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- UrlCheck -->
-        <test-method status="PASS" signature="OperaMini_Android__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@5a01ccaa]" name="OperaMini_Android__AllPageTest" duration-ms="104238" started-at="2015-07-18T14:07:42Z" finished-at="2015-07-18T14:09:26Z">
+        <test-method status="PASS" signature="OperaMini_Android__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@7f63425a]" name="OperaMini_Android__AllPageTest" duration-ms="62539" started-at="2015-08-10T02:38:01Z" finished-at="2015-08-10T02:39:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OperaMini_Android__AllPageTest -->
-        <test-method status="PASS" signature="OperaMini_iPhone__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@5a01ccaa]" name="OperaMini_iPhone__AllPageTest" duration-ms="62666" started-at="2015-07-18T14:09:26Z" finished-at="2015-07-18T14:10:29Z">
+        <test-method status="PASS" signature="OperaMini_iPhone__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@7f63425a]" name="OperaMini_iPhone__AllPageTest" duration-ms="61878" started-at="2015-08-10T02:39:04Z" finished-at="2015-08-10T02:40:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OperaMini_iPhone__AllPageTest -->
-        <test-method status="PASS" signature="IE_Nokia_Lumia920__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@5a01ccaa]" name="IE_Nokia_Lumia920__AllPageTest" duration-ms="54932" started-at="2015-07-18T14:10:29Z" finished-at="2015-07-18T14:11:24Z">
+        <test-method status="PASS" signature="IE_Nokia_Lumia920__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@7f63425a]" name="IE_Nokia_Lumia920__AllPageTest" duration-ms="61720" started-at="2015-08-10T02:40:06Z" finished-at="2015-08-10T02:41:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- IE_Nokia_Lumia920__AllPageTest -->
-        <test-method status="PASS" signature="Safari_iOS7__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@5a01ccaa]" name="Safari_iOS7__AllPageTest" duration-ms="54842" started-at="2015-07-18T14:11:24Z" finished-at="2015-07-18T14:12:19Z">
+        <test-method status="PASS" signature="Safari_iOS7__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@7f63425a]" name="Safari_iOS7__AllPageTest" duration-ms="57627" started-at="2015-08-10T02:41:08Z" finished-at="2015-08-10T02:42:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Safari_iOS7__AllPageTest -->
-        <test-method status="PASS" signature="Safari_iOS8__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@5a01ccaa]" name="Safari_iOS8__AllPageTest" duration-ms="55541" started-at="2015-07-18T14:12:19Z" finished-at="2015-07-18T14:13:14Z">
+        <test-method status="PASS" signature="Safari_iOS8__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@7f63425a]" name="Safari_iOS8__AllPageTest" duration-ms="59837" started-at="2015-08-10T02:42:05Z" finished-at="2015-08-10T02:43:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Safari_iOS8__AllPageTest -->
-        <test-method status="PASS" signature="FireFox_Android_AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@5a01ccaa]" name="FireFox_Android_AllPageTest" duration-ms="77878" started-at="2015-07-18T14:13:14Z" finished-at="2015-07-18T14:14:32Z">
+        <test-method status="PASS" signature="FireFox_Android_AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@7f63425a]" name="FireFox_Android_AllPageTest" duration-ms="59750" started-at="2015-08-10T02:43:05Z" finished-at="2015-08-10T02:44:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FireFox_Android_AllPageTest -->
-        <test-method status="PASS" signature="Chrome_AndroidMobile__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@5a01ccaa]" name="Chrome_AndroidMobile__AllPageTest" duration-ms="62339" started-at="2015-07-18T14:14:32Z" finished-at="2015-07-18T14:15:35Z">
+        <test-method status="PASS" signature="Chrome_AndroidMobile__AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@7f63425a]" name="Chrome_AndroidMobile__AllPageTest" duration-ms="55898" started-at="2015-08-10T02:44:05Z" finished-at="2015-08-10T02:45:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Chrome_AndroidMobile__AllPageTest -->
-        <test-method status="PASS" signature="Chrome_AndroidTablet_AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@5a01ccaa]" name="Chrome_AndroidTablet_AllPageTest" duration-ms="72244" started-at="2015-07-18T14:15:35Z" finished-at="2015-07-18T14:16:47Z">
+        <test-method status="PASS" signature="Chrome_AndroidTablet_AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@7f63425a]" name="Chrome_AndroidTablet_AllPageTest" duration-ms="59411" started-at="2015-08-10T02:45:01Z" finished-at="2015-08-10T02:46:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Chrome_AndroidTablet_AllPageTest -->
-        <test-method status="PASS" signature="Chrome_iPhone_AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@5a01ccaa]" name="Chrome_iPhone_AllPageTest" duration-ms="59030" started-at="2015-07-18T14:16:47Z" finished-at="2015-07-18T14:17:46Z">
+        <test-method status="PASS" signature="Chrome_iPhone_AllPageTest()[pri:0, instance:com.proptiger1.MobileTestBed@7f63425a]" name="Chrome_iPhone_AllPageTest" duration-ms="58557" started-at="2015-08-10T02:46:00Z" finished-at="2015-08-10T02:46:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Chrome_iPhone_AllPageTest -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.proptiger1.MobileTestBed@5a01ccaa]" name="teardown" is-config="true" duration-ms="1" started-at="2015-07-18T14:17:46Z" finished-at="2015-07-18T14:17:46Z">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.proptiger1.MobileTestBed@7f63425a]" name="teardown" is-config="true" duration-ms="1" started-at="2015-08-10T02:46:59Z" finished-at="2015-08-10T02:46:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
       </class> <!-- com.proptiger1.MobileTestBed -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- All Page Accessibility Testing Across Devices and Browsers  -->
+    <test name="Desktop Responsive Page Testing Across Devices and Browsers" duration-ms="209726" started-at="2015-08-09T21:16:59Z" finished-at="2015-08-09T21:20:28Z">
+      <class name="com.proptiger1.DesktopTestBed">
+        <test-method status="PASS" signature="start()[pri:0, instance:com.proptiger1.DesktopTestBed@59a6e353]" name="start" is-config="true" duration-ms="1" started-at="2015-08-10T02:46:59Z" finished-at="2015-08-10T02:46:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- start -->
+        <test-method status="PASS" signature="ResponsivePage_Safari_Mac()[pri:0, instance:com.proptiger1.DesktopTestBed@59a6e353]" name="ResponsivePage_Safari_Mac" duration-ms="36201" started-at="2015-08-10T02:46:59Z" finished-at="2015-08-10T02:47:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsivePage_Safari_Mac -->
+        <test-method status="PASS" signature="ResponsivePage_Chrome_Mac()[pri:0, instance:com.proptiger1.DesktopTestBed@59a6e353]" name="ResponsivePage_Chrome_Mac" duration-ms="31967" started-at="2015-08-10T02:47:35Z" finished-at="2015-08-10T02:48:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsivePage_Chrome_Mac -->
+        <test-method status="PASS" signature="ResponsivePage_FireFox_Windows()[pri:0, instance:com.proptiger1.DesktopTestBed@59a6e353]" name="ResponsivePage_FireFox_Windows" duration-ms="35830" started-at="2015-08-10T02:48:07Z" finished-at="2015-08-10T02:48:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsivePage_FireFox_Windows -->
+        <test-method status="PASS" signature="ResponsivePage_Chrome_Windows()[pri:0, instance:com.proptiger1.DesktopTestBed@59a6e353]" name="ResponsivePage_Chrome_Windows" duration-ms="33655" started-at="2015-08-10T02:48:43Z" finished-at="2015-08-10T02:49:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsivePage_Chrome_Windows -->
+        <test-method status="PASS" signature="ResponsivePage_Chrome_Linux()[pri:0, instance:com.proptiger1.DesktopTestBed@59a6e353]" name="ResponsivePage_Chrome_Linux" duration-ms="35434" started-at="2015-08-10T02:49:16Z" finished-at="2015-08-10T02:49:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsivePage_Chrome_Linux -->
+        <test-method status="PASS" signature="ResponsivePage_FireFox_Linux()[pri:0, instance:com.proptiger1.DesktopTestBed@59a6e353]" name="ResponsivePage_FireFox_Linux" duration-ms="36632" started-at="2015-08-10T02:49:52Z" finished-at="2015-08-10T02:50:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ResponsivePage_FireFox_Linux -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.proptiger1.DesktopTestBed@59a6e353]" name="teardown" is-config="true" duration-ms="0" started-at="2015-08-10T02:50:28Z" finished-at="2015-08-10T02:50:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.proptiger1.DesktopTestBed -->
+    </test> <!-- Desktop Responsive Page Testing Across Devices and Browsers -->
+  </suite> <!-- Mobile Website Sanity Testing Framework -->
 </testng-results>
