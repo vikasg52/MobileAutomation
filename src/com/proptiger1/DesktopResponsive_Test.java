@@ -173,15 +173,16 @@ public class DesktopResponsive_Test {
 			Select select = new Select(driver.findElement(By.xpath("//div[@class='formRow']//select[@class='form-control query-country']")));
 		    select.selectByVisibleText("+91 India");
 			driver.findElement(By.xpath("//span[@class='btn btn-danger wd75percent']")).click();
-			Thread.sleep(3000L);
+			Thread.sleep(4000L);
 			Set<String> windows = driver.getWindowHandles();
 			for (String window : windows) {
 				driver.switchTo().window(window);
 				t1.wait(driver,"//div[@class='fwdFlow-wrap']//a[@class='no-ajaxy fwd-link js-skip-page']");	
 			WebElement element= driver.findElement(By.xpath("//div[@class='fwdFlow-wrap']//a[@class='no-ajaxy fwd-link js-skip-page']"));
 			JavascriptExecutor js = (JavascriptExecutor)driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", element);
-			js.executeScript("arguments[0].click();", element);
+			//js.executeScript("arguments[0].scrollIntoView(true);", element);
+			//js.executeScript("arguments[0].click();", element);
+			element.click();
 			t1.wait(driver,"//span[@id='lead-detail-btn']");
 			driver.findElement(By.xpath("//span[@id='lead-detail-btn']")).click();
 			t1.wait(driver, "//div[@class='txtmsg']//span[contains(text(),'Your')]");
